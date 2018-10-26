@@ -31,10 +31,10 @@ namespace Nums
         }
         public static Vec3 ToEuler(float x, float y, float z, float w) { throw new NotImplementedException(); }
         public static Vec3 ToEuler(Quat quat) { throw new NotImplementedException(); }
-        public Vec3 Euler => ToEuler(this);
 
         public static Quat FromAxisAngle(float x, float y, float z, float angle) { throw new NotImplementedException(); }
         public static Quat FromAxisAngle(Vec3 axis, float angle) { throw new NotImplementedException(); }
+        public static Quat FromAxisAngle(Vec4 axisAngle) { throw new NotImplementedException(); }
         public static Vec4 ToAxisAngle(float x, float y, float z, float w) {
             return ToAxisAngle(new Quat(x, y, z, w));
         }
@@ -55,7 +55,24 @@ namespace Nums
 
             return res;
         }
-        public Vec4 AxisAngle => ToAxisAngle(this);
+
+
+        public Vec3 Euler {
+            get {
+                return ToEuler(this);
+            }
+            set {
+                this = FromEuler(value);
+            }
+        }
+        public Vec4 AxisAngle {
+            get {
+                return ToAxisAngle(this);
+            }
+            set {
+                this = FromAxisAngle(value);
+            }
+        }
 
 
         public void Set(float X, float Y, float Z, float W) { x = X; y = Y; z = Z; w = W; }

@@ -58,6 +58,9 @@ namespace Nums
         public float AngleTo(Vec3 v) => (float)Math.Acos(Dot(v) / (Magnitude * v.Magnitude));
         public static float AngleBetween(Vec3 a, Vec3 b) => a.AngleTo(b);
 
+        public Vec3 Lerp(Vec3 v, float time) => v + ((this - v) * time);
+        public static Vec3 Lerp(Vec3 a, Vec3 b, float time) => a.Lerp(b, time);
+
         public override string ToString() => $"({x}, {y}, {z})";
     }
 }
