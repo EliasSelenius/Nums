@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Nums {
     public static class Sum {
+        public const float Pi = 3.1415926535897932384626433832795f;
+        public const float Tau = 2 * Pi;
+
         public static float Abs(float v) => (v < 0) ? -v : v;
         public static float Normalize(float v) => v / Abs(v);
 
