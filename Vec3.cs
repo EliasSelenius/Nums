@@ -2,7 +2,7 @@
 
 namespace Nums
 {
-    public struct Vec3 {
+    public class Vec3 {
         public float x, y, z;
 
         public const int ByteSize = sizeof(float) * 3;
@@ -12,10 +12,11 @@ namespace Nums
         public Vec3(float X, float Y, float Z) {
             x = X; y = Y; z = Z;
         }
-        public Vec3(Vec3 copy) => this = copy;
+        public Vec3(Vec3 copy) => Set(copy);
 
-        public void Set(float xyz) => x = y = z = xyz;
-        public void Set(float X, float Y, float Z) { x = X; y = Y; z = Z; }
+        public Vec3 Set(Vec3 v) { x = v.x; y = v.y; z = v.z; return this; }
+        public Vec3 Set(float xyz) { x = y = z = xyz; return this; } 
+        public Vec3 Set(float X, float Y, float Z) { x = X; y = Y; z = Z; return this; }
 
         public static Vec3 operator *(Vec3 a, float b) => new Vec3(a.x * b, a.y * b, a.z * b);
         public static Vec3 operator /(Vec3 a, float b) => new Vec3(a.x / b, a.y / b, a.z / b);
@@ -44,7 +45,7 @@ namespace Nums
         public float Magnitude => (float)Math.Sqrt(Dot(this));
         public float SqMagnitude => Dot(this);
 
-        public Vec3 Normalize() => this /= Magnitude;
+        public Vec3 Normalize() => Set(this / Magnitude);
         public Vec3 Normalized {
             get {
                 Vec3 v = new Vec3(x, y, z);

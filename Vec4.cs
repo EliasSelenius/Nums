@@ -1,10 +1,11 @@
 ﻿
 namespace Nums {
-    public struct Vec4 {
+    public class Vec4 {
         public float x, y, z, w;
 
         public const int ByteSize = sizeof(float) * 4;
 
+        public Vec4() { x = y = z = w = 0; }
         public Vec4(float xyzw) => x = y = z = w = xyzw;
         public Vec4(float X, float Y, float Z, float W) {
             x = X; y = Y; z = Z; w = W;

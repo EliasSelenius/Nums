@@ -2,7 +2,7 @@
 
 namespace Nums
 {
-    public struct Quat {
+    public class Quat {
         public float x, y, z, w;
 
         public const int ByteSize = sizeof(float) * 4;
@@ -62,7 +62,7 @@ namespace Nums
                 return ToEuler(this);
             }
             set {
-                this = FromEuler(value);
+                Set(FromEuler(value));
             }
         }
         public Vec4 AxisAngle {
@@ -70,11 +70,13 @@ namespace Nums
                 return ToAxisAngle(this);
             }
             set {
-                this = FromAxisAngle(value);
+                Set(FromAxisAngle(value));
             }
         }
 
-
+        public void Set(Quat q) {
+            x = q.x; y = q.y; z = q.z; w = q.w;
+        }
         public void Set(float X, float Y, float Z, float W) { x = X; y = Y; z = Z; w = W; }
 
 

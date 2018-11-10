@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Nums {
-    public struct Mat4 {
+    public class Mat4 {
 
         public const int ByteSize = Vec4.ByteSize * 4;
 
