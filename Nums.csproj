@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Geometry\IShape.cs" />
     <Compile Include="IArithmetic.cs" />
+    <Compile Include="IVec.cs" />
     <Compile Include="Mat4.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Quat.cs" />

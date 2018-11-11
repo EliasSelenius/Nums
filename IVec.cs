@@ -5,13 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Nums {
-    interface IVec<T> {
+    interface IVec<T> : IValueSet<float> {
 
         T Set(T a);
 
         T Cross(T v);
         float Dot(T v);
-        float Dot(params float[] values);
 
         float Magnitude { get; }
         float SqMagnitude { get; }

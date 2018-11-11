@@ -16,6 +16,12 @@ namespace Nums {
         public float SqMagnitude => Dot(Instance);
 
         public T Normalized => Instance.Div(Magnitude);
+
+        public abstract float AddAggregated { get; }
+        public abstract float SubAggregated { get; }
+        public abstract float MulAggregated { get; }
+        public abstract float DivAggregated { get; }
+
         public T Normalize() => Set(Normalized);
 
         public float AngleTo(T v) => (float)Math.Acos(Dot(v) / (Magnitude * v.Magnitude));
@@ -26,13 +32,8 @@ namespace Nums {
 
         public float DistanceTo(T v) => (Instance.Sub(v)).Magnitude;
 
-        public float Dot(T v) {
-            throw new NotImplementedException();
-        }
+        public float Dot(T v) => Instance.Mul(v).AddAggregated;
 
-        public float Dot(params float[] values) {
-            throw new NotImplementedException();
-        }
 
         public T Lerp(T v, float time) => v.Add(Instance.Sub(v).Mul(time));
     }

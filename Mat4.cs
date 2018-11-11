@@ -35,6 +35,14 @@ namespace Nums {
                    $"{Row3.ToString()}";
         }
 
+
+        public Mat4() {
+            Row0 = Identity.Row0;
+            Row1 = Identity.Row1;
+            Row2 = Identity.Row2;
+            Row3 = Identity.Row3;
+        }
+
         public Mat4(Vec4 r0, Vec4 r1, Vec4 r2, Vec4 r3) {
             Row0 = r0;
             Row1 = r1;
