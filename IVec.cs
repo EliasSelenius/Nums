@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Nums {
-    interface IVec<T> : IValueSet<float> {
+    interface IVec<T> {
 
         T Set(T a);
 

@@ -1,5 +1,7 @@
 ﻿using System;
 
+using Nums.Vectors;
+
 namespace Nums
 {
     public class Transform {

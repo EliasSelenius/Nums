@@ -1,5 +1,5 @@
 ﻿
-namespace Nums {
+namespace Nums.Vectors {
     public class Vec4 {
         public float x, y, z, w;
 
