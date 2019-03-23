@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Angle.cs" />
+    <Compile Include="Consts.cs" />
     <Compile Include="Geometry\Generic\Cuboid.cs" />
     <Compile Include="Geometry\Generic\Rect.cs" />
     <Compile Include="Geometry\IShape.cs" />

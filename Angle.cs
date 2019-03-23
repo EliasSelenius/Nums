@@ -17,13 +17,18 @@ namespace Nums {
         public const double Deg2Rad = System.Math.PI / 180d;
 
 
+        private double _radValue;
+
         /// <summary>
         /// This angle in radians
         /// </summary>
-        public double Radians { get; set; }
+        public double Radians {
+            get => _radValue;
+            set => _radValue = NormalizeRadianAngle(value);
+        }
 
         /// <summary>
-        /// This angle in degree
+        /// This angle in degrees
         /// </summary>
         public double Degrees {
             get => Rad2Deg * Radians;
@@ -34,7 +39,7 @@ namespace Nums {
         /// Creates an instance from a radian value 
         /// </summary>
         /// <param name="rad">The radian value</param>
-        public Angle(double rad) => Radians = rad;
+        public Angle(double rad) => _radValue = NormalizeRadianAngle(rad);
         /// <summary>
         /// Creates an Angle from a radian value
         /// </summary>
@@ -74,10 +79,27 @@ namespace Nums {
 
 
         /// <summary>
+        /// Normalizes the radian value in the range 0-tau
+        /// </summary>
+        /// <param name="rad"></param>
+        /// <returns></returns>
+        public static double NormalizeRadianAngle(double rad) {
+            double t = rad / Consts.Tau;
+            return (t - System.Math.Floor(t)) * Consts.Tau;
+        }
+
+
+        /// <summary>
         /// Implicit cast from double to new Angle. using degrees
         /// </summary>
         /// <param name="d"></param>
         public static implicit operator Angle(double d) => FromDeg(d);
+
+        /// <summary>
+        /// Implicit cast from Angle to double in radians
+        /// </summary>
+        /// <param name="a"></param>
+        public static implicit operator double(Angle a) => a.Radians;
 
 
         /// <summary>
