@@ -3,7 +3,7 @@
 using Nums.Vectors;
 
 namespace Nums
-{
+{/*
     public class Transform {
 
         // Fields:
@@ -31,5 +31,5 @@ namespace Nums
         
 
 
-    }
+    }*/
 }

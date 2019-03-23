@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Nums {
+    /*
     public class Mat4 {
 
         public const int ByteSize = Vec4.ByteSize * 4;
@@ -143,5 +144,5 @@ namespace Nums {
                                               Row2.x, Row2.y, Row2.z, Row2.w,
                                               Row3.x, Row3.y, Row3.z, Row3.w };
 
-    }
+    }*/
 }

@@ -42,6 +42,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Angle.cs" />
+    <Compile Include="Geometry\Generic\Cuboid.cs" />
+    <Compile Include="Geometry\Generic\Rect.cs" />
     <Compile Include="Geometry\IShape.cs" />
     <Compile Include="IArithmetic.cs" />
     <Compile Include="IVec.cs" />
@@ -54,5 +57,6 @@
     <Compile Include="Vectors\Vec3.cs" />
     <Compile Include="Vectors\Vec4.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

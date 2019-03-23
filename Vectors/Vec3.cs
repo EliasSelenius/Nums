@@ -85,6 +85,26 @@ namespace Nums.Vectors
             return null;
         }*/
 
+        /// <summary>
+        /// Fetch this vectors component by its index
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        public float this[int index] {
+            get =>
+                index == 0 ? x :
+                index == 1 ? y :
+                index == 2 ? z :
+                throw new IndexOutOfRangeException(index + " is not a valid vector index");
+            set {
+                if (index == 0) x = value;
+                else if (index == 1) y = value;
+                else if (index == 2) z = value;
+                else throw new IndexOutOfRangeException(index + " is not a valid vector index");
+            }
+        }
+            
+
 
         /// <summary>
         /// Multiplies each component of a vector with a float
@@ -410,5 +430,7 @@ namespace Nums.Vectors
         public float AddAllComponents() => x + y + z;
 
         #endregion
+
+
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System;
 
 namespace Nums
-{
+{/*
     public class Quat {
         public float x, y, z, w;
 
@@ -107,5 +107,5 @@ namespace Nums
                 w *= recip;
             }
         }
-    }
+    }*/
 }
