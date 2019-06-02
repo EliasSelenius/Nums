@@ -20,6 +20,11 @@ namespace Nums.Vectors
         /// </summary>
         public const int ByteSize = sizeof(float) * 3;
 
+        /// <summary>
+        /// The sum of all vector components
+        /// </summary>
+        public float Sum => x + y + z;
+
 
         #region Const Vectors
 
@@ -166,7 +171,7 @@ namespace Nums.Vectors
         /// <param name="a"></param>
         /// <param name="b"></param>
         /// <returns>The dot product</returns>
-        public static float Dot(Vec3 a, Vec3 b) => (a * b).AddAllComponents();
+        public static float Dot(Vec3 a, Vec3 b) => (a * b).Sum;
         /// <summary>
         /// Calculates two vectors dot product
         /// </summary>
@@ -418,16 +423,6 @@ namespace Nums.Vectors
         public Vec3 Lerp(float _x, float _y, float _z, float time) => this.Lerp(new Vec3(_x, _y, _z), time);
 
         #endregion
-
-        #endregion
-
-        #region aggregation methods
-
-        /// <summary>
-        /// Adds all vector components toghether
-        /// </summary>
-        /// <returns></returns>
-        public float AddAllComponents() => x + y + z;
 
         #endregion
 

@@ -90,10 +90,10 @@ namespace Nums {
 
 
         /// <summary>
-        /// Implicit cast from double to new Angle. using degrees
+        /// Implicit cast from double to new Angle. using radians
         /// </summary>
         /// <param name="d"></param>
-        public static implicit operator Angle(double d) => FromDeg(d);
+        public static implicit operator Angle(double d) => FromRad(d);
 
         /// <summary>
         /// Implicit cast from Angle to double in radians

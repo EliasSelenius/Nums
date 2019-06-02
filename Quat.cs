@@ -108,4 +108,38 @@ namespace Nums
             }
         }
     }*/
+
+
+
+    /// <summary>
+    /// Represents a Quaternion
+    /// </summary>
+    public struct Quat {
+        /// <summary>
+        /// This quaternoin's component
+        /// </summary>
+        public float x, y, z, w;
+
+        /// <summary>
+        /// The number of bytes a quaternion takes
+        /// </summary>
+        public const int ByteSize = sizeof(float) * 4;
+
+        /// <summary>
+        /// Creates a quaternoin with given components
+        /// </summary>
+        /// <param name="_x"></param>
+        /// <param name="_y"></param>
+        /// <param name="_z"></param>
+        /// <param name="_w"></param>
+        public Quat(float _x, float _y, float _z, float _w) {
+            x = _x; y = _y; z = _z; w = _w;
+        }
+
+        /// <summary>
+        /// The Identity quaternion
+        /// </summary>
+        public static readonly Quat Identity = new Quat(0, 0, 0, 1);
+    }
+
 }

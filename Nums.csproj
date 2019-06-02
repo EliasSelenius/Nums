@@ -47,6 +47,8 @@
     <Compile Include="Geometry\Generic\Cuboid.cs" />
     <Compile Include="Geometry\Generic\Rect.cs" />
     <Compile Include="Geometry\IShape.cs" />
+    <Compile Include="Geometry\Mesh.cs" />
+    <Compile Include="Geometry\Shape.cs" />
     <Compile Include="IArithmetic.cs" />
     <Compile Include="IVec.cs" />
     <Compile Include="Mat4.cs" />

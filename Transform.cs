@@ -32,4 +32,56 @@ namespace Nums
 
 
     }*/
+
+
+    /// <summary>
+    /// Wrapps a Mat4 and treats it as a transformation matrix
+    /// </summary>
+    public class Transform {
+
+        /// <summary>
+        /// This Transform's transformation matrix 
+        /// </summary>
+        public Mat4 Matrix = Mat4.Identity;
+
+
+        #region Props
+
+
+        /// <summary>
+        /// Gets or sets the transformation matrix position
+        /// </summary>
+        public Vec3 Position {
+            get => Matrix.Row3.xyz;
+            set => Matrix.Row3.xyz = value;
+        }
+
+        #endregion
+
+
+        #region Constructors
+
+        /// <summary>
+        /// Default constructor
+        /// </summary>
+        public Transform() {
+
+        }
+
+        /// <summary>
+        /// Instantiates a Transform with given position
+        /// </summary>
+        /// <param name="pos">The transform's position</param>
+        public Transform(Vec3 pos) {
+
+        }
+        #endregion
+
+
+        public Vec3 TransformPoint(Vec3 a) {
+            // todo: return a * Matrix
+            throw new NotImplementedException();
+        }
+
+    }
 }

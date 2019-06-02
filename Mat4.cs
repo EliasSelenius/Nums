@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using Nums.Vectors;
+
 namespace Nums {
     /*
     public class Mat4 {
@@ -145,4 +147,228 @@ namespace Nums {
                                               Row3.x, Row3.y, Row3.z, Row3.w };
 
     }*/
+
+    /// <summary>
+    /// Represents a 4 by 4 matrix
+    /// </summary>
+    public struct Mat4 {
+
+        /// <summary>
+        /// The number of bytes this datastructure uses
+        /// </summary>
+        public const int ByteSize = Vec4.ByteSize * 4;
+
+        /// <summary>
+        /// The Identity matrix
+        /// </summary>
+        public static readonly Mat4 Identity = new Mat4(1, 0, 0, 0,
+                                                        0, 1, 0, 0,
+                                                        0, 0, 1, 0,
+                                                        0, 0, 0, 1);
+
+        #region Rows and cols
+        /// <summary>
+        /// The first row 
+        /// </summary>
+        public Vec4 Row0;
+        /// <summary>
+        /// The second row
+        /// </summary>
+        public Vec4 Row1;
+        /// <summary>
+        /// The third row
+        /// </summary>
+        public Vec4 Row2;
+        /// <summary>
+        /// The forth row
+        /// </summary>
+        public Vec4 Row3;
+
+        /// <summary>
+        /// The first column
+        /// </summary>
+        public Vec4 Col0 {
+            get => new Vec4(Row0.x, Row1.x, Row2.x, Row3.x);
+            set {
+                Row0.x = value.x;
+                Row1.x = value.y;
+                Row2.x = value.z;
+                Row3.x = value.w;
+            }
+        }
+        /// <summary>
+        /// The second column
+        /// </summary>
+        public Vec4 Col1 {
+            get => new Vec4(Row0.y, Row1.y, Row2.y, Row3.y);
+            set {
+                Row0.y = value.x;
+                Row1.y = value.y;
+                Row2.y = value.z;
+                Row3.y = value.w;
+            }
+        }
+        /// <summary>
+        /// The third column
+        /// </summary>
+        public Vec4 Col2 {
+            get => new Vec4(Row0.z, Row1.z, Row2.z, Row3.z);
+            set {
+                Row0.z = value.x;
+                Row1.z = value.y;
+                Row2.z = value.z;
+                Row3.z = value.w;
+            }
+        }
+        /// <summary>
+        /// The forth column
+        /// </summary>
+        public Vec4 Col3 {
+            get => new Vec4(Row0.w, Row1.w, Row2.w, Row3.w);
+            set {
+                Row0.w = value.x;
+                Row1.w = value.y;
+                Row2.w = value.z;
+                Row3.w = value.w;
+            }
+        }
+
+        /// <summary>
+        /// Gets a column by index
+        /// </summary>
+        /// <param name="i"></param>
+        /// <returns></returns>
+        public Vec4 ColAt(int i) {
+            if (i == 0) return Col0;
+            else if (i == 1) return Col1;
+            else if (i == 2) return Col2;
+            else if (i == 3) return Col3;
+            else throw new IndexOutOfRangeException(i + " is not a valid index");
+        }
+
+        #endregion
+
+        #region Constructors
+
+        /// <summary>
+        /// Creates an instance from row values
+        /// </summary>
+        /// <param name="r0">The first row</param>
+        /// <param name="r1">The second row</param>
+        /// <param name="r2">The third row</param>
+        /// <param name="r3">The forth row</param>
+        public Mat4(Vec4 r0, Vec4 r1, Vec4 r2, Vec4 r3) {
+            Row0 = r0; Row1 = r1; Row2 = r2; Row3 = r3;
+        }
+
+        /// <summary>
+        /// Creates an instance from given values
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        /// <param name="c"></param>
+        /// <param name="d"></param>
+        /// <param name="e"></param>
+        /// <param name="f"></param>
+        /// <param name="g"></param>
+        /// <param name="h"></param>
+        /// <param name="i"></param>
+        /// <param name="j"></param>
+        /// <param name="k"></param>
+        /// <param name="l"></param>
+        /// <param name="m"></param>
+        /// <param name="n"></param>
+        /// <param name="o"></param>
+        /// <param name="p"></param>
+        public Mat4(float a, float b, float c, float d,
+                    float e, float f, float g, float h,
+                    float i, float j, float k, float l,
+                    float m, float n, float o, float p) {
+            Row0 = new Vec4(a, b, c, d);
+            Row1 = new Vec4(e, f, g, h);
+            Row2 = new Vec4(i, j, k, l);
+            Row3 = new Vec4(m, n, o, p);
+        }
+
+        #endregion
+
+        #region Operators
+
+        public Vec4 this[int row] {
+            get =>
+                row == 0 ? Row0 :
+                row == 1 ? Row1 :
+                row == 2 ? Row2 :
+                row == 3 ? Row3 :
+                throw new IndexOutOfRangeException(row + " is not a valid index");
+            set {
+                if (row == 0) Row0 = value;
+                else if (row == 1) Row1 = value;
+                else if (row == 2) Row2 = value;
+                else if (row == 3) Row3 = value;
+                else throw new IndexOutOfRangeException(row + " is not a valid index");
+            }
+        }
+
+
+        /// <summary>
+        /// Matrix indexing
+        /// </summary>
+        /// <param name="row"></param>
+        /// <param name="col"></param>
+        /// <returns></returns>
+        public float this[int row, int col] {
+            get => this[row][col];
+            set {
+                var e = this[row];
+                e[col] = value;
+            }
+        }
+
+
+        /// <summary>
+        /// Multiply two matrices
+        /// </summary>
+        /// <param name="left"></param>
+        /// <param name="right"></param>
+        /// <returns></returns>
+        public static Mat4 operator *(Mat4 left, Mat4 right) {
+            // Not 100% sure if this is correct needs testing....
+            // testing in Nums is hard, TODO: make demo app using scriptor
+
+
+            Mat4 res = new Mat4();
+
+            for (int i = 0; i < 4; i++) {
+                for (int j = 0; j < 4; j++) {
+                    res[i, j] = Vec4.Dot(left[i], right.ColAt(j));
+                }
+            }
+
+            return res;
+        }
+
+        public static Vec4 operator *(Mat4 left, Vec4 rigth) {
+
+            Vec4 res = new Vec4();
+            throw new NotImplementedException();
+            return res;
+        }
+
+
+        #endregion
+
+        /// <summary>
+        /// Returns a float array of this matrix
+        /// </summary>
+        /// <returns></returns>
+        public float[] AsArray() => new[] {
+            Row0.x, Row0.y, Row0.z, Row0.w,
+            Row1.x, Row1.y, Row1.z, Row1.w,
+            Row2.x, Row2.y, Row2.z, Row2.w,
+            Row3.x, Row3.y, Row3.z, Row3.w,
+        };
+
+    }
+
 }

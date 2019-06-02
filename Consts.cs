@@ -14,7 +14,7 @@ namespace Nums {
         /// </summary>
         public const double Pi = 3.1415926535897932384626433832795;
         /// <summary>
-        /// This is tau wich is equal to two pi, specified
+        /// This is tau wich is pi's older brother, its equal to two pi, specified
         /// by the constant, τ.
         /// </summary>
         public const double Tau = 2.0 * Pi;
