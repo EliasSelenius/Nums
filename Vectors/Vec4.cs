@@ -106,6 +106,20 @@ namespace Nums.Vectors {
 
         #endregion
 
+        #region SetOperations
+
+        public void Set(float xyzw) => x = y = z = w = xyzw;
+        
+        public void Set(float _x, float _y, float _z, float _w) {
+            x = _x; y = _y; z = _z; w = _w;
+        }
+
+        public void Set(Vec3 _xyz, float _w) {
+            xyz = _xyz; w = _w;
+        }
+
+        #endregion
+
         #region Operators 
 
         /// <summary>
@@ -159,9 +173,28 @@ namespace Nums.Vectors {
         /// <returns></returns>
         public float Dot(Vec4 other) => (this * other).Sum;
 
+
+
         #endregion
 
+        /// <summary>
+        /// Is obj equal to this object?
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public override bool Equals(object obj) => (obj is Vec4 o) ? o.x == x && o.y == y && o.z == z && o.w == w : false;
 
+        /// <summary>
+        /// Returns the hash code for this instance.
+        /// </summary>
+        /// <returns></returns>
+        public override int GetHashCode() => x.GetHashCode() ^ y.GetHashCode() ^ z.GetHashCode() ^ w.GetHashCode();
+
+        /// <summary>
+        /// Returns a string that represents the current vector.
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString() => $"({x}, {y}, {z}, {w})";
 
     }
 }

@@ -322,6 +322,7 @@ namespace Nums {
             set {
                 var e = this[row];
                 e[col] = value;
+                this[row] = e;
             }
         }
 
@@ -348,15 +349,38 @@ namespace Nums {
             return res;
         }
 
-        public static Vec4 operator *(Mat4 left, Vec4 rigth) {
-
-            Vec4 res = new Vec4();
-            throw new NotImplementedException();
-            return res;
-        }
+        public static Vec4 operator *(Mat4 left, Vec4 rigth) =>
+            new Vec4 {
+                x = left.Row0.Dot(rigth),
+                y = left.Row1.Dot(rigth),
+                z = left.Row2.Dot(rigth),
+                w = left.Row3.Dot(rigth)
+            };
 
 
         #endregion
+
+
+        #region FromConversions
+
+        public static Mat4 FromPosition(Vec3 pos) {
+            var m = new Mat4();
+            m.Row3.xyz = pos;
+            return m;
+        }
+
+        public static Mat4 FromScale(Vec3 scale) =>
+            new Mat4(scale.x, 0, 0, 0,
+                     0, scale.y, 0, 0,
+                     0, 0, scale.z, 0,
+                     0, 0, 0, 0);
+
+        public static Mat4 FromQuaternion(Quat quat) {
+            throw new NotImplementedException();
+        }
+
+        #endregion
+
 
         /// <summary>
         /// Returns a float array of this matrix
@@ -368,6 +392,13 @@ namespace Nums {
             Row2.x, Row2.y, Row2.z, Row2.w,
             Row3.x, Row3.y, Row3.z, Row3.w,
         };
+
+        public override string ToString() {
+            return $"{Row0.ToString()} \n" +
+                   $"{Row1.ToString()} \n" +
+                   $"{Row2.ToString()} \n" +
+                   $"{Row3.ToString()}";
+        }
 
     }
 

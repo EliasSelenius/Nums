@@ -54,6 +54,18 @@ namespace Nums
         public Vec3 Position {
             get => Matrix.Row3.xyz;
             set => Matrix.Row3.xyz = value;
+            //set {
+            //    var col = Matrix.Col3;
+            //    col.xyz = value;
+            //    Matrix.Col3 = col;
+            //}
+        }
+
+        public Vec3 Scale {
+            get => new Vec3(Matrix[0, 0], Matrix[1, 1], Matrix[2, 2]);
+            set {
+                Matrix[0, 0] = value.x; Matrix[1, 1] = value.y; Matrix[2, 2] = value.z;
+            }
         }
 
         #endregion
