@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 using Nums.Vectors;
 
+using System.Runtime.InteropServices;
+
 namespace Nums {
     /*
     public class Mat4 {
@@ -151,6 +153,7 @@ namespace Nums {
     /// <summary>
     /// Represents a 4 by 4 matrix
     /// </summary>
+    [StructLayout(LayoutKind.Sequential)]
     public struct Mat4 {
 
         /// <summary>

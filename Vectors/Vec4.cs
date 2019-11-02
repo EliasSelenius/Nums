@@ -1,4 +1,7 @@
 ﻿
+using static System.Math;
+using System.Runtime.InteropServices;
+
 namespace Nums.Vectors {
     /*public class Vec4 {
         public float x, y, z, w;
@@ -26,7 +29,8 @@ namespace Nums.Vectors {
     /// <summary>
     /// Represents a four component vector
     /// </summary>
-    public struct Vec4 {
+    [StructLayout(LayoutKind.Sequential)]
+    public struct Vec4 : IVec {
         /// <summary>
         /// A vector component
         /// </summary>
@@ -156,6 +160,13 @@ namespace Nums.Vectors {
 
         #endregion
 
+        #region Magnitudes
+
+        public float SqMagnitude => this.Dot(this);
+
+        public float Magnitude => (float)Sqrt(SqMagnitude);
+
+        #endregion
 
         #region Dot product
 

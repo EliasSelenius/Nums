@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 
 namespace Nums.Vectors
 {
@@ -9,7 +10,8 @@ namespace Nums.Vectors
     /// <summary>
     /// Represents a three component vector
     /// </summary>
-    public struct Vec3 {
+    [StructLayout(LayoutKind.Sequential)]
+    public struct Vec3 : IVec {
         /// <summary>
         /// A vector component
         /// </summary>

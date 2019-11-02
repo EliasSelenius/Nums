@@ -57,8 +57,10 @@
     <Compile Include="Sum.cs" />
     <Compile Include="Test.cs" />
     <Compile Include="Transform.cs" />
+    <Compile Include="Vectors\IVec.cs" />
     <Compile Include="Vectors\Vec3.cs" />
     <Compile Include="Vectors\Vec4.cs" />
+    <Compile Include="Vectors\Vectors.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
