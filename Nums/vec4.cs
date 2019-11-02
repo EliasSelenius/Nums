@@ -20,6 +20,30 @@ namespace Nums {
 
         public float sum => x + y + z + w;
 
+        public float this[int i] {
+            get => i switch
+            {
+                0 => x,
+                1 => y,
+                2 => z,
+                3 => w,
+                _ => throw new IndexOutOfRangeException(i + " is not a valid index for vec4")
+            };
+            set {
+                switch (i) {
+                    case 0: x = value; break;
+                    case 1: y = value; break;
+                    case 2: z = value; break;
+                    case 3: w = value; break;
+                    default: throw new IndexOutOfRangeException(i + " is not a valid index for vec4");
+                }
+            }
+        }
+
+        public int NumberOfElements => 4;
+        public int ByteSize => sizeof(float) * NumberOfElements;
+
+
         public vec4(float x, float y, float z, float w) {
             this.x = x; this.y = y; this.z = z; this.w = w;
         }

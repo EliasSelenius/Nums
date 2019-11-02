@@ -10,6 +10,10 @@ namespace Nums {
         /// </summary>
         public float sum { get; }
 
+        public int NumberOfElements { get; }
+        public int ByteSize { get; }
+
+        public float this[int i] { get; set; }
 
         public float sqLength => dot((T)this);
         public float length => (float)Math.Sqrt(dot((T)this));

@@ -19,6 +19,28 @@ namespace Nums {
 
         public float sum => x + y + z;
 
+        public float this[int i] {
+            get => i switch
+            {
+                0 => x,
+                1 => y,
+                2 => z,
+                _ => throw new IndexOutOfRangeException(i + " is not a valid index for vec3")
+            };
+            set {
+                switch (i) {
+                    case 0: x = value; break;
+                    case 1: y = value; break;
+                    case 2: z = value; break;
+                    default: throw new IndexOutOfRangeException(i + " is not a valid index for vec3");
+                }
+            }
+        }
+
+        public int NumberOfElements => 3;
+        public int ByteSize => sizeof(float) * NumberOfElements;
+
+
         public vec3(float x, float y, float z) {
             this.x = x; this.y = y; this.z = z;
         }

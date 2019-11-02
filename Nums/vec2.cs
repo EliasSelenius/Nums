@@ -17,6 +17,26 @@ namespace Nums {
         public float x, y;
         public float sum => x + y;
 
+        public float this[int i] {
+            get => i switch {
+                0 => x,
+                1 => y,
+                _ => throw new IndexOutOfRangeException(i + " is not a valid index for vec2")
+            };
+            set {
+                switch(i)
+                {
+                    case 0: x = value; break;
+                    case 1: y = value; break;
+                    default: throw new IndexOutOfRangeException(i + " is not a valid index for vec2");
+                }
+            }
+        }
+
+        public int NumberOfElements => 2;
+        public int ByteSize => sizeof(float) * NumberOfElements;
+
+
         public vec2(float x, float y) {
             this.x = x; this.y = y;
         }
