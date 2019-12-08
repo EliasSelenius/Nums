@@ -1,6 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-using Nums;
+using Nums.old;
+
 
 namespace UnitTest {
     [TestClass]
@@ -36,6 +37,8 @@ namespace UnitTest {
 
             v /= (2, 3);
             Assert.AreEqual(v, new vec2(1, -2));
+
+            //Assert.AreEqual(v., v.dot(v))
         }
     }
 }

@@ -1,7 +1,22 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="autogen\*.g.cs" />
+    <Folder Include="autogen\" />
+  </ItemGroup>
+
+  <Target Name="GenCode" DependsOnTargets="executeGen" BeforeTargets="BeforeBuild">
+    <ItemGroup>
+      <Compile Include="autogen\**\*.g.cs" />
+    </ItemGroup>
+  </Target>
+
+  <Target Name="executeGen">
+    <Exec Command="..\NumsCodeGenerator\bin\Debug\netcoreapp3.0\NumsCodeGenerator.exe" />
+  </Target>
+  
 </Project>

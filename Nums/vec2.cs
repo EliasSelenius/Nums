@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace Nums {
+namespace Nums.old {
     [StructLayout(LayoutKind.Sequential)]
     public struct vec2 : IVector<vec2> {
 
@@ -74,6 +74,7 @@ namespace Nums {
 
         #region conversion
         public static implicit operator vec2((float, float) tuple) => new vec2(tuple.Item1, tuple.Item2);
+
         #endregion
 
         #endregion

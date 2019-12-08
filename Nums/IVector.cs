@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace Nums {
+
     public interface IVector<T> : IEquatable<T> where T : IVector<T> {
 
         /// <summary>
@@ -20,7 +21,7 @@ namespace Nums {
 
         public T normalized => this.divide(length);
 
-        float dot(T v) => this.multiply((T)this).sum;
+        public float dot(T v) => this.multiply((T)this).sum;
 
         T multiply(T v);
         T divide(T v);

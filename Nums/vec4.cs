@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace Nums {
+namespace Nums.old {
     [StructLayout(LayoutKind.Sequential)]
     public struct vec4 : IVector<vec4> {
 

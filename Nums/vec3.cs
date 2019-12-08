@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace Nums {
+namespace Nums.old {
     [StructLayout(LayoutKind.Sequential)]
     public struct vec3 : IVector<vec3> {
 
@@ -18,6 +18,30 @@ namespace Nums {
         public float x, y, z;
 
         public float sum => x + y + z;
+
+        #region component combos
+        public vec2 xy {
+            get => new vec2(x, y);
+            set {
+                x = value.x;
+                y = value.y;
+            }
+        }
+        public vec2 yz {
+            get => new vec2(y, z);
+            set {
+                y = value.x;
+                z = value.y;
+            }
+        }
+        public vec2 xz {
+            get => new vec2(x, z);
+            set {
+                x = value.x;
+                z = value.y;
+            }
+        }
+        #endregion
 
         public float this[int i] {
             get => i switch
