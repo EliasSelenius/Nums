@@ -6,6 +6,10 @@ namespace Nums {
     public struct vec2 {
 
         #region constants
+        public static readonly vec2 zero = (0, 0);
+        public static readonly vec2 unitx = (1, 0);
+        public static readonly vec2 unity = (0, 1);
+        public static readonly vec2 one = (1, 1);
         #endregion
 
         public float x, y;
@@ -14,6 +18,21 @@ namespace Nums {
         public float sqlength => dot(this);
         public float length => (float)Math.Sqrt(dot(this));
         public vec2 normalized => this / length;
+
+        public float this[int i] {
+            get => i switch {
+                0 => x,
+                1 => y,
+                _ => throw new IndexOutOfRangeException("vec2[" + i + "] is not a valid index")
+            };
+            set {
+                switch (i) {
+                    case 0: x = value; return;
+                    case 1: y = value; return;
+                    default: throw new IndexOutOfRangeException("vec2[" + i + "] is not a valid index");
+                }
+            }
+        }
 
         #region swizzling properties
         #endregion
@@ -35,12 +54,18 @@ namespace Nums {
 
         public static vec2 operator *(vec2 a, float s) => new vec2(a.x * s, a.y * s);
         public static vec2 operator /(vec2 a, float s) => new vec2(a.x / s, a.y / s);
+
+        public static vec2 operator -(vec2 v) => new vec2(-v.x, -v.y);
         #endregion
 
         #region math
+        public float distTo(vec2 o) => (o - this).length;
+        public float angleTo(vec2 o) => (float)Math.Acos(this.dot(o) / (this.length * o.length));
+        public vec2 lerp(vec2 o, float t) => this + ((o - this) * t);
         #endregion
 
         #region conversion
+        public static implicit operator vec2((float, float) tuple) => new vec2(tuple.Item1, tuple.Item2);
         #endregion
     }
 }

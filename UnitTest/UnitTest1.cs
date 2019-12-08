@@ -2,7 +2,6 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 using Nums.old;
 
-
 namespace UnitTest {
     [TestClass]
     public class Vector2Test {

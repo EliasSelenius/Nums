@@ -36,9 +36,9 @@ namespace NumsCodeGenerator {
             writeline(prepend + " {");
             numTabs++;
         }
-        public void endBlock() {
+        public void endBlock(string append = "") {
             numTabs--;
-            writeline("}");
+            writeline("}" + append);
         }
 
         public void linebreak(int num = 1) {

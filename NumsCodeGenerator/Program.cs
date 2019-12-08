@@ -37,6 +37,21 @@ namespace NumsCodeGenerator {
 
             // constanst:
             _region("constants");
+
+
+            var constantcomps = new string[compsNames.Length];
+            for (int i = 0; i < constantcomps.Length; i++) 
+                constantcomps[i] = "0";
+            cb.writeline($"public static readonly {vecName} zero = ({constantcomps.Aggregate((x, y) => x + ", " + y)});");
+            for (int i = 0; i < compsNames.Length; i++) {
+                constantcomps[i] = "1";
+                cb.writeline($"public static readonly {vecName} unit{compsNames[i]} = ({constantcomps.Aggregate((x, y) => x + ", " + y)});");
+                constantcomps[i] = "0";
+            }
+            for (int i = 0; i < constantcomps.Length; i++)
+                constantcomps[i] = "1";
+            cb.writeline($"public static readonly {vecName} one = ({constantcomps.Aggregate((x, y) => x + ", " + y)});");
+
             _endregion();
 
             cb.linebreak();
@@ -47,6 +62,29 @@ namespace NumsCodeGenerator {
             cb.writeline($"public {type} sqlength => dot(this);");
             cb.writeline($"public {type} length => ({type})Math.Sqrt(dot(this));");
             cb.writeline($"public {vecName} normalized => this / length;");
+
+
+            // indexing:
+            cb.linebreak();
+            cb.startBlock($"public {type} this[int i]");
+            var indexerror = $"throw new IndexOutOfRangeException(\"{vecName}[\" + i + \"] is not a valid index\")";
+            //get:
+            cb.startBlock("get => i switch");
+            for (int i = 0; i < compsNames.Length; i++) {
+                cb.writeline($"{i} => {compsNames[i]},");
+            }
+            cb.writeline($"_ => {indexerror}");
+            cb.endBlock(";");
+            //set:
+            cb.startBlock("set"); cb.startBlock("switch (i)");
+            for (int i = 0; i < compsNames.Length; i++) {
+                cb.writeline($"case {i}: {compsNames[i]} = value; return;");
+            }
+            cb.writeline($"default: {indexerror};");
+            cb.endBlock(); cb.endBlock();
+
+            cb.endBlock();
+
 
             // swizzling properies:
             _region("swizzling properties");
@@ -72,7 +110,6 @@ namespace NumsCodeGenerator {
             _endregion();
 
 
-            // indexing:
 
             // arithmetic:
             _region("arithmetic");
@@ -104,16 +141,28 @@ namespace NumsCodeGenerator {
             _vecscalaroperator("/");
             //_vecscalaroperator("+");
             //_vecscalaroperator("-");
-
+            cb.linebreak();
+            cb.writeline($"public static {vecName} operator -({vecName} v) => new {vecName}({compsNames.Select((x) => "-v." + x).Aggregate((z, x) => z + ", " + x)});");
 
             _endregion();
 
             // advanced math functions:
             _region("math");
+            cb.writeline($"public {type} distTo({vecName} o) => (o - this).length;");
+            cb.writeline($"public {type} angleTo({vecName} o) => ({type})Math.Acos(this.dot(o) / (this.length * o.length));");
+            cb.writeline($"public {vecName} lerp({vecName} o, {type} t) => this + ((o - this) * t);");
+
             _endregion();
 
             // conversion:
             _region("conversion");
+
+            var tupletype = compsNames.Select(x => type).Aggregate((x, c) => x + ", " + c);
+            var tupleparams = new string[compsNames.Length];
+            for (int i = 0; i < compsNames.Length; i++)
+                tupleparams[i] = "tuple.Item" + (i + 1);
+            cb.writeline($"public static implicit operator {vecName}(({tupletype}) tuple) => new {vecName}({tupleparams.Aggregate((x,v) => x + ", " + v)});");
+
             _endregion();
 
             cb.endBlock();

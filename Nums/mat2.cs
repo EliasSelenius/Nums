@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-using Nums.old;
+using Nums;
 
 namespace Nums {
     public struct mat2 {
