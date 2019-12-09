@@ -7,18 +7,24 @@ namespace NumsCodeGenerator {
             Console.WriteLine("CodeGenerator running");
 
             
-            System.IO.File.WriteAllText("autogen\\vec2.g.cs", genVecStruct("float", "x", "y"));
-            System.IO.File.WriteAllText("autogen\\vec3.g.cs", genVecStruct("float", "x", "y", "z"));
-            System.IO.File.WriteAllText("autogen\\vec4.g.cs", genVecStruct("float", "x", "y", "z", "w"));
+            System.IO.File.WriteAllText("autogen\\vec2.g.cs", genVecStruct("vec", "float", "x", "y"));
+            System.IO.File.WriteAllText("autogen\\vec3.g.cs", genVecStruct("vec", "float", "x", "y", "z"));
+            System.IO.File.WriteAllText("autogen\\vec4.g.cs", genVecStruct("vec", "float", "x", "y", "z", "w"));
+
+            System.IO.File.WriteAllText("autogen\\ivec2.g.cs", genVecStruct("ivec", "int", "x", "y"));
+            System.IO.File.WriteAllText("autogen\\ivec3.g.cs", genVecStruct("ivec", "int", "x", "y", "z"));
+            System.IO.File.WriteAllText("autogen\\ivec4.g.cs", genVecStruct("ivec", "int", "x", "y", "z", "w"));
 
             Console.WriteLine("CodeGenerator done");
         }
 
 
-        static string genVecStruct(string type, params string[] compsNames) {
+        static string genVecStruct(string name, string type, params string[] compsNames) {
             var cb = new CodeBuilder();
 
-            var vecName = "vec" + compsNames.Length;
+            var vecName = name + compsNames.Length;
+
+            Console.WriteLine("generating: " + vecName);
 
             void _region(string name) {
                 cb.linebreak();
@@ -35,6 +41,7 @@ namespace NumsCodeGenerator {
             cb.writeline("[System.Runtime.InteropServices.StructLayout(System.Runtime.InteropServices.LayoutKind.Sequential)]");
             cb.startBlock("public struct " + vecName);
 
+            #region genConstants
             // constanst:
             _region("constants");
 
@@ -53,6 +60,7 @@ namespace NumsCodeGenerator {
             cb.writeline($"public static readonly {vecName} one = ({constantcomps.Aggregate((x, y) => x + ", " + y)});");
 
             _endregion();
+            #endregion
 
             cb.linebreak();
             // fields & basic properties:
@@ -64,6 +72,7 @@ namespace NumsCodeGenerator {
             cb.writeline($"public {vecName} normalized => this / length;");
 
 
+            #region genIndexAccessor
             // indexing:
             cb.linebreak();
             cb.startBlock($"public {type} this[int i]");
@@ -84,12 +93,56 @@ namespace NumsCodeGenerator {
             cb.endBlock(); cb.endBlock();
 
             cb.endBlock();
+            #endregion
 
-
+            #region genswizzling properties
             // swizzling properies:
             _region("swizzling properties");
-            _endregion();
 
+            var swizzleindexes = new int[compsNames.Length];
+            //for (int i = 0; i < swizzleindexes.Length; i++)
+                //swizzleindexes[i] = 0;
+            void _increment() {
+                for (int i = 0; i < swizzleindexes.Length; i++) {
+                    if (swizzleindexes[i] < swizzleindexes.Length) {
+                        if (swizzleindexes[i] == swizzleindexes.Length - 1) {
+                            for (int j = i; j >= 0; j--)
+                                swizzleindexes[j] = 0;
+                            continue;
+                        }
+                        swizzleindexes[i]++;
+                        return;
+                    }
+                }
+            }
+
+            string _getswizzle() => swizzleindexes.Select(x => compsNames[x]).Aggregate((x, y) => x + y);
+            for (int i = 0; i < Math.Pow(compsNames.Length, compsNames.Length); i++) {
+
+                string decl = $"public {vecName} {_getswizzle()}",
+                       get =  $"=> new {vecName}({swizzleindexes.Select(x => compsNames[x]).Aggregate((x, y) => x + ", " + y)});";
+
+                if (swizzleindexes.Distinct().Count() == swizzleindexes.Length) {
+                    cb.startBlock(decl);
+                    cb.writeline($"get {get}");
+                    cb.startBlock("set");
+                    for (int j = 0; j < swizzleindexes.Length; j++) {
+                        cb.writeline(compsNames[swizzleindexes[j]] + " = value." + compsNames[j] + ";");
+                    }
+                    cb.endBlock();
+                    cb.endBlock();
+                } else {
+                    cb.writeline(decl + " " + get);
+                }
+
+                _increment();
+            }
+
+
+            _endregion();
+            #endregion
+
+            #region gen constructors
             // constructors:
             _region("constructors");
 
@@ -108,9 +161,9 @@ namespace NumsCodeGenerator {
             cb.endBlock();
 
             _endregion();
+            #endregion
 
-
-
+            #region gen arithmetic operators
             // arithmetic:
             _region("arithmetic");
             cb.writeline($"public {type} dot({vecName} v) => (this * v).sum;");
@@ -145,7 +198,10 @@ namespace NumsCodeGenerator {
             cb.writeline($"public static {vecName} operator -({vecName} v) => new {vecName}({compsNames.Select((x) => "-v." + x).Aggregate((z, x) => z + ", " + x)});");
 
             _endregion();
+            #endregion
 
+
+            #region gen math
             // advanced math functions:
             _region("math");
             cb.writeline($"public {type} distTo({vecName} o) => (o - this).length;");
@@ -153,7 +209,9 @@ namespace NumsCodeGenerator {
             cb.writeline($"public {vecName} lerp({vecName} o, {type} t) => this + ((o - this) * t);");
 
             _endregion();
+            #endregion
 
+            #region gen cast operands
             // conversion:
             _region("conversion");
 
@@ -167,6 +225,7 @@ namespace NumsCodeGenerator {
 
             cb.endBlock();
             cb.endBlock();
+            #endregion
 
             return cb.result();
         }

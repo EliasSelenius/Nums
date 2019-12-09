@@ -1,6 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-using Nums.old;
+/*
 
 namespace UnitTest {
     [TestClass]
@@ -41,3 +40,4 @@ namespace UnitTest {
         }
     }
 }
+*/

@@ -35,6 +35,22 @@ namespace Nums {
         }
 
         #region swizzling properties
+        public vec2 xx => new vec2(x, x);
+        public vec2 yx {
+            get => new vec2(y, x);
+            set {
+                y = value.x;
+                x = value.y;
+            }
+        }
+        public vec2 xy {
+            get => new vec2(x, y);
+            set {
+                x = value.x;
+                y = value.y;
+            }
+        }
+        public vec2 yy => new vec2(y, y);
         #endregion
 
         #region constructors

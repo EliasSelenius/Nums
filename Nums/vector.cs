@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 using System.Collections;
 
 namespace Nums {
+    /*
     [StructLayout(LayoutKind.Sequential)]
     public struct vector : IVector<vector>, IEnumerable<float> {
 
@@ -92,5 +93,5 @@ namespace Nums {
             return ((IEnumerable<float>)values).GetEnumerator();
         }
 
-    }
+    }*/
 }

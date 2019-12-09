@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="autogen\*.g.cs" />
+    <!--<Compile Remove="autogen\*.g.cs" />-->
     <Folder Include="autogen\" />
   </ItemGroup>
 
@@ -16,6 +16,9 @@
   </Target>
 
   <Target Name="executeGen">
+    <ItemGroup>
+      <Compile Remove="autogen\*.g.cs" />
+    </ItemGroup>
     <Exec Command="..\NumsCodeGenerator\bin\Debug\netcoreapp3.0\NumsCodeGenerator.exe" />
   </Target>
   
