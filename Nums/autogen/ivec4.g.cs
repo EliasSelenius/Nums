@@ -41,6 +41,326 @@ namespace Nums {
         }
 
         #region swizzling properties
+        public ivec2 xx => new ivec2(x, x);
+        public ivec2 yx {
+            get => new ivec2(y, x);
+            set {
+                y = value.x;
+                x = value.y;
+            }
+        }
+        public ivec2 zx {
+            get => new ivec2(z, x);
+            set {
+                z = value.x;
+                x = value.y;
+            }
+        }
+        public ivec2 wx {
+            get => new ivec2(w, x);
+            set {
+                w = value.x;
+                x = value.y;
+            }
+        }
+        public ivec2 xy {
+            get => new ivec2(x, y);
+            set {
+                x = value.x;
+                y = value.y;
+            }
+        }
+        public ivec2 yy => new ivec2(y, y);
+        public ivec2 zy {
+            get => new ivec2(z, y);
+            set {
+                z = value.x;
+                y = value.y;
+            }
+        }
+        public ivec2 wy {
+            get => new ivec2(w, y);
+            set {
+                w = value.x;
+                y = value.y;
+            }
+        }
+        public ivec2 xz {
+            get => new ivec2(x, z);
+            set {
+                x = value.x;
+                z = value.y;
+            }
+        }
+        public ivec2 yz {
+            get => new ivec2(y, z);
+            set {
+                y = value.x;
+                z = value.y;
+            }
+        }
+        public ivec2 zz => new ivec2(z, z);
+        public ivec2 wz {
+            get => new ivec2(w, z);
+            set {
+                w = value.x;
+                z = value.y;
+            }
+        }
+        public ivec2 xw {
+            get => new ivec2(x, w);
+            set {
+                x = value.x;
+                w = value.y;
+            }
+        }
+        public ivec2 yw {
+            get => new ivec2(y, w);
+            set {
+                y = value.x;
+                w = value.y;
+            }
+        }
+        public ivec2 zw {
+            get => new ivec2(z, w);
+            set {
+                z = value.x;
+                w = value.y;
+            }
+        }
+        public ivec2 ww => new ivec2(w, w);
+        public ivec3 xxx => new ivec3(x, x, x);
+        public ivec3 yxx => new ivec3(y, x, x);
+        public ivec3 zxx => new ivec3(z, x, x);
+        public ivec3 wxx => new ivec3(w, x, x);
+        public ivec3 xyx => new ivec3(x, y, x);
+        public ivec3 yyx => new ivec3(y, y, x);
+        public ivec3 zyx {
+            get => new ivec3(z, y, x);
+            set {
+                z = value.x;
+                y = value.y;
+                x = value.z;
+            }
+        }
+        public ivec3 wyx {
+            get => new ivec3(w, y, x);
+            set {
+                w = value.x;
+                y = value.y;
+                x = value.z;
+            }
+        }
+        public ivec3 xzx => new ivec3(x, z, x);
+        public ivec3 yzx {
+            get => new ivec3(y, z, x);
+            set {
+                y = value.x;
+                z = value.y;
+                x = value.z;
+            }
+        }
+        public ivec3 zzx => new ivec3(z, z, x);
+        public ivec3 wzx {
+            get => new ivec3(w, z, x);
+            set {
+                w = value.x;
+                z = value.y;
+                x = value.z;
+            }
+        }
+        public ivec3 xwx => new ivec3(x, w, x);
+        public ivec3 ywx {
+            get => new ivec3(y, w, x);
+            set {
+                y = value.x;
+                w = value.y;
+                x = value.z;
+            }
+        }
+        public ivec3 zwx {
+            get => new ivec3(z, w, x);
+            set {
+                z = value.x;
+                w = value.y;
+                x = value.z;
+            }
+        }
+        public ivec3 wwx => new ivec3(w, w, x);
+        public ivec3 xxy => new ivec3(x, x, y);
+        public ivec3 yxy => new ivec3(y, x, y);
+        public ivec3 zxy {
+            get => new ivec3(z, x, y);
+            set {
+                z = value.x;
+                x = value.y;
+                y = value.z;
+            }
+        }
+        public ivec3 wxy {
+            get => new ivec3(w, x, y);
+            set {
+                w = value.x;
+                x = value.y;
+                y = value.z;
+            }
+        }
+        public ivec3 xyy => new ivec3(x, y, y);
+        public ivec3 yyy => new ivec3(y, y, y);
+        public ivec3 zyy => new ivec3(z, y, y);
+        public ivec3 wyy => new ivec3(w, y, y);
+        public ivec3 xzy {
+            get => new ivec3(x, z, y);
+            set {
+                x = value.x;
+                z = value.y;
+                y = value.z;
+            }
+        }
+        public ivec3 yzy => new ivec3(y, z, y);
+        public ivec3 zzy => new ivec3(z, z, y);
+        public ivec3 wzy {
+            get => new ivec3(w, z, y);
+            set {
+                w = value.x;
+                z = value.y;
+                y = value.z;
+            }
+        }
+        public ivec3 xwy {
+            get => new ivec3(x, w, y);
+            set {
+                x = value.x;
+                w = value.y;
+                y = value.z;
+            }
+        }
+        public ivec3 ywy => new ivec3(y, w, y);
+        public ivec3 zwy {
+            get => new ivec3(z, w, y);
+            set {
+                z = value.x;
+                w = value.y;
+                y = value.z;
+            }
+        }
+        public ivec3 wwy => new ivec3(w, w, y);
+        public ivec3 xxz => new ivec3(x, x, z);
+        public ivec3 yxz {
+            get => new ivec3(y, x, z);
+            set {
+                y = value.x;
+                x = value.y;
+                z = value.z;
+            }
+        }
+        public ivec3 zxz => new ivec3(z, x, z);
+        public ivec3 wxz {
+            get => new ivec3(w, x, z);
+            set {
+                w = value.x;
+                x = value.y;
+                z = value.z;
+            }
+        }
+        public ivec3 xyz {
+            get => new ivec3(x, y, z);
+            set {
+                x = value.x;
+                y = value.y;
+                z = value.z;
+            }
+        }
+        public ivec3 yyz => new ivec3(y, y, z);
+        public ivec3 zyz => new ivec3(z, y, z);
+        public ivec3 wyz {
+            get => new ivec3(w, y, z);
+            set {
+                w = value.x;
+                y = value.y;
+                z = value.z;
+            }
+        }
+        public ivec3 xzz => new ivec3(x, z, z);
+        public ivec3 yzz => new ivec3(y, z, z);
+        public ivec3 zzz => new ivec3(z, z, z);
+        public ivec3 wzz => new ivec3(w, z, z);
+        public ivec3 xwz {
+            get => new ivec3(x, w, z);
+            set {
+                x = value.x;
+                w = value.y;
+                z = value.z;
+            }
+        }
+        public ivec3 ywz {
+            get => new ivec3(y, w, z);
+            set {
+                y = value.x;
+                w = value.y;
+                z = value.z;
+            }
+        }
+        public ivec3 zwz => new ivec3(z, w, z);
+        public ivec3 wwz => new ivec3(w, w, z);
+        public ivec3 xxw => new ivec3(x, x, w);
+        public ivec3 yxw {
+            get => new ivec3(y, x, w);
+            set {
+                y = value.x;
+                x = value.y;
+                w = value.z;
+            }
+        }
+        public ivec3 zxw {
+            get => new ivec3(z, x, w);
+            set {
+                z = value.x;
+                x = value.y;
+                w = value.z;
+            }
+        }
+        public ivec3 wxw => new ivec3(w, x, w);
+        public ivec3 xyw {
+            get => new ivec3(x, y, w);
+            set {
+                x = value.x;
+                y = value.y;
+                w = value.z;
+            }
+        }
+        public ivec3 yyw => new ivec3(y, y, w);
+        public ivec3 zyw {
+            get => new ivec3(z, y, w);
+            set {
+                z = value.x;
+                y = value.y;
+                w = value.z;
+            }
+        }
+        public ivec3 wyw => new ivec3(w, y, w);
+        public ivec3 xzw {
+            get => new ivec3(x, z, w);
+            set {
+                x = value.x;
+                z = value.y;
+                w = value.z;
+            }
+        }
+        public ivec3 yzw {
+            get => new ivec3(y, z, w);
+            set {
+                y = value.x;
+                z = value.y;
+                w = value.z;
+            }
+        }
+        public ivec3 zzw => new ivec3(z, z, w);
+        public ivec3 wzw => new ivec3(w, z, w);
+        public ivec3 xww => new ivec3(x, w, w);
+        public ivec3 yww => new ivec3(y, w, w);
+        public ivec3 zww => new ivec3(z, w, w);
+        public ivec3 www => new ivec3(w, w, w);
         public ivec4 xxxx => new ivec4(x, x, x, x);
         public ivec4 yxxx => new ivec4(y, x, x, x);
         public ivec4 zxxx => new ivec4(z, x, x, x);

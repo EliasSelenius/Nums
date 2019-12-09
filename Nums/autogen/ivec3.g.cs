@@ -38,6 +38,51 @@ namespace Nums {
         }
 
         #region swizzling properties
+        public ivec2 xx => new ivec2(x, x);
+        public ivec2 yx {
+            get => new ivec2(y, x);
+            set {
+                y = value.x;
+                x = value.y;
+            }
+        }
+        public ivec2 zx {
+            get => new ivec2(z, x);
+            set {
+                z = value.x;
+                x = value.y;
+            }
+        }
+        public ivec2 xy {
+            get => new ivec2(x, y);
+            set {
+                x = value.x;
+                y = value.y;
+            }
+        }
+        public ivec2 yy => new ivec2(y, y);
+        public ivec2 zy {
+            get => new ivec2(z, y);
+            set {
+                z = value.x;
+                y = value.y;
+            }
+        }
+        public ivec2 xz {
+            get => new ivec2(x, z);
+            set {
+                x = value.x;
+                z = value.y;
+            }
+        }
+        public ivec2 yz {
+            get => new ivec2(y, z);
+            set {
+                y = value.x;
+                z = value.y;
+            }
+        }
+        public ivec2 zz => new ivec2(z, z);
         public ivec3 xxx => new ivec3(x, x, x);
         public ivec3 yxx => new ivec3(y, x, x);
         public ivec3 zxx => new ivec3(z, x, x);

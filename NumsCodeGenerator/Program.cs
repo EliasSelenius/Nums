@@ -99,45 +99,46 @@ namespace NumsCodeGenerator {
             // swizzling properies:
             _region("swizzling properties");
 
-            var swizzleindexes = new int[compsNames.Length];
-            //for (int i = 0; i < swizzleindexes.Length; i++)
-                //swizzleindexes[i] = 0;
-            void _increment() {
-                for (int i = 0; i < swizzleindexes.Length; i++) {
-                    if (swizzleindexes[i] < swizzleindexes.Length) {
-                        if (swizzleindexes[i] == swizzleindexes.Length - 1) {
-                            for (int j = i; j >= 0; j--)
-                                swizzleindexes[j] = 0;
-                            continue;
+            void _genswizzles(int size) {
+                var swizzleindexes = new int[size];
+                var swizzlevecname = name + size;
+
+                for (int si = 0; si < Math.Pow(compsNames.Length, size); si++) {
+
+
+                    string decl = $"public {swizzlevecname} {swizzleindexes.Select(x => compsNames[x]).Aggregate((x, y) => x + y)}",
+                           get =  $"=> new {swizzlevecname}({swizzleindexes.Select(x => compsNames[x]).Aggregate((x, y) => x + ", " + y)});";
+
+                    if (swizzleindexes.Distinct().Count() == swizzleindexes.Length) {
+                        cb.startBlock(decl);
+                        cb.writeline($"get {get}");
+                        cb.startBlock("set");
+                        for (int j = 0; j < swizzleindexes.Length; j++) {
+                            cb.writeline(compsNames[swizzleindexes[j]] + " = value." + compsNames[j] + ";");
                         }
-                        swizzleindexes[i]++;
-                        return;
+                        cb.endBlock();
+                        cb.endBlock();
+                    } else {
+                        cb.writeline(decl + " " + get);
+                    }
+
+                    // increment swizzleIndexes
+                    for (int i = 0; i < swizzleindexes.Length; i++) {
+                        if (swizzleindexes[i] < compsNames.Length) {
+                            if (swizzleindexes[i] == compsNames.Length - 1) {
+                                for (int j = i; j >= 0; j--)
+                                    swizzleindexes[j] = 0;
+                                continue;
+                            }
+                            swizzleindexes[i]++;
+                            break;
+                        }
                     }
                 }
             }
 
-            string _getswizzle() => swizzleindexes.Select(x => compsNames[x]).Aggregate((x, y) => x + y);
-            for (int i = 0; i < Math.Pow(compsNames.Length, compsNames.Length); i++) {
-
-                string decl = $"public {vecName} {_getswizzle()}",
-                       get =  $"=> new {vecName}({swizzleindexes.Select(x => compsNames[x]).Aggregate((x, y) => x + ", " + y)});";
-
-                if (swizzleindexes.Distinct().Count() == swizzleindexes.Length) {
-                    cb.startBlock(decl);
-                    cb.writeline($"get {get}");
-                    cb.startBlock("set");
-                    for (int j = 0; j < swizzleindexes.Length; j++) {
-                        cb.writeline(compsNames[swizzleindexes[j]] + " = value." + compsNames[j] + ";");
-                    }
-                    cb.endBlock();
-                    cb.endBlock();
-                } else {
-                    cb.writeline(decl + " " + get);
-                }
-
-                _increment();
-            }
-
+            for (int i = 2; i <= compsNames.Length; i++) 
+                _genswizzles(i);
 
             _endregion();
             #endregion

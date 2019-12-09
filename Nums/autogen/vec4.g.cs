@@ -41,6 +41,326 @@ namespace Nums {
         }
 
         #region swizzling properties
+        public vec2 xx => new vec2(x, x);
+        public vec2 yx {
+            get => new vec2(y, x);
+            set {
+                y = value.x;
+                x = value.y;
+            }
+        }
+        public vec2 zx {
+            get => new vec2(z, x);
+            set {
+                z = value.x;
+                x = value.y;
+            }
+        }
+        public vec2 wx {
+            get => new vec2(w, x);
+            set {
+                w = value.x;
+                x = value.y;
+            }
+        }
+        public vec2 xy {
+            get => new vec2(x, y);
+            set {
+                x = value.x;
+                y = value.y;
+            }
+        }
+        public vec2 yy => new vec2(y, y);
+        public vec2 zy {
+            get => new vec2(z, y);
+            set {
+                z = value.x;
+                y = value.y;
+            }
+        }
+        public vec2 wy {
+            get => new vec2(w, y);
+            set {
+                w = value.x;
+                y = value.y;
+            }
+        }
+        public vec2 xz {
+            get => new vec2(x, z);
+            set {
+                x = value.x;
+                z = value.y;
+            }
+        }
+        public vec2 yz {
+            get => new vec2(y, z);
+            set {
+                y = value.x;
+                z = value.y;
+            }
+        }
+        public vec2 zz => new vec2(z, z);
+        public vec2 wz {
+            get => new vec2(w, z);
+            set {
+                w = value.x;
+                z = value.y;
+            }
+        }
+        public vec2 xw {
+            get => new vec2(x, w);
+            set {
+                x = value.x;
+                w = value.y;
+            }
+        }
+        public vec2 yw {
+            get => new vec2(y, w);
+            set {
+                y = value.x;
+                w = value.y;
+            }
+        }
+        public vec2 zw {
+            get => new vec2(z, w);
+            set {
+                z = value.x;
+                w = value.y;
+            }
+        }
+        public vec2 ww => new vec2(w, w);
+        public vec3 xxx => new vec3(x, x, x);
+        public vec3 yxx => new vec3(y, x, x);
+        public vec3 zxx => new vec3(z, x, x);
+        public vec3 wxx => new vec3(w, x, x);
+        public vec3 xyx => new vec3(x, y, x);
+        public vec3 yyx => new vec3(y, y, x);
+        public vec3 zyx {
+            get => new vec3(z, y, x);
+            set {
+                z = value.x;
+                y = value.y;
+                x = value.z;
+            }
+        }
+        public vec3 wyx {
+            get => new vec3(w, y, x);
+            set {
+                w = value.x;
+                y = value.y;
+                x = value.z;
+            }
+        }
+        public vec3 xzx => new vec3(x, z, x);
+        public vec3 yzx {
+            get => new vec3(y, z, x);
+            set {
+                y = value.x;
+                z = value.y;
+                x = value.z;
+            }
+        }
+        public vec3 zzx => new vec3(z, z, x);
+        public vec3 wzx {
+            get => new vec3(w, z, x);
+            set {
+                w = value.x;
+                z = value.y;
+                x = value.z;
+            }
+        }
+        public vec3 xwx => new vec3(x, w, x);
+        public vec3 ywx {
+            get => new vec3(y, w, x);
+            set {
+                y = value.x;
+                w = value.y;
+                x = value.z;
+            }
+        }
+        public vec3 zwx {
+            get => new vec3(z, w, x);
+            set {
+                z = value.x;
+                w = value.y;
+                x = value.z;
+            }
+        }
+        public vec3 wwx => new vec3(w, w, x);
+        public vec3 xxy => new vec3(x, x, y);
+        public vec3 yxy => new vec3(y, x, y);
+        public vec3 zxy {
+            get => new vec3(z, x, y);
+            set {
+                z = value.x;
+                x = value.y;
+                y = value.z;
+            }
+        }
+        public vec3 wxy {
+            get => new vec3(w, x, y);
+            set {
+                w = value.x;
+                x = value.y;
+                y = value.z;
+            }
+        }
+        public vec3 xyy => new vec3(x, y, y);
+        public vec3 yyy => new vec3(y, y, y);
+        public vec3 zyy => new vec3(z, y, y);
+        public vec3 wyy => new vec3(w, y, y);
+        public vec3 xzy {
+            get => new vec3(x, z, y);
+            set {
+                x = value.x;
+                z = value.y;
+                y = value.z;
+            }
+        }
+        public vec3 yzy => new vec3(y, z, y);
+        public vec3 zzy => new vec3(z, z, y);
+        public vec3 wzy {
+            get => new vec3(w, z, y);
+            set {
+                w = value.x;
+                z = value.y;
+                y = value.z;
+            }
+        }
+        public vec3 xwy {
+            get => new vec3(x, w, y);
+            set {
+                x = value.x;
+                w = value.y;
+                y = value.z;
+            }
+        }
+        public vec3 ywy => new vec3(y, w, y);
+        public vec3 zwy {
+            get => new vec3(z, w, y);
+            set {
+                z = value.x;
+                w = value.y;
+                y = value.z;
+            }
+        }
+        public vec3 wwy => new vec3(w, w, y);
+        public vec3 xxz => new vec3(x, x, z);
+        public vec3 yxz {
+            get => new vec3(y, x, z);
+            set {
+                y = value.x;
+                x = value.y;
+                z = value.z;
+            }
+        }
+        public vec3 zxz => new vec3(z, x, z);
+        public vec3 wxz {
+            get => new vec3(w, x, z);
+            set {
+                w = value.x;
+                x = value.y;
+                z = value.z;
+            }
+        }
+        public vec3 xyz {
+            get => new vec3(x, y, z);
+            set {
+                x = value.x;
+                y = value.y;
+                z = value.z;
+            }
+        }
+        public vec3 yyz => new vec3(y, y, z);
+        public vec3 zyz => new vec3(z, y, z);
+        public vec3 wyz {
+            get => new vec3(w, y, z);
+            set {
+                w = value.x;
+                y = value.y;
+                z = value.z;
+            }
+        }
+        public vec3 xzz => new vec3(x, z, z);
+        public vec3 yzz => new vec3(y, z, z);
+        public vec3 zzz => new vec3(z, z, z);
+        public vec3 wzz => new vec3(w, z, z);
+        public vec3 xwz {
+            get => new vec3(x, w, z);
+            set {
+                x = value.x;
+                w = value.y;
+                z = value.z;
+            }
+        }
+        public vec3 ywz {
+            get => new vec3(y, w, z);
+            set {
+                y = value.x;
+                w = value.y;
+                z = value.z;
+            }
+        }
+        public vec3 zwz => new vec3(z, w, z);
+        public vec3 wwz => new vec3(w, w, z);
+        public vec3 xxw => new vec3(x, x, w);
+        public vec3 yxw {
+            get => new vec3(y, x, w);
+            set {
+                y = value.x;
+                x = value.y;
+                w = value.z;
+            }
+        }
+        public vec3 zxw {
+            get => new vec3(z, x, w);
+            set {
+                z = value.x;
+                x = value.y;
+                w = value.z;
+            }
+        }
+        public vec3 wxw => new vec3(w, x, w);
+        public vec3 xyw {
+            get => new vec3(x, y, w);
+            set {
+                x = value.x;
+                y = value.y;
+                w = value.z;
+            }
+        }
+        public vec3 yyw => new vec3(y, y, w);
+        public vec3 zyw {
+            get => new vec3(z, y, w);
+            set {
+                z = value.x;
+                y = value.y;
+                w = value.z;
+            }
+        }
+        public vec3 wyw => new vec3(w, y, w);
+        public vec3 xzw {
+            get => new vec3(x, z, w);
+            set {
+                x = value.x;
+                z = value.y;
+                w = value.z;
+            }
+        }
+        public vec3 yzw {
+            get => new vec3(y, z, w);
+            set {
+                y = value.x;
+                z = value.y;
+                w = value.z;
+            }
+        }
+        public vec3 zzw => new vec3(z, z, w);
+        public vec3 wzw => new vec3(w, z, w);
+        public vec3 xww => new vec3(x, w, w);
+        public vec3 yww => new vec3(y, w, w);
+        public vec3 zww => new vec3(z, w, w);
+        public vec3 www => new vec3(w, w, w);
         public vec4 xxxx => new vec4(x, x, x, x);
         public vec4 yxxx => new vec4(y, x, x, x);
         public vec4 zxxx => new vec4(z, x, x, x);
