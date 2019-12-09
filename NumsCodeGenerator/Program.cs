@@ -7,13 +7,26 @@ namespace NumsCodeGenerator {
             Console.WriteLine("CodeGenerator running");
 
             
+            // float
             System.IO.File.WriteAllText("autogen\\vec2.g.cs", genVecStruct("vec", "float", "x", "y"));
             System.IO.File.WriteAllText("autogen\\vec3.g.cs", genVecStruct("vec", "float", "x", "y", "z"));
             System.IO.File.WriteAllText("autogen\\vec4.g.cs", genVecStruct("vec", "float", "x", "y", "z", "w"));
 
+            // int
             System.IO.File.WriteAllText("autogen\\ivec2.g.cs", genVecStruct("ivec", "int", "x", "y"));
             System.IO.File.WriteAllText("autogen\\ivec3.g.cs", genVecStruct("ivec", "int", "x", "y", "z"));
             System.IO.File.WriteAllText("autogen\\ivec4.g.cs", genVecStruct("ivec", "int", "x", "y", "z", "w"));
+
+            // double
+            System.IO.File.WriteAllText("autogen\\dvec2.g.cs", genVecStruct("dvec", "double", "x", "y"));
+            System.IO.File.WriteAllText("autogen\\dvec3.g.cs", genVecStruct("dvec", "double", "x", "y", "z"));
+            System.IO.File.WriteAllText("autogen\\dvec4.g.cs", genVecStruct("dvec", "double", "x", "y", "z", "w"));
+
+            // decimal
+            /*System.IO.File.WriteAllText("autogen\\mvec2.g.cs", genVecStruct("mvec", "decimal", "x", "y"));
+            System.IO.File.WriteAllText("autogen\\mvec3.g.cs", genVecStruct("mvec", "decimal", "x", "y", "z"));
+            System.IO.File.WriteAllText("autogen\\mvec4.g.cs", genVecStruct("mvec", "decimal", "x", "y", "z", "w"));
+            */
 
             Console.WriteLine("CodeGenerator done");
         }
