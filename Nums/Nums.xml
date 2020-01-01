@@ -1,0 +1,638 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Nums</name>
+    </assembly>
+    <members>
+        <member name="T:Nums.dvec2">
+            <summary>
+            A 2 component vector of double
+            </summary>
+        </member>
+        <member name="F:Nums.dvec2.zero">
+            <summary>
+            The zero vector: A vector where all components are equal to zero.
+            </summary>
+        </member>
+        <member name="F:Nums.dvec2.unitx">
+            <summary>
+            A unit vector pointing in the positive x direction.
+            </summary>
+        </member>
+        <member name="F:Nums.dvec2.unity">
+            <summary>
+            A unit vector pointing in the positive y direction.
+            </summary>
+        </member>
+        <member name="F:Nums.dvec2.one">
+            <summary>
+            A vector where all components are equal to one.
+            </summary>
+        </member>
+        <member name="F:Nums.dvec2.x">
+            <summary>
+            The x component is the first index of the vector
+            </summary>
+        </member>
+        <member name="F:Nums.dvec2.y">
+            <summary>
+            The y component is the second index of the vector
+            </summary>
+        </member>
+        <member name="P:Nums.dvec2.sum">
+            <summary>
+            The sum of the vectors components. x + y
+            </summary>
+        </member>
+        <member name="P:Nums.dvec2.bytesize">
+            <summary>
+            The number of bytes the vector type uses.
+            </summary>
+        </member>
+        <member name="P:Nums.dvec2.length">
+            <summary>
+            The magnitude of the vector
+            </summary>
+        </member>
+        <member name="P:Nums.dvec2.sqlength">
+            <summary>
+            The squared magnitude of the vector. sqlength is faster than length since a square-root operation is not needed.
+            </summary>
+        </member>
+        <member name="P:Nums.dvec2.normalized">
+            <summary>
+            The normalized version of this vector.
+            </summary>
+        </member>
+        <member name="T:Nums.dvec3">
+            <summary>
+            A 3 component vector of double
+            </summary>
+        </member>
+        <member name="F:Nums.dvec3.zero">
+            <summary>
+            The zero vector: A vector where all components are equal to zero.
+            </summary>
+        </member>
+        <member name="F:Nums.dvec3.unitx">
+            <summary>
+            A unit vector pointing in the positive x direction.
+            </summary>
+        </member>
+        <member name="F:Nums.dvec3.unity">
+            <summary>
+            A unit vector pointing in the positive y direction.
+            </summary>
+        </member>
+        <member name="F:Nums.dvec3.unitz">
+            <summary>
+            A unit vector pointing in the positive z direction.
+            </summary>
+        </member>
+        <member name="F:Nums.dvec3.one">
+            <summary>
+            A vector where all components are equal to one.
+            </summary>
+        </member>
+        <member name="F:Nums.dvec3.x">
+            <summary>
+            The x component is the first index of the vector
+            </summary>
+        </member>
+        <member name="F:Nums.dvec3.y">
+            <summary>
+            The y component is the second index of the vector
+            </summary>
+        </member>
+        <member name="F:Nums.dvec3.z">
+            <summary>
+            The z component is the third index of the vector
+            </summary>
+        </member>
+        <member name="P:Nums.dvec3.sum">
+            <summary>
+            The sum of the vectors components. x + y + z
+            </summary>
+        </member>
+        <member name="P:Nums.dvec3.bytesize">
+            <summary>
+            The number of bytes the vector type uses.
+            </summary>
+        </member>
+        <member name="P:Nums.dvec3.length">
+            <summary>
+            The magnitude of the vector
+            </summary>
+        </member>
+        <member name="P:Nums.dvec3.sqlength">
+            <summary>
+            The squared magnitude of the vector. sqlength is faster than length since a square-root operation is not needed.
+            </summary>
+        </member>
+        <member name="P:Nums.dvec3.normalized">
+            <summary>
+            The normalized version of this vector.
+            </summary>
+        </member>
+        <member name="T:Nums.dvec4">
+            <summary>
+            A 4 component vector of double
+            </summary>
+        </member>
+        <member name="F:Nums.dvec4.zero">
+            <summary>
+            The zero vector: A vector where all components are equal to zero.
+            </summary>
+        </member>
+        <member name="F:Nums.dvec4.unitx">
+            <summary>
+            A unit vector pointing in the positive x direction.
+            </summary>
+        </member>
+        <member name="F:Nums.dvec4.unity">
+            <summary>
+            A unit vector pointing in the positive y direction.
+            </summary>
+        </member>
+        <member name="F:Nums.dvec4.unitz">
+            <summary>
+            A unit vector pointing in the positive z direction.
+            </summary>
+        </member>
+        <member name="F:Nums.dvec4.unitw">
+            <summary>
+            A unit vector pointing in the positive w direction.
+            </summary>
+        </member>
+        <member name="F:Nums.dvec4.one">
+            <summary>
+            A vector where all components are equal to one.
+            </summary>
+        </member>
+        <member name="F:Nums.dvec4.x">
+            <summary>
+            The x component is the first index of the vector
+            </summary>
+        </member>
+        <member name="F:Nums.dvec4.y">
+            <summary>
+            The y component is the second index of the vector
+            </summary>
+        </member>
+        <member name="F:Nums.dvec4.z">
+            <summary>
+            The z component is the third index of the vector
+            </summary>
+        </member>
+        <member name="F:Nums.dvec4.w">
+            <summary>
+            The w component is the fourth index of the vector
+            </summary>
+        </member>
+        <member name="P:Nums.dvec4.sum">
+            <summary>
+            The sum of the vectors components. x + y + z + w
+            </summary>
+        </member>
+        <member name="P:Nums.dvec4.bytesize">
+            <summary>
+            The number of bytes the vector type uses.
+            </summary>
+        </member>
+        <member name="P:Nums.dvec4.length">
+            <summary>
+            The magnitude of the vector
+            </summary>
+        </member>
+        <member name="P:Nums.dvec4.sqlength">
+            <summary>
+            The squared magnitude of the vector. sqlength is faster than length since a square-root operation is not needed.
+            </summary>
+        </member>
+        <member name="P:Nums.dvec4.normalized">
+            <summary>
+            The normalized version of this vector.
+            </summary>
+        </member>
+        <member name="T:Nums.ivec2">
+            <summary>
+            A 2 component vector of int
+            </summary>
+        </member>
+        <member name="F:Nums.ivec2.zero">
+            <summary>
+            The zero vector: A vector where all components are equal to zero.
+            </summary>
+        </member>
+        <member name="F:Nums.ivec2.unitx">
+            <summary>
+            A unit vector pointing in the positive x direction.
+            </summary>
+        </member>
+        <member name="F:Nums.ivec2.unity">
+            <summary>
+            A unit vector pointing in the positive y direction.
+            </summary>
+        </member>
+        <member name="F:Nums.ivec2.one">
+            <summary>
+            A vector where all components are equal to one.
+            </summary>
+        </member>
+        <member name="F:Nums.ivec2.x">
+            <summary>
+            The x component is the first index of the vector
+            </summary>
+        </member>
+        <member name="F:Nums.ivec2.y">
+            <summary>
+            The y component is the second index of the vector
+            </summary>
+        </member>
+        <member name="P:Nums.ivec2.sum">
+            <summary>
+            The sum of the vectors components. x + y
+            </summary>
+        </member>
+        <member name="P:Nums.ivec2.bytesize">
+            <summary>
+            The number of bytes the vector type uses.
+            </summary>
+        </member>
+        <member name="P:Nums.ivec2.length">
+            <summary>
+            The magnitude of the vector
+            </summary>
+        </member>
+        <member name="P:Nums.ivec2.sqlength">
+            <summary>
+            The squared magnitude of the vector. sqlength is faster than length since a square-root operation is not needed.
+            </summary>
+        </member>
+        <member name="P:Nums.ivec2.normalized">
+            <summary>
+            The normalized version of this vector.
+            </summary>
+        </member>
+        <member name="T:Nums.ivec3">
+            <summary>
+            A 3 component vector of int
+            </summary>
+        </member>
+        <member name="F:Nums.ivec3.zero">
+            <summary>
+            The zero vector: A vector where all components are equal to zero.
+            </summary>
+        </member>
+        <member name="F:Nums.ivec3.unitx">
+            <summary>
+            A unit vector pointing in the positive x direction.
+            </summary>
+        </member>
+        <member name="F:Nums.ivec3.unity">
+            <summary>
+            A unit vector pointing in the positive y direction.
+            </summary>
+        </member>
+        <member name="F:Nums.ivec3.unitz">
+            <summary>
+            A unit vector pointing in the positive z direction.
+            </summary>
+        </member>
+        <member name="F:Nums.ivec3.one">
+            <summary>
+            A vector where all components are equal to one.
+            </summary>
+        </member>
+        <member name="F:Nums.ivec3.x">
+            <summary>
+            The x component is the first index of the vector
+            </summary>
+        </member>
+        <member name="F:Nums.ivec3.y">
+            <summary>
+            The y component is the second index of the vector
+            </summary>
+        </member>
+        <member name="F:Nums.ivec3.z">
+            <summary>
+            The z component is the third index of the vector
+            </summary>
+        </member>
+        <member name="P:Nums.ivec3.sum">
+            <summary>
+            The sum of the vectors components. x + y + z
+            </summary>
+        </member>
+        <member name="P:Nums.ivec3.bytesize">
+            <summary>
+            The number of bytes the vector type uses.
+            </summary>
+        </member>
+        <member name="P:Nums.ivec3.length">
+            <summary>
+            The magnitude of the vector
+            </summary>
+        </member>
+        <member name="P:Nums.ivec3.sqlength">
+            <summary>
+            The squared magnitude of the vector. sqlength is faster than length since a square-root operation is not needed.
+            </summary>
+        </member>
+        <member name="P:Nums.ivec3.normalized">
+            <summary>
+            The normalized version of this vector.
+            </summary>
+        </member>
+        <member name="T:Nums.ivec4">
+            <summary>
+            A 4 component vector of int
+            </summary>
+        </member>
+        <member name="F:Nums.ivec4.zero">
+            <summary>
+            The zero vector: A vector where all components are equal to zero.
+            </summary>
+        </member>
+        <member name="F:Nums.ivec4.unitx">
+            <summary>
+            A unit vector pointing in the positive x direction.
+            </summary>
+        </member>
+        <member name="F:Nums.ivec4.unity">
+            <summary>
+            A unit vector pointing in the positive y direction.
+            </summary>
+        </member>
+        <member name="F:Nums.ivec4.unitz">
+            <summary>
+            A unit vector pointing in the positive z direction.
+            </summary>
+        </member>
+        <member name="F:Nums.ivec4.unitw">
+            <summary>
+            A unit vector pointing in the positive w direction.
+            </summary>
+        </member>
+        <member name="F:Nums.ivec4.one">
+            <summary>
+            A vector where all components are equal to one.
+            </summary>
+        </member>
+        <member name="F:Nums.ivec4.x">
+            <summary>
+            The x component is the first index of the vector
+            </summary>
+        </member>
+        <member name="F:Nums.ivec4.y">
+            <summary>
+            The y component is the second index of the vector
+            </summary>
+        </member>
+        <member name="F:Nums.ivec4.z">
+            <summary>
+            The z component is the third index of the vector
+            </summary>
+        </member>
+        <member name="F:Nums.ivec4.w">
+            <summary>
+            The w component is the fourth index of the vector
+            </summary>
+        </member>
+        <member name="P:Nums.ivec4.sum">
+            <summary>
+            The sum of the vectors components. x + y + z + w
+            </summary>
+        </member>
+        <member name="P:Nums.ivec4.bytesize">
+            <summary>
+            The number of bytes the vector type uses.
+            </summary>
+        </member>
+        <member name="P:Nums.ivec4.length">
+            <summary>
+            The magnitude of the vector
+            </summary>
+        </member>
+        <member name="P:Nums.ivec4.sqlength">
+            <summary>
+            The squared magnitude of the vector. sqlength is faster than length since a square-root operation is not needed.
+            </summary>
+        </member>
+        <member name="P:Nums.ivec4.normalized">
+            <summary>
+            The normalized version of this vector.
+            </summary>
+        </member>
+        <member name="T:Nums.vec2">
+            <summary>
+            A 2 component vector of float
+            </summary>
+        </member>
+        <member name="F:Nums.vec2.zero">
+            <summary>
+            The zero vector: A vector where all components are equal to zero.
+            </summary>
+        </member>
+        <member name="F:Nums.vec2.unitx">
+            <summary>
+            A unit vector pointing in the positive x direction.
+            </summary>
+        </member>
+        <member name="F:Nums.vec2.unity">
+            <summary>
+            A unit vector pointing in the positive y direction.
+            </summary>
+        </member>
+        <member name="F:Nums.vec2.one">
+            <summary>
+            A vector where all components are equal to one.
+            </summary>
+        </member>
+        <member name="F:Nums.vec2.x">
+            <summary>
+            The x component is the first index of the vector
+            </summary>
+        </member>
+        <member name="F:Nums.vec2.y">
+            <summary>
+            The y component is the second index of the vector
+            </summary>
+        </member>
+        <member name="P:Nums.vec2.sum">
+            <summary>
+            The sum of the vectors components. x + y
+            </summary>
+        </member>
+        <member name="P:Nums.vec2.bytesize">
+            <summary>
+            The number of bytes the vector type uses.
+            </summary>
+        </member>
+        <member name="P:Nums.vec2.length">
+            <summary>
+            The magnitude of the vector
+            </summary>
+        </member>
+        <member name="P:Nums.vec2.sqlength">
+            <summary>
+            The squared magnitude of the vector. sqlength is faster than length since a square-root operation is not needed.
+            </summary>
+        </member>
+        <member name="P:Nums.vec2.normalized">
+            <summary>
+            The normalized version of this vector.
+            </summary>
+        </member>
+        <member name="T:Nums.vec3">
+            <summary>
+            A 3 component vector of float
+            </summary>
+        </member>
+        <member name="F:Nums.vec3.zero">
+            <summary>
+            The zero vector: A vector where all components are equal to zero.
+            </summary>
+        </member>
+        <member name="F:Nums.vec3.unitx">
+            <summary>
+            A unit vector pointing in the positive x direction.
+            </summary>
+        </member>
+        <member name="F:Nums.vec3.unity">
+            <summary>
+            A unit vector pointing in the positive y direction.
+            </summary>
+        </member>
+        <member name="F:Nums.vec3.unitz">
+            <summary>
+            A unit vector pointing in the positive z direction.
+            </summary>
+        </member>
+        <member name="F:Nums.vec3.one">
+            <summary>
+            A vector where all components are equal to one.
+            </summary>
+        </member>
+        <member name="F:Nums.vec3.x">
+            <summary>
+            The x component is the first index of the vector
+            </summary>
+        </member>
+        <member name="F:Nums.vec3.y">
+            <summary>
+            The y component is the second index of the vector
+            </summary>
+        </member>
+        <member name="F:Nums.vec3.z">
+            <summary>
+            The z component is the third index of the vector
+            </summary>
+        </member>
+        <member name="P:Nums.vec3.sum">
+            <summary>
+            The sum of the vectors components. x + y + z
+            </summary>
+        </member>
+        <member name="P:Nums.vec3.bytesize">
+            <summary>
+            The number of bytes the vector type uses.
+            </summary>
+        </member>
+        <member name="P:Nums.vec3.length">
+            <summary>
+            The magnitude of the vector
+            </summary>
+        </member>
+        <member name="P:Nums.vec3.sqlength">
+            <summary>
+            The squared magnitude of the vector. sqlength is faster than length since a square-root operation is not needed.
+            </summary>
+        </member>
+        <member name="P:Nums.vec3.normalized">
+            <summary>
+            The normalized version of this vector.
+            </summary>
+        </member>
+        <member name="T:Nums.vec4">
+            <summary>
+            A 4 component vector of float
+            </summary>
+        </member>
+        <member name="F:Nums.vec4.zero">
+            <summary>
+            The zero vector: A vector where all components are equal to zero.
+            </summary>
+        </member>
+        <member name="F:Nums.vec4.unitx">
+            <summary>
+            A unit vector pointing in the positive x direction.
+            </summary>
+        </member>
+        <member name="F:Nums.vec4.unity">
+            <summary>
+            A unit vector pointing in the positive y direction.
+            </summary>
+        </member>
+        <member name="F:Nums.vec4.unitz">
+            <summary>
+            A unit vector pointing in the positive z direction.
+            </summary>
+        </member>
+        <member name="F:Nums.vec4.unitw">
+            <summary>
+            A unit vector pointing in the positive w direction.
+            </summary>
+        </member>
+        <member name="F:Nums.vec4.one">
+            <summary>
+            A vector where all components are equal to one.
+            </summary>
+        </member>
+        <member name="F:Nums.vec4.x">
+            <summary>
+            The x component is the first index of the vector
+            </summary>
+        </member>
+        <member name="F:Nums.vec4.y">
+            <summary>
+            The y component is the second index of the vector
+            </summary>
+        </member>
+        <member name="F:Nums.vec4.z">
+            <summary>
+            The z component is the third index of the vector
+            </summary>
+        </member>
+        <member name="F:Nums.vec4.w">
+            <summary>
+            The w component is the fourth index of the vector
+            </summary>
+        </member>
+        <member name="P:Nums.vec4.sum">
+            <summary>
+            The sum of the vectors components. x + y + z + w
+            </summary>
+        </member>
+        <member name="P:Nums.vec4.bytesize">
+            <summary>
+            The number of bytes the vector type uses.
+            </summary>
+        </member>
+        <member name="P:Nums.vec4.length">
+            <summary>
+            The magnitude of the vector
+            </summary>
+        </member>
+        <member name="P:Nums.vec4.sqlength">
+            <summary>
+            The squared magnitude of the vector. sqlength is faster than length since a square-root operation is not needed.
+            </summary>
+        </member>
+        <member name="P:Nums.vec4.normalized">
+            <summary>
+            The normalized version of this vector.
+            </summary>
+        </member>
+    </members>
+</doc>

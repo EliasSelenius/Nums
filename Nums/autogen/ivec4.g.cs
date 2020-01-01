@@ -1,24 +1,76 @@
 using System;
+using System.Runtime.InteropServices;
 
 namespace Nums {
 
-    [System.Runtime.InteropServices.StructLayout(System.Runtime.InteropServices.LayoutKind.Sequential)]
+    /// <summary>
+    /// A 4 component vector of int
+    /// </summary>
+    [StructLayout(LayoutKind.Sequential)]
     public struct ivec4 {
 
         #region constants
+        /// <summary>
+        /// The zero vector: A vector where all components are equal to zero.
+        /// </summary>
         public static readonly ivec4 zero = (0, 0, 0, 0);
+        /// <summary>
+        /// A unit vector pointing in the positive x direction.
+        /// </summary>
         public static readonly ivec4 unitx = (1, 0, 0, 0);
+        /// <summary>
+        /// A unit vector pointing in the positive y direction.
+        /// </summary>
         public static readonly ivec4 unity = (0, 1, 0, 0);
+        /// <summary>
+        /// A unit vector pointing in the positive z direction.
+        /// </summary>
         public static readonly ivec4 unitz = (0, 0, 1, 0);
+        /// <summary>
+        /// A unit vector pointing in the positive w direction.
+        /// </summary>
         public static readonly ivec4 unitw = (0, 0, 0, 1);
+        /// <summary>
+        /// A vector where all components are equal to one.
+        /// </summary>
         public static readonly ivec4 one = (1, 1, 1, 1);
         #endregion
 
-        public int x, y, z, w;
+        /// <summary>
+        /// The x component is the first index of the vector
+        /// </summary>
+        public int x;
+        /// <summary>
+        /// The y component is the second index of the vector
+        /// </summary>
+        public int y;
+        /// <summary>
+        /// The z component is the third index of the vector
+        /// </summary>
+        public int z;
+        /// <summary>
+        /// The w component is the fourth index of the vector
+        /// </summary>
+        public int w;
+        /// <summary>
+        /// The sum of the vectors components. x + y + z + w
+        /// </summary>
         public int sum => x + y + z + w;
+        /// <summary>
+        /// The number of bytes the vector type uses.
+        /// </summary>
         public int bytesize => sizeof(int) * 4;
-        public int sqlength => dot(this);
+        /// <summary>
+        /// The magnitude of the vector
+        /// </summary>
         public int length => (int)Math.Sqrt(dot(this));
+        /// <summary>
+        /// The squared magnitude of the vector. sqlength is faster than length since a square-root operation is not needed.
+        /// </summary>
+        public int sqlength => dot(this);
+        /// <summary>
+        /// The normalized version of this vector.
+        /// </summary>
         public ivec4 normalized => this / length;
 
         public int this[int i] {
@@ -838,10 +890,15 @@ namespace Nums {
         public int distTo(ivec4 o) => (o - this).length;
         public int angleTo(ivec4 o) => (int)Math.Acos(this.dot(o) / (this.length * o.length));
         public ivec4 lerp(ivec4 o, int t) => this + ((o - this) * t);
+        public ivec4 reflect(ivec4 normal) => this - (normal * 2 * (this.dot(normal) / normal.dot(normal)));
         #endregion
 
         #region conversion
         public static implicit operator ivec4((int, int, int, int) tuple) => new ivec4(tuple.Item1, tuple.Item2, tuple.Item3, tuple.Item4);
+        #endregion
+
+        #region other
+        public override string ToString() => $"({x}, {y}, {z}, {w})";
         #endregion
     }
 }

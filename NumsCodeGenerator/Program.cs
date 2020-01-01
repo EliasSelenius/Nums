@@ -6,7 +6,32 @@ namespace NumsCodeGenerator {
         static void Main(string[] args) {
             Console.WriteLine("CodeGenerator running");
 
-            
+            var comps = new[] {
+                "x", "y", "z", "w"
+            };
+
+
+            // float
+            new VectorStruct("vec", "float", comps[..2]);
+            new VectorStruct("vec", "float", comps[..3]);
+            new VectorStruct("vec", "float", comps);
+
+            // int
+            new VectorStruct("ivec", "int", comps[..2]);
+            new VectorStruct("ivec", "int", comps[..3]);
+            new VectorStruct("ivec", "int", comps);
+
+            // double
+            new VectorStruct("dvec", "double", comps[..2]);
+            new VectorStruct("dvec", "double", comps[..3]);
+            new VectorStruct("dvec", "double", comps);
+
+
+            // bivectors
+            //new VectorStruct("bivec", "vec2", comps[..2]);
+
+
+            /*
             // float
             System.IO.File.WriteAllText("autogen\\vec2.g.cs", genVecStruct("vec", "float", "x", "y"));
             System.IO.File.WriteAllText("autogen\\vec3.g.cs", genVecStruct("vec", "float", "x", "y", "z"));
@@ -28,9 +53,18 @@ namespace NumsCodeGenerator {
             System.IO.File.WriteAllText("autogen\\mvec4.g.cs", genVecStruct("mvec", "decimal", "x", "y", "z", "w"));
             */
 
+            FileGenerator.Generate();
+
             Console.WriteLine("CodeGenerator done");
         }
 
+        private static readonly string[] indexNames = new[] {
+            "first", "second", "third", "fourth", "fifth", "sixth", "seventh", "eighth", "ninth", "tenth", "eleventh", "twelfth"
+        };
+
+        public static string Index2String(int index) {
+            return index < indexNames.Length ? indexNames[index] : index + "'th";
+        }
 
         static string genVecStruct(string name, string type, params string[] compsNames) {
             var cb = new CodeBuilder();
@@ -221,6 +255,7 @@ namespace NumsCodeGenerator {
             cb.writeline($"public {type} distTo({vecName} o) => (o - this).length;");
             cb.writeline($"public {type} angleTo({vecName} o) => ({type})Math.Acos(this.dot(o) / (this.length * o.length));");
             cb.writeline($"public {vecName} lerp({vecName} o, {type} t) => this + ((o - this) * t);");
+            cb.writeline($"public {vecName} reflect({vecName} normal) => this - (normal * 2 * (this.dot(normal) / normal.dot(normal)));");
 
             _endregion();
             #endregion
@@ -237,10 +272,16 @@ namespace NumsCodeGenerator {
 
             _endregion();
 
-            cb.endBlock();
-            cb.endBlock();
             #endregion
 
+            #region other
+            _region("other");
+            cb.writeline($"public override string ToString() => $\"({compsNames.Select(x => "{" + x + "}").Aggregate((x, y) => x + ", " + y)})\";");
+            _endregion();
+            #endregion
+
+            cb.endBlock();
+            cb.endBlock();
             return cb.result();
         }
     }
