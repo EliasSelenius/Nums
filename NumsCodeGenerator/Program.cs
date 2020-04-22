@@ -66,6 +66,8 @@ namespace NumsCodeGenerator {
             return index < indexNames.Length ? indexNames[index] : index + "'th";
         }
 
+
+
         static string genVecStruct(string name, string type, params string[] compsNames) {
             var cb = new CodeBuilder();
 

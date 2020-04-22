@@ -1,9 +1,9 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-/*
+using Nums;
 
 namespace UnitTest {
     [TestClass]
-    public class Vector2Test {
+    public class VectorTest {
         [TestMethod]
         public void ImplicitTupleCast() {
 
@@ -38,6 +38,10 @@ namespace UnitTest {
 
             //Assert.AreEqual(v., v.dot(v))
         }
+
+        [TestMethod]
+        public void VectorCrossProduct() {
+            Assert.AreEqual(vec3.unitx.cross(vec3.unity), vec3.unitz);
+        }
     }
 }
-*/

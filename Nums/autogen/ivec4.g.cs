@@ -15,19 +15,19 @@ namespace Nums {
         /// </summary>
         public static readonly ivec4 zero = (0, 0, 0, 0);
         /// <summary>
-        /// A unit vector pointing in the positive x direction.
+        /// A unit vector pointing in the positive x direction. →
         /// </summary>
         public static readonly ivec4 unitx = (1, 0, 0, 0);
         /// <summary>
-        /// A unit vector pointing in the positive y direction.
+        /// A unit vector pointing in the positive y direction. ↑
         /// </summary>
         public static readonly ivec4 unity = (0, 1, 0, 0);
         /// <summary>
-        /// A unit vector pointing in the positive z direction.
+        /// A unit vector pointing in the positive z direction. ↗
         /// </summary>
         public static readonly ivec4 unitz = (0, 0, 1, 0);
         /// <summary>
-        /// A unit vector pointing in the positive w direction.
+        /// A unit vector pointing in the positive w direction. 
         /// </summary>
         public static readonly ivec4 unitw = (0, 0, 0, 1);
         /// <summary>
@@ -895,10 +895,15 @@ namespace Nums {
 
         #region conversion
         public static implicit operator ivec4((int, int, int, int) tuple) => new ivec4(tuple.Item1, tuple.Item2, tuple.Item3, tuple.Item4);
+        public static implicit operator vec4(ivec4 v) => new vec4(v.x, v.y, v.z, v.w);
+        public static implicit operator dvec4(ivec4 v) => new dvec4(v.x, v.y, v.z, v.w);
+        public static implicit operator ivec4(int n) => new ivec4(n, n, n, n);
         #endregion
 
         #region other
         public override string ToString() => $"({x}, {y}, {z}, {w})";
         #endregion
+    }
+    public static partial class math {
     }
 }

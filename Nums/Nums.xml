@@ -16,12 +16,12 @@
         </member>
         <member name="F:Nums.dvec2.unitx">
             <summary>
-            A unit vector pointing in the positive x direction.
+            A unit vector pointing in the positive x direction. →
             </summary>
         </member>
         <member name="F:Nums.dvec2.unity">
             <summary>
-            A unit vector pointing in the positive y direction.
+            A unit vector pointing in the positive y direction. ↑
             </summary>
         </member>
         <member name="F:Nums.dvec2.one">
@@ -64,6 +64,23 @@
             The normalized version of this vector.
             </summary>
         </member>
+        <member name="T:Nums.math">
+            <summary>
+            collection of commonly used constants and functions
+            </summary>
+        </member>
+        <member name="F:Nums.math.pi">
+            <summary> The constant π (pi). </summary>
+        </member>
+        <member name="F:Nums.math.tau">
+            <summary> The constant τ (tau). equal to 2π. </summary>
+        </member>
+        <member name="F:Nums.math.deg2rad">
+            <summary> multiply this with a degree to convert to radian. </summary>
+        </member>
+        <member name="F:Nums.math.rad2deg">
+            <summary> multiply this with a radian to convert to degree. </summary>
+        </member>
         <member name="T:Nums.dvec3">
             <summary>
             A 3 component vector of double
@@ -76,17 +93,17 @@
         </member>
         <member name="F:Nums.dvec3.unitx">
             <summary>
-            A unit vector pointing in the positive x direction.
+            A unit vector pointing in the positive x direction. →
             </summary>
         </member>
         <member name="F:Nums.dvec3.unity">
             <summary>
-            A unit vector pointing in the positive y direction.
+            A unit vector pointing in the positive y direction. ↑
             </summary>
         </member>
         <member name="F:Nums.dvec3.unitz">
             <summary>
-            A unit vector pointing in the positive z direction.
+            A unit vector pointing in the positive z direction. ↗
             </summary>
         </member>
         <member name="F:Nums.dvec3.one">
@@ -146,22 +163,22 @@
         </member>
         <member name="F:Nums.dvec4.unitx">
             <summary>
-            A unit vector pointing in the positive x direction.
+            A unit vector pointing in the positive x direction. →
             </summary>
         </member>
         <member name="F:Nums.dvec4.unity">
             <summary>
-            A unit vector pointing in the positive y direction.
+            A unit vector pointing in the positive y direction. ↑
             </summary>
         </member>
         <member name="F:Nums.dvec4.unitz">
             <summary>
-            A unit vector pointing in the positive z direction.
+            A unit vector pointing in the positive z direction. ↗
             </summary>
         </member>
         <member name="F:Nums.dvec4.unitw">
             <summary>
-            A unit vector pointing in the positive w direction.
+            A unit vector pointing in the positive w direction. 
             </summary>
         </member>
         <member name="F:Nums.dvec4.one">
@@ -226,12 +243,12 @@
         </member>
         <member name="F:Nums.ivec2.unitx">
             <summary>
-            A unit vector pointing in the positive x direction.
+            A unit vector pointing in the positive x direction. →
             </summary>
         </member>
         <member name="F:Nums.ivec2.unity">
             <summary>
-            A unit vector pointing in the positive y direction.
+            A unit vector pointing in the positive y direction. ↑
             </summary>
         </member>
         <member name="F:Nums.ivec2.one">
@@ -286,17 +303,17 @@
         </member>
         <member name="F:Nums.ivec3.unitx">
             <summary>
-            A unit vector pointing in the positive x direction.
+            A unit vector pointing in the positive x direction. →
             </summary>
         </member>
         <member name="F:Nums.ivec3.unity">
             <summary>
-            A unit vector pointing in the positive y direction.
+            A unit vector pointing in the positive y direction. ↑
             </summary>
         </member>
         <member name="F:Nums.ivec3.unitz">
             <summary>
-            A unit vector pointing in the positive z direction.
+            A unit vector pointing in the positive z direction. ↗
             </summary>
         </member>
         <member name="F:Nums.ivec3.one">
@@ -356,22 +373,22 @@
         </member>
         <member name="F:Nums.ivec4.unitx">
             <summary>
-            A unit vector pointing in the positive x direction.
+            A unit vector pointing in the positive x direction. →
             </summary>
         </member>
         <member name="F:Nums.ivec4.unity">
             <summary>
-            A unit vector pointing in the positive y direction.
+            A unit vector pointing in the positive y direction. ↑
             </summary>
         </member>
         <member name="F:Nums.ivec4.unitz">
             <summary>
-            A unit vector pointing in the positive z direction.
+            A unit vector pointing in the positive z direction. ↗
             </summary>
         </member>
         <member name="F:Nums.ivec4.unitw">
             <summary>
-            A unit vector pointing in the positive w direction.
+            A unit vector pointing in the positive w direction. 
             </summary>
         </member>
         <member name="F:Nums.ivec4.one">
@@ -436,12 +453,12 @@
         </member>
         <member name="F:Nums.vec2.unitx">
             <summary>
-            A unit vector pointing in the positive x direction.
+            A unit vector pointing in the positive x direction. →
             </summary>
         </member>
         <member name="F:Nums.vec2.unity">
             <summary>
-            A unit vector pointing in the positive y direction.
+            A unit vector pointing in the positive y direction. ↑
             </summary>
         </member>
         <member name="F:Nums.vec2.one">
@@ -496,17 +513,17 @@
         </member>
         <member name="F:Nums.vec3.unitx">
             <summary>
-            A unit vector pointing in the positive x direction.
+            A unit vector pointing in the positive x direction. →
             </summary>
         </member>
         <member name="F:Nums.vec3.unity">
             <summary>
-            A unit vector pointing in the positive y direction.
+            A unit vector pointing in the positive y direction. ↑
             </summary>
         </member>
         <member name="F:Nums.vec3.unitz">
             <summary>
-            A unit vector pointing in the positive z direction.
+            A unit vector pointing in the positive z direction. ↗
             </summary>
         </member>
         <member name="F:Nums.vec3.one">
@@ -566,22 +583,22 @@
         </member>
         <member name="F:Nums.vec4.unitx">
             <summary>
-            A unit vector pointing in the positive x direction.
+            A unit vector pointing in the positive x direction. →
             </summary>
         </member>
         <member name="F:Nums.vec4.unity">
             <summary>
-            A unit vector pointing in the positive y direction.
+            A unit vector pointing in the positive y direction. ↑
             </summary>
         </member>
         <member name="F:Nums.vec4.unitz">
             <summary>
-            A unit vector pointing in the positive z direction.
+            A unit vector pointing in the positive z direction. ↗
             </summary>
         </member>
         <member name="F:Nums.vec4.unitw">
             <summary>
-            A unit vector pointing in the positive w direction.
+            A unit vector pointing in the positive w direction. 
             </summary>
         </member>
         <member name="F:Nums.vec4.one">
@@ -633,6 +650,67 @@
             <summary>
             The normalized version of this vector.
             </summary>
+        </member>
+        <member name="T:Nums.Consts">
+            <summary>
+            A static class of constants
+            </summary>
+        </member>
+        <member name="F:Nums.Consts.Pi">
+            <summary> The constant π (pi). </summary>
+        </member>
+        <member name="F:Nums.Consts.Tau">
+            <summary> The constant τ (tau). equal to 2π. </summary>
+        </member>
+        <member name="F:Nums.Consts.deg2rad">
+            <summary> multiply this with a degree to convert to radian. </summary>
+        </member>
+        <member name="F:Nums.Consts.rad2deg">
+            <summary> multiply this with a radian to convert to degree. </summary>
+        </member>
+        <member name="T:Nums.Funcs">
+            <summary>
+            Static class of diverse math functions.
+            </summary>
+        </member>
+        <member name="M:Nums.Funcs.Linearstep(System.Single,System.Single,System.Single)">
+            <summary>
+            Linear interpolation.
+            </summary>
+            <param name="x"></param>
+            <param name="y"></param>
+            <param name="t"></param>
+            <returns>The interpolated value between x and y</returns>
+        </member>
+        <member name="T:Nums.Noise">
+            <summary>
+            A static class of useful noise functions. <br />
+             • Random <br />
+             • Perlin <br /> 
+             • Worley <br />
+             • OpenSimplex <br />
+            </summary>
+        </member>
+        <member name="M:Nums.Noise.Random">
+            <summary>
+            Generates a random number.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Nums.Noise.Random(System.Int32)">
+            <summary>
+            Generates a random number.
+            </summary>
+            <param name="x">The seed</param>
+            <returns></returns>
+        </member>
+        <member name="M:Nums.Noise.Random(System.Int32,System.Int32)">
+            <summary>
+            Generates a radnom number.
+            </summary>
+            <param name="x">The first component of the seed</param>
+            <param name="y">The second component of the seed</param>
+            <returns></returns>
         </member>
     </members>
 </doc>

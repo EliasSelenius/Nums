@@ -15,15 +15,15 @@ namespace Nums {
         /// </summary>
         public static readonly dvec3 zero = (0, 0, 0);
         /// <summary>
-        /// A unit vector pointing in the positive x direction.
+        /// A unit vector pointing in the positive x direction. →
         /// </summary>
         public static readonly dvec3 unitx = (1, 0, 0);
         /// <summary>
-        /// A unit vector pointing in the positive y direction.
+        /// A unit vector pointing in the positive y direction. ↑
         /// </summary>
         public static readonly dvec3 unity = (0, 1, 0);
         /// <summary>
-        /// A unit vector pointing in the positive z direction.
+        /// A unit vector pointing in the positive z direction. ↗
         /// </summary>
         public static readonly dvec3 unitz = (0, 0, 1);
         /// <summary>
@@ -226,14 +226,27 @@ namespace Nums {
         public double angleTo(dvec3 o) => (double)Math.Acos(this.dot(o) / (this.length * o.length));
         public dvec3 lerp(dvec3 o, double t) => this + ((o - this) * t);
         public dvec3 reflect(dvec3 normal) => this - (normal * 2 * (this.dot(normal) / normal.dot(normal)));
+        public dvec3 cross(dvec3 o) => new dvec3(y * o.z - z * o.y, z * o.x - x * o.z, x * o.y - y * o.x);
         #endregion
 
         #region conversion
         public static implicit operator dvec3((double, double, double) tuple) => new dvec3(tuple.Item1, tuple.Item2, tuple.Item3);
+        public static explicit operator ivec3(dvec3 v) => new ivec3((int)v.x, (int)v.y, (int)v.z);
+        public static explicit operator vec3(dvec3 v) => new vec3((float)v.x, (float)v.y, (float)v.z);
+        public static implicit operator dvec3(double n) => new dvec3(n, n, n);
         #endregion
 
         #region other
         public override string ToString() => $"({x}, {y}, {z})";
         #endregion
+    }
+    public static partial class math {
+        public static dvec3 floor(dvec3 o) => new dvec3(floor(o.x), floor(o.y), floor(o.z));
+        public static dvec3 fract(dvec3 o) => new dvec3(fract(o.x), fract(o.y), fract(o.z));
+        public static dvec3 abs(dvec3 o) => new dvec3(abs(o.x), abs(o.y), abs(o.z));
+        public static dvec3 sqrt(dvec3 o) => new dvec3(sqrt(o.x), sqrt(o.y), sqrt(o.z));
+        public static dvec3 sin(dvec3 o) => new dvec3(sin(o.x), sin(o.y), sin(o.z));
+        public static dvec3 cos(dvec3 o) => new dvec3(cos(o.x), cos(o.y), cos(o.z));
+        public static dvec3 tan(dvec3 o) => new dvec3(tan(o.x), tan(o.y), tan(o.z));
     }
 }

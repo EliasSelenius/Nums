@@ -15,15 +15,15 @@ namespace Nums {
         /// </summary>
         public static readonly ivec3 zero = (0, 0, 0);
         /// <summary>
-        /// A unit vector pointing in the positive x direction.
+        /// A unit vector pointing in the positive x direction. →
         /// </summary>
         public static readonly ivec3 unitx = (1, 0, 0);
         /// <summary>
-        /// A unit vector pointing in the positive y direction.
+        /// A unit vector pointing in the positive y direction. ↑
         /// </summary>
         public static readonly ivec3 unity = (0, 1, 0);
         /// <summary>
-        /// A unit vector pointing in the positive z direction.
+        /// A unit vector pointing in the positive z direction. ↗
         /// </summary>
         public static readonly ivec3 unitz = (0, 0, 1);
         /// <summary>
@@ -226,14 +226,20 @@ namespace Nums {
         public int angleTo(ivec3 o) => (int)Math.Acos(this.dot(o) / (this.length * o.length));
         public ivec3 lerp(ivec3 o, int t) => this + ((o - this) * t);
         public ivec3 reflect(ivec3 normal) => this - (normal * 2 * (this.dot(normal) / normal.dot(normal)));
+        public ivec3 cross(ivec3 o) => new ivec3(y * o.z - z * o.y, z * o.x - x * o.z, x * o.y - y * o.x);
         #endregion
 
         #region conversion
         public static implicit operator ivec3((int, int, int) tuple) => new ivec3(tuple.Item1, tuple.Item2, tuple.Item3);
+        public static implicit operator vec3(ivec3 v) => new vec3(v.x, v.y, v.z);
+        public static implicit operator dvec3(ivec3 v) => new dvec3(v.x, v.y, v.z);
+        public static implicit operator ivec3(int n) => new ivec3(n, n, n);
         #endregion
 
         #region other
         public override string ToString() => $"({x}, {y}, {z})";
         #endregion
+    }
+    public static partial class math {
     }
 }

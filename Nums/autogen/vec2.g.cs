@@ -15,11 +15,11 @@ namespace Nums {
         /// </summary>
         public static readonly vec2 zero = (0, 0);
         /// <summary>
-        /// A unit vector pointing in the positive x direction.
+        /// A unit vector pointing in the positive x direction. →
         /// </summary>
         public static readonly vec2 unitx = (1, 0);
         /// <summary>
-        /// A unit vector pointing in the positive y direction.
+        /// A unit vector pointing in the positive y direction. ↑
         /// </summary>
         public static readonly vec2 unity = (0, 1);
         /// <summary>
@@ -121,10 +121,22 @@ namespace Nums {
 
         #region conversion
         public static implicit operator vec2((float, float) tuple) => new vec2(tuple.Item1, tuple.Item2);
+        public static explicit operator ivec2(vec2 v) => new ivec2((int)v.x, (int)v.y);
+        public static implicit operator dvec2(vec2 v) => new dvec2(v.x, v.y);
+        public static implicit operator vec2(float n) => new vec2(n, n);
         #endregion
 
         #region other
         public override string ToString() => $"({x}, {y})";
         #endregion
+    }
+    public static partial class math {
+        public static vec2 floor(vec2 o) => new vec2(floor(o.x), floor(o.y));
+        public static vec2 fract(vec2 o) => new vec2(fract(o.x), fract(o.y));
+        public static vec2 abs(vec2 o) => new vec2(abs(o.x), abs(o.y));
+        public static vec2 sqrt(vec2 o) => new vec2(sqrt(o.x), sqrt(o.y));
+        public static vec2 sin(vec2 o) => new vec2(sin(o.x), sin(o.y));
+        public static vec2 cos(vec2 o) => new vec2(cos(o.x), cos(o.y));
+        public static vec2 tan(vec2 o) => new vec2(tan(o.x), tan(o.y));
     }
 }

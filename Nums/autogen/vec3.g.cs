@@ -15,15 +15,15 @@ namespace Nums {
         /// </summary>
         public static readonly vec3 zero = (0, 0, 0);
         /// <summary>
-        /// A unit vector pointing in the positive x direction.
+        /// A unit vector pointing in the positive x direction. →
         /// </summary>
         public static readonly vec3 unitx = (1, 0, 0);
         /// <summary>
-        /// A unit vector pointing in the positive y direction.
+        /// A unit vector pointing in the positive y direction. ↑
         /// </summary>
         public static readonly vec3 unity = (0, 1, 0);
         /// <summary>
-        /// A unit vector pointing in the positive z direction.
+        /// A unit vector pointing in the positive z direction. ↗
         /// </summary>
         public static readonly vec3 unitz = (0, 0, 1);
         /// <summary>
@@ -226,14 +226,27 @@ namespace Nums {
         public float angleTo(vec3 o) => (float)Math.Acos(this.dot(o) / (this.length * o.length));
         public vec3 lerp(vec3 o, float t) => this + ((o - this) * t);
         public vec3 reflect(vec3 normal) => this - (normal * 2 * (this.dot(normal) / normal.dot(normal)));
+        public vec3 cross(vec3 o) => new vec3(y * o.z - z * o.y, z * o.x - x * o.z, x * o.y - y * o.x);
         #endregion
 
         #region conversion
         public static implicit operator vec3((float, float, float) tuple) => new vec3(tuple.Item1, tuple.Item2, tuple.Item3);
+        public static explicit operator ivec3(vec3 v) => new ivec3((int)v.x, (int)v.y, (int)v.z);
+        public static implicit operator dvec3(vec3 v) => new dvec3(v.x, v.y, v.z);
+        public static implicit operator vec3(float n) => new vec3(n, n, n);
         #endregion
 
         #region other
         public override string ToString() => $"({x}, {y}, {z})";
         #endregion
+    }
+    public static partial class math {
+        public static vec3 floor(vec3 o) => new vec3(floor(o.x), floor(o.y), floor(o.z));
+        public static vec3 fract(vec3 o) => new vec3(fract(o.x), fract(o.y), fract(o.z));
+        public static vec3 abs(vec3 o) => new vec3(abs(o.x), abs(o.y), abs(o.z));
+        public static vec3 sqrt(vec3 o) => new vec3(sqrt(o.x), sqrt(o.y), sqrt(o.z));
+        public static vec3 sin(vec3 o) => new vec3(sin(o.x), sin(o.y), sin(o.z));
+        public static vec3 cos(vec3 o) => new vec3(cos(o.x), cos(o.y), cos(o.z));
+        public static vec3 tan(vec3 o) => new vec3(tan(o.x), tan(o.y), tan(o.z));
     }
 }

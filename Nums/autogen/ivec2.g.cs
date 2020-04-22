@@ -15,11 +15,11 @@ namespace Nums {
         /// </summary>
         public static readonly ivec2 zero = (0, 0);
         /// <summary>
-        /// A unit vector pointing in the positive x direction.
+        /// A unit vector pointing in the positive x direction. →
         /// </summary>
         public static readonly ivec2 unitx = (1, 0);
         /// <summary>
-        /// A unit vector pointing in the positive y direction.
+        /// A unit vector pointing in the positive y direction. ↑
         /// </summary>
         public static readonly ivec2 unity = (0, 1);
         /// <summary>
@@ -121,10 +121,15 @@ namespace Nums {
 
         #region conversion
         public static implicit operator ivec2((int, int) tuple) => new ivec2(tuple.Item1, tuple.Item2);
+        public static implicit operator vec2(ivec2 v) => new vec2(v.x, v.y);
+        public static implicit operator dvec2(ivec2 v) => new dvec2(v.x, v.y);
+        public static implicit operator ivec2(int n) => new ivec2(n, n);
         #endregion
 
         #region other
         public override string ToString() => $"({x}, {y})";
         #endregion
+    }
+    public static partial class math {
     }
 }

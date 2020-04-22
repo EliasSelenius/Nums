@@ -7,22 +7,50 @@ namespace NumsCodeGenerator {
     public class VectorStruct : FileGenerator {
 
         private string name;
+
+        /// <summary>
+        /// Array of component names. E.g: ['x', 'y', 'z', 'w']
+        /// </summary>
         private string[] compsNames;
+
+        /// <summary>
+        /// the type of this vector. E.g: float, int, double
+        /// </summary>
         private string type;
+
+        /// <summary>
+        /// vector name plus number of components. E.g: vec3, dvec2, etc..
+        /// </summary>
         private string vecName;
 
-        public VectorStruct(string name, string type, params string[] compNames) : base (name + compNames.Length) {
+        private readonly CodeBuilder mathClass = new CodeBuilder();
+
+        public VectorStruct(string name, string type, params string[] compNames) : base(name + compNames.Length) {
             this.name = name;
             this.compsNames = compNames;
             this.type = type;
             this.vecName = name + compNames.Length;
         }
 
+        private static string unitVectorSymbol(int i) => i switch
+        {
+            0 => "→",
+            1 => "↑",
+            2 => "↗",
+            _ => ""
+        };
+
         protected override void generate() {
+
+            // genetate math class first
+            mathClass.numTabs++;
+            mathClass.startBlock("public static partial class math");
+
+
             writeline("using System;");
             writeline("using System.Runtime.InteropServices;");
             linebreak();
-            
+
             startBlock("namespace Nums");
             linebreak();
 
@@ -69,8 +97,13 @@ namespace NumsCodeGenerator {
             endregion();
 
 
-            endBlock();
-            endBlock();
+            endBlock(); // end vector struct block
+
+            mathClass.endBlock(); // end math partial class
+            writesection(mathClass);
+            
+            endBlock(); // end namespace
+
         }
 
 
@@ -78,20 +111,20 @@ namespace NumsCodeGenerator {
             region("constants");
 
             var constantcomps = new string[compsNames.Length];
-            
+
             for (int i = 0; i < constantcomps.Length; i++)
                 constantcomps[i] = "0";
 
             summary("The zero vector: A vector where all components are equal to zero.");
             writeline($"public static readonly {vecName} zero = ({constantcomps.Aggregate((x, y) => x + ", " + y)});");
-            
+
             for (int i = 0; i < compsNames.Length; i++) {
                 constantcomps[i] = "1";
-                summary("A unit vector pointing in the positive " + compsNames[i] + " direction.");
+                summary("A unit vector pointing in the positive " + compsNames[i] + " direction. " + unitVectorSymbol(i));
                 writeline($"public static readonly {vecName} unit{compsNames[i]} = ({constantcomps.Aggregate((x, y) => x + ", " + y)});");
                 constantcomps[i] = "0";
             }
-            
+
             for (int i = 0; i < constantcomps.Length; i++)
                 constantcomps[i] = "1";
             summary("A vector where all components are equal to one.");
@@ -186,6 +219,8 @@ namespace NumsCodeGenerator {
             _paramsassigmentcode(compsNames);
             endBlock();
 
+            
+
             endregion();
         }
 
@@ -232,19 +267,88 @@ namespace NumsCodeGenerator {
             writeline($"public {vecName} lerp({vecName} o, {type} t) => this + ((o - this) * t);");
             writeline($"public {vecName} reflect({vecName} normal) => this - (normal * 2 * (this.dot(normal) / normal.dot(normal)));");
 
+
+            if (compsNames.Length == 3) {
+                // only write for 3-dimensional vectors
+                writeline($"public {vecName} cross({vecName} o) => new {vecName}(y * o.z - z * o.y, z * o.x - x * o.z, x * o.y - y * o.x);");
+            }
+
+            var a = compsNames.Select(x => $"_R_(o.{x})").Aggregate((x, y) => x + ", " + y);
+            void mathFunc(string name) {
+                mathClass.writeline($"public static {vecName} {name}({vecName} o) => new {vecName}({a.Replace("_R_", name)});");
+            }
+
+            if (!type.Equals("int")) {
+                mathFunc("floor");
+                mathFunc("fract");
+                mathFunc("abs");
+                mathFunc("sqrt");
+                //mathFunc("pow");
+                mathFunc("sin");
+                mathFunc("cos");
+                mathFunc("tan");
+
+            }
+
             endregion();
         }
 
         private void genCastOperands() {
             region("conversion");
 
+            // tuple cast
             var tupletype = compsNames.Select(x => type).Aggregate((x, c) => x + ", " + c);
             var tupleparams = new string[compsNames.Length];
             for (int i = 0; i < compsNames.Length; i++)
                 tupleparams[i] = "tuple.Item" + (i + 1);
             writeline($"public static implicit operator {vecName}(({tupletype}) tuple) => new {vecName}({tupleparams.Aggregate((x, v) => x + ", " + v)});");
 
+
+            // casts to other vectortypes
+            var conversions = typeCastMap[name];
+            foreach (var item in conversions) {
+                var otherVecName = item.Key + compsNames.Length;
+
+                var prefix = item.Value.Equals("explicit") ? $"({getPrimitiveType(item.Key)})v." : "v.";
+                var constructorargs = compsNames.Select(x => prefix + x).Aggregate((x, y) => x + ", " + y);
+                
+                writeline($"public static {item.Value} operator {otherVecName}({vecName} v) => new {otherVecName}({constructorargs});");
+            }
+
+            // from single number to vector
+            writeline($"public static implicit operator {vecName}({type} n) => new {vecName}({compsNames.Select(x => "n").Aggregate((x, y) => x + ", " + y)});");
+            
             endregion();
         }
+
+        private static string getPrimitiveType(string vectorType)
+            => vectorType switch
+            {
+                "vec" => "float",
+                "ivec" => "int",
+                "dvec" => "double"
+            };
+
+        private static readonly Dictionary<string, Dictionary<string, string>> typeCastMap = new Dictionary<string, Dictionary<string, string>>() {
+            { "ivec", 
+                new Dictionary<string, string>() {
+                    { "vec", "implicit" },
+                    { "dvec", "implicit" }
+                }
+            },
+            { "vec",
+                new Dictionary<string, string>() {
+                    { "ivec", "explicit" },
+                    { "dvec", "implicit" }
+                }
+            },
+            { "dvec",
+                new Dictionary<string, string>() {
+                    { "ivec", "explicit" },
+                    { "vec", "explicit" }
+                }
+            }
+        };
+
     }
 }

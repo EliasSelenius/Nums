@@ -15,19 +15,19 @@ namespace Nums {
         /// </summary>
         public static readonly vec4 zero = (0, 0, 0, 0);
         /// <summary>
-        /// A unit vector pointing in the positive x direction.
+        /// A unit vector pointing in the positive x direction. →
         /// </summary>
         public static readonly vec4 unitx = (1, 0, 0, 0);
         /// <summary>
-        /// A unit vector pointing in the positive y direction.
+        /// A unit vector pointing in the positive y direction. ↑
         /// </summary>
         public static readonly vec4 unity = (0, 1, 0, 0);
         /// <summary>
-        /// A unit vector pointing in the positive z direction.
+        /// A unit vector pointing in the positive z direction. ↗
         /// </summary>
         public static readonly vec4 unitz = (0, 0, 1, 0);
         /// <summary>
-        /// A unit vector pointing in the positive w direction.
+        /// A unit vector pointing in the positive w direction. 
         /// </summary>
         public static readonly vec4 unitw = (0, 0, 0, 1);
         /// <summary>
@@ -895,10 +895,22 @@ namespace Nums {
 
         #region conversion
         public static implicit operator vec4((float, float, float, float) tuple) => new vec4(tuple.Item1, tuple.Item2, tuple.Item3, tuple.Item4);
+        public static explicit operator ivec4(vec4 v) => new ivec4((int)v.x, (int)v.y, (int)v.z, (int)v.w);
+        public static implicit operator dvec4(vec4 v) => new dvec4(v.x, v.y, v.z, v.w);
+        public static implicit operator vec4(float n) => new vec4(n, n, n, n);
         #endregion
 
         #region other
         public override string ToString() => $"({x}, {y}, {z}, {w})";
         #endregion
+    }
+    public static partial class math {
+        public static vec4 floor(vec4 o) => new vec4(floor(o.x), floor(o.y), floor(o.z), floor(o.w));
+        public static vec4 fract(vec4 o) => new vec4(fract(o.x), fract(o.y), fract(o.z), fract(o.w));
+        public static vec4 abs(vec4 o) => new vec4(abs(o.x), abs(o.y), abs(o.z), abs(o.w));
+        public static vec4 sqrt(vec4 o) => new vec4(sqrt(o.x), sqrt(o.y), sqrt(o.z), sqrt(o.w));
+        public static vec4 sin(vec4 o) => new vec4(sin(o.x), sin(o.y), sin(o.z), sin(o.w));
+        public static vec4 cos(vec4 o) => new vec4(cos(o.x), cos(o.y), cos(o.z), cos(o.w));
+        public static vec4 tan(vec4 o) => new vec4(tan(o.x), tan(o.y), tan(o.z), tan(o.w));
     }
 }

@@ -15,11 +15,11 @@ namespace Nums {
         /// </summary>
         public static readonly dvec2 zero = (0, 0);
         /// <summary>
-        /// A unit vector pointing in the positive x direction.
+        /// A unit vector pointing in the positive x direction. →
         /// </summary>
         public static readonly dvec2 unitx = (1, 0);
         /// <summary>
-        /// A unit vector pointing in the positive y direction.
+        /// A unit vector pointing in the positive y direction. ↑
         /// </summary>
         public static readonly dvec2 unity = (0, 1);
         /// <summary>
@@ -121,10 +121,22 @@ namespace Nums {
 
         #region conversion
         public static implicit operator dvec2((double, double) tuple) => new dvec2(tuple.Item1, tuple.Item2);
+        public static explicit operator ivec2(dvec2 v) => new ivec2((int)v.x, (int)v.y);
+        public static explicit operator vec2(dvec2 v) => new vec2((float)v.x, (float)v.y);
+        public static implicit operator dvec2(double n) => new dvec2(n, n);
         #endregion
 
         #region other
         public override string ToString() => $"({x}, {y})";
         #endregion
+    }
+    public static partial class math {
+        public static dvec2 floor(dvec2 o) => new dvec2(floor(o.x), floor(o.y));
+        public static dvec2 fract(dvec2 o) => new dvec2(fract(o.x), fract(o.y));
+        public static dvec2 abs(dvec2 o) => new dvec2(abs(o.x), abs(o.y));
+        public static dvec2 sqrt(dvec2 o) => new dvec2(sqrt(o.x), sqrt(o.y));
+        public static dvec2 sin(dvec2 o) => new dvec2(sin(o.x), sin(o.y));
+        public static dvec2 cos(dvec2 o) => new dvec2(cos(o.x), cos(o.y));
+        public static dvec2 tan(dvec2 o) => new dvec2(tan(o.x), tan(o.y));
     }
 }
