@@ -11,8 +11,8 @@
 
 
   <ItemGroup>
-    <Folder Include="autogen\" />
-    <Folder Include="vectors\" />
+    <Folder Include="autogen\matrices\" />
+    <Folder Include="autogen\vectors\" />
   </ItemGroup>
 
   <Target Name="GenCode" DependsOnTargets="executeGen" BeforeTargets="DispatchToInnerBuilds">

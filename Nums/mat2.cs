@@ -5,7 +5,7 @@ using System.Text;
 using Nums;
 
 namespace Nums {
-    public struct mat2 {
+    public struct __mat2 {
 
         public vec2 row0, row1;
 
@@ -63,11 +63,11 @@ namespace Nums {
         #endregion
 
 
-        public mat2(vec2 r0, vec2 r1) {
+        public __mat2(vec2 r0, vec2 r1) {
             row0 = r0; row1 = r1;
         }
 
-        public mat2(float m00, float m01, float m10, float m11) {
+        public __mat2(float m00, float m01, float m10, float m11) {
             row0 = new vec2(m00, m01);
             row1 = new vec2(m10, m11);
         }
@@ -76,13 +76,13 @@ namespace Nums {
 
         #region arithmetic
 
-        //public static vec2 operator *(mat2 m, vec2 v) => new vec2((m.row0 as IVector<vec2>).dot(v), m.row1.dot(v));
+        //public static vec2 operator *(__mat2 m, vec2 v) => new vec2((m.row0 as IVector<vec2>).dot(v), m.row1.dot(v));
 
         #endregion
 
         #region conversion
 
-        public static implicit operator mat2((float, float, float, float) t) => new mat2(t.Item1, t.Item2, t.Item3, t.Item4);
+        public static implicit operator __mat2((float, float, float, float) t) => new __mat2(t.Item1, t.Item2, t.Item3, t.Item4);
 
         #endregion
 

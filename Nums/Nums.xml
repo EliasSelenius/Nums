@@ -4,6 +4,906 @@
         <name>Nums</name>
     </assembly>
     <members>
+        <member name="T:Nums.dmat2">
+            <summary>
+            A 2 by 2 matrix
+            </summary>
+        </member>
+        <member name="P:Nums.dmat2.m11">
+            <summary>
+            Gets the value at the first row in the first column
+            </summary>
+        </member>
+        <member name="P:Nums.dmat2.m12">
+            <summary>
+            Gets the value at the first row in the second column
+            </summary>
+        </member>
+        <member name="P:Nums.dmat2.m21">
+            <summary>
+            Gets the value at the second row in the first column
+            </summary>
+        </member>
+        <member name="P:Nums.dmat2.m22">
+            <summary>
+            Gets the value at the second row in the second column
+            </summary>
+        </member>
+        <member name="T:Nums.dmat2x3">
+            <summary>
+            A 2 by 3 matrix
+            </summary>
+        </member>
+        <member name="P:Nums.dmat2x3.m11">
+            <summary>
+            Gets the value at the first row in the first column
+            </summary>
+        </member>
+        <member name="P:Nums.dmat2x3.m12">
+            <summary>
+            Gets the value at the first row in the second column
+            </summary>
+        </member>
+        <member name="P:Nums.dmat2x3.m13">
+            <summary>
+            Gets the value at the first row in the third column
+            </summary>
+        </member>
+        <member name="P:Nums.dmat2x3.m21">
+            <summary>
+            Gets the value at the second row in the first column
+            </summary>
+        </member>
+        <member name="P:Nums.dmat2x3.m22">
+            <summary>
+            Gets the value at the second row in the second column
+            </summary>
+        </member>
+        <member name="P:Nums.dmat2x3.m23">
+            <summary>
+            Gets the value at the second row in the third column
+            </summary>
+        </member>
+        <member name="T:Nums.dmat2x4">
+            <summary>
+            A 2 by 4 matrix
+            </summary>
+        </member>
+        <member name="P:Nums.dmat2x4.m11">
+            <summary>
+            Gets the value at the first row in the first column
+            </summary>
+        </member>
+        <member name="P:Nums.dmat2x4.m12">
+            <summary>
+            Gets the value at the first row in the second column
+            </summary>
+        </member>
+        <member name="P:Nums.dmat2x4.m13">
+            <summary>
+            Gets the value at the first row in the third column
+            </summary>
+        </member>
+        <member name="P:Nums.dmat2x4.m14">
+            <summary>
+            Gets the value at the first row in the fourth column
+            </summary>
+        </member>
+        <member name="P:Nums.dmat2x4.m21">
+            <summary>
+            Gets the value at the second row in the first column
+            </summary>
+        </member>
+        <member name="P:Nums.dmat2x4.m22">
+            <summary>
+            Gets the value at the second row in the second column
+            </summary>
+        </member>
+        <member name="P:Nums.dmat2x4.m23">
+            <summary>
+            Gets the value at the second row in the third column
+            </summary>
+        </member>
+        <member name="P:Nums.dmat2x4.m24">
+            <summary>
+            Gets the value at the second row in the fourth column
+            </summary>
+        </member>
+        <member name="T:Nums.dmat3">
+            <summary>
+            A 3 by 3 matrix
+            </summary>
+        </member>
+        <member name="P:Nums.dmat3.m11">
+            <summary>
+            Gets the value at the first row in the first column
+            </summary>
+        </member>
+        <member name="P:Nums.dmat3.m12">
+            <summary>
+            Gets the value at the first row in the second column
+            </summary>
+        </member>
+        <member name="P:Nums.dmat3.m13">
+            <summary>
+            Gets the value at the first row in the third column
+            </summary>
+        </member>
+        <member name="P:Nums.dmat3.m21">
+            <summary>
+            Gets the value at the second row in the first column
+            </summary>
+        </member>
+        <member name="P:Nums.dmat3.m22">
+            <summary>
+            Gets the value at the second row in the second column
+            </summary>
+        </member>
+        <member name="P:Nums.dmat3.m23">
+            <summary>
+            Gets the value at the second row in the third column
+            </summary>
+        </member>
+        <member name="P:Nums.dmat3.m31">
+            <summary>
+            Gets the value at the third row in the first column
+            </summary>
+        </member>
+        <member name="P:Nums.dmat3.m32">
+            <summary>
+            Gets the value at the third row in the second column
+            </summary>
+        </member>
+        <member name="P:Nums.dmat3.m33">
+            <summary>
+            Gets the value at the third row in the third column
+            </summary>
+        </member>
+        <member name="T:Nums.dmat3x2">
+            <summary>
+            A 3 by 2 matrix
+            </summary>
+        </member>
+        <member name="P:Nums.dmat3x2.m11">
+            <summary>
+            Gets the value at the first row in the first column
+            </summary>
+        </member>
+        <member name="P:Nums.dmat3x2.m12">
+            <summary>
+            Gets the value at the first row in the second column
+            </summary>
+        </member>
+        <member name="P:Nums.dmat3x2.m21">
+            <summary>
+            Gets the value at the second row in the first column
+            </summary>
+        </member>
+        <member name="P:Nums.dmat3x2.m22">
+            <summary>
+            Gets the value at the second row in the second column
+            </summary>
+        </member>
+        <member name="P:Nums.dmat3x2.m31">
+            <summary>
+            Gets the value at the third row in the first column
+            </summary>
+        </member>
+        <member name="P:Nums.dmat3x2.m32">
+            <summary>
+            Gets the value at the third row in the second column
+            </summary>
+        </member>
+        <member name="T:Nums.dmat3x4">
+            <summary>
+            A 3 by 4 matrix
+            </summary>
+        </member>
+        <member name="P:Nums.dmat3x4.m11">
+            <summary>
+            Gets the value at the first row in the first column
+            </summary>
+        </member>
+        <member name="P:Nums.dmat3x4.m12">
+            <summary>
+            Gets the value at the first row in the second column
+            </summary>
+        </member>
+        <member name="P:Nums.dmat3x4.m13">
+            <summary>
+            Gets the value at the first row in the third column
+            </summary>
+        </member>
+        <member name="P:Nums.dmat3x4.m14">
+            <summary>
+            Gets the value at the first row in the fourth column
+            </summary>
+        </member>
+        <member name="P:Nums.dmat3x4.m21">
+            <summary>
+            Gets the value at the second row in the first column
+            </summary>
+        </member>
+        <member name="P:Nums.dmat3x4.m22">
+            <summary>
+            Gets the value at the second row in the second column
+            </summary>
+        </member>
+        <member name="P:Nums.dmat3x4.m23">
+            <summary>
+            Gets the value at the second row in the third column
+            </summary>
+        </member>
+        <member name="P:Nums.dmat3x4.m24">
+            <summary>
+            Gets the value at the second row in the fourth column
+            </summary>
+        </member>
+        <member name="P:Nums.dmat3x4.m31">
+            <summary>
+            Gets the value at the third row in the first column
+            </summary>
+        </member>
+        <member name="P:Nums.dmat3x4.m32">
+            <summary>
+            Gets the value at the third row in the second column
+            </summary>
+        </member>
+        <member name="P:Nums.dmat3x4.m33">
+            <summary>
+            Gets the value at the third row in the third column
+            </summary>
+        </member>
+        <member name="P:Nums.dmat3x4.m34">
+            <summary>
+            Gets the value at the third row in the fourth column
+            </summary>
+        </member>
+        <member name="T:Nums.dmat4">
+            <summary>
+            A 4 by 4 matrix
+            </summary>
+        </member>
+        <member name="P:Nums.dmat4.m11">
+            <summary>
+            Gets the value at the first row in the first column
+            </summary>
+        </member>
+        <member name="P:Nums.dmat4.m12">
+            <summary>
+            Gets the value at the first row in the second column
+            </summary>
+        </member>
+        <member name="P:Nums.dmat4.m13">
+            <summary>
+            Gets the value at the first row in the third column
+            </summary>
+        </member>
+        <member name="P:Nums.dmat4.m14">
+            <summary>
+            Gets the value at the first row in the fourth column
+            </summary>
+        </member>
+        <member name="P:Nums.dmat4.m21">
+            <summary>
+            Gets the value at the second row in the first column
+            </summary>
+        </member>
+        <member name="P:Nums.dmat4.m22">
+            <summary>
+            Gets the value at the second row in the second column
+            </summary>
+        </member>
+        <member name="P:Nums.dmat4.m23">
+            <summary>
+            Gets the value at the second row in the third column
+            </summary>
+        </member>
+        <member name="P:Nums.dmat4.m24">
+            <summary>
+            Gets the value at the second row in the fourth column
+            </summary>
+        </member>
+        <member name="P:Nums.dmat4.m31">
+            <summary>
+            Gets the value at the third row in the first column
+            </summary>
+        </member>
+        <member name="P:Nums.dmat4.m32">
+            <summary>
+            Gets the value at the third row in the second column
+            </summary>
+        </member>
+        <member name="P:Nums.dmat4.m33">
+            <summary>
+            Gets the value at the third row in the third column
+            </summary>
+        </member>
+        <member name="P:Nums.dmat4.m34">
+            <summary>
+            Gets the value at the third row in the fourth column
+            </summary>
+        </member>
+        <member name="P:Nums.dmat4.m41">
+            <summary>
+            Gets the value at the fourth row in the first column
+            </summary>
+        </member>
+        <member name="P:Nums.dmat4.m42">
+            <summary>
+            Gets the value at the fourth row in the second column
+            </summary>
+        </member>
+        <member name="P:Nums.dmat4.m43">
+            <summary>
+            Gets the value at the fourth row in the third column
+            </summary>
+        </member>
+        <member name="P:Nums.dmat4.m44">
+            <summary>
+            Gets the value at the fourth row in the fourth column
+            </summary>
+        </member>
+        <member name="T:Nums.dmat4x2">
+            <summary>
+            A 4 by 2 matrix
+            </summary>
+        </member>
+        <member name="P:Nums.dmat4x2.m11">
+            <summary>
+            Gets the value at the first row in the first column
+            </summary>
+        </member>
+        <member name="P:Nums.dmat4x2.m12">
+            <summary>
+            Gets the value at the first row in the second column
+            </summary>
+        </member>
+        <member name="P:Nums.dmat4x2.m21">
+            <summary>
+            Gets the value at the second row in the first column
+            </summary>
+        </member>
+        <member name="P:Nums.dmat4x2.m22">
+            <summary>
+            Gets the value at the second row in the second column
+            </summary>
+        </member>
+        <member name="P:Nums.dmat4x2.m31">
+            <summary>
+            Gets the value at the third row in the first column
+            </summary>
+        </member>
+        <member name="P:Nums.dmat4x2.m32">
+            <summary>
+            Gets the value at the third row in the second column
+            </summary>
+        </member>
+        <member name="P:Nums.dmat4x2.m41">
+            <summary>
+            Gets the value at the fourth row in the first column
+            </summary>
+        </member>
+        <member name="P:Nums.dmat4x2.m42">
+            <summary>
+            Gets the value at the fourth row in the second column
+            </summary>
+        </member>
+        <member name="T:Nums.dmat4x3">
+            <summary>
+            A 4 by 3 matrix
+            </summary>
+        </member>
+        <member name="P:Nums.dmat4x3.m11">
+            <summary>
+            Gets the value at the first row in the first column
+            </summary>
+        </member>
+        <member name="P:Nums.dmat4x3.m12">
+            <summary>
+            Gets the value at the first row in the second column
+            </summary>
+        </member>
+        <member name="P:Nums.dmat4x3.m13">
+            <summary>
+            Gets the value at the first row in the third column
+            </summary>
+        </member>
+        <member name="P:Nums.dmat4x3.m21">
+            <summary>
+            Gets the value at the second row in the first column
+            </summary>
+        </member>
+        <member name="P:Nums.dmat4x3.m22">
+            <summary>
+            Gets the value at the second row in the second column
+            </summary>
+        </member>
+        <member name="P:Nums.dmat4x3.m23">
+            <summary>
+            Gets the value at the second row in the third column
+            </summary>
+        </member>
+        <member name="P:Nums.dmat4x3.m31">
+            <summary>
+            Gets the value at the third row in the first column
+            </summary>
+        </member>
+        <member name="P:Nums.dmat4x3.m32">
+            <summary>
+            Gets the value at the third row in the second column
+            </summary>
+        </member>
+        <member name="P:Nums.dmat4x3.m33">
+            <summary>
+            Gets the value at the third row in the third column
+            </summary>
+        </member>
+        <member name="P:Nums.dmat4x3.m41">
+            <summary>
+            Gets the value at the fourth row in the first column
+            </summary>
+        </member>
+        <member name="P:Nums.dmat4x3.m42">
+            <summary>
+            Gets the value at the fourth row in the second column
+            </summary>
+        </member>
+        <member name="P:Nums.dmat4x3.m43">
+            <summary>
+            Gets the value at the fourth row in the third column
+            </summary>
+        </member>
+        <member name="T:Nums.mat2">
+            <summary>
+            A 2 by 2 matrix
+            </summary>
+        </member>
+        <member name="P:Nums.mat2.m11">
+            <summary>
+            Gets the value at the first row in the first column
+            </summary>
+        </member>
+        <member name="P:Nums.mat2.m12">
+            <summary>
+            Gets the value at the first row in the second column
+            </summary>
+        </member>
+        <member name="P:Nums.mat2.m21">
+            <summary>
+            Gets the value at the second row in the first column
+            </summary>
+        </member>
+        <member name="P:Nums.mat2.m22">
+            <summary>
+            Gets the value at the second row in the second column
+            </summary>
+        </member>
+        <member name="T:Nums.mat2x3">
+            <summary>
+            A 2 by 3 matrix
+            </summary>
+        </member>
+        <member name="P:Nums.mat2x3.m11">
+            <summary>
+            Gets the value at the first row in the first column
+            </summary>
+        </member>
+        <member name="P:Nums.mat2x3.m12">
+            <summary>
+            Gets the value at the first row in the second column
+            </summary>
+        </member>
+        <member name="P:Nums.mat2x3.m13">
+            <summary>
+            Gets the value at the first row in the third column
+            </summary>
+        </member>
+        <member name="P:Nums.mat2x3.m21">
+            <summary>
+            Gets the value at the second row in the first column
+            </summary>
+        </member>
+        <member name="P:Nums.mat2x3.m22">
+            <summary>
+            Gets the value at the second row in the second column
+            </summary>
+        </member>
+        <member name="P:Nums.mat2x3.m23">
+            <summary>
+            Gets the value at the second row in the third column
+            </summary>
+        </member>
+        <member name="T:Nums.mat2x4">
+            <summary>
+            A 2 by 4 matrix
+            </summary>
+        </member>
+        <member name="P:Nums.mat2x4.m11">
+            <summary>
+            Gets the value at the first row in the first column
+            </summary>
+        </member>
+        <member name="P:Nums.mat2x4.m12">
+            <summary>
+            Gets the value at the first row in the second column
+            </summary>
+        </member>
+        <member name="P:Nums.mat2x4.m13">
+            <summary>
+            Gets the value at the first row in the third column
+            </summary>
+        </member>
+        <member name="P:Nums.mat2x4.m14">
+            <summary>
+            Gets the value at the first row in the fourth column
+            </summary>
+        </member>
+        <member name="P:Nums.mat2x4.m21">
+            <summary>
+            Gets the value at the second row in the first column
+            </summary>
+        </member>
+        <member name="P:Nums.mat2x4.m22">
+            <summary>
+            Gets the value at the second row in the second column
+            </summary>
+        </member>
+        <member name="P:Nums.mat2x4.m23">
+            <summary>
+            Gets the value at the second row in the third column
+            </summary>
+        </member>
+        <member name="P:Nums.mat2x4.m24">
+            <summary>
+            Gets the value at the second row in the fourth column
+            </summary>
+        </member>
+        <member name="T:Nums.mat3">
+            <summary>
+            A 3 by 3 matrix
+            </summary>
+        </member>
+        <member name="P:Nums.mat3.m11">
+            <summary>
+            Gets the value at the first row in the first column
+            </summary>
+        </member>
+        <member name="P:Nums.mat3.m12">
+            <summary>
+            Gets the value at the first row in the second column
+            </summary>
+        </member>
+        <member name="P:Nums.mat3.m13">
+            <summary>
+            Gets the value at the first row in the third column
+            </summary>
+        </member>
+        <member name="P:Nums.mat3.m21">
+            <summary>
+            Gets the value at the second row in the first column
+            </summary>
+        </member>
+        <member name="P:Nums.mat3.m22">
+            <summary>
+            Gets the value at the second row in the second column
+            </summary>
+        </member>
+        <member name="P:Nums.mat3.m23">
+            <summary>
+            Gets the value at the second row in the third column
+            </summary>
+        </member>
+        <member name="P:Nums.mat3.m31">
+            <summary>
+            Gets the value at the third row in the first column
+            </summary>
+        </member>
+        <member name="P:Nums.mat3.m32">
+            <summary>
+            Gets the value at the third row in the second column
+            </summary>
+        </member>
+        <member name="P:Nums.mat3.m33">
+            <summary>
+            Gets the value at the third row in the third column
+            </summary>
+        </member>
+        <member name="T:Nums.mat3x2">
+            <summary>
+            A 3 by 2 matrix
+            </summary>
+        </member>
+        <member name="P:Nums.mat3x2.m11">
+            <summary>
+            Gets the value at the first row in the first column
+            </summary>
+        </member>
+        <member name="P:Nums.mat3x2.m12">
+            <summary>
+            Gets the value at the first row in the second column
+            </summary>
+        </member>
+        <member name="P:Nums.mat3x2.m21">
+            <summary>
+            Gets the value at the second row in the first column
+            </summary>
+        </member>
+        <member name="P:Nums.mat3x2.m22">
+            <summary>
+            Gets the value at the second row in the second column
+            </summary>
+        </member>
+        <member name="P:Nums.mat3x2.m31">
+            <summary>
+            Gets the value at the third row in the first column
+            </summary>
+        </member>
+        <member name="P:Nums.mat3x2.m32">
+            <summary>
+            Gets the value at the third row in the second column
+            </summary>
+        </member>
+        <member name="T:Nums.mat3x4">
+            <summary>
+            A 3 by 4 matrix
+            </summary>
+        </member>
+        <member name="P:Nums.mat3x4.m11">
+            <summary>
+            Gets the value at the first row in the first column
+            </summary>
+        </member>
+        <member name="P:Nums.mat3x4.m12">
+            <summary>
+            Gets the value at the first row in the second column
+            </summary>
+        </member>
+        <member name="P:Nums.mat3x4.m13">
+            <summary>
+            Gets the value at the first row in the third column
+            </summary>
+        </member>
+        <member name="P:Nums.mat3x4.m14">
+            <summary>
+            Gets the value at the first row in the fourth column
+            </summary>
+        </member>
+        <member name="P:Nums.mat3x4.m21">
+            <summary>
+            Gets the value at the second row in the first column
+            </summary>
+        </member>
+        <member name="P:Nums.mat3x4.m22">
+            <summary>
+            Gets the value at the second row in the second column
+            </summary>
+        </member>
+        <member name="P:Nums.mat3x4.m23">
+            <summary>
+            Gets the value at the second row in the third column
+            </summary>
+        </member>
+        <member name="P:Nums.mat3x4.m24">
+            <summary>
+            Gets the value at the second row in the fourth column
+            </summary>
+        </member>
+        <member name="P:Nums.mat3x4.m31">
+            <summary>
+            Gets the value at the third row in the first column
+            </summary>
+        </member>
+        <member name="P:Nums.mat3x4.m32">
+            <summary>
+            Gets the value at the third row in the second column
+            </summary>
+        </member>
+        <member name="P:Nums.mat3x4.m33">
+            <summary>
+            Gets the value at the third row in the third column
+            </summary>
+        </member>
+        <member name="P:Nums.mat3x4.m34">
+            <summary>
+            Gets the value at the third row in the fourth column
+            </summary>
+        </member>
+        <member name="T:Nums.mat4">
+            <summary>
+            A 4 by 4 matrix
+            </summary>
+        </member>
+        <member name="P:Nums.mat4.m11">
+            <summary>
+            Gets the value at the first row in the first column
+            </summary>
+        </member>
+        <member name="P:Nums.mat4.m12">
+            <summary>
+            Gets the value at the first row in the second column
+            </summary>
+        </member>
+        <member name="P:Nums.mat4.m13">
+            <summary>
+            Gets the value at the first row in the third column
+            </summary>
+        </member>
+        <member name="P:Nums.mat4.m14">
+            <summary>
+            Gets the value at the first row in the fourth column
+            </summary>
+        </member>
+        <member name="P:Nums.mat4.m21">
+            <summary>
+            Gets the value at the second row in the first column
+            </summary>
+        </member>
+        <member name="P:Nums.mat4.m22">
+            <summary>
+            Gets the value at the second row in the second column
+            </summary>
+        </member>
+        <member name="P:Nums.mat4.m23">
+            <summary>
+            Gets the value at the second row in the third column
+            </summary>
+        </member>
+        <member name="P:Nums.mat4.m24">
+            <summary>
+            Gets the value at the second row in the fourth column
+            </summary>
+        </member>
+        <member name="P:Nums.mat4.m31">
+            <summary>
+            Gets the value at the third row in the first column
+            </summary>
+        </member>
+        <member name="P:Nums.mat4.m32">
+            <summary>
+            Gets the value at the third row in the second column
+            </summary>
+        </member>
+        <member name="P:Nums.mat4.m33">
+            <summary>
+            Gets the value at the third row in the third column
+            </summary>
+        </member>
+        <member name="P:Nums.mat4.m34">
+            <summary>
+            Gets the value at the third row in the fourth column
+            </summary>
+        </member>
+        <member name="P:Nums.mat4.m41">
+            <summary>
+            Gets the value at the fourth row in the first column
+            </summary>
+        </member>
+        <member name="P:Nums.mat4.m42">
+            <summary>
+            Gets the value at the fourth row in the second column
+            </summary>
+        </member>
+        <member name="P:Nums.mat4.m43">
+            <summary>
+            Gets the value at the fourth row in the third column
+            </summary>
+        </member>
+        <member name="P:Nums.mat4.m44">
+            <summary>
+            Gets the value at the fourth row in the fourth column
+            </summary>
+        </member>
+        <member name="T:Nums.mat4x2">
+            <summary>
+            A 4 by 2 matrix
+            </summary>
+        </member>
+        <member name="P:Nums.mat4x2.m11">
+            <summary>
+            Gets the value at the first row in the first column
+            </summary>
+        </member>
+        <member name="P:Nums.mat4x2.m12">
+            <summary>
+            Gets the value at the first row in the second column
+            </summary>
+        </member>
+        <member name="P:Nums.mat4x2.m21">
+            <summary>
+            Gets the value at the second row in the first column
+            </summary>
+        </member>
+        <member name="P:Nums.mat4x2.m22">
+            <summary>
+            Gets the value at the second row in the second column
+            </summary>
+        </member>
+        <member name="P:Nums.mat4x2.m31">
+            <summary>
+            Gets the value at the third row in the first column
+            </summary>
+        </member>
+        <member name="P:Nums.mat4x2.m32">
+            <summary>
+            Gets the value at the third row in the second column
+            </summary>
+        </member>
+        <member name="P:Nums.mat4x2.m41">
+            <summary>
+            Gets the value at the fourth row in the first column
+            </summary>
+        </member>
+        <member name="P:Nums.mat4x2.m42">
+            <summary>
+            Gets the value at the fourth row in the second column
+            </summary>
+        </member>
+        <member name="T:Nums.mat4x3">
+            <summary>
+            A 4 by 3 matrix
+            </summary>
+        </member>
+        <member name="P:Nums.mat4x3.m11">
+            <summary>
+            Gets the value at the first row in the first column
+            </summary>
+        </member>
+        <member name="P:Nums.mat4x3.m12">
+            <summary>
+            Gets the value at the first row in the second column
+            </summary>
+        </member>
+        <member name="P:Nums.mat4x3.m13">
+            <summary>
+            Gets the value at the first row in the third column
+            </summary>
+        </member>
+        <member name="P:Nums.mat4x3.m21">
+            <summary>
+            Gets the value at the second row in the first column
+            </summary>
+        </member>
+        <member name="P:Nums.mat4x3.m22">
+            <summary>
+            Gets the value at the second row in the second column
+            </summary>
+        </member>
+        <member name="P:Nums.mat4x3.m23">
+            <summary>
+            Gets the value at the second row in the third column
+            </summary>
+        </member>
+        <member name="P:Nums.mat4x3.m31">
+            <summary>
+            Gets the value at the third row in the first column
+            </summary>
+        </member>
+        <member name="P:Nums.mat4x3.m32">
+            <summary>
+            Gets the value at the third row in the second column
+            </summary>
+        </member>
+        <member name="P:Nums.mat4x3.m33">
+            <summary>
+            Gets the value at the third row in the third column
+            </summary>
+        </member>
+        <member name="P:Nums.mat4x3.m41">
+            <summary>
+            Gets the value at the fourth row in the first column
+            </summary>
+        </member>
+        <member name="P:Nums.mat4x3.m42">
+            <summary>
+            Gets the value at the fourth row in the second column
+            </summary>
+        </member>
+        <member name="P:Nums.mat4x3.m43">
+            <summary>
+            Gets the value at the fourth row in the third column
+            </summary>
+        </member>
         <member name="T:Nums.dvec2">
             <summary>
             A 2 component vector of double

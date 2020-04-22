@@ -43,7 +43,7 @@ namespace NumsCodeGenerator {
 
             generate();
 
-            System.IO.File.WriteAllText($"autogen\\{fileName}.g.cs", this.result());
+            System.IO.File.WriteAllText($"autogen/{fileName}.g.cs", this.result());
         }
 
         protected abstract void generate();

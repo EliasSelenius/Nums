@@ -25,7 +25,7 @@ namespace NumsCodeGenerator {
 
         private readonly CodeBuilder mathClass = new CodeBuilder();
 
-        public VectorStruct(string name, string type, params string[] compNames) : base(name + compNames.Length) {
+        public VectorStruct(string name, string type, params string[] compNames) : base("vectors/" + name + compNames.Length) {
             this.name = name;
             this.compsNames = compNames;
             this.type = type;
