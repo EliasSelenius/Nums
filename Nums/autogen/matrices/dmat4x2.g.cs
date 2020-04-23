@@ -95,6 +95,10 @@ namespace Nums {
         }
         #endregion
 
+        /// <summary>
+        /// Gets the transpose of this matrix
+        /// </summary>
+        public dmat2x4 transpose => new dmat2x4(col1, col2);
         public dmat4x2(dvec2 row1, dvec2 row2, dvec2 row3, dvec2 row4) {
             this.row1 = row1;
             this.row2 = row2;
@@ -111,5 +115,9 @@ namespace Nums {
             row4.x = m41;
             row4.y = m42;
         }
+
+        #region operators
+        public static dvec4 operator *(dmat4x2 m, dvec2 v) => new dvec4(m.row1.dot(v), m.row2.dot(v), m.row3.dot(v), m.row4.dot(v));
+        #endregion
     }
 }

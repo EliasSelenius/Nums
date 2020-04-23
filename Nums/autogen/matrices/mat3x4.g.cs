@@ -136,6 +136,10 @@ namespace Nums {
         }
         #endregion
 
+        /// <summary>
+        /// Gets the transpose of this matrix
+        /// </summary>
+        public mat4x3 transpose => new mat4x3(col1, col2, col3, col4);
         public mat3x4(vec4 row1, vec4 row2, vec4 row3) {
             this.row1 = row1;
             this.row2 = row2;
@@ -155,5 +159,9 @@ namespace Nums {
             row3.z = m33;
             row3.w = m34;
         }
+
+        #region operators
+        public static vec3 operator *(mat3x4 m, vec4 v) => new vec3(m.row1.dot(v), m.row2.dot(v), m.row3.dot(v));
+        #endregion
     }
 }

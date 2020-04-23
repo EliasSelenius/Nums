@@ -10,26 +10,31 @@ namespace NumsCodeGenerator {
         int rows, cols;
         string vectorRow;
         string vectorCol;
+        string matrixType;
         string structname;
         string type;
+        string[] rowNames;
+        string[] colNames;
+        bool isSquare => rows == cols;
 
-        string[] rowNames;        
 
         public MatrixStruct(string name, string type, int rows, int cols) : base("matrices/") {
             this.rows = rows; this.cols = cols;
             this.type = type;
+            this.matrixType = name;
 
             this.vectorRow = Program.getVectorType(type) + cols;
             this.vectorCol = Program.getVectorType(type) + rows;
 
             structname = name + rows;
-            if (rows != cols) structname += "x" + cols;
+            if (!isSquare) structname += "x" + cols;
             fileName += structname;
 
 
             rowNames = new string[rows];
             for (int i = 0; i < rowNames.Length; i++) rowNames[i] = "row" + (i + 1);
-
+            colNames = new string[cols];
+            for (int i = 0; i < colNames.Length; i++) colNames[i] = "col" + (i + 1);
 
         }
 
@@ -48,7 +53,9 @@ namespace NumsCodeGenerator {
 
 
             genRowsAndCols();
+            genProperties();
             genConstructors();
+            genOperators();
 
             endBlock(); // end struct block
             endBlock(); // end namespace block
@@ -97,6 +104,18 @@ namespace NumsCodeGenerator {
             linebreak();
         }
 
+        private void genProperties() {
+
+            summary("Gets the transpose of this matrix");
+
+            var transposeStruct = matrixType + cols;
+            if (!isSquare) transposeStruct += "x" + rows;
+
+            writeline("public " + transposeStruct + " transpose => new " + transposeStruct + "(" + colNames.Aggregate((x, y) => x + ", " + y) + ");");
+
+            linebreak();
+        }
+
         private void genConstructors() {
             // rows constructor
             startBlock("public " + structname + "(" + rowNames.Select(x => vectorRow + " " + x).Aggregate((x, y) => x + ", " + y) + ")");
@@ -124,6 +143,21 @@ namespace NumsCodeGenerator {
 
             endBlock();
 
+        }
+
+        public void genOperators() {
+            region("operators");
+
+            // matrix vector multiplication
+            var args = rowNames.Select(x => "m." + x + ".dot(v)").Aggregate((x, y) => x + ", " + y);
+            writeline("public static " + vectorCol + " operator *(" + structname + " m, " + vectorRow + " v) => new " + vectorCol + "(" + args + ");");
+
+
+            // matrix matrix multiplication
+
+
+
+            endregion();
         }
     }
 }

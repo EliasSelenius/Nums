@@ -78,6 +78,10 @@ namespace Nums {
         }
         #endregion
 
+        /// <summary>
+        /// Gets the transpose of this matrix
+        /// </summary>
+        public mat2x3 transpose => new mat2x3(col1, col2);
         public mat3x2(vec2 row1, vec2 row2, vec2 row3) {
             this.row1 = row1;
             this.row2 = row2;
@@ -91,5 +95,9 @@ namespace Nums {
             row3.x = m31;
             row3.y = m32;
         }
+
+        #region operators
+        public static vec3 operator *(mat3x2 m, vec2 v) => new vec3(m.row1.dot(v), m.row2.dot(v), m.row3.dot(v));
+        #endregion
     }
 }

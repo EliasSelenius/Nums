@@ -61,6 +61,10 @@ namespace Nums {
         }
         #endregion
 
+        /// <summary>
+        /// Gets the transpose of this matrix
+        /// </summary>
+        public mat2 transpose => new mat2(col1, col2);
         public mat2(vec2 row1, vec2 row2) {
             this.row1 = row1;
             this.row2 = row2;
@@ -71,5 +75,9 @@ namespace Nums {
             row2.x = m21;
             row2.y = m22;
         }
+
+        #region operators
+        public static vec2 operator *(mat2 m, vec2 v) => new vec2(m.row1.dot(v), m.row2.dot(v));
+        #endregion
     }
 }

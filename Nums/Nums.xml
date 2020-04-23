@@ -29,6 +29,11 @@
             Gets the value at the second row in the second column
             </summary>
         </member>
+        <member name="P:Nums.dmat2.transpose">
+            <summary>
+            Gets the transpose of this matrix
+            </summary>
+        </member>
         <member name="T:Nums.dmat2x3">
             <summary>
             A 2 by 3 matrix
@@ -62,6 +67,11 @@
         <member name="P:Nums.dmat2x3.m23">
             <summary>
             Gets the value at the second row in the third column
+            </summary>
+        </member>
+        <member name="P:Nums.dmat2x3.transpose">
+            <summary>
+            Gets the transpose of this matrix
             </summary>
         </member>
         <member name="T:Nums.dmat2x4">
@@ -107,6 +117,11 @@
         <member name="P:Nums.dmat2x4.m24">
             <summary>
             Gets the value at the second row in the fourth column
+            </summary>
+        </member>
+        <member name="P:Nums.dmat2x4.transpose">
+            <summary>
+            Gets the transpose of this matrix
             </summary>
         </member>
         <member name="T:Nums.dmat3">
@@ -159,6 +174,11 @@
             Gets the value at the third row in the third column
             </summary>
         </member>
+        <member name="P:Nums.dmat3.transpose">
+            <summary>
+            Gets the transpose of this matrix
+            </summary>
+        </member>
         <member name="T:Nums.dmat3x2">
             <summary>
             A 3 by 2 matrix
@@ -192,6 +212,11 @@
         <member name="P:Nums.dmat3x2.m32">
             <summary>
             Gets the value at the third row in the second column
+            </summary>
+        </member>
+        <member name="P:Nums.dmat3x2.transpose">
+            <summary>
+            Gets the transpose of this matrix
             </summary>
         </member>
         <member name="T:Nums.dmat3x4">
@@ -257,6 +282,11 @@
         <member name="P:Nums.dmat3x4.m34">
             <summary>
             Gets the value at the third row in the fourth column
+            </summary>
+        </member>
+        <member name="P:Nums.dmat3x4.transpose">
+            <summary>
+            Gets the transpose of this matrix
             </summary>
         </member>
         <member name="T:Nums.dmat4">
@@ -344,6 +374,11 @@
             Gets the value at the fourth row in the fourth column
             </summary>
         </member>
+        <member name="P:Nums.dmat4.transpose">
+            <summary>
+            Gets the transpose of this matrix
+            </summary>
+        </member>
         <member name="T:Nums.dmat4x2">
             <summary>
             A 4 by 2 matrix
@@ -387,6 +422,11 @@
         <member name="P:Nums.dmat4x2.m42">
             <summary>
             Gets the value at the fourth row in the second column
+            </summary>
+        </member>
+        <member name="P:Nums.dmat4x2.transpose">
+            <summary>
+            Gets the transpose of this matrix
             </summary>
         </member>
         <member name="T:Nums.dmat4x3">
@@ -454,6 +494,11 @@
             Gets the value at the fourth row in the third column
             </summary>
         </member>
+        <member name="P:Nums.dmat4x3.transpose">
+            <summary>
+            Gets the transpose of this matrix
+            </summary>
+        </member>
         <member name="T:Nums.mat2">
             <summary>
             A 2 by 2 matrix
@@ -477,6 +522,11 @@
         <member name="P:Nums.mat2.m22">
             <summary>
             Gets the value at the second row in the second column
+            </summary>
+        </member>
+        <member name="P:Nums.mat2.transpose">
+            <summary>
+            Gets the transpose of this matrix
             </summary>
         </member>
         <member name="T:Nums.mat2x3">
@@ -512,6 +562,11 @@
         <member name="P:Nums.mat2x3.m23">
             <summary>
             Gets the value at the second row in the third column
+            </summary>
+        </member>
+        <member name="P:Nums.mat2x3.transpose">
+            <summary>
+            Gets the transpose of this matrix
             </summary>
         </member>
         <member name="T:Nums.mat2x4">
@@ -557,6 +612,11 @@
         <member name="P:Nums.mat2x4.m24">
             <summary>
             Gets the value at the second row in the fourth column
+            </summary>
+        </member>
+        <member name="P:Nums.mat2x4.transpose">
+            <summary>
+            Gets the transpose of this matrix
             </summary>
         </member>
         <member name="T:Nums.mat3">
@@ -609,6 +669,11 @@
             Gets the value at the third row in the third column
             </summary>
         </member>
+        <member name="P:Nums.mat3.transpose">
+            <summary>
+            Gets the transpose of this matrix
+            </summary>
+        </member>
         <member name="T:Nums.mat3x2">
             <summary>
             A 3 by 2 matrix
@@ -642,6 +707,11 @@
         <member name="P:Nums.mat3x2.m32">
             <summary>
             Gets the value at the third row in the second column
+            </summary>
+        </member>
+        <member name="P:Nums.mat3x2.transpose">
+            <summary>
+            Gets the transpose of this matrix
             </summary>
         </member>
         <member name="T:Nums.mat3x4">
@@ -707,6 +777,11 @@
         <member name="P:Nums.mat3x4.m34">
             <summary>
             Gets the value at the third row in the fourth column
+            </summary>
+        </member>
+        <member name="P:Nums.mat3x4.transpose">
+            <summary>
+            Gets the transpose of this matrix
             </summary>
         </member>
         <member name="T:Nums.mat4">
@@ -794,6 +869,11 @@
             Gets the value at the fourth row in the fourth column
             </summary>
         </member>
+        <member name="P:Nums.mat4.transpose">
+            <summary>
+            Gets the transpose of this matrix
+            </summary>
+        </member>
         <member name="T:Nums.mat4x2">
             <summary>
             A 4 by 2 matrix
@@ -837,6 +917,11 @@
         <member name="P:Nums.mat4x2.m42">
             <summary>
             Gets the value at the fourth row in the second column
+            </summary>
+        </member>
+        <member name="P:Nums.mat4x2.transpose">
+            <summary>
+            Gets the transpose of this matrix
             </summary>
         </member>
         <member name="T:Nums.mat4x3">
@@ -902,6 +987,11 @@
         <member name="P:Nums.mat4x3.m43">
             <summary>
             Gets the value at the fourth row in the third column
+            </summary>
+        </member>
+        <member name="P:Nums.mat4x3.transpose">
+            <summary>
+            Gets the transpose of this matrix
             </summary>
         </member>
         <member name="T:Nums.dvec2">

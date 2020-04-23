@@ -103,6 +103,10 @@ namespace Nums {
         }
         #endregion
 
+        /// <summary>
+        /// Gets the transpose of this matrix
+        /// </summary>
+        public mat4x2 transpose => new mat4x2(col1, col2, col3, col4);
         public mat2x4(vec4 row1, vec4 row2) {
             this.row1 = row1;
             this.row2 = row2;
@@ -117,5 +121,9 @@ namespace Nums {
             row2.z = m23;
             row2.w = m24;
         }
+
+        #region operators
+        public static vec2 operator *(mat2x4 m, vec4 v) => new vec2(m.row1.dot(v), m.row2.dot(v));
+        #endregion
     }
 }
