@@ -140,6 +140,7 @@ namespace Nums {
         /// Gets the transpose of this matrix
         /// </summary>
         public dmat4x3 transpose => new dmat4x3(col1, col2, col3, col4);
+
         public dmat3x4(dvec4 row1, dvec4 row2, dvec4 row3) {
             this.row1 = row1;
             this.row2 = row2;
@@ -162,6 +163,9 @@ namespace Nums {
 
         #region operators
         public static dvec3 operator *(dmat3x4 m, dvec4 v) => new dvec3(m.row1.dot(v), m.row2.dot(v), m.row3.dot(v));
+        public static dmat3x2 operator *(dmat3x4 m1, dmat4x2 m2) => new dmat3x2(m1.row1.dot(m2.col1), m1.row1.dot(m2.col2), m1.row2.dot(m2.col1), m1.row2.dot(m2.col2), m1.row3.dot(m2.col1), m1.row3.dot(m2.col2));
+        public static dmat3 operator *(dmat3x4 m1, dmat4x3 m2) => new dmat3(m1.row1.dot(m2.col1), m1.row1.dot(m2.col2), m1.row1.dot(m2.col3), m1.row2.dot(m2.col1), m1.row2.dot(m2.col2), m1.row2.dot(m2.col3), m1.row3.dot(m2.col1), m1.row3.dot(m2.col2), m1.row3.dot(m2.col3));
+        public static dmat3x4 operator *(dmat3x4 m1, dmat4 m2) => new dmat3x4(m1.row1.dot(m2.col1), m1.row1.dot(m2.col2), m1.row1.dot(m2.col3), m1.row1.dot(m2.col4), m1.row2.dot(m2.col1), m1.row2.dot(m2.col2), m1.row2.dot(m2.col3), m1.row2.dot(m2.col4), m1.row3.dot(m2.col1), m1.row3.dot(m2.col2), m1.row3.dot(m2.col3), m1.row3.dot(m2.col4));
         #endregion
     }
 }

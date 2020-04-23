@@ -149,12 +149,27 @@ namespace NumsCodeGenerator {
             region("operators");
 
             // matrix vector multiplication
-            var args = rowNames.Select(x => "m." + x + ".dot(v)").Aggregate((x, y) => x + ", " + y);
-            writeline("public static " + vectorCol + " operator *(" + structname + " m, " + vectorRow + " v) => new " + vectorCol + "(" + args + ");");
+            {
+                var args = rowNames.Select(x => "m." + x + ".dot(v)").Aggregate((x, y) => x + ", " + y);
+                writeline("public static " + vectorCol + " operator *(" + structname + " m, " + vectorRow + " v) => new " + vectorCol + "(" + args + ");");
+            }
 
 
             // matrix matrix multiplication
+            for (int i = 2; i <= 4; i++) {
+                var otherstruct = matrixType + cols;
+                if (cols != i) otherstruct += "x" + i;
 
+                var resultstruct = matrixType + rows;
+                if (rows != i) resultstruct += "x" + i;
+
+                var args = new string[rows * i];
+                for (int r = 1; r <= rows; r++)
+                    for (int c = 1; c <= i; c++) 
+                        args[(r - 1) * i + c -1] = "m1.row" + r + ".dot(m2.col" + c + ")";
+                 
+                writeline("public static " + resultstruct + " operator *(" + structname + " m1, " + otherstruct + " m2) => new " + resultstruct + "(" + args.Aggregate((x, y) => x + ", " + y)+");");
+            }
 
 
             endregion();

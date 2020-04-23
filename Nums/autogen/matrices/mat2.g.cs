@@ -65,6 +65,7 @@ namespace Nums {
         /// Gets the transpose of this matrix
         /// </summary>
         public mat2 transpose => new mat2(col1, col2);
+
         public mat2(vec2 row1, vec2 row2) {
             this.row1 = row1;
             this.row2 = row2;
@@ -78,6 +79,9 @@ namespace Nums {
 
         #region operators
         public static vec2 operator *(mat2 m, vec2 v) => new vec2(m.row1.dot(v), m.row2.dot(v));
+        public static mat2 operator *(mat2 m1, mat2 m2) => new mat2(m1.row1.dot(m2.col1), m1.row1.dot(m2.col2), m1.row2.dot(m2.col1), m1.row2.dot(m2.col2));
+        public static mat2x3 operator *(mat2 m1, mat2x3 m2) => new mat2x3(m1.row1.dot(m2.col1), m1.row1.dot(m2.col2), m1.row1.dot(m2.col3), m1.row2.dot(m2.col1), m1.row2.dot(m2.col2), m1.row2.dot(m2.col3));
+        public static mat2x4 operator *(mat2 m1, mat2x4 m2) => new mat2x4(m1.row1.dot(m2.col1), m1.row1.dot(m2.col2), m1.row1.dot(m2.col3), m1.row1.dot(m2.col4), m1.row2.dot(m2.col1), m1.row2.dot(m2.col2), m1.row2.dot(m2.col3), m1.row2.dot(m2.col4));
         #endregion
     }
 }
