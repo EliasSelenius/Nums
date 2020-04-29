@@ -71,5 +71,9 @@ namespace Nums {
         public static double max(double a, double b) => a < b ? b : a;
         public static float max(float a, float b) => a < b ? b : a;
 
+
+        public static double clamp(double x, double min, double max) => x < min ? min : x > max ? max : x;
+        public static float clamp(float x, float min, float max) => x < min ? min : x > max ? max : x;
+
     }
 }

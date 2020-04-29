@@ -13,6 +13,8 @@ namespace NumsCodeGenerator {
         /// </summary>
         private string[] compsNames;
 
+        private int compCount => compsNames.Length;
+
         /// <summary>
         /// the type of this vector. E.g: float, int, double
         /// </summary>
@@ -219,7 +221,24 @@ namespace NumsCodeGenerator {
             _paramsassigmentcode(compsNames);
             endBlock();
 
-            
+            /*
+                vec4(vec2, vec2)
+                vec4(vec2, float, float)
+                vec4(float, vec2, float)
+                vec4(float, float, vec2)
+
+                vec4(vec3, float)
+                vec4(float, vec3)
+
+                vec3(vec2, float)
+                vec3(float, vec2)
+             */
+
+            for (int i = 2; i < compCount - 1; i++) {
+                var othervec = name + i;
+                //compCount / i;
+            }
+
 
             endregion();
         }
