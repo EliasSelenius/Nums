@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Text;
 
 namespace Nums {
@@ -27,6 +28,7 @@ namespace Nums {
 
         #endregion
 
+        #region basic funcs
 
         public static double lerp(double x, double y, double t) => x + (y - x) * t;
         public static float lerp(float x, float y, float t) => x + (y - x) * t;
@@ -74,6 +76,44 @@ namespace Nums {
 
         public static double clamp(double x, double min, double max) => x < min ? min : x > max ? max : x;
         public static float clamp(float x, float min, float max) => x < min ? min : x > max ? max : x;
+
+        #endregion
+
+
+        #region noise
+
+        private static int _seed = int.MinValue;
+        private static int getSeed() => _seed++;
+
+        /// <summary>
+        /// Generates a random number in the specified range
+        /// </summary>
+        /// <param name="min_value">The minimum value of the random number</param>
+        /// <param name="max_value">The maximum value of the random number</param>
+        /// <returns></returns>
+        public static float range(float min_value, float max_value) => min_value + (rand() * 0.5f + 0.5f) * (max_value - min_value);
+
+        /// <summary>
+        /// Generates a random number in the range [-1..1]
+        /// </summary>
+        /// <returns>A random number</returns>
+        public static float rand() => rand(getSeed());
+        
+        /// <summary>
+        /// Generates a random number in the range [-1..1]
+        /// </summary>
+        /// <param name="seed">The seed</param>
+        /// <returns>A random number</returns>
+        public static float rand(int seed) {
+            seed = (seed << 13) ^ seed;
+            return (1f - ((seed * (seed * seed * 15731 + 789221) + 1376312589) & 0x7fffffff) / 1073741824f);
+        }
+
+        // TODO: the 'quality' of randomnes is not tested here
+        public static float rand(int seed_x, int seed_y) => rand(seed_x + seed_y * 57);
+
+
+        #endregion
 
     }
 }
