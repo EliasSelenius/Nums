@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Dynamic;
+using System.Net;
 using System.Text;
 
 namespace Nums {
@@ -111,7 +113,68 @@ namespace Nums {
 
         // TODO: the 'quality' of randomnes is not tested here
         public static float rand(int seed_x, int seed_y) => rand(seed_x + seed_y * 57);
+        public static float rand(ivec2 seed) => rand(seed.x, seed.y);
 
+        public static float valuenoise(float x) {
+            int i = (int)x;
+            float f = fract(x);
+            float u = f * f * (3f - 2f * f);
+            return lerp(rand(i), rand(i + 1), u);
+        }
+
+        public static float valuenoise(vec2 v) {
+            ivec2 i = (ivec2)v;
+            vec2 f = fract(v);
+
+            float a = rand(i),
+                  b = rand(i + ivec2.unitx),
+                  c = rand(i + ivec2.unity),
+                  d = rand(i + ivec2.one);
+
+            vec2 u = f * f * (3f - f * 2f);
+
+            return lerp(a, b, u.x) +
+                    (c - a) * u.y * (1f - u.x) +
+                    (d - b) * u.x * u.y;
+        }
+
+
+
+        private static vec2 rand2(vec2 v) {
+            v = new vec2(v.dot(new vec2(127.1f, 311.7f)),
+                         v.dot(new vec2(268.5f, 183.3f)));
+            return fract(sin(v) * 43758.5453123f) * 2f - 1f;
+        }
+        private static vec3 rand3(vec3 v) {
+            v = new vec3(v.dot(new vec3(127.1f, 311.7f, 74.4f)),
+                         v.dot(new vec3(268.5f, 183.3f, 246.1f)),
+                         v.dot(new vec3(113.5f, 271.9f, 124.6f)));
+            return fract(sin(v) * 43758.5453123f) * 2f - 1f;
+        }
+        public static float gradnoise(vec2 v) {
+            vec2 i = floor(v);
+            vec2 f = fract(v);
+            vec2 u = f * f * (-f * 2f + 3f);
+            return lerp(lerp(rand2(i).dot(f),
+                             rand2(i + vec2.unitx).dot(f - vec2.unitx), u.x),
+                        lerp(rand2(i + vec2.unity).dot(f - vec2.unity),
+                             rand2(i + vec2.one).dot(f - vec2.one), u.x), u.y);
+        }
+
+        public static float gradnoise(vec3 v) {
+            vec3 i = floor(v);
+            vec3 f = fract(v);
+            vec3 u = f * f * (-f * 2f + 3f);
+            return lerp(lerp(lerp(rand3(i).dot(f),
+                                rand3(i + vec3.unitx).dot(f - vec3.unitx), u.x),
+                            lerp(rand3(i + vec3.unity).dot(f - vec3.unity),
+                                rand3(i + new vec3(1f, 1f, 0f)).dot(f - new vec3(1f, 1f, 0f)), u.x), u.y),
+                        lerp(lerp(rand3(i + vec3.unitz).dot(f + vec3.unitz),
+                                rand3(i + new vec3(1f, 0f, 1f)).dot(f - new vec3(1f, 0f, 1f)), u.x),
+                            lerp(rand3(i + new vec3(0f, 1f, 1f)).dot(f - new vec3(0f, 1f, 1f)),
+                                rand3(i + vec3.one).dot(f - vec3.one), u.x), u.y), u.z);
+        }
+        
 
         #endregion
 
