@@ -169,7 +169,7 @@ namespace Nums {
                                 rand3(i + vec3.unitx).dot(f - vec3.unitx), u.x),
                             lerp(rand3(i + vec3.unity).dot(f - vec3.unity),
                                 rand3(i + new vec3(1f, 1f, 0f)).dot(f - new vec3(1f, 1f, 0f)), u.x), u.y),
-                        lerp(lerp(rand3(i + vec3.unitz).dot(f + vec3.unitz),
+                        lerp(lerp(rand3(i + vec3.unitz).dot(f - vec3.unitz),
                                 rand3(i + new vec3(1f, 0f, 1f)).dot(f - new vec3(1f, 0f, 1f)), u.x),
                             lerp(rand3(i + new vec3(0f, 1f, 1f)).dot(f - new vec3(0f, 1f, 1f)),
                                 rand3(i + vec3.one).dot(f - vec3.one), u.x), u.y), u.z);
