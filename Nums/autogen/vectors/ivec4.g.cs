@@ -7,7 +7,7 @@ namespace Nums {
     /// A 4 component vector of int
     /// </summary>
     [StructLayout(LayoutKind.Sequential)]
-    public struct ivec4 {
+    public struct ivec4 : ivec {
 
         #region constants
         /// <summary>
@@ -59,7 +59,7 @@ namespace Nums {
         /// <summary>
         /// The number of bytes the vector type uses.
         /// </summary>
-        public int bytesize => sizeof(int) * 4;
+        public static int bytesize => sizeof(int) * 4;
         /// <summary>
         /// The magnitude of the vector
         /// </summary>
@@ -71,7 +71,11 @@ namespace Nums {
         /// <summary>
         /// The normalized version of this vector.
         /// </summary>
-        public ivec4 normalized => this / length;
+        public ivec4 normalized() => this / length;
+        /// <summary>
+        /// Normalizes this vector.
+        /// </summary>
+        public void normalize() => this /= length;
 
         public int this[int i] {
             get => i switch {

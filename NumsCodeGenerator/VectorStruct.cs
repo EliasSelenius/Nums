@@ -58,7 +58,7 @@ namespace NumsCodeGenerator {
 
             summary("A " + compsNames.Length + " component vector of " + type);
             writeline("[StructLayout(LayoutKind.Sequential)]");
-            startBlock("public struct " + vecName);
+            startBlock("public struct " + vecName + " : " + name);
 
             genConstants();
 
@@ -76,7 +76,7 @@ namespace NumsCodeGenerator {
             writeline($"public {type} sum => {sum};");
 
             summary("The number of bytes the vector type uses.");
-            writeline($"public int bytesize => sizeof({type}) * {compsNames.Length};");
+            writeline($"public static int bytesize => sizeof({type}) * {compsNames.Length};");
 
             summary("The magnitude of the vector");
             writeline($"public {type} length => ({type})Math.Sqrt(dot(this));");
@@ -84,8 +84,9 @@ namespace NumsCodeGenerator {
             writeline($"public {type} sqlength => dot(this);");
 
             summary("The normalized version of this vector.");
-            writeline($"public {vecName} normalized => this / length;");
-
+            writeline($"public {vecName} normalized() => this / length;");
+            summary("Normalizes this vector.");
+            writeline("public void normalize() => this /= length;");
 
             genIndexAccessor();
             genSwizzlingProperties();

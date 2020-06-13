@@ -7,7 +7,7 @@ namespace Nums {
     /// A 3 component vector of float
     /// </summary>
     [StructLayout(LayoutKind.Sequential)]
-    public struct vec3 {
+    public struct vec3 : vec {
 
         #region constants
         /// <summary>
@@ -51,7 +51,7 @@ namespace Nums {
         /// <summary>
         /// The number of bytes the vector type uses.
         /// </summary>
-        public int bytesize => sizeof(float) * 3;
+        public static int bytesize => sizeof(float) * 3;
         /// <summary>
         /// The magnitude of the vector
         /// </summary>
@@ -63,7 +63,11 @@ namespace Nums {
         /// <summary>
         /// The normalized version of this vector.
         /// </summary>
-        public vec3 normalized => this / length;
+        public vec3 normalized() => this / length;
+        /// <summary>
+        /// Normalizes this vector.
+        /// </summary>
+        public void normalize() => this /= length;
 
         public float this[int i] {
             get => i switch {

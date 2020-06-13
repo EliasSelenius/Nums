@@ -7,7 +7,7 @@ namespace Nums {
     /// A 4 component vector of double
     /// </summary>
     [StructLayout(LayoutKind.Sequential)]
-    public struct dvec4 {
+    public struct dvec4 : dvec {
 
         #region constants
         /// <summary>
@@ -59,7 +59,7 @@ namespace Nums {
         /// <summary>
         /// The number of bytes the vector type uses.
         /// </summary>
-        public int bytesize => sizeof(double) * 4;
+        public static int bytesize => sizeof(double) * 4;
         /// <summary>
         /// The magnitude of the vector
         /// </summary>
@@ -71,7 +71,11 @@ namespace Nums {
         /// <summary>
         /// The normalized version of this vector.
         /// </summary>
-        public dvec4 normalized => this / length;
+        public dvec4 normalized() => this / length;
+        /// <summary>
+        /// Normalizes this vector.
+        /// </summary>
+        public void normalize() => this /= length;
 
         public double this[int i] {
             get => i switch {

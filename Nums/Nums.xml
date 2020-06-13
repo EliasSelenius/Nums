@@ -1049,9 +1049,14 @@
             The squared magnitude of the vector. sqlength is faster than length since a square-root operation is not needed.
             </summary>
         </member>
-        <member name="P:Nums.dvec2.normalized">
+        <member name="M:Nums.dvec2.normalized">
             <summary>
             The normalized version of this vector.
+            </summary>
+        </member>
+        <member name="M:Nums.dvec2.normalize">
+            <summary>
+            Normalizes this vector.
             </summary>
         </member>
         <member name="T:Nums.math">
@@ -1079,6 +1084,15 @@
             <param name="max_value">The maximum value of the random number</param>
             <returns></returns>
         </member>
+        <member name="M:Nums.math.range(System.Int32,System.Single,System.Single)">
+            <summary>
+            Generates a random number in the specified range, using the specified seed
+            </summary>
+            <param name="seed">The seed of the random number</param>
+            <param name="min_value">The minimum value of the random number</param>
+            <param name="max_value">The maximum value of the random number</param>
+            <returns></returns>
+        </member>
         <member name="M:Nums.math.rand">
             <summary>
             Generates a random number in the range [-1..1]
@@ -1091,6 +1105,14 @@
             </summary>
             <param name="seed">The seed</param>
             <returns>A random number</returns>
+        </member>
+        <member name="M:Nums.math.pick``1(``0[])">
+            <summary>
+            Randomly picks any of the provided elements
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="ts"></param>
+            <returns></returns>
         </member>
         <member name="T:Nums.dvec3">
             <summary>
@@ -1157,9 +1179,14 @@
             The squared magnitude of the vector. sqlength is faster than length since a square-root operation is not needed.
             </summary>
         </member>
-        <member name="P:Nums.dvec3.normalized">
+        <member name="M:Nums.dvec3.normalized">
             <summary>
             The normalized version of this vector.
+            </summary>
+        </member>
+        <member name="M:Nums.dvec3.normalize">
+            <summary>
+            Normalizes this vector.
             </summary>
         </member>
         <member name="T:Nums.dvec4">
@@ -1237,9 +1264,14 @@
             The squared magnitude of the vector. sqlength is faster than length since a square-root operation is not needed.
             </summary>
         </member>
-        <member name="P:Nums.dvec4.normalized">
+        <member name="M:Nums.dvec4.normalized">
             <summary>
             The normalized version of this vector.
+            </summary>
+        </member>
+        <member name="M:Nums.dvec4.normalize">
+            <summary>
+            Normalizes this vector.
             </summary>
         </member>
         <member name="T:Nums.ivec2">
@@ -1297,9 +1329,14 @@
             The squared magnitude of the vector. sqlength is faster than length since a square-root operation is not needed.
             </summary>
         </member>
-        <member name="P:Nums.ivec2.normalized">
+        <member name="M:Nums.ivec2.normalized">
             <summary>
             The normalized version of this vector.
+            </summary>
+        </member>
+        <member name="M:Nums.ivec2.normalize">
+            <summary>
+            Normalizes this vector.
             </summary>
         </member>
         <member name="T:Nums.ivec3">
@@ -1367,9 +1404,14 @@
             The squared magnitude of the vector. sqlength is faster than length since a square-root operation is not needed.
             </summary>
         </member>
-        <member name="P:Nums.ivec3.normalized">
+        <member name="M:Nums.ivec3.normalized">
             <summary>
             The normalized version of this vector.
+            </summary>
+        </member>
+        <member name="M:Nums.ivec3.normalize">
+            <summary>
+            Normalizes this vector.
             </summary>
         </member>
         <member name="T:Nums.ivec4">
@@ -1447,9 +1489,14 @@
             The squared magnitude of the vector. sqlength is faster than length since a square-root operation is not needed.
             </summary>
         </member>
-        <member name="P:Nums.ivec4.normalized">
+        <member name="M:Nums.ivec4.normalized">
             <summary>
             The normalized version of this vector.
+            </summary>
+        </member>
+        <member name="M:Nums.ivec4.normalize">
+            <summary>
+            Normalizes this vector.
             </summary>
         </member>
         <member name="T:Nums.vec2">
@@ -1507,9 +1554,14 @@
             The squared magnitude of the vector. sqlength is faster than length since a square-root operation is not needed.
             </summary>
         </member>
-        <member name="P:Nums.vec2.normalized">
+        <member name="M:Nums.vec2.normalized">
             <summary>
             The normalized version of this vector.
+            </summary>
+        </member>
+        <member name="M:Nums.vec2.normalize">
+            <summary>
+            Normalizes this vector.
             </summary>
         </member>
         <member name="T:Nums.vec3">
@@ -1577,9 +1629,14 @@
             The squared magnitude of the vector. sqlength is faster than length since a square-root operation is not needed.
             </summary>
         </member>
-        <member name="P:Nums.vec3.normalized">
+        <member name="M:Nums.vec3.normalized">
             <summary>
             The normalized version of this vector.
+            </summary>
+        </member>
+        <member name="M:Nums.vec3.normalize">
+            <summary>
+            Normalizes this vector.
             </summary>
         </member>
         <member name="T:Nums.vec4">
@@ -1657,71 +1714,15 @@
             The squared magnitude of the vector. sqlength is faster than length since a square-root operation is not needed.
             </summary>
         </member>
-        <member name="P:Nums.vec4.normalized">
+        <member name="M:Nums.vec4.normalized">
             <summary>
             The normalized version of this vector.
             </summary>
         </member>
-        <member name="T:Nums.Consts">
+        <member name="M:Nums.vec4.normalize">
             <summary>
-            A static class of constants
+            Normalizes this vector.
             </summary>
-        </member>
-        <member name="F:Nums.Consts.Pi">
-            <summary> The constant π (pi). </summary>
-        </member>
-        <member name="F:Nums.Consts.Tau">
-            <summary> The constant τ (tau). equal to 2π. </summary>
-        </member>
-        <member name="F:Nums.Consts.deg2rad">
-            <summary> multiply this with a degree to convert to radian. </summary>
-        </member>
-        <member name="F:Nums.Consts.rad2deg">
-            <summary> multiply this with a radian to convert to degree. </summary>
-        </member>
-        <member name="T:Nums.Funcs">
-            <summary>
-            Static class of diverse math functions.
-            </summary>
-        </member>
-        <member name="M:Nums.Funcs.Linearstep(System.Single,System.Single,System.Single)">
-            <summary>
-            Linear interpolation.
-            </summary>
-            <param name="x"></param>
-            <param name="y"></param>
-            <param name="t"></param>
-            <returns>The interpolated value between x and y</returns>
-        </member>
-        <member name="T:Nums.Noise">
-            <summary>
-            A static class of useful noise functions. <br />
-             • Random <br />
-             • Perlin <br /> 
-             • Worley <br />
-             • OpenSimplex <br />
-            </summary>
-        </member>
-        <member name="M:Nums.Noise.Random">
-            <summary>
-            Generates a random number.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Nums.Noise.Random(System.Int32)">
-            <summary>
-            Generates a random number.
-            </summary>
-            <param name="x">The seed</param>
-            <returns></returns>
-        </member>
-        <member name="M:Nums.Noise.Random(System.Int32,System.Int32)">
-            <summary>
-            Generates a radnom number.
-            </summary>
-            <param name="x">The first component of the seed</param>
-            <param name="y">The second component of the seed</param>
-            <returns></returns>
         </member>
     </members>
 </doc>

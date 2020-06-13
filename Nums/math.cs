@@ -81,7 +81,6 @@ namespace Nums {
 
         #endregion
 
-
         #region noise
 
         private static int _seed = int.MinValue;
@@ -94,6 +93,16 @@ namespace Nums {
         /// <param name="max_value">The maximum value of the random number</param>
         /// <returns></returns>
         public static float range(float min_value, float max_value) => min_value + (rand() * 0.5f + 0.5f) * (max_value - min_value);
+
+        /// <summary>
+        /// Generates a random number in the specified range, using the specified seed
+        /// </summary>
+        /// <param name="seed">The seed of the random number</param>
+        /// <param name="min_value">The minimum value of the random number</param>
+        /// <param name="max_value">The maximum value of the random number</param>
+        /// <returns></returns>
+        public static float range(int seed, float min_value, float max_value) => min_value + (rand(seed) * 0.5f + 0.5f) * (max_value - min_value);
+
 
         /// <summary>
         /// Generates a random number in the range [-1..1]
@@ -174,9 +183,17 @@ namespace Nums {
                             lerp(rand3(i + new vec3(0f, 1f, 1f)).dot(f - new vec3(0f, 1f, 1f)),
                                 rand3(i + vec3.one).dot(f - vec3.one), u.x), u.y), u.z);
         }
-        
+
 
         #endregion
+
+        /// <summary>
+        /// Randomly picks any of the provided elements
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="ts"></param>
+        /// <returns></returns>
+        public static T pick<T>(params T[] ts) => ts[(int)((rand() * 0.5f + 0.5f) * ts.Length)];
 
     }
 }
