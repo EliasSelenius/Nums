@@ -10,9 +10,18 @@ namespace Nums {
     public struct mat2x4 {
 
         #region rows and columns
+        /// <summary>
+        /// The first row in the matrix.
+        /// </summary>
         public vec4 row1;
+        /// <summary>
+        /// The second row in the matrix.
+        /// </summary>
         public vec4 row2;
 
+        /// <summary>
+        /// The first column in the matrix.
+        /// </summary>
         public vec2 col1 {
             get => new vec2(row1.x, row2.x);
             set {
@@ -20,6 +29,9 @@ namespace Nums {
                 row2.x = value.y;
             }
         }
+        /// <summary>
+        /// The second column in the matrix.
+        /// </summary>
         public vec2 col2 {
             get => new vec2(row1.y, row2.y);
             set {
@@ -27,6 +39,9 @@ namespace Nums {
                 row2.y = value.y;
             }
         }
+        /// <summary>
+        /// The third column in the matrix.
+        /// </summary>
         public vec2 col3 {
             get => new vec2(row1.z, row2.z);
             set {
@@ -34,6 +49,9 @@ namespace Nums {
                 row2.z = value.y;
             }
         }
+        /// <summary>
+        /// The fourth column in the matrix.
+        /// </summary>
         public vec2 col4 {
             get => new vec2(row1.w, row2.w);
             set {
@@ -107,6 +125,27 @@ namespace Nums {
         /// Gets the transpose of this matrix
         /// </summary>
         public mat4x2 transpose => new mat4x2(col1, col2, col3, col4);
+        /// <summary>
+        /// The number of bytes the matrix type uses.
+        /// </summary>
+        public const int bytesize = sizeof(float) * 8;
+        /// <summary>
+        /// Gets or sets the element at row r and column c.
+        /// </summary>
+        public float this[int r, int c] {
+            get => r switch {
+                0 => row1[c],
+                1 => row2[c],
+                _ => throw new IndexOutOfRangeException(r + " is not a valid row index for mat2x4")
+            };
+            set {
+                switch(r) {
+                    case 0: row1[c] = value; return;
+                    case 1: row2[c] = value; return;
+                    default: throw new IndexOutOfRangeException(r + " is not a valid row index for mat2x4");
+                }
+            }
+        }
 
         public mat2x4(vec4 row1, vec4 row2) {
             this.row1 = row1;

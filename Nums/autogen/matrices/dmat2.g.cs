@@ -10,9 +10,18 @@ namespace Nums {
     public struct dmat2 {
 
         #region rows and columns
+        /// <summary>
+        /// The first row in the matrix.
+        /// </summary>
         public dvec2 row1;
+        /// <summary>
+        /// The second row in the matrix.
+        /// </summary>
         public dvec2 row2;
 
+        /// <summary>
+        /// The first column in the matrix.
+        /// </summary>
         public dvec2 col1 {
             get => new dvec2(row1.x, row2.x);
             set {
@@ -20,6 +29,9 @@ namespace Nums {
                 row2.x = value.y;
             }
         }
+        /// <summary>
+        /// The second column in the matrix.
+        /// </summary>
         public dvec2 col2 {
             get => new dvec2(row1.y, row2.y);
             set {
@@ -65,6 +77,27 @@ namespace Nums {
         /// Gets the transpose of this matrix
         /// </summary>
         public dmat2 transpose => new dmat2(col1, col2);
+        /// <summary>
+        /// The number of bytes the matrix type uses.
+        /// </summary>
+        public const int bytesize = sizeof(double) * 4;
+        /// <summary>
+        /// Gets or sets the element at row r and column c.
+        /// </summary>
+        public double this[int r, int c] {
+            get => r switch {
+                0 => row1[c],
+                1 => row2[c],
+                _ => throw new IndexOutOfRangeException(r + " is not a valid row index for dmat2")
+            };
+            set {
+                switch(r) {
+                    case 0: row1[c] = value; return;
+                    case 1: row2[c] = value; return;
+                    default: throw new IndexOutOfRangeException(r + " is not a valid row index for dmat2");
+                }
+            }
+        }
 
         public dmat2(dvec2 row1, dvec2 row2) {
             this.row1 = row1;

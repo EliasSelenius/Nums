@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Dynamic;
+using System.Linq;
 using System.Net;
 using System.Text;
 
@@ -23,10 +25,15 @@ namespace Nums {
         public const float tau = pi * 2f;
 
         /// <summary> multiply this with a degree to convert to radian. </summary>
-        public const float deg2rad = 180 / pi;
+        public const float deg2rad = 180f / pi;
 
         /// <summary> multiply this with a radian to convert to degree. </summary>
-        public const float rad2deg = pi / 180;
+        public const float rad2deg = pi / 180f;
+
+        /// <summary> The square-root of two (√2) </summary>
+        public const float sqrt2 = 1.414213562f;
+        /// <summary> The square-root of three (√3) </summary>
+        public const float sqrt3 = 1.732050807f;
 
         #endregion
 
@@ -195,5 +202,25 @@ namespace Nums {
         /// <returns></returns>
         public static T pick<T>(params T[] ts) => ts[(int)((rand() * 0.5f + 0.5f) * ts.Length)];
 
+        public static T pick<T>(out int index, params T[] ts) => ts[(index = (int)((rand() * 0.5f + 0.5f) * ts.Length))];
+
+        // unsure if this works TODO: test
+        public static void swap<T>(ref T t1, ref T t2) {
+            var t = t1;
+            t1 = t2;
+            t2 = t;
+        }
+
+        public static IEnumerable<vec2> gen_points(vec2 start_point, float radius, int tries = 30) {
+            List<vec2> spawn_points = new List<vec2>();
+            float size = radius / sqrt2;
+            while (true) {
+                var spawn_point = pick(out int index, spawn_points);
+                for (int i = 0; i < tries; i++) {
+                    
+                }
+            }
+
+        }
     }
 }

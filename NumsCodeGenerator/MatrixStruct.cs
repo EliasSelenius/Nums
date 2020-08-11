@@ -65,14 +65,17 @@ namespace NumsCodeGenerator {
 
             // rows
             region("rows and columns");
-            for (int i = 1; i <= rows; i++) 
+            for (int i = 1; i <= rows; i++) {
+                summary("The " + Program.Index2String(i - 1) + " row in the matrix.");
                 writeline("public " + vectorRow + " row" + i + ";");
+            }
             linebreak();
 
             // cols
             for (int i = 1; i <= cols; i++) {
                 var comp = Program.vectorComps[i - 1];
                 var args = rowNames.Select(x => x + "." + comp);
+                summary("The " + Program.Index2String(i - 1) + " column in the matrix.");
                 startBlock("public " + vectorCol + " col" + i);
                 
                 writeline("get => new " + vectorCol + "(" + args.Aggregate((x, y) => x + ", " + y) + ");");
@@ -106,12 +109,35 @@ namespace NumsCodeGenerator {
 
         private void genProperties() {
 
-            summary("Gets the transpose of this matrix");
 
+            // transpose
+            summary("Gets the transpose of this matrix");
             var transposeStruct = matrixType + cols;
             if (!isSquare) transposeStruct += "x" + rows;
 
             writeline("public " + transposeStruct + " transpose => new " + transposeStruct + "(" + colNames.Aggregate((x, y) => x + ", " + y) + ");");
+
+            // bytetype
+            summary("The number of bytes the matrix type uses.");
+            writeline($"public const int bytesize = sizeof({type}) * {rows * cols};");
+
+
+            // indexing 
+            summary("Gets or sets the element at row r and column c.");
+            startBlock($"public {type} this[int r, int c]");
+            var indexexception = "throw new IndexOutOfRangeException(r + \" is not a valid row index for " + structname + "\")";
+            startBlock("get => r switch");
+            for (int i = 0; i < rows; i++) writeline($"{i} => row{i + 1}[c],");
+            writeline("_ => " + indexexception);
+            endBlock(";"); // end get block
+            startBlock("set");
+            startBlock("switch(r)");
+            for (int i = 0; i < rows; i++) writeline($"case {i}: row{i + 1}[c] = value; return;");
+            writeline("default: " + indexexception + ";");
+            endBlock();
+            endBlock(); // end set block
+            endBlock(); // end indexing
+
 
             linebreak();
         }

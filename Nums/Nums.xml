@@ -9,6 +9,26 @@
             A 2 by 2 matrix
             </summary>
         </member>
+        <member name="F:Nums.dmat2.row1">
+            <summary>
+            The first row in the matrix.
+            </summary>
+        </member>
+        <member name="F:Nums.dmat2.row2">
+            <summary>
+            The second row in the matrix.
+            </summary>
+        </member>
+        <member name="P:Nums.dmat2.col1">
+            <summary>
+            The first column in the matrix.
+            </summary>
+        </member>
+        <member name="P:Nums.dmat2.col2">
+            <summary>
+            The second column in the matrix.
+            </summary>
+        </member>
         <member name="P:Nums.dmat2.m11">
             <summary>
             Gets the value at the first row in the first column
@@ -34,9 +54,44 @@
             Gets the transpose of this matrix
             </summary>
         </member>
+        <member name="F:Nums.dmat2.bytesize">
+            <summary>
+            The number of bytes the matrix type uses.
+            </summary>
+        </member>
+        <member name="P:Nums.dmat2.Item(System.Int32,System.Int32)">
+            <summary>
+            Gets or sets the element at row r and column c.
+            </summary>
+        </member>
         <member name="T:Nums.dmat2x3">
             <summary>
             A 2 by 3 matrix
+            </summary>
+        </member>
+        <member name="F:Nums.dmat2x3.row1">
+            <summary>
+            The first row in the matrix.
+            </summary>
+        </member>
+        <member name="F:Nums.dmat2x3.row2">
+            <summary>
+            The second row in the matrix.
+            </summary>
+        </member>
+        <member name="P:Nums.dmat2x3.col1">
+            <summary>
+            The first column in the matrix.
+            </summary>
+        </member>
+        <member name="P:Nums.dmat2x3.col2">
+            <summary>
+            The second column in the matrix.
+            </summary>
+        </member>
+        <member name="P:Nums.dmat2x3.col3">
+            <summary>
+            The third column in the matrix.
             </summary>
         </member>
         <member name="P:Nums.dmat2x3.m11">
@@ -74,9 +129,49 @@
             Gets the transpose of this matrix
             </summary>
         </member>
+        <member name="F:Nums.dmat2x3.bytesize">
+            <summary>
+            The number of bytes the matrix type uses.
+            </summary>
+        </member>
+        <member name="P:Nums.dmat2x3.Item(System.Int32,System.Int32)">
+            <summary>
+            Gets or sets the element at row r and column c.
+            </summary>
+        </member>
         <member name="T:Nums.dmat2x4">
             <summary>
             A 2 by 4 matrix
+            </summary>
+        </member>
+        <member name="F:Nums.dmat2x4.row1">
+            <summary>
+            The first row in the matrix.
+            </summary>
+        </member>
+        <member name="F:Nums.dmat2x4.row2">
+            <summary>
+            The second row in the matrix.
+            </summary>
+        </member>
+        <member name="P:Nums.dmat2x4.col1">
+            <summary>
+            The first column in the matrix.
+            </summary>
+        </member>
+        <member name="P:Nums.dmat2x4.col2">
+            <summary>
+            The second column in the matrix.
+            </summary>
+        </member>
+        <member name="P:Nums.dmat2x4.col3">
+            <summary>
+            The third column in the matrix.
+            </summary>
+        </member>
+        <member name="P:Nums.dmat2x4.col4">
+            <summary>
+            The fourth column in the matrix.
             </summary>
         </member>
         <member name="P:Nums.dmat2x4.m11">
@@ -124,9 +219,49 @@
             Gets the transpose of this matrix
             </summary>
         </member>
+        <member name="F:Nums.dmat2x4.bytesize">
+            <summary>
+            The number of bytes the matrix type uses.
+            </summary>
+        </member>
+        <member name="P:Nums.dmat2x4.Item(System.Int32,System.Int32)">
+            <summary>
+            Gets or sets the element at row r and column c.
+            </summary>
+        </member>
         <member name="T:Nums.dmat3">
             <summary>
             A 3 by 3 matrix
+            </summary>
+        </member>
+        <member name="F:Nums.dmat3.row1">
+            <summary>
+            The first row in the matrix.
+            </summary>
+        </member>
+        <member name="F:Nums.dmat3.row2">
+            <summary>
+            The second row in the matrix.
+            </summary>
+        </member>
+        <member name="F:Nums.dmat3.row3">
+            <summary>
+            The third row in the matrix.
+            </summary>
+        </member>
+        <member name="P:Nums.dmat3.col1">
+            <summary>
+            The first column in the matrix.
+            </summary>
+        </member>
+        <member name="P:Nums.dmat3.col2">
+            <summary>
+            The second column in the matrix.
+            </summary>
+        </member>
+        <member name="P:Nums.dmat3.col3">
+            <summary>
+            The third column in the matrix.
             </summary>
         </member>
         <member name="P:Nums.dmat3.m11">
@@ -179,9 +314,44 @@
             Gets the transpose of this matrix
             </summary>
         </member>
+        <member name="F:Nums.dmat3.bytesize">
+            <summary>
+            The number of bytes the matrix type uses.
+            </summary>
+        </member>
+        <member name="P:Nums.dmat3.Item(System.Int32,System.Int32)">
+            <summary>
+            Gets or sets the element at row r and column c.
+            </summary>
+        </member>
         <member name="T:Nums.dmat3x2">
             <summary>
             A 3 by 2 matrix
+            </summary>
+        </member>
+        <member name="F:Nums.dmat3x2.row1">
+            <summary>
+            The first row in the matrix.
+            </summary>
+        </member>
+        <member name="F:Nums.dmat3x2.row2">
+            <summary>
+            The second row in the matrix.
+            </summary>
+        </member>
+        <member name="F:Nums.dmat3x2.row3">
+            <summary>
+            The third row in the matrix.
+            </summary>
+        </member>
+        <member name="P:Nums.dmat3x2.col1">
+            <summary>
+            The first column in the matrix.
+            </summary>
+        </member>
+        <member name="P:Nums.dmat3x2.col2">
+            <summary>
+            The second column in the matrix.
             </summary>
         </member>
         <member name="P:Nums.dmat3x2.m11">
@@ -219,9 +389,54 @@
             Gets the transpose of this matrix
             </summary>
         </member>
+        <member name="F:Nums.dmat3x2.bytesize">
+            <summary>
+            The number of bytes the matrix type uses.
+            </summary>
+        </member>
+        <member name="P:Nums.dmat3x2.Item(System.Int32,System.Int32)">
+            <summary>
+            Gets or sets the element at row r and column c.
+            </summary>
+        </member>
         <member name="T:Nums.dmat3x4">
             <summary>
             A 3 by 4 matrix
+            </summary>
+        </member>
+        <member name="F:Nums.dmat3x4.row1">
+            <summary>
+            The first row in the matrix.
+            </summary>
+        </member>
+        <member name="F:Nums.dmat3x4.row2">
+            <summary>
+            The second row in the matrix.
+            </summary>
+        </member>
+        <member name="F:Nums.dmat3x4.row3">
+            <summary>
+            The third row in the matrix.
+            </summary>
+        </member>
+        <member name="P:Nums.dmat3x4.col1">
+            <summary>
+            The first column in the matrix.
+            </summary>
+        </member>
+        <member name="P:Nums.dmat3x4.col2">
+            <summary>
+            The second column in the matrix.
+            </summary>
+        </member>
+        <member name="P:Nums.dmat3x4.col3">
+            <summary>
+            The third column in the matrix.
+            </summary>
+        </member>
+        <member name="P:Nums.dmat3x4.col4">
+            <summary>
+            The fourth column in the matrix.
             </summary>
         </member>
         <member name="P:Nums.dmat3x4.m11">
@@ -289,9 +504,59 @@
             Gets the transpose of this matrix
             </summary>
         </member>
+        <member name="F:Nums.dmat3x4.bytesize">
+            <summary>
+            The number of bytes the matrix type uses.
+            </summary>
+        </member>
+        <member name="P:Nums.dmat3x4.Item(System.Int32,System.Int32)">
+            <summary>
+            Gets or sets the element at row r and column c.
+            </summary>
+        </member>
         <member name="T:Nums.dmat4">
             <summary>
             A 4 by 4 matrix
+            </summary>
+        </member>
+        <member name="F:Nums.dmat4.row1">
+            <summary>
+            The first row in the matrix.
+            </summary>
+        </member>
+        <member name="F:Nums.dmat4.row2">
+            <summary>
+            The second row in the matrix.
+            </summary>
+        </member>
+        <member name="F:Nums.dmat4.row3">
+            <summary>
+            The third row in the matrix.
+            </summary>
+        </member>
+        <member name="F:Nums.dmat4.row4">
+            <summary>
+            The fourth row in the matrix.
+            </summary>
+        </member>
+        <member name="P:Nums.dmat4.col1">
+            <summary>
+            The first column in the matrix.
+            </summary>
+        </member>
+        <member name="P:Nums.dmat4.col2">
+            <summary>
+            The second column in the matrix.
+            </summary>
+        </member>
+        <member name="P:Nums.dmat4.col3">
+            <summary>
+            The third column in the matrix.
+            </summary>
+        </member>
+        <member name="P:Nums.dmat4.col4">
+            <summary>
+            The fourth column in the matrix.
             </summary>
         </member>
         <member name="P:Nums.dmat4.m11">
@@ -379,9 +644,49 @@
             Gets the transpose of this matrix
             </summary>
         </member>
+        <member name="F:Nums.dmat4.bytesize">
+            <summary>
+            The number of bytes the matrix type uses.
+            </summary>
+        </member>
+        <member name="P:Nums.dmat4.Item(System.Int32,System.Int32)">
+            <summary>
+            Gets or sets the element at row r and column c.
+            </summary>
+        </member>
         <member name="T:Nums.dmat4x2">
             <summary>
             A 4 by 2 matrix
+            </summary>
+        </member>
+        <member name="F:Nums.dmat4x2.row1">
+            <summary>
+            The first row in the matrix.
+            </summary>
+        </member>
+        <member name="F:Nums.dmat4x2.row2">
+            <summary>
+            The second row in the matrix.
+            </summary>
+        </member>
+        <member name="F:Nums.dmat4x2.row3">
+            <summary>
+            The third row in the matrix.
+            </summary>
+        </member>
+        <member name="F:Nums.dmat4x2.row4">
+            <summary>
+            The fourth row in the matrix.
+            </summary>
+        </member>
+        <member name="P:Nums.dmat4x2.col1">
+            <summary>
+            The first column in the matrix.
+            </summary>
+        </member>
+        <member name="P:Nums.dmat4x2.col2">
+            <summary>
+            The second column in the matrix.
             </summary>
         </member>
         <member name="P:Nums.dmat4x2.m11">
@@ -429,9 +734,54 @@
             Gets the transpose of this matrix
             </summary>
         </member>
+        <member name="F:Nums.dmat4x2.bytesize">
+            <summary>
+            The number of bytes the matrix type uses.
+            </summary>
+        </member>
+        <member name="P:Nums.dmat4x2.Item(System.Int32,System.Int32)">
+            <summary>
+            Gets or sets the element at row r and column c.
+            </summary>
+        </member>
         <member name="T:Nums.dmat4x3">
             <summary>
             A 4 by 3 matrix
+            </summary>
+        </member>
+        <member name="F:Nums.dmat4x3.row1">
+            <summary>
+            The first row in the matrix.
+            </summary>
+        </member>
+        <member name="F:Nums.dmat4x3.row2">
+            <summary>
+            The second row in the matrix.
+            </summary>
+        </member>
+        <member name="F:Nums.dmat4x3.row3">
+            <summary>
+            The third row in the matrix.
+            </summary>
+        </member>
+        <member name="F:Nums.dmat4x3.row4">
+            <summary>
+            The fourth row in the matrix.
+            </summary>
+        </member>
+        <member name="P:Nums.dmat4x3.col1">
+            <summary>
+            The first column in the matrix.
+            </summary>
+        </member>
+        <member name="P:Nums.dmat4x3.col2">
+            <summary>
+            The second column in the matrix.
+            </summary>
+        </member>
+        <member name="P:Nums.dmat4x3.col3">
+            <summary>
+            The third column in the matrix.
             </summary>
         </member>
         <member name="P:Nums.dmat4x3.m11">
@@ -499,9 +849,39 @@
             Gets the transpose of this matrix
             </summary>
         </member>
+        <member name="F:Nums.dmat4x3.bytesize">
+            <summary>
+            The number of bytes the matrix type uses.
+            </summary>
+        </member>
+        <member name="P:Nums.dmat4x3.Item(System.Int32,System.Int32)">
+            <summary>
+            Gets or sets the element at row r and column c.
+            </summary>
+        </member>
         <member name="T:Nums.mat2">
             <summary>
             A 2 by 2 matrix
+            </summary>
+        </member>
+        <member name="F:Nums.mat2.row1">
+            <summary>
+            The first row in the matrix.
+            </summary>
+        </member>
+        <member name="F:Nums.mat2.row2">
+            <summary>
+            The second row in the matrix.
+            </summary>
+        </member>
+        <member name="P:Nums.mat2.col1">
+            <summary>
+            The first column in the matrix.
+            </summary>
+        </member>
+        <member name="P:Nums.mat2.col2">
+            <summary>
+            The second column in the matrix.
             </summary>
         </member>
         <member name="P:Nums.mat2.m11">
@@ -529,9 +909,44 @@
             Gets the transpose of this matrix
             </summary>
         </member>
+        <member name="F:Nums.mat2.bytesize">
+            <summary>
+            The number of bytes the matrix type uses.
+            </summary>
+        </member>
+        <member name="P:Nums.mat2.Item(System.Int32,System.Int32)">
+            <summary>
+            Gets or sets the element at row r and column c.
+            </summary>
+        </member>
         <member name="T:Nums.mat2x3">
             <summary>
             A 2 by 3 matrix
+            </summary>
+        </member>
+        <member name="F:Nums.mat2x3.row1">
+            <summary>
+            The first row in the matrix.
+            </summary>
+        </member>
+        <member name="F:Nums.mat2x3.row2">
+            <summary>
+            The second row in the matrix.
+            </summary>
+        </member>
+        <member name="P:Nums.mat2x3.col1">
+            <summary>
+            The first column in the matrix.
+            </summary>
+        </member>
+        <member name="P:Nums.mat2x3.col2">
+            <summary>
+            The second column in the matrix.
+            </summary>
+        </member>
+        <member name="P:Nums.mat2x3.col3">
+            <summary>
+            The third column in the matrix.
             </summary>
         </member>
         <member name="P:Nums.mat2x3.m11">
@@ -569,9 +984,49 @@
             Gets the transpose of this matrix
             </summary>
         </member>
+        <member name="F:Nums.mat2x3.bytesize">
+            <summary>
+            The number of bytes the matrix type uses.
+            </summary>
+        </member>
+        <member name="P:Nums.mat2x3.Item(System.Int32,System.Int32)">
+            <summary>
+            Gets or sets the element at row r and column c.
+            </summary>
+        </member>
         <member name="T:Nums.mat2x4">
             <summary>
             A 2 by 4 matrix
+            </summary>
+        </member>
+        <member name="F:Nums.mat2x4.row1">
+            <summary>
+            The first row in the matrix.
+            </summary>
+        </member>
+        <member name="F:Nums.mat2x4.row2">
+            <summary>
+            The second row in the matrix.
+            </summary>
+        </member>
+        <member name="P:Nums.mat2x4.col1">
+            <summary>
+            The first column in the matrix.
+            </summary>
+        </member>
+        <member name="P:Nums.mat2x4.col2">
+            <summary>
+            The second column in the matrix.
+            </summary>
+        </member>
+        <member name="P:Nums.mat2x4.col3">
+            <summary>
+            The third column in the matrix.
+            </summary>
+        </member>
+        <member name="P:Nums.mat2x4.col4">
+            <summary>
+            The fourth column in the matrix.
             </summary>
         </member>
         <member name="P:Nums.mat2x4.m11">
@@ -619,9 +1074,49 @@
             Gets the transpose of this matrix
             </summary>
         </member>
+        <member name="F:Nums.mat2x4.bytesize">
+            <summary>
+            The number of bytes the matrix type uses.
+            </summary>
+        </member>
+        <member name="P:Nums.mat2x4.Item(System.Int32,System.Int32)">
+            <summary>
+            Gets or sets the element at row r and column c.
+            </summary>
+        </member>
         <member name="T:Nums.mat3">
             <summary>
             A 3 by 3 matrix
+            </summary>
+        </member>
+        <member name="F:Nums.mat3.row1">
+            <summary>
+            The first row in the matrix.
+            </summary>
+        </member>
+        <member name="F:Nums.mat3.row2">
+            <summary>
+            The second row in the matrix.
+            </summary>
+        </member>
+        <member name="F:Nums.mat3.row3">
+            <summary>
+            The third row in the matrix.
+            </summary>
+        </member>
+        <member name="P:Nums.mat3.col1">
+            <summary>
+            The first column in the matrix.
+            </summary>
+        </member>
+        <member name="P:Nums.mat3.col2">
+            <summary>
+            The second column in the matrix.
+            </summary>
+        </member>
+        <member name="P:Nums.mat3.col3">
+            <summary>
+            The third column in the matrix.
             </summary>
         </member>
         <member name="P:Nums.mat3.m11">
@@ -674,9 +1169,44 @@
             Gets the transpose of this matrix
             </summary>
         </member>
+        <member name="F:Nums.mat3.bytesize">
+            <summary>
+            The number of bytes the matrix type uses.
+            </summary>
+        </member>
+        <member name="P:Nums.mat3.Item(System.Int32,System.Int32)">
+            <summary>
+            Gets or sets the element at row r and column c.
+            </summary>
+        </member>
         <member name="T:Nums.mat3x2">
             <summary>
             A 3 by 2 matrix
+            </summary>
+        </member>
+        <member name="F:Nums.mat3x2.row1">
+            <summary>
+            The first row in the matrix.
+            </summary>
+        </member>
+        <member name="F:Nums.mat3x2.row2">
+            <summary>
+            The second row in the matrix.
+            </summary>
+        </member>
+        <member name="F:Nums.mat3x2.row3">
+            <summary>
+            The third row in the matrix.
+            </summary>
+        </member>
+        <member name="P:Nums.mat3x2.col1">
+            <summary>
+            The first column in the matrix.
+            </summary>
+        </member>
+        <member name="P:Nums.mat3x2.col2">
+            <summary>
+            The second column in the matrix.
             </summary>
         </member>
         <member name="P:Nums.mat3x2.m11">
@@ -714,9 +1244,54 @@
             Gets the transpose of this matrix
             </summary>
         </member>
+        <member name="F:Nums.mat3x2.bytesize">
+            <summary>
+            The number of bytes the matrix type uses.
+            </summary>
+        </member>
+        <member name="P:Nums.mat3x2.Item(System.Int32,System.Int32)">
+            <summary>
+            Gets or sets the element at row r and column c.
+            </summary>
+        </member>
         <member name="T:Nums.mat3x4">
             <summary>
             A 3 by 4 matrix
+            </summary>
+        </member>
+        <member name="F:Nums.mat3x4.row1">
+            <summary>
+            The first row in the matrix.
+            </summary>
+        </member>
+        <member name="F:Nums.mat3x4.row2">
+            <summary>
+            The second row in the matrix.
+            </summary>
+        </member>
+        <member name="F:Nums.mat3x4.row3">
+            <summary>
+            The third row in the matrix.
+            </summary>
+        </member>
+        <member name="P:Nums.mat3x4.col1">
+            <summary>
+            The first column in the matrix.
+            </summary>
+        </member>
+        <member name="P:Nums.mat3x4.col2">
+            <summary>
+            The second column in the matrix.
+            </summary>
+        </member>
+        <member name="P:Nums.mat3x4.col3">
+            <summary>
+            The third column in the matrix.
+            </summary>
+        </member>
+        <member name="P:Nums.mat3x4.col4">
+            <summary>
+            The fourth column in the matrix.
             </summary>
         </member>
         <member name="P:Nums.mat3x4.m11">
@@ -784,9 +1359,59 @@
             Gets the transpose of this matrix
             </summary>
         </member>
+        <member name="F:Nums.mat3x4.bytesize">
+            <summary>
+            The number of bytes the matrix type uses.
+            </summary>
+        </member>
+        <member name="P:Nums.mat3x4.Item(System.Int32,System.Int32)">
+            <summary>
+            Gets or sets the element at row r and column c.
+            </summary>
+        </member>
         <member name="T:Nums.mat4">
             <summary>
             A 4 by 4 matrix
+            </summary>
+        </member>
+        <member name="F:Nums.mat4.row1">
+            <summary>
+            The first row in the matrix.
+            </summary>
+        </member>
+        <member name="F:Nums.mat4.row2">
+            <summary>
+            The second row in the matrix.
+            </summary>
+        </member>
+        <member name="F:Nums.mat4.row3">
+            <summary>
+            The third row in the matrix.
+            </summary>
+        </member>
+        <member name="F:Nums.mat4.row4">
+            <summary>
+            The fourth row in the matrix.
+            </summary>
+        </member>
+        <member name="P:Nums.mat4.col1">
+            <summary>
+            The first column in the matrix.
+            </summary>
+        </member>
+        <member name="P:Nums.mat4.col2">
+            <summary>
+            The second column in the matrix.
+            </summary>
+        </member>
+        <member name="P:Nums.mat4.col3">
+            <summary>
+            The third column in the matrix.
+            </summary>
+        </member>
+        <member name="P:Nums.mat4.col4">
+            <summary>
+            The fourth column in the matrix.
             </summary>
         </member>
         <member name="P:Nums.mat4.m11">
@@ -874,9 +1499,49 @@
             Gets the transpose of this matrix
             </summary>
         </member>
+        <member name="F:Nums.mat4.bytesize">
+            <summary>
+            The number of bytes the matrix type uses.
+            </summary>
+        </member>
+        <member name="P:Nums.mat4.Item(System.Int32,System.Int32)">
+            <summary>
+            Gets or sets the element at row r and column c.
+            </summary>
+        </member>
         <member name="T:Nums.mat4x2">
             <summary>
             A 4 by 2 matrix
+            </summary>
+        </member>
+        <member name="F:Nums.mat4x2.row1">
+            <summary>
+            The first row in the matrix.
+            </summary>
+        </member>
+        <member name="F:Nums.mat4x2.row2">
+            <summary>
+            The second row in the matrix.
+            </summary>
+        </member>
+        <member name="F:Nums.mat4x2.row3">
+            <summary>
+            The third row in the matrix.
+            </summary>
+        </member>
+        <member name="F:Nums.mat4x2.row4">
+            <summary>
+            The fourth row in the matrix.
+            </summary>
+        </member>
+        <member name="P:Nums.mat4x2.col1">
+            <summary>
+            The first column in the matrix.
+            </summary>
+        </member>
+        <member name="P:Nums.mat4x2.col2">
+            <summary>
+            The second column in the matrix.
             </summary>
         </member>
         <member name="P:Nums.mat4x2.m11">
@@ -924,9 +1589,54 @@
             Gets the transpose of this matrix
             </summary>
         </member>
+        <member name="F:Nums.mat4x2.bytesize">
+            <summary>
+            The number of bytes the matrix type uses.
+            </summary>
+        </member>
+        <member name="P:Nums.mat4x2.Item(System.Int32,System.Int32)">
+            <summary>
+            Gets or sets the element at row r and column c.
+            </summary>
+        </member>
         <member name="T:Nums.mat4x3">
             <summary>
             A 4 by 3 matrix
+            </summary>
+        </member>
+        <member name="F:Nums.mat4x3.row1">
+            <summary>
+            The first row in the matrix.
+            </summary>
+        </member>
+        <member name="F:Nums.mat4x3.row2">
+            <summary>
+            The second row in the matrix.
+            </summary>
+        </member>
+        <member name="F:Nums.mat4x3.row3">
+            <summary>
+            The third row in the matrix.
+            </summary>
+        </member>
+        <member name="F:Nums.mat4x3.row4">
+            <summary>
+            The fourth row in the matrix.
+            </summary>
+        </member>
+        <member name="P:Nums.mat4x3.col1">
+            <summary>
+            The first column in the matrix.
+            </summary>
+        </member>
+        <member name="P:Nums.mat4x3.col2">
+            <summary>
+            The second column in the matrix.
+            </summary>
+        </member>
+        <member name="P:Nums.mat4x3.col3">
+            <summary>
+            The third column in the matrix.
             </summary>
         </member>
         <member name="P:Nums.mat4x3.m11">
@@ -994,6 +1704,16 @@
             Gets the transpose of this matrix
             </summary>
         </member>
+        <member name="F:Nums.mat4x3.bytesize">
+            <summary>
+            The number of bytes the matrix type uses.
+            </summary>
+        </member>
+        <member name="P:Nums.mat4x3.Item(System.Int32,System.Int32)">
+            <summary>
+            Gets or sets the element at row r and column c.
+            </summary>
+        </member>
         <member name="T:Nums.dvec2">
             <summary>
             A 2 component vector of double
@@ -1034,7 +1754,7 @@
             The sum of the vectors components. x + y
             </summary>
         </member>
-        <member name="P:Nums.dvec2.bytesize">
+        <member name="F:Nums.dvec2.bytesize">
             <summary>
             The number of bytes the vector type uses.
             </summary>
@@ -1075,6 +1795,12 @@
         </member>
         <member name="F:Nums.math.rad2deg">
             <summary> multiply this with a radian to convert to degree. </summary>
+        </member>
+        <member name="F:Nums.math.sqrt2">
+            <summary> The square-root of two (√2) </summary>
+        </member>
+        <member name="F:Nums.math.sqrt3">
+            <summary> The square-root of three (√3) </summary>
         </member>
         <member name="M:Nums.math.range(System.Single,System.Single)">
             <summary>
@@ -1164,7 +1890,7 @@
             The sum of the vectors components. x + y + z
             </summary>
         </member>
-        <member name="P:Nums.dvec3.bytesize">
+        <member name="F:Nums.dvec3.bytesize">
             <summary>
             The number of bytes the vector type uses.
             </summary>
@@ -1249,7 +1975,7 @@
             The sum of the vectors components. x + y + z + w
             </summary>
         </member>
-        <member name="P:Nums.dvec4.bytesize">
+        <member name="F:Nums.dvec4.bytesize">
             <summary>
             The number of bytes the vector type uses.
             </summary>
@@ -1314,7 +2040,7 @@
             The sum of the vectors components. x + y
             </summary>
         </member>
-        <member name="P:Nums.ivec2.bytesize">
+        <member name="F:Nums.ivec2.bytesize">
             <summary>
             The number of bytes the vector type uses.
             </summary>
@@ -1389,7 +2115,7 @@
             The sum of the vectors components. x + y + z
             </summary>
         </member>
-        <member name="P:Nums.ivec3.bytesize">
+        <member name="F:Nums.ivec3.bytesize">
             <summary>
             The number of bytes the vector type uses.
             </summary>
@@ -1474,7 +2200,7 @@
             The sum of the vectors components. x + y + z + w
             </summary>
         </member>
-        <member name="P:Nums.ivec4.bytesize">
+        <member name="F:Nums.ivec4.bytesize">
             <summary>
             The number of bytes the vector type uses.
             </summary>
@@ -1539,7 +2265,7 @@
             The sum of the vectors components. x + y
             </summary>
         </member>
-        <member name="P:Nums.vec2.bytesize">
+        <member name="F:Nums.vec2.bytesize">
             <summary>
             The number of bytes the vector type uses.
             </summary>
@@ -1614,7 +2340,7 @@
             The sum of the vectors components. x + y + z
             </summary>
         </member>
-        <member name="P:Nums.vec3.bytesize">
+        <member name="F:Nums.vec3.bytesize">
             <summary>
             The number of bytes the vector type uses.
             </summary>
@@ -1699,7 +2425,7 @@
             The sum of the vectors components. x + y + z + w
             </summary>
         </member>
-        <member name="P:Nums.vec4.bytesize">
+        <member name="F:Nums.vec4.bytesize">
             <summary>
             The number of bytes the vector type uses.
             </summary>

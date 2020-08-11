@@ -43,7 +43,7 @@ namespace Nums {
         /// <summary>
         /// The number of bytes the vector type uses.
         /// </summary>
-        public static int bytesize => sizeof(int) * 2;
+        public const int bytesize = sizeof(int) * 2;
         /// <summary>
         /// The magnitude of the vector
         /// </summary>

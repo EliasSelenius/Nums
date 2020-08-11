@@ -76,7 +76,7 @@ namespace NumsCodeGenerator {
             writeline($"public {type} sum => {sum};");
 
             summary("The number of bytes the vector type uses.");
-            writeline($"public static int bytesize => sizeof({type}) * {compsNames.Length};");
+            writeline($"public const int bytesize = sizeof({type}) * {compsNames.Length};");
 
             summary("The magnitude of the vector");
             writeline($"public {type} length => ({type})Math.Sqrt(dot(this));");

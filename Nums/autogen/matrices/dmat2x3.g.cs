@@ -10,9 +10,18 @@ namespace Nums {
     public struct dmat2x3 {
 
         #region rows and columns
+        /// <summary>
+        /// The first row in the matrix.
+        /// </summary>
         public dvec3 row1;
+        /// <summary>
+        /// The second row in the matrix.
+        /// </summary>
         public dvec3 row2;
 
+        /// <summary>
+        /// The first column in the matrix.
+        /// </summary>
         public dvec2 col1 {
             get => new dvec2(row1.x, row2.x);
             set {
@@ -20,6 +29,9 @@ namespace Nums {
                 row2.x = value.y;
             }
         }
+        /// <summary>
+        /// The second column in the matrix.
+        /// </summary>
         public dvec2 col2 {
             get => new dvec2(row1.y, row2.y);
             set {
@@ -27,6 +39,9 @@ namespace Nums {
                 row2.y = value.y;
             }
         }
+        /// <summary>
+        /// The third column in the matrix.
+        /// </summary>
         public dvec2 col3 {
             get => new dvec2(row1.z, row2.z);
             set {
@@ -86,6 +101,27 @@ namespace Nums {
         /// Gets the transpose of this matrix
         /// </summary>
         public dmat3x2 transpose => new dmat3x2(col1, col2, col3);
+        /// <summary>
+        /// The number of bytes the matrix type uses.
+        /// </summary>
+        public const int bytesize = sizeof(double) * 6;
+        /// <summary>
+        /// Gets or sets the element at row r and column c.
+        /// </summary>
+        public double this[int r, int c] {
+            get => r switch {
+                0 => row1[c],
+                1 => row2[c],
+                _ => throw new IndexOutOfRangeException(r + " is not a valid row index for dmat2x3")
+            };
+            set {
+                switch(r) {
+                    case 0: row1[c] = value; return;
+                    case 1: row2[c] = value; return;
+                    default: throw new IndexOutOfRangeException(r + " is not a valid row index for dmat2x3");
+                }
+            }
+        }
 
         public dmat2x3(dvec3 row1, dvec3 row2) {
             this.row1 = row1;

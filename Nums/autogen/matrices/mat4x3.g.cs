@@ -10,11 +10,26 @@ namespace Nums {
     public struct mat4x3 {
 
         #region rows and columns
+        /// <summary>
+        /// The first row in the matrix.
+        /// </summary>
         public vec3 row1;
+        /// <summary>
+        /// The second row in the matrix.
+        /// </summary>
         public vec3 row2;
+        /// <summary>
+        /// The third row in the matrix.
+        /// </summary>
         public vec3 row3;
+        /// <summary>
+        /// The fourth row in the matrix.
+        /// </summary>
         public vec3 row4;
 
+        /// <summary>
+        /// The first column in the matrix.
+        /// </summary>
         public vec4 col1 {
             get => new vec4(row1.x, row2.x, row3.x, row4.x);
             set {
@@ -24,6 +39,9 @@ namespace Nums {
                 row4.x = value.w;
             }
         }
+        /// <summary>
+        /// The second column in the matrix.
+        /// </summary>
         public vec4 col2 {
             get => new vec4(row1.y, row2.y, row3.y, row4.y);
             set {
@@ -33,6 +51,9 @@ namespace Nums {
                 row4.y = value.w;
             }
         }
+        /// <summary>
+        /// The third column in the matrix.
+        /// </summary>
         public vec4 col3 {
             get => new vec4(row1.z, row2.z, row3.z, row4.z);
             set {
@@ -136,6 +157,31 @@ namespace Nums {
         /// Gets the transpose of this matrix
         /// </summary>
         public mat3x4 transpose => new mat3x4(col1, col2, col3);
+        /// <summary>
+        /// The number of bytes the matrix type uses.
+        /// </summary>
+        public const int bytesize = sizeof(float) * 12;
+        /// <summary>
+        /// Gets or sets the element at row r and column c.
+        /// </summary>
+        public float this[int r, int c] {
+            get => r switch {
+                0 => row1[c],
+                1 => row2[c],
+                2 => row3[c],
+                3 => row4[c],
+                _ => throw new IndexOutOfRangeException(r + " is not a valid row index for mat4x3")
+            };
+            set {
+                switch(r) {
+                    case 0: row1[c] = value; return;
+                    case 1: row2[c] = value; return;
+                    case 2: row3[c] = value; return;
+                    case 3: row4[c] = value; return;
+                    default: throw new IndexOutOfRangeException(r + " is not a valid row index for mat4x3");
+                }
+            }
+        }
 
         public mat4x3(vec3 row1, vec3 row2, vec3 row3, vec3 row4) {
             this.row1 = row1;
