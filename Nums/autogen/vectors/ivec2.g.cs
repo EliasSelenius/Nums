@@ -77,7 +77,13 @@ namespace Nums {
         }
 
         #region swizzling properties
+        /// <summary>
+        /// A ivec2 containing the xx components of this vector
+        /// </summary>
         public ivec2 xx => new ivec2(x, x);
+        /// <summary>
+        /// A ivec2 containing the yx components of this vector
+        /// </summary>
         public ivec2 yx {
             get => new ivec2(y, x);
             set {
@@ -85,6 +91,9 @@ namespace Nums {
                 x = value.y;
             }
         }
+        /// <summary>
+        /// A ivec2 containing the xy components of this vector
+        /// </summary>
         public ivec2 xy {
             get => new ivec2(x, y);
             set {
@@ -92,6 +101,9 @@ namespace Nums {
                 y = value.y;
             }
         }
+        /// <summary>
+        /// A ivec2 containing the yy components of this vector
+        /// </summary>
         public ivec2 yy => new ivec2(y, y);
         #endregion
 

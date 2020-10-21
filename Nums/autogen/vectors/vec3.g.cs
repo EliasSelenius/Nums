@@ -87,7 +87,13 @@ namespace Nums {
         }
 
         #region swizzling properties
+        /// <summary>
+        /// A vec2 containing the xx components of this vector
+        /// </summary>
         public vec2 xx => new vec2(x, x);
+        /// <summary>
+        /// A vec2 containing the yx components of this vector
+        /// </summary>
         public vec2 yx {
             get => new vec2(y, x);
             set {
@@ -95,6 +101,9 @@ namespace Nums {
                 x = value.y;
             }
         }
+        /// <summary>
+        /// A vec2 containing the zx components of this vector
+        /// </summary>
         public vec2 zx {
             get => new vec2(z, x);
             set {
@@ -102,6 +111,9 @@ namespace Nums {
                 x = value.y;
             }
         }
+        /// <summary>
+        /// A vec2 containing the xy components of this vector
+        /// </summary>
         public vec2 xy {
             get => new vec2(x, y);
             set {
@@ -109,7 +121,13 @@ namespace Nums {
                 y = value.y;
             }
         }
+        /// <summary>
+        /// A vec2 containing the yy components of this vector
+        /// </summary>
         public vec2 yy => new vec2(y, y);
+        /// <summary>
+        /// A vec2 containing the zy components of this vector
+        /// </summary>
         public vec2 zy {
             get => new vec2(z, y);
             set {
@@ -117,6 +135,9 @@ namespace Nums {
                 y = value.y;
             }
         }
+        /// <summary>
+        /// A vec2 containing the xz components of this vector
+        /// </summary>
         public vec2 xz {
             get => new vec2(x, z);
             set {
@@ -124,6 +145,9 @@ namespace Nums {
                 z = value.y;
             }
         }
+        /// <summary>
+        /// A vec2 containing the yz components of this vector
+        /// </summary>
         public vec2 yz {
             get => new vec2(y, z);
             set {
@@ -131,12 +155,33 @@ namespace Nums {
                 z = value.y;
             }
         }
+        /// <summary>
+        /// A vec2 containing the zz components of this vector
+        /// </summary>
         public vec2 zz => new vec2(z, z);
+        /// <summary>
+        /// A vec3 containing the xxx components of this vector
+        /// </summary>
         public vec3 xxx => new vec3(x, x, x);
+        /// <summary>
+        /// A vec3 containing the yxx components of this vector
+        /// </summary>
         public vec3 yxx => new vec3(y, x, x);
+        /// <summary>
+        /// A vec3 containing the zxx components of this vector
+        /// </summary>
         public vec3 zxx => new vec3(z, x, x);
+        /// <summary>
+        /// A vec3 containing the xyx components of this vector
+        /// </summary>
         public vec3 xyx => new vec3(x, y, x);
+        /// <summary>
+        /// A vec3 containing the yyx components of this vector
+        /// </summary>
         public vec3 yyx => new vec3(y, y, x);
+        /// <summary>
+        /// A vec3 containing the zyx components of this vector
+        /// </summary>
         public vec3 zyx {
             get => new vec3(z, y, x);
             set {
@@ -145,7 +190,13 @@ namespace Nums {
                 x = value.z;
             }
         }
+        /// <summary>
+        /// A vec3 containing the xzx components of this vector
+        /// </summary>
         public vec3 xzx => new vec3(x, z, x);
+        /// <summary>
+        /// A vec3 containing the yzx components of this vector
+        /// </summary>
         public vec3 yzx {
             get => new vec3(y, z, x);
             set {
@@ -154,9 +205,21 @@ namespace Nums {
                 x = value.z;
             }
         }
+        /// <summary>
+        /// A vec3 containing the zzx components of this vector
+        /// </summary>
         public vec3 zzx => new vec3(z, z, x);
+        /// <summary>
+        /// A vec3 containing the xxy components of this vector
+        /// </summary>
         public vec3 xxy => new vec3(x, x, y);
+        /// <summary>
+        /// A vec3 containing the yxy components of this vector
+        /// </summary>
         public vec3 yxy => new vec3(y, x, y);
+        /// <summary>
+        /// A vec3 containing the zxy components of this vector
+        /// </summary>
         public vec3 zxy {
             get => new vec3(z, x, y);
             set {
@@ -165,9 +228,21 @@ namespace Nums {
                 y = value.z;
             }
         }
+        /// <summary>
+        /// A vec3 containing the xyy components of this vector
+        /// </summary>
         public vec3 xyy => new vec3(x, y, y);
+        /// <summary>
+        /// A vec3 containing the yyy components of this vector
+        /// </summary>
         public vec3 yyy => new vec3(y, y, y);
+        /// <summary>
+        /// A vec3 containing the zyy components of this vector
+        /// </summary>
         public vec3 zyy => new vec3(z, y, y);
+        /// <summary>
+        /// A vec3 containing the xzy components of this vector
+        /// </summary>
         public vec3 xzy {
             get => new vec3(x, z, y);
             set {
@@ -176,9 +251,21 @@ namespace Nums {
                 y = value.z;
             }
         }
+        /// <summary>
+        /// A vec3 containing the yzy components of this vector
+        /// </summary>
         public vec3 yzy => new vec3(y, z, y);
+        /// <summary>
+        /// A vec3 containing the zzy components of this vector
+        /// </summary>
         public vec3 zzy => new vec3(z, z, y);
+        /// <summary>
+        /// A vec3 containing the xxz components of this vector
+        /// </summary>
         public vec3 xxz => new vec3(x, x, z);
+        /// <summary>
+        /// A vec3 containing the yxz components of this vector
+        /// </summary>
         public vec3 yxz {
             get => new vec3(y, x, z);
             set {
@@ -187,7 +274,13 @@ namespace Nums {
                 z = value.z;
             }
         }
+        /// <summary>
+        /// A vec3 containing the zxz components of this vector
+        /// </summary>
         public vec3 zxz => new vec3(z, x, z);
+        /// <summary>
+        /// A vec3 containing the xyz components of this vector
+        /// </summary>
         public vec3 xyz {
             get => new vec3(x, y, z);
             set {
@@ -196,10 +289,25 @@ namespace Nums {
                 z = value.z;
             }
         }
+        /// <summary>
+        /// A vec3 containing the yyz components of this vector
+        /// </summary>
         public vec3 yyz => new vec3(y, y, z);
+        /// <summary>
+        /// A vec3 containing the zyz components of this vector
+        /// </summary>
         public vec3 zyz => new vec3(z, y, z);
+        /// <summary>
+        /// A vec3 containing the xzz components of this vector
+        /// </summary>
         public vec3 xzz => new vec3(x, z, z);
+        /// <summary>
+        /// A vec3 containing the yzz components of this vector
+        /// </summary>
         public vec3 yzz => new vec3(y, z, z);
+        /// <summary>
+        /// A vec3 containing the zzz components of this vector
+        /// </summary>
         public vec3 zzz => new vec3(z, z, z);
         #endregion
 

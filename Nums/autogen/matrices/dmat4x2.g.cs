@@ -161,10 +161,26 @@ namespace Nums {
         }
 
         #region operators
+        /// <summary>
+        /// multiplies a dmat4x2 with a dvec2
+        /// </summary>
         public static dvec4 operator *(dmat4x2 m, dvec2 v) => new dvec4(m.row1.dot(v), m.row2.dot(v), m.row3.dot(v), m.row4.dot(v));
+        /// <summary>
+        /// multiplies a dmat4x2 with a dmat2
+        /// </summary>
         public static dmat4x2 operator *(dmat4x2 m1, dmat2 m2) => new dmat4x2(m1.row1.dot(m2.col1), m1.row1.dot(m2.col2), m1.row2.dot(m2.col1), m1.row2.dot(m2.col2), m1.row3.dot(m2.col1), m1.row3.dot(m2.col2), m1.row4.dot(m2.col1), m1.row4.dot(m2.col2));
+        /// <summary>
+        /// multiplies a dmat4x2 with a dmat2x3
+        /// </summary>
         public static dmat4x3 operator *(dmat4x2 m1, dmat2x3 m2) => new dmat4x3(m1.row1.dot(m2.col1), m1.row1.dot(m2.col2), m1.row1.dot(m2.col3), m1.row2.dot(m2.col1), m1.row2.dot(m2.col2), m1.row2.dot(m2.col3), m1.row3.dot(m2.col1), m1.row3.dot(m2.col2), m1.row3.dot(m2.col3), m1.row4.dot(m2.col1), m1.row4.dot(m2.col2), m1.row4.dot(m2.col3));
+        /// <summary>
+        /// multiplies a dmat4x2 with a dmat2x4
+        /// </summary>
         public static dmat4 operator *(dmat4x2 m1, dmat2x4 m2) => new dmat4(m1.row1.dot(m2.col1), m1.row1.dot(m2.col2), m1.row1.dot(m2.col3), m1.row1.dot(m2.col4), m1.row2.dot(m2.col1), m1.row2.dot(m2.col2), m1.row2.dot(m2.col3), m1.row2.dot(m2.col4), m1.row3.dot(m2.col1), m1.row3.dot(m2.col2), m1.row3.dot(m2.col3), m1.row3.dot(m2.col4), m1.row4.dot(m2.col1), m1.row4.dot(m2.col2), m1.row4.dot(m2.col3), m1.row4.dot(m2.col4));
+        /// <summary>
+        /// multiplies all elements of a matrix with a scalar
+        /// </summary>
+        public static dmat4x2 operator *(dmat4x2 m, double s) => new dmat4x2(m.row1 * s, m.row2 * s, m.row3 * s, m.row4 * s);
         #endregion
     }
 }

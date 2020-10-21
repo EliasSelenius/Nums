@@ -77,7 +77,13 @@ namespace Nums {
         }
 
         #region swizzling properties
+        /// <summary>
+        /// A vec2 containing the xx components of this vector
+        /// </summary>
         public vec2 xx => new vec2(x, x);
+        /// <summary>
+        /// A vec2 containing the yx components of this vector
+        /// </summary>
         public vec2 yx {
             get => new vec2(y, x);
             set {
@@ -85,6 +91,9 @@ namespace Nums {
                 x = value.y;
             }
         }
+        /// <summary>
+        /// A vec2 containing the xy components of this vector
+        /// </summary>
         public vec2 xy {
             get => new vec2(x, y);
             set {
@@ -92,6 +101,9 @@ namespace Nums {
                 y = value.y;
             }
         }
+        /// <summary>
+        /// A vec2 containing the yy components of this vector
+        /// </summary>
         public vec2 yy => new vec2(y, y);
         #endregion
 

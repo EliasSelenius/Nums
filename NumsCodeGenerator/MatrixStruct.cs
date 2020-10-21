@@ -51,7 +51,7 @@ namespace NumsCodeGenerator {
             writeline("[StructLayout(LayoutKind.Sequential)]");
             startBlock("public struct " + structname);
 
-
+            genConsts();
             genRowsAndCols();
             genProperties();
             genConstructors();
@@ -59,6 +59,20 @@ namespace NumsCodeGenerator {
 
             endBlock(); // end struct block
             endBlock(); // end namespace block
+        }
+
+        private void genConsts() {
+            if (isSquare) {
+                summary("The identity matrix");
+                var args = "";
+                for (int r = 0; r < rows; r++) {
+                    for (int c = 0; c < cols; c++) {
+                        args += (r == c ? "1" : "0") + ", ";
+                    }
+                }
+                args = args.TrimEnd(',', ' ');
+                writeline($"public static readonly {structname} identity = new {structname}({args});");
+            }
         }
 
         private void genRowsAndCols() {
@@ -121,6 +135,20 @@ namespace NumsCodeGenerator {
             summary("The number of bytes the matrix type uses.");
             writeline($"public const int bytesize = sizeof({type}) * {rows * cols};");
 
+            if (isSquare) {
+                // diagonal
+                summary("Gets or sets the diagonal of the matrix.");
+                startBlock($"public {vectorRow} diagonal");
+                var diagonalRows = rowNames.Select((x, i) => x + "." + Program.vectorComps[i]);
+                var args = "(" + diagonalRows.Aggregate((x, y) => x + ", " + y) + ")";
+                writeline($"get => new {vectorRow}{args};");
+                writeline($"set => {args} = ({Program.vectorComps[..rows].Select(x => "value." + x).Aggregate((x, y) => x + ", " + y)});");
+                endBlock();
+
+                // trace
+                summary("Gets the sum of the diagonal.");
+                writeline($"public {type} trace => {diagonalRows.Aggregate((x, y) => x + " + " + y)};");
+            }
 
             // indexing 
             summary("Gets or sets the element at row r and column c.");
@@ -169,6 +197,30 @@ namespace NumsCodeGenerator {
 
             endBlock();
 
+            // cast constructors e.g: mat4(mat3)
+            if (isSquare) {
+                for (int i = 2; i <= 4; i++) {
+                    if (i == rows) continue;
+                    var otherMat = matrixType + i;
+                    summary($"creates a {structname} from the given {otherMat}");
+                    startBlock($"public {structname}({otherMat} m)");
+                    for (int r = 0; r < rows; r++) {
+                        for (int c = 0; c < cols; c++) {
+                            var curField = rowNames[r] + "." + Program.vectorComps[c];
+                            var line = curField + " = ";
+                            if (i < rows) {
+                                if (c < i && r < i) line += "m." + curField;
+                                else line += r == c ? "1" : "0";
+                            } else {
+                                line += "m." + curField;
+                            }
+                            writeline(line + ";");
+                        }
+                    }
+                    endBlock();
+                }
+            }
+
         }
 
         public void genOperators() {
@@ -177,6 +229,7 @@ namespace NumsCodeGenerator {
             // matrix vector multiplication
             {
                 var args = rowNames.Select(x => "m." + x + ".dot(v)").Aggregate((x, y) => x + ", " + y);
+                summary($"multiplies a {structname} with a {vectorRow}");
                 writeline("public static " + vectorCol + " operator *(" + structname + " m, " + vectorRow + " v) => new " + vectorCol + "(" + args + ");");
             }
 
@@ -193,9 +246,13 @@ namespace NumsCodeGenerator {
                 for (int r = 1; r <= rows; r++)
                     for (int c = 1; c <= i; c++) 
                         args[(r - 1) * i + c -1] = "m1.row" + r + ".dot(m2.col" + c + ")";
-                 
+                summary($"multiplies a {structname} with a {otherstruct}");
                 writeline("public static " + resultstruct + " operator *(" + structname + " m1, " + otherstruct + " m2) => new " + resultstruct + "(" + args.Aggregate((x, y) => x + ", " + y)+");");
             }
+
+            // matrix scalar multiplication
+            summary("multiplies all elements of a matrix with a scalar");
+            writeline($"public static {structname} operator *({structname} m, {type} s) => new {structname}({rowNames.Select(x => "m." + x + " * s").Aggregate((x, y) => x + ", " + y)});");
 
 
             endregion();

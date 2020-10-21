@@ -8,6 +8,10 @@ namespace Nums {
     /// </summary>
     [StructLayout(LayoutKind.Sequential)]
     public struct dmat2 {
+        /// <summary>
+        /// The identity matrix
+        /// </summary>
+        public static readonly dmat2 identity = new dmat2(1, 0, 0, 1);
 
         #region rows and columns
         /// <summary>
@@ -82,6 +86,17 @@ namespace Nums {
         /// </summary>
         public const int bytesize = sizeof(double) * 4;
         /// <summary>
+        /// Gets or sets the diagonal of the matrix.
+        /// </summary>
+        public dvec2 diagonal {
+            get => new dvec2(row1.x, row2.y);
+            set => (row1.x, row2.y) = (value.x, value.y);
+        }
+        /// <summary>
+        /// Gets the sum of the diagonal.
+        /// </summary>
+        public double trace => row1.x + row2.y;
+        /// <summary>
         /// Gets or sets the element at row r and column c.
         /// </summary>
         public double this[int r, int c] {
@@ -109,12 +124,46 @@ namespace Nums {
             row2.x = m21;
             row2.y = m22;
         }
+        /// <summary>
+        /// creates a dmat2 from the given dmat3
+        /// </summary>
+        public dmat2(dmat3 m) {
+            row1.x = m.row1.x;
+            row1.y = m.row1.y;
+            row2.x = m.row2.x;
+            row2.y = m.row2.y;
+        }
+        /// <summary>
+        /// creates a dmat2 from the given dmat4
+        /// </summary>
+        public dmat2(dmat4 m) {
+            row1.x = m.row1.x;
+            row1.y = m.row1.y;
+            row2.x = m.row2.x;
+            row2.y = m.row2.y;
+        }
 
         #region operators
+        /// <summary>
+        /// multiplies a dmat2 with a dvec2
+        /// </summary>
         public static dvec2 operator *(dmat2 m, dvec2 v) => new dvec2(m.row1.dot(v), m.row2.dot(v));
+        /// <summary>
+        /// multiplies a dmat2 with a dmat2
+        /// </summary>
         public static dmat2 operator *(dmat2 m1, dmat2 m2) => new dmat2(m1.row1.dot(m2.col1), m1.row1.dot(m2.col2), m1.row2.dot(m2.col1), m1.row2.dot(m2.col2));
+        /// <summary>
+        /// multiplies a dmat2 with a dmat2x3
+        /// </summary>
         public static dmat2x3 operator *(dmat2 m1, dmat2x3 m2) => new dmat2x3(m1.row1.dot(m2.col1), m1.row1.dot(m2.col2), m1.row1.dot(m2.col3), m1.row2.dot(m2.col1), m1.row2.dot(m2.col2), m1.row2.dot(m2.col3));
+        /// <summary>
+        /// multiplies a dmat2 with a dmat2x4
+        /// </summary>
         public static dmat2x4 operator *(dmat2 m1, dmat2x4 m2) => new dmat2x4(m1.row1.dot(m2.col1), m1.row1.dot(m2.col2), m1.row1.dot(m2.col3), m1.row1.dot(m2.col4), m1.row2.dot(m2.col1), m1.row2.dot(m2.col2), m1.row2.dot(m2.col3), m1.row2.dot(m2.col4));
+        /// <summary>
+        /// multiplies all elements of a matrix with a scalar
+        /// </summary>
+        public static dmat2 operator *(dmat2 m, double s) => new dmat2(m.row1 * s, m.row2 * s);
         #endregion
     }
 }

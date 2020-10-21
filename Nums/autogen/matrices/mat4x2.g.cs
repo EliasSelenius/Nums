@@ -161,10 +161,26 @@ namespace Nums {
         }
 
         #region operators
+        /// <summary>
+        /// multiplies a mat4x2 with a vec2
+        /// </summary>
         public static vec4 operator *(mat4x2 m, vec2 v) => new vec4(m.row1.dot(v), m.row2.dot(v), m.row3.dot(v), m.row4.dot(v));
+        /// <summary>
+        /// multiplies a mat4x2 with a mat2
+        /// </summary>
         public static mat4x2 operator *(mat4x2 m1, mat2 m2) => new mat4x2(m1.row1.dot(m2.col1), m1.row1.dot(m2.col2), m1.row2.dot(m2.col1), m1.row2.dot(m2.col2), m1.row3.dot(m2.col1), m1.row3.dot(m2.col2), m1.row4.dot(m2.col1), m1.row4.dot(m2.col2));
+        /// <summary>
+        /// multiplies a mat4x2 with a mat2x3
+        /// </summary>
         public static mat4x3 operator *(mat4x2 m1, mat2x3 m2) => new mat4x3(m1.row1.dot(m2.col1), m1.row1.dot(m2.col2), m1.row1.dot(m2.col3), m1.row2.dot(m2.col1), m1.row2.dot(m2.col2), m1.row2.dot(m2.col3), m1.row3.dot(m2.col1), m1.row3.dot(m2.col2), m1.row3.dot(m2.col3), m1.row4.dot(m2.col1), m1.row4.dot(m2.col2), m1.row4.dot(m2.col3));
+        /// <summary>
+        /// multiplies a mat4x2 with a mat2x4
+        /// </summary>
         public static mat4 operator *(mat4x2 m1, mat2x4 m2) => new mat4(m1.row1.dot(m2.col1), m1.row1.dot(m2.col2), m1.row1.dot(m2.col3), m1.row1.dot(m2.col4), m1.row2.dot(m2.col1), m1.row2.dot(m2.col2), m1.row2.dot(m2.col3), m1.row2.dot(m2.col4), m1.row3.dot(m2.col1), m1.row3.dot(m2.col2), m1.row3.dot(m2.col3), m1.row3.dot(m2.col4), m1.row4.dot(m2.col1), m1.row4.dot(m2.col2), m1.row4.dot(m2.col3), m1.row4.dot(m2.col4));
+        /// <summary>
+        /// multiplies all elements of a matrix with a scalar
+        /// </summary>
+        public static mat4x2 operator *(mat4x2 m, float s) => new mat4x2(m.row1 * s, m.row2 * s, m.row3 * s, m.row4 * s);
         #endregion
     }
 }

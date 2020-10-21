@@ -21,14 +21,20 @@ namespace Nums {
         /// <summary> The constant π (pi). </summary>
         public const float pi = 3.1415926535897932384626433832795f;
 
+        /// <summary> The constant π/2 (pi divided by two). </summary>
+        public const float half_pi = pi / 2f;
+
+        /// <summary> The constant π/4 (pi divided by four). </summary>
+        public const float quarter_pi = pi / 4f;
+
         /// <summary> The constant τ (tau). equal to 2π. </summary>
         public const float tau = pi * 2f;
 
         /// <summary> multiply this with a degree to convert to radian. </summary>
-        public const float deg2rad = 180f / pi;
+        public const float deg2rad = pi / 180f;
 
         /// <summary> multiply this with a radian to convert to degree. </summary>
-        public const float rad2deg = pi / 180f;
+        public const float rad2deg = 180f / pi;
 
         /// <summary> The square-root of two (√2) </summary>
         public const float sqrt2 = 1.414213562f;
@@ -221,6 +227,36 @@ namespace Nums {
                 }
             }
 
+        }
+
+        public static mat4 lookAt(vec3 eye, vec3 target, vec3 up) {
+            var z = (eye - target).normalized();
+            var x = up.cross(z).normalized();
+            var y = z.cross(x).normalized();
+
+            mat4 res;
+
+            res.row1.x = x.x;
+            res.row1.y = y.x;
+            res.row1.z = z.x;
+            res.row1.w = 0;
+
+            res.row2.x = x.y;
+            res.row2.y = y.y;
+            res.row2.z = z.y;
+            res.row2.w = 0;
+
+            res.row3.x = x.z;
+            res.row3.y = y.z;
+            res.row3.z = z.z;
+            res.row3.w = 0;
+
+            res.row4.x = -x.dot(eye);
+            res.row4.y = -y.dot(eye);
+            res.row4.z = -z.dot(eye);
+            res.row4.w = 1;
+
+            return res;
         }
     }
 }

@@ -77,7 +77,13 @@ namespace Nums {
         }
 
         #region swizzling properties
+        /// <summary>
+        /// A dvec2 containing the xx components of this vector
+        /// </summary>
         public dvec2 xx => new dvec2(x, x);
+        /// <summary>
+        /// A dvec2 containing the yx components of this vector
+        /// </summary>
         public dvec2 yx {
             get => new dvec2(y, x);
             set {
@@ -85,6 +91,9 @@ namespace Nums {
                 x = value.y;
             }
         }
+        /// <summary>
+        /// A dvec2 containing the xy components of this vector
+        /// </summary>
         public dvec2 xy {
             get => new dvec2(x, y);
             set {
@@ -92,6 +101,9 @@ namespace Nums {
                 y = value.y;
             }
         }
+        /// <summary>
+        /// A dvec2 containing the yy components of this vector
+        /// </summary>
         public dvec2 yy => new dvec2(y, y);
         #endregion
 

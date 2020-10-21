@@ -8,6 +8,10 @@ namespace Nums {
     /// </summary>
     [StructLayout(LayoutKind.Sequential)]
     public struct dmat4 {
+        /// <summary>
+        /// The identity matrix
+        /// </summary>
+        public static readonly dmat4 identity = new dmat4(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
 
         #region rows and columns
         /// <summary>
@@ -202,6 +206,17 @@ namespace Nums {
         /// </summary>
         public const int bytesize = sizeof(double) * 16;
         /// <summary>
+        /// Gets or sets the diagonal of the matrix.
+        /// </summary>
+        public dvec4 diagonal {
+            get => new dvec4(row1.x, row2.y, row3.z, row4.w);
+            set => (row1.x, row2.y, row3.z, row4.w) = (value.x, value.y, value.z, value.w);
+        }
+        /// <summary>
+        /// Gets the sum of the diagonal.
+        /// </summary>
+        public double trace => row1.x + row2.y + row3.z + row4.w;
+        /// <summary>
         /// Gets or sets the element at row r and column c.
         /// </summary>
         public double this[int r, int c] {
@@ -247,12 +262,70 @@ namespace Nums {
             row4.z = m43;
             row4.w = m44;
         }
+        /// <summary>
+        /// creates a dmat4 from the given dmat2
+        /// </summary>
+        public dmat4(dmat2 m) {
+            row1.x = m.row1.x;
+            row1.y = m.row1.y;
+            row1.z = 0;
+            row1.w = 0;
+            row2.x = m.row2.x;
+            row2.y = m.row2.y;
+            row2.z = 0;
+            row2.w = 0;
+            row3.x = 0;
+            row3.y = 0;
+            row3.z = 1;
+            row3.w = 0;
+            row4.x = 0;
+            row4.y = 0;
+            row4.z = 0;
+            row4.w = 1;
+        }
+        /// <summary>
+        /// creates a dmat4 from the given dmat3
+        /// </summary>
+        public dmat4(dmat3 m) {
+            row1.x = m.row1.x;
+            row1.y = m.row1.y;
+            row1.z = m.row1.z;
+            row1.w = 0;
+            row2.x = m.row2.x;
+            row2.y = m.row2.y;
+            row2.z = m.row2.z;
+            row2.w = 0;
+            row3.x = m.row3.x;
+            row3.y = m.row3.y;
+            row3.z = m.row3.z;
+            row3.w = 0;
+            row4.x = 0;
+            row4.y = 0;
+            row4.z = 0;
+            row4.w = 1;
+        }
 
         #region operators
+        /// <summary>
+        /// multiplies a dmat4 with a dvec4
+        /// </summary>
         public static dvec4 operator *(dmat4 m, dvec4 v) => new dvec4(m.row1.dot(v), m.row2.dot(v), m.row3.dot(v), m.row4.dot(v));
+        /// <summary>
+        /// multiplies a dmat4 with a dmat4x2
+        /// </summary>
         public static dmat4x2 operator *(dmat4 m1, dmat4x2 m2) => new dmat4x2(m1.row1.dot(m2.col1), m1.row1.dot(m2.col2), m1.row2.dot(m2.col1), m1.row2.dot(m2.col2), m1.row3.dot(m2.col1), m1.row3.dot(m2.col2), m1.row4.dot(m2.col1), m1.row4.dot(m2.col2));
+        /// <summary>
+        /// multiplies a dmat4 with a dmat4x3
+        /// </summary>
         public static dmat4x3 operator *(dmat4 m1, dmat4x3 m2) => new dmat4x3(m1.row1.dot(m2.col1), m1.row1.dot(m2.col2), m1.row1.dot(m2.col3), m1.row2.dot(m2.col1), m1.row2.dot(m2.col2), m1.row2.dot(m2.col3), m1.row3.dot(m2.col1), m1.row3.dot(m2.col2), m1.row3.dot(m2.col3), m1.row4.dot(m2.col1), m1.row4.dot(m2.col2), m1.row4.dot(m2.col3));
+        /// <summary>
+        /// multiplies a dmat4 with a dmat4
+        /// </summary>
         public static dmat4 operator *(dmat4 m1, dmat4 m2) => new dmat4(m1.row1.dot(m2.col1), m1.row1.dot(m2.col2), m1.row1.dot(m2.col3), m1.row1.dot(m2.col4), m1.row2.dot(m2.col1), m1.row2.dot(m2.col2), m1.row2.dot(m2.col3), m1.row2.dot(m2.col4), m1.row3.dot(m2.col1), m1.row3.dot(m2.col2), m1.row3.dot(m2.col3), m1.row3.dot(m2.col4), m1.row4.dot(m2.col1), m1.row4.dot(m2.col2), m1.row4.dot(m2.col3), m1.row4.dot(m2.col4));
+        /// <summary>
+        /// multiplies all elements of a matrix with a scalar
+        /// </summary>
+        public static dmat4 operator *(dmat4 m, double s) => new dmat4(m.row1 * s, m.row2 * s, m.row3 * s, m.row4 * s);
         #endregion
     }
 }

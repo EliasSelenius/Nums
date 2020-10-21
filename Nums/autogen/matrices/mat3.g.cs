@@ -8,6 +8,10 @@ namespace Nums {
     /// </summary>
     [StructLayout(LayoutKind.Sequential)]
     public struct mat3 {
+        /// <summary>
+        /// The identity matrix
+        /// </summary>
+        public static readonly mat3 identity = new mat3(1, 0, 0, 0, 1, 0, 0, 0, 1);
 
         #region rows and columns
         /// <summary>
@@ -134,6 +138,17 @@ namespace Nums {
         /// </summary>
         public const int bytesize = sizeof(float) * 9;
         /// <summary>
+        /// Gets or sets the diagonal of the matrix.
+        /// </summary>
+        public vec3 diagonal {
+            get => new vec3(row1.x, row2.y, row3.z);
+            set => (row1.x, row2.y, row3.z) = (value.x, value.y, value.z);
+        }
+        /// <summary>
+        /// Gets the sum of the diagonal.
+        /// </summary>
+        public float trace => row1.x + row2.y + row3.z;
+        /// <summary>
         /// Gets or sets the element at row r and column c.
         /// </summary>
         public float this[int r, int c] {
@@ -169,12 +184,56 @@ namespace Nums {
             row3.y = m32;
             row3.z = m33;
         }
+        /// <summary>
+        /// creates a mat3 from the given mat2
+        /// </summary>
+        public mat3(mat2 m) {
+            row1.x = m.row1.x;
+            row1.y = m.row1.y;
+            row1.z = 0;
+            row2.x = m.row2.x;
+            row2.y = m.row2.y;
+            row2.z = 0;
+            row3.x = 0;
+            row3.y = 0;
+            row3.z = 1;
+        }
+        /// <summary>
+        /// creates a mat3 from the given mat4
+        /// </summary>
+        public mat3(mat4 m) {
+            row1.x = m.row1.x;
+            row1.y = m.row1.y;
+            row1.z = m.row1.z;
+            row2.x = m.row2.x;
+            row2.y = m.row2.y;
+            row2.z = m.row2.z;
+            row3.x = m.row3.x;
+            row3.y = m.row3.y;
+            row3.z = m.row3.z;
+        }
 
         #region operators
+        /// <summary>
+        /// multiplies a mat3 with a vec3
+        /// </summary>
         public static vec3 operator *(mat3 m, vec3 v) => new vec3(m.row1.dot(v), m.row2.dot(v), m.row3.dot(v));
+        /// <summary>
+        /// multiplies a mat3 with a mat3x2
+        /// </summary>
         public static mat3x2 operator *(mat3 m1, mat3x2 m2) => new mat3x2(m1.row1.dot(m2.col1), m1.row1.dot(m2.col2), m1.row2.dot(m2.col1), m1.row2.dot(m2.col2), m1.row3.dot(m2.col1), m1.row3.dot(m2.col2));
+        /// <summary>
+        /// multiplies a mat3 with a mat3
+        /// </summary>
         public static mat3 operator *(mat3 m1, mat3 m2) => new mat3(m1.row1.dot(m2.col1), m1.row1.dot(m2.col2), m1.row1.dot(m2.col3), m1.row2.dot(m2.col1), m1.row2.dot(m2.col2), m1.row2.dot(m2.col3), m1.row3.dot(m2.col1), m1.row3.dot(m2.col2), m1.row3.dot(m2.col3));
+        /// <summary>
+        /// multiplies a mat3 with a mat3x4
+        /// </summary>
         public static mat3x4 operator *(mat3 m1, mat3x4 m2) => new mat3x4(m1.row1.dot(m2.col1), m1.row1.dot(m2.col2), m1.row1.dot(m2.col3), m1.row1.dot(m2.col4), m1.row2.dot(m2.col1), m1.row2.dot(m2.col2), m1.row2.dot(m2.col3), m1.row2.dot(m2.col4), m1.row3.dot(m2.col1), m1.row3.dot(m2.col2), m1.row3.dot(m2.col3), m1.row3.dot(m2.col4));
+        /// <summary>
+        /// multiplies all elements of a matrix with a scalar
+        /// </summary>
+        public static mat3 operator *(mat3 m, float s) => new mat3(m.row1 * s, m.row2 * s, m.row3 * s);
         #endregion
     }
 }

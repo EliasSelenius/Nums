@@ -87,7 +87,13 @@ namespace Nums {
         }
 
         #region swizzling properties
+        /// <summary>
+        /// A dvec2 containing the xx components of this vector
+        /// </summary>
         public dvec2 xx => new dvec2(x, x);
+        /// <summary>
+        /// A dvec2 containing the yx components of this vector
+        /// </summary>
         public dvec2 yx {
             get => new dvec2(y, x);
             set {
@@ -95,6 +101,9 @@ namespace Nums {
                 x = value.y;
             }
         }
+        /// <summary>
+        /// A dvec2 containing the zx components of this vector
+        /// </summary>
         public dvec2 zx {
             get => new dvec2(z, x);
             set {
@@ -102,6 +111,9 @@ namespace Nums {
                 x = value.y;
             }
         }
+        /// <summary>
+        /// A dvec2 containing the xy components of this vector
+        /// </summary>
         public dvec2 xy {
             get => new dvec2(x, y);
             set {
@@ -109,7 +121,13 @@ namespace Nums {
                 y = value.y;
             }
         }
+        /// <summary>
+        /// A dvec2 containing the yy components of this vector
+        /// </summary>
         public dvec2 yy => new dvec2(y, y);
+        /// <summary>
+        /// A dvec2 containing the zy components of this vector
+        /// </summary>
         public dvec2 zy {
             get => new dvec2(z, y);
             set {
@@ -117,6 +135,9 @@ namespace Nums {
                 y = value.y;
             }
         }
+        /// <summary>
+        /// A dvec2 containing the xz components of this vector
+        /// </summary>
         public dvec2 xz {
             get => new dvec2(x, z);
             set {
@@ -124,6 +145,9 @@ namespace Nums {
                 z = value.y;
             }
         }
+        /// <summary>
+        /// A dvec2 containing the yz components of this vector
+        /// </summary>
         public dvec2 yz {
             get => new dvec2(y, z);
             set {
@@ -131,12 +155,33 @@ namespace Nums {
                 z = value.y;
             }
         }
+        /// <summary>
+        /// A dvec2 containing the zz components of this vector
+        /// </summary>
         public dvec2 zz => new dvec2(z, z);
+        /// <summary>
+        /// A dvec3 containing the xxx components of this vector
+        /// </summary>
         public dvec3 xxx => new dvec3(x, x, x);
+        /// <summary>
+        /// A dvec3 containing the yxx components of this vector
+        /// </summary>
         public dvec3 yxx => new dvec3(y, x, x);
+        /// <summary>
+        /// A dvec3 containing the zxx components of this vector
+        /// </summary>
         public dvec3 zxx => new dvec3(z, x, x);
+        /// <summary>
+        /// A dvec3 containing the xyx components of this vector
+        /// </summary>
         public dvec3 xyx => new dvec3(x, y, x);
+        /// <summary>
+        /// A dvec3 containing the yyx components of this vector
+        /// </summary>
         public dvec3 yyx => new dvec3(y, y, x);
+        /// <summary>
+        /// A dvec3 containing the zyx components of this vector
+        /// </summary>
         public dvec3 zyx {
             get => new dvec3(z, y, x);
             set {
@@ -145,7 +190,13 @@ namespace Nums {
                 x = value.z;
             }
         }
+        /// <summary>
+        /// A dvec3 containing the xzx components of this vector
+        /// </summary>
         public dvec3 xzx => new dvec3(x, z, x);
+        /// <summary>
+        /// A dvec3 containing the yzx components of this vector
+        /// </summary>
         public dvec3 yzx {
             get => new dvec3(y, z, x);
             set {
@@ -154,9 +205,21 @@ namespace Nums {
                 x = value.z;
             }
         }
+        /// <summary>
+        /// A dvec3 containing the zzx components of this vector
+        /// </summary>
         public dvec3 zzx => new dvec3(z, z, x);
+        /// <summary>
+        /// A dvec3 containing the xxy components of this vector
+        /// </summary>
         public dvec3 xxy => new dvec3(x, x, y);
+        /// <summary>
+        /// A dvec3 containing the yxy components of this vector
+        /// </summary>
         public dvec3 yxy => new dvec3(y, x, y);
+        /// <summary>
+        /// A dvec3 containing the zxy components of this vector
+        /// </summary>
         public dvec3 zxy {
             get => new dvec3(z, x, y);
             set {
@@ -165,9 +228,21 @@ namespace Nums {
                 y = value.z;
             }
         }
+        /// <summary>
+        /// A dvec3 containing the xyy components of this vector
+        /// </summary>
         public dvec3 xyy => new dvec3(x, y, y);
+        /// <summary>
+        /// A dvec3 containing the yyy components of this vector
+        /// </summary>
         public dvec3 yyy => new dvec3(y, y, y);
+        /// <summary>
+        /// A dvec3 containing the zyy components of this vector
+        /// </summary>
         public dvec3 zyy => new dvec3(z, y, y);
+        /// <summary>
+        /// A dvec3 containing the xzy components of this vector
+        /// </summary>
         public dvec3 xzy {
             get => new dvec3(x, z, y);
             set {
@@ -176,9 +251,21 @@ namespace Nums {
                 y = value.z;
             }
         }
+        /// <summary>
+        /// A dvec3 containing the yzy components of this vector
+        /// </summary>
         public dvec3 yzy => new dvec3(y, z, y);
+        /// <summary>
+        /// A dvec3 containing the zzy components of this vector
+        /// </summary>
         public dvec3 zzy => new dvec3(z, z, y);
+        /// <summary>
+        /// A dvec3 containing the xxz components of this vector
+        /// </summary>
         public dvec3 xxz => new dvec3(x, x, z);
+        /// <summary>
+        /// A dvec3 containing the yxz components of this vector
+        /// </summary>
         public dvec3 yxz {
             get => new dvec3(y, x, z);
             set {
@@ -187,7 +274,13 @@ namespace Nums {
                 z = value.z;
             }
         }
+        /// <summary>
+        /// A dvec3 containing the zxz components of this vector
+        /// </summary>
         public dvec3 zxz => new dvec3(z, x, z);
+        /// <summary>
+        /// A dvec3 containing the xyz components of this vector
+        /// </summary>
         public dvec3 xyz {
             get => new dvec3(x, y, z);
             set {
@@ -196,10 +289,25 @@ namespace Nums {
                 z = value.z;
             }
         }
+        /// <summary>
+        /// A dvec3 containing the yyz components of this vector
+        /// </summary>
         public dvec3 yyz => new dvec3(y, y, z);
+        /// <summary>
+        /// A dvec3 containing the zyz components of this vector
+        /// </summary>
         public dvec3 zyz => new dvec3(z, y, z);
+        /// <summary>
+        /// A dvec3 containing the xzz components of this vector
+        /// </summary>
         public dvec3 xzz => new dvec3(x, z, z);
+        /// <summary>
+        /// A dvec3 containing the yzz components of this vector
+        /// </summary>
         public dvec3 yzz => new dvec3(y, z, z);
+        /// <summary>
+        /// A dvec3 containing the zzz components of this vector
+        /// </summary>
         public dvec3 zzz => new dvec3(z, z, z);
         #endregion
 

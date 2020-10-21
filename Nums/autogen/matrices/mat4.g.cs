@@ -8,6 +8,10 @@ namespace Nums {
     /// </summary>
     [StructLayout(LayoutKind.Sequential)]
     public struct mat4 {
+        /// <summary>
+        /// The identity matrix
+        /// </summary>
+        public static readonly mat4 identity = new mat4(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
 
         #region rows and columns
         /// <summary>
@@ -202,6 +206,17 @@ namespace Nums {
         /// </summary>
         public const int bytesize = sizeof(float) * 16;
         /// <summary>
+        /// Gets or sets the diagonal of the matrix.
+        /// </summary>
+        public vec4 diagonal {
+            get => new vec4(row1.x, row2.y, row3.z, row4.w);
+            set => (row1.x, row2.y, row3.z, row4.w) = (value.x, value.y, value.z, value.w);
+        }
+        /// <summary>
+        /// Gets the sum of the diagonal.
+        /// </summary>
+        public float trace => row1.x + row2.y + row3.z + row4.w;
+        /// <summary>
         /// Gets or sets the element at row r and column c.
         /// </summary>
         public float this[int r, int c] {
@@ -247,12 +262,70 @@ namespace Nums {
             row4.z = m43;
             row4.w = m44;
         }
+        /// <summary>
+        /// creates a mat4 from the given mat2
+        /// </summary>
+        public mat4(mat2 m) {
+            row1.x = m.row1.x;
+            row1.y = m.row1.y;
+            row1.z = 0;
+            row1.w = 0;
+            row2.x = m.row2.x;
+            row2.y = m.row2.y;
+            row2.z = 0;
+            row2.w = 0;
+            row3.x = 0;
+            row3.y = 0;
+            row3.z = 1;
+            row3.w = 0;
+            row4.x = 0;
+            row4.y = 0;
+            row4.z = 0;
+            row4.w = 1;
+        }
+        /// <summary>
+        /// creates a mat4 from the given mat3
+        /// </summary>
+        public mat4(mat3 m) {
+            row1.x = m.row1.x;
+            row1.y = m.row1.y;
+            row1.z = m.row1.z;
+            row1.w = 0;
+            row2.x = m.row2.x;
+            row2.y = m.row2.y;
+            row2.z = m.row2.z;
+            row2.w = 0;
+            row3.x = m.row3.x;
+            row3.y = m.row3.y;
+            row3.z = m.row3.z;
+            row3.w = 0;
+            row4.x = 0;
+            row4.y = 0;
+            row4.z = 0;
+            row4.w = 1;
+        }
 
         #region operators
+        /// <summary>
+        /// multiplies a mat4 with a vec4
+        /// </summary>
         public static vec4 operator *(mat4 m, vec4 v) => new vec4(m.row1.dot(v), m.row2.dot(v), m.row3.dot(v), m.row4.dot(v));
+        /// <summary>
+        /// multiplies a mat4 with a mat4x2
+        /// </summary>
         public static mat4x2 operator *(mat4 m1, mat4x2 m2) => new mat4x2(m1.row1.dot(m2.col1), m1.row1.dot(m2.col2), m1.row2.dot(m2.col1), m1.row2.dot(m2.col2), m1.row3.dot(m2.col1), m1.row3.dot(m2.col2), m1.row4.dot(m2.col1), m1.row4.dot(m2.col2));
+        /// <summary>
+        /// multiplies a mat4 with a mat4x3
+        /// </summary>
         public static mat4x3 operator *(mat4 m1, mat4x3 m2) => new mat4x3(m1.row1.dot(m2.col1), m1.row1.dot(m2.col2), m1.row1.dot(m2.col3), m1.row2.dot(m2.col1), m1.row2.dot(m2.col2), m1.row2.dot(m2.col3), m1.row3.dot(m2.col1), m1.row3.dot(m2.col2), m1.row3.dot(m2.col3), m1.row4.dot(m2.col1), m1.row4.dot(m2.col2), m1.row4.dot(m2.col3));
+        /// <summary>
+        /// multiplies a mat4 with a mat4
+        /// </summary>
         public static mat4 operator *(mat4 m1, mat4 m2) => new mat4(m1.row1.dot(m2.col1), m1.row1.dot(m2.col2), m1.row1.dot(m2.col3), m1.row1.dot(m2.col4), m1.row2.dot(m2.col1), m1.row2.dot(m2.col2), m1.row2.dot(m2.col3), m1.row2.dot(m2.col4), m1.row3.dot(m2.col1), m1.row3.dot(m2.col2), m1.row3.dot(m2.col3), m1.row3.dot(m2.col4), m1.row4.dot(m2.col1), m1.row4.dot(m2.col2), m1.row4.dot(m2.col3), m1.row4.dot(m2.col4));
+        /// <summary>
+        /// multiplies all elements of a matrix with a scalar
+        /// </summary>
+        public static mat4 operator *(mat4 m, float s) => new mat4(m.row1 * s, m.row2 * s, m.row3 * s, m.row4 * s);
         #endregion
     }
 }

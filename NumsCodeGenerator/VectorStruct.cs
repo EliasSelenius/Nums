@@ -167,10 +167,10 @@ namespace NumsCodeGenerator {
 
                 for (int si = 0; si < Math.Pow(compsNames.Length, size); si++) {
 
-
-                    string decl = $"public {swizzlevecname} {swizzleindexes.Select(x => compsNames[x]).Aggregate((x, y) => x + y)}",
+                    var propName = swizzleindexes.Select(x => compsNames[x]).Aggregate((x, y) => x + y);
+                    string decl = $"public {swizzlevecname} {propName}",
                            get = $"=> new {swizzlevecname}({swizzleindexes.Select(x => compsNames[x]).Aggregate((x, y) => x + ", " + y)});";
-
+                    summary($"A {swizzlevecname} containing the {propName} components of this vector");
                     if (swizzleindexes.Distinct().Count() == swizzleindexes.Length) {
                         startBlock(decl);
                         writeline($"get {get}");

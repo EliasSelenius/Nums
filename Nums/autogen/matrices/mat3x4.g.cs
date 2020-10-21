@@ -206,10 +206,26 @@ namespace Nums {
         }
 
         #region operators
+        /// <summary>
+        /// multiplies a mat3x4 with a vec4
+        /// </summary>
         public static vec3 operator *(mat3x4 m, vec4 v) => new vec3(m.row1.dot(v), m.row2.dot(v), m.row3.dot(v));
+        /// <summary>
+        /// multiplies a mat3x4 with a mat4x2
+        /// </summary>
         public static mat3x2 operator *(mat3x4 m1, mat4x2 m2) => new mat3x2(m1.row1.dot(m2.col1), m1.row1.dot(m2.col2), m1.row2.dot(m2.col1), m1.row2.dot(m2.col2), m1.row3.dot(m2.col1), m1.row3.dot(m2.col2));
+        /// <summary>
+        /// multiplies a mat3x4 with a mat4x3
+        /// </summary>
         public static mat3 operator *(mat3x4 m1, mat4x3 m2) => new mat3(m1.row1.dot(m2.col1), m1.row1.dot(m2.col2), m1.row1.dot(m2.col3), m1.row2.dot(m2.col1), m1.row2.dot(m2.col2), m1.row2.dot(m2.col3), m1.row3.dot(m2.col1), m1.row3.dot(m2.col2), m1.row3.dot(m2.col3));
+        /// <summary>
+        /// multiplies a mat3x4 with a mat4
+        /// </summary>
         public static mat3x4 operator *(mat3x4 m1, mat4 m2) => new mat3x4(m1.row1.dot(m2.col1), m1.row1.dot(m2.col2), m1.row1.dot(m2.col3), m1.row1.dot(m2.col4), m1.row2.dot(m2.col1), m1.row2.dot(m2.col2), m1.row2.dot(m2.col3), m1.row2.dot(m2.col4), m1.row3.dot(m2.col1), m1.row3.dot(m2.col2), m1.row3.dot(m2.col3), m1.row3.dot(m2.col4));
+        /// <summary>
+        /// multiplies all elements of a matrix with a scalar
+        /// </summary>
+        public static mat3x4 operator *(mat3x4 m, float s) => new mat3x4(m.row1 * s, m.row2 * s, m.row3 * s);
         #endregion
     }
 }
