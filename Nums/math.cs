@@ -45,6 +45,10 @@ namespace Nums {
 
         #region basic funcs
 
+        public static double map(double value, double min, double max, double target_min, double target_max) => lerp(target_min, target_max, (value - min) / (max - min));
+        public static float map(float value, float min, float max, float target_min, float target_max) => lerp(target_min, target_max, (value - min) / (max - min));
+
+
         public static double lerp(double x, double y, double t) => x + (y - x) * t;
         public static float lerp(float x, float y, float t) => x + (y - x) * t;
 
