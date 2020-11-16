@@ -1,2 +1,8 @@
 # Nums
-Vector and geometry math library for C#
+linear algebra and geometry math library for C#
+
+## Features
+- Vectors
+- Matrices
+- valuenoise/gradientnoise
+
