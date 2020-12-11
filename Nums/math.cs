@@ -211,8 +211,11 @@ namespace Nums {
         /// <param name="ts"></param>
         /// <returns></returns>
         public static T pick<T>(params T[] ts) => ts[(int)((rand() * 0.5f + 0.5f) * ts.Length)];
+        public static T pick<T>(int seed, params T[] ts) => ts[(int)((rand(seed) * 0.5f + 0.5f) * ts.Length)];
 
         public static T pick<T>(out int index, params T[] ts) => ts[(index = (int)((rand() * 0.5f + 0.5f) * ts.Length))];
+        public static T pick<T>(int seed, out int index, params T[] ts) => ts[(index = (int)((rand(seed) * 0.5f + 0.5f) * ts.Length))];
+
 
         // unsure if this works TODO: test
         public static void swap<T>(ref T t1, ref T t2) {
