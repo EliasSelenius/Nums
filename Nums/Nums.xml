@@ -2466,6 +2466,11 @@
             <param name="ts"></param>
             <returns></returns>
         </member>
+        <member name="M:Nums.math.swap``1(``0@,``0@)">
+            <summary>
+            Swaps the two inputs
+            </summary>
+        </member>
         <member name="T:Nums.dvec3">
             <summary>
             A 3 component vector of double
@@ -8694,6 +8699,96 @@
         <member name="P:Nums.vec4.wwww">
             <summary>
             A vec4 containing the wwww components of this vector
+            </summary>
+        </member>
+        <member name="T:Nums.vec">
+            <summary>
+            A vector made of floats
+            </summary>
+        </member>
+        <member name="P:Nums.vec.length">
+            <summary>
+            The magnitude of the vector
+            </summary>
+        </member>
+        <member name="P:Nums.vec.sqlength">
+            <summary>
+            The squared magnitude of the vector. sqlength is faster than length since a square-root operation is not needed.
+            </summary>
+        </member>
+        <member name="P:Nums.vec.sum">
+            <summary>
+            The sum of the vectors components.
+            </summary>
+        </member>
+        <member name="M:Nums.vec.normalize">
+            <summary>
+            Normalizes this vector.
+            </summary>
+        </member>
+        <member name="P:Nums.vec.Item(System.Int32)">
+            <summary>
+            Gets one of the vectors components by its index 
+            </summary>
+        </member>
+        <member name="T:Nums.dvec">
+            <summary>
+            A vector made of doubles
+            </summary>
+        </member>
+        <member name="P:Nums.dvec.length">
+            <summary>
+            The magnitude of the vector
+            </summary>
+        </member>
+        <member name="P:Nums.dvec.sqlength">
+            <summary>
+            The squared magnitude of the vector. sqlength is faster than length since a square-root operation is not needed.
+            </summary>
+        </member>
+        <member name="P:Nums.dvec.sum">
+            <summary>
+            The sum of the vectors components.
+            </summary>
+        </member>
+        <member name="M:Nums.dvec.normalize">
+            <summary>
+            Normalizes this vector.
+            </summary>
+        </member>
+        <member name="P:Nums.dvec.Item(System.Int32)">
+            <summary>
+            Gets one of the vectors components by its index 
+            </summary>
+        </member>
+        <member name="T:Nums.ivec">
+            <summary>
+            A vector made of ints
+            </summary>
+        </member>
+        <member name="P:Nums.ivec.length">
+            <summary>
+            The magnitude of the vector
+            </summary>
+        </member>
+        <member name="P:Nums.ivec.sqlength">
+            <summary>
+            The squared magnitude of the vector. sqlength is faster than length since a square-root operation is not needed.
+            </summary>
+        </member>
+        <member name="P:Nums.ivec.sum">
+            <summary>
+            The sum of the vectors components.
+            </summary>
+        </member>
+        <member name="M:Nums.ivec.normalize">
+            <summary>
+            Normalizes this vector.
+            </summary>
+        </member>
+        <member name="P:Nums.ivec.Item(System.Int32)">
+            <summary>
+            Gets one of the vectors components by its index 
             </summary>
         </member>
     </members>

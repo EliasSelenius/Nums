@@ -216,8 +216,9 @@ namespace Nums {
         public static T pick<T>(out int index, params T[] ts) => ts[(index = (int)((rand() * 0.5f + 0.5f) * ts.Length))];
         public static T pick<T>(int seed, out int index, params T[] ts) => ts[(index = (int)((rand(seed) * 0.5f + 0.5f) * ts.Length))];
 
-
-        // unsure if this works TODO: test
+        /// <summary>
+        /// Swaps the two inputs
+        /// </summary>
         public static void swap<T>(ref T t1, ref T t2) {
             var t = t1;
             t1 = t2;

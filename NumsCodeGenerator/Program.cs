@@ -53,7 +53,8 @@ namespace NumsCodeGenerator {
         {
             "float" => "vec",
             "double" => "dvec",
-            "int" => "ivec"
+            "int" => "ivec",
+            _ => throw new Exception()
         };
 
         private static readonly string[] indexNames = new[] {
