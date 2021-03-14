@@ -5,26 +5,7 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>D:\Documents\repos\Nums\Nums\Nums.xml</DocumentationFile>
+    <DocumentationFile>Nums.xml</DocumentationFile>
   </PropertyGroup>
 
-
-  <ItemGroup>
-    <Folder Include="autogen\matrices\" />
-    <Folder Include="autogen\vectors\" />
-  </ItemGroup>
-
-  <Target Name="GenCode" DependsOnTargets="executeGen" BeforeTargets="DispatchToInnerBuilds">
-    <ItemGroup>
-      <Compile Include="autogen\**\*.g.cs" />
-    </ItemGroup>
-  </Target>
-
-  <Target Name="executeGen">
-    <ItemGroup>
-      <Compile Remove="autogen\*.g.cs" />
-    </ItemGroup>
-    <Exec Command="..\NumsCodeGenerator\bin\Debug\net5.0\NumsCodeGenerator.exe" />
-  </Target>
-  
 </Project>
