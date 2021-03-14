@@ -92,7 +92,7 @@ namespace NumsCodeGenerator {
                 summary("The " + Program.Index2String(i - 1) + " column in the matrix.");
                 startBlock("public " + vectorCol + " col" + i);
                 
-                writeline("get => new " + vectorCol + "(" + args.Aggregate((x, y) => x + ", " + y) + ");");
+                writeline("readonly get => new " + vectorCol + "(" + args.Aggregate((x, y) => x + ", " + y) + ");");
                 
                 startBlock("set");
                 for (int j = 0; j < args.Count(); j++)
@@ -112,7 +112,7 @@ namespace NumsCodeGenerator {
                     summary("Gets the value at the " + Program.Index2String(i) + " row in the " + Program.Index2String(j) + " column");
                     startBlock("public " + type + " m" + (i + 1) + (j + 1));
                     var id = "row" + (i + 1) + "." + Program.vectorComps[j];
-                    writeline("get => " + id + ";");
+                    writeline("readonly get => " + id + ";");
                     writeline("set => " + id + " = value;");
                     endBlock();
                 }
@@ -129,7 +129,7 @@ namespace NumsCodeGenerator {
             var transposeStruct = matrixType + cols;
             if (!isSquare) transposeStruct += "x" + rows;
 
-            writeline("public " + transposeStruct + " transpose => new " + transposeStruct + "(" + colNames.Aggregate((x, y) => x + ", " + y) + ");");
+            writeline("public readonly " + transposeStruct + " transpose => new " + transposeStruct + "(" + colNames.Aggregate((x, y) => x + ", " + y) + ");");
 
             // bytetype
             summary("The number of bytes the matrix type uses.");
@@ -141,20 +141,20 @@ namespace NumsCodeGenerator {
                 startBlock($"public {vectorRow} diagonal");
                 var diagonalRows = rowNames.Select((x, i) => x + "." + Program.vectorComps[i]);
                 var args = "(" + diagonalRows.Aggregate((x, y) => x + ", " + y) + ")";
-                writeline($"get => new {vectorRow}{args};");
+                writeline($"readonly get => new {vectorRow}{args};");
                 writeline($"set => {args} = ({Program.vectorComps[..rows].Select(x => "value." + x).Aggregate((x, y) => x + ", " + y)});");
                 endBlock();
 
                 // trace
                 summary("Gets the sum of the diagonal.");
-                writeline($"public {type} trace => {diagonalRows.Aggregate((x, y) => x + " + " + y)};");
+                writeline($"public readonly {type} trace => {diagonalRows.Aggregate((x, y) => x + " + " + y)};");
             }
 
             // indexing 
             summary("Gets or sets the element at row r and column c.");
             startBlock($"public {type} this[int r, int c]");
             var indexexception = "throw new IndexOutOfRangeException(r + \" is not a valid row index for " + structname + "\")";
-            startBlock("get => r switch");
+            startBlock("readonly get => r switch");
             for (int i = 0; i < rows; i++) writeline($"{i} => row{i + 1}[c],");
             writeline("_ => " + indexexception);
             endBlock(";"); // end get block

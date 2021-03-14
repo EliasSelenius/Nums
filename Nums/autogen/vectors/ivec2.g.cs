@@ -39,7 +39,7 @@ namespace Nums {
         /// <summary>
         /// The sum of the vectors components. x + y
         /// </summary>
-        public int sum => x + y;
+        public readonly int sum => x + y;
         /// <summary>
         /// The number of bytes the vector type uses.
         /// </summary>
@@ -47,22 +47,22 @@ namespace Nums {
         /// <summary>
         /// The magnitude of the vector
         /// </summary>
-        public int length => (int)Math.Sqrt(dot(this));
+        public readonly int length => (int)Math.Sqrt(dot(this));
         /// <summary>
         /// The squared magnitude of the vector. sqlength is faster than length since a square-root operation is not needed.
         /// </summary>
-        public int sqlength => dot(this);
+        public readonly int sqlength => dot(this);
         /// <summary>
         /// The normalized version of this vector.
         /// </summary>
-        public ivec2 normalized() => this / length;
+        public readonly ivec2 normalized() => this / length;
         /// <summary>
         /// Normalizes this vector.
         /// </summary>
         public void normalize() => this /= length;
 
         public int this[int i] {
-            get => i switch {
+            readonly get => i switch {
                 0 => x,
                 1 => y,
                 _ => throw new IndexOutOfRangeException("ivec2[" + i + "] is not a valid index")
@@ -80,12 +80,12 @@ namespace Nums {
         /// <summary>
         /// A ivec2 containing the xx components of this vector
         /// </summary>
-        public ivec2 xx => new ivec2(x, x);
+        public readonly ivec2 xx => new ivec2(x, x);
         /// <summary>
         /// A ivec2 containing the yx components of this vector
         /// </summary>
         public ivec2 yx {
-            get => new ivec2(y, x);
+            readonly get => new ivec2(y, x);
             set {
                 y = value.x;
                 x = value.y;
@@ -95,7 +95,7 @@ namespace Nums {
         /// A ivec2 containing the xy components of this vector
         /// </summary>
         public ivec2 xy {
-            get => new ivec2(x, y);
+            readonly get => new ivec2(x, y);
             set {
                 x = value.x;
                 y = value.y;
@@ -104,7 +104,7 @@ namespace Nums {
         /// <summary>
         /// A ivec2 containing the yy components of this vector
         /// </summary>
-        public ivec2 yy => new ivec2(y, y);
+        public readonly ivec2 yy => new ivec2(y, y);
         #endregion
 
         #region constructors
@@ -115,7 +115,7 @@ namespace Nums {
         #endregion
 
         #region arithmetic
-        public int dot(ivec2 v) => (this * v).sum;
+        public readonly int dot(ivec2 v) => (this * v).sum;
 
         public static ivec2 operator *(ivec2 a, ivec2 b) => new ivec2(a.x * b.x, a.y * b.y);
         public static ivec2 operator /(ivec2 a, ivec2 b) => new ivec2(a.x / b.x, a.y / b.y);
@@ -129,10 +129,10 @@ namespace Nums {
         #endregion
 
         #region math
-        public int distTo(ivec2 o) => (o - this).length;
-        public int angleTo(ivec2 o) => (int)Math.Acos(this.dot(o) / (this.length * o.length));
-        public ivec2 lerp(ivec2 o, int t) => this + ((o - this) * t);
-        public ivec2 reflect(ivec2 normal) => this - (normal * 2 * (this.dot(normal) / normal.dot(normal)));
+        public readonly int distTo(ivec2 o) => (o - this).length;
+        public readonly int angleTo(ivec2 o) => (int)Math.Acos(this.dot(o) / (this.length * o.length));
+        public readonly ivec2 lerp(ivec2 o, int t) => this + ((o - this) * t);
+        public readonly ivec2 reflect(ivec2 normal) => this - (normal * 2 * (this.dot(normal) / normal.dot(normal)));
         #endregion
 
         #region conversion

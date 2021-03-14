@@ -23,7 +23,7 @@ namespace Nums {
         /// The first column in the matrix.
         /// </summary>
         public vec2 col1 {
-            get => new vec2(row1.x, row2.x);
+            readonly get => new vec2(row1.x, row2.x);
             set {
                 row1.x = value.x;
                 row2.x = value.y;
@@ -33,7 +33,7 @@ namespace Nums {
         /// The second column in the matrix.
         /// </summary>
         public vec2 col2 {
-            get => new vec2(row1.y, row2.y);
+            readonly get => new vec2(row1.y, row2.y);
             set {
                 row1.y = value.x;
                 row2.y = value.y;
@@ -43,7 +43,7 @@ namespace Nums {
         /// The third column in the matrix.
         /// </summary>
         public vec2 col3 {
-            get => new vec2(row1.z, row2.z);
+            readonly get => new vec2(row1.z, row2.z);
             set {
                 row1.z = value.x;
                 row2.z = value.y;
@@ -57,42 +57,42 @@ namespace Nums {
         /// Gets the value at the first row in the first column
         /// </summary>
         public float m11 {
-            get => row1.x;
+            readonly get => row1.x;
             set => row1.x = value;
         }
         /// <summary>
         /// Gets the value at the first row in the second column
         /// </summary>
         public float m12 {
-            get => row1.y;
+            readonly get => row1.y;
             set => row1.y = value;
         }
         /// <summary>
         /// Gets the value at the first row in the third column
         /// </summary>
         public float m13 {
-            get => row1.z;
+            readonly get => row1.z;
             set => row1.z = value;
         }
         /// <summary>
         /// Gets the value at the second row in the first column
         /// </summary>
         public float m21 {
-            get => row2.x;
+            readonly get => row2.x;
             set => row2.x = value;
         }
         /// <summary>
         /// Gets the value at the second row in the second column
         /// </summary>
         public float m22 {
-            get => row2.y;
+            readonly get => row2.y;
             set => row2.y = value;
         }
         /// <summary>
         /// Gets the value at the second row in the third column
         /// </summary>
         public float m23 {
-            get => row2.z;
+            readonly get => row2.z;
             set => row2.z = value;
         }
         #endregion
@@ -100,7 +100,7 @@ namespace Nums {
         /// <summary>
         /// Gets the transpose of this matrix
         /// </summary>
-        public mat3x2 transpose => new mat3x2(col1, col2, col3);
+        public readonly mat3x2 transpose => new mat3x2(col1, col2, col3);
         /// <summary>
         /// The number of bytes the matrix type uses.
         /// </summary>
@@ -109,7 +109,7 @@ namespace Nums {
         /// Gets or sets the element at row r and column c.
         /// </summary>
         public float this[int r, int c] {
-            get => r switch {
+            readonly get => r switch {
                 0 => row1[c],
                 1 => row2[c],
                 _ => throw new IndexOutOfRangeException(r + " is not a valid row index for mat2x3")

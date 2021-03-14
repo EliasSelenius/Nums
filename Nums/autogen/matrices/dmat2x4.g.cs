@@ -23,7 +23,7 @@ namespace Nums {
         /// The first column in the matrix.
         /// </summary>
         public dvec2 col1 {
-            get => new dvec2(row1.x, row2.x);
+            readonly get => new dvec2(row1.x, row2.x);
             set {
                 row1.x = value.x;
                 row2.x = value.y;
@@ -33,7 +33,7 @@ namespace Nums {
         /// The second column in the matrix.
         /// </summary>
         public dvec2 col2 {
-            get => new dvec2(row1.y, row2.y);
+            readonly get => new dvec2(row1.y, row2.y);
             set {
                 row1.y = value.x;
                 row2.y = value.y;
@@ -43,7 +43,7 @@ namespace Nums {
         /// The third column in the matrix.
         /// </summary>
         public dvec2 col3 {
-            get => new dvec2(row1.z, row2.z);
+            readonly get => new dvec2(row1.z, row2.z);
             set {
                 row1.z = value.x;
                 row2.z = value.y;
@@ -53,7 +53,7 @@ namespace Nums {
         /// The fourth column in the matrix.
         /// </summary>
         public dvec2 col4 {
-            get => new dvec2(row1.w, row2.w);
+            readonly get => new dvec2(row1.w, row2.w);
             set {
                 row1.w = value.x;
                 row2.w = value.y;
@@ -67,56 +67,56 @@ namespace Nums {
         /// Gets the value at the first row in the first column
         /// </summary>
         public double m11 {
-            get => row1.x;
+            readonly get => row1.x;
             set => row1.x = value;
         }
         /// <summary>
         /// Gets the value at the first row in the second column
         /// </summary>
         public double m12 {
-            get => row1.y;
+            readonly get => row1.y;
             set => row1.y = value;
         }
         /// <summary>
         /// Gets the value at the first row in the third column
         /// </summary>
         public double m13 {
-            get => row1.z;
+            readonly get => row1.z;
             set => row1.z = value;
         }
         /// <summary>
         /// Gets the value at the first row in the fourth column
         /// </summary>
         public double m14 {
-            get => row1.w;
+            readonly get => row1.w;
             set => row1.w = value;
         }
         /// <summary>
         /// Gets the value at the second row in the first column
         /// </summary>
         public double m21 {
-            get => row2.x;
+            readonly get => row2.x;
             set => row2.x = value;
         }
         /// <summary>
         /// Gets the value at the second row in the second column
         /// </summary>
         public double m22 {
-            get => row2.y;
+            readonly get => row2.y;
             set => row2.y = value;
         }
         /// <summary>
         /// Gets the value at the second row in the third column
         /// </summary>
         public double m23 {
-            get => row2.z;
+            readonly get => row2.z;
             set => row2.z = value;
         }
         /// <summary>
         /// Gets the value at the second row in the fourth column
         /// </summary>
         public double m24 {
-            get => row2.w;
+            readonly get => row2.w;
             set => row2.w = value;
         }
         #endregion
@@ -124,7 +124,7 @@ namespace Nums {
         /// <summary>
         /// Gets the transpose of this matrix
         /// </summary>
-        public dmat4x2 transpose => new dmat4x2(col1, col2, col3, col4);
+        public readonly dmat4x2 transpose => new dmat4x2(col1, col2, col3, col4);
         /// <summary>
         /// The number of bytes the matrix type uses.
         /// </summary>
@@ -133,7 +133,7 @@ namespace Nums {
         /// Gets or sets the element at row r and column c.
         /// </summary>
         public double this[int r, int c] {
-            get => r switch {
+            readonly get => r switch {
                 0 => row1[c],
                 1 => row2[c],
                 _ => throw new IndexOutOfRangeException(r + " is not a valid row index for dmat2x4")

@@ -47,7 +47,7 @@ namespace Nums {
         /// <summary>
         /// The sum of the vectors components. x + y + z
         /// </summary>
-        public double sum => x + y + z;
+        public readonly double sum => x + y + z;
         /// <summary>
         /// The number of bytes the vector type uses.
         /// </summary>
@@ -55,22 +55,22 @@ namespace Nums {
         /// <summary>
         /// The magnitude of the vector
         /// </summary>
-        public double length => (double)Math.Sqrt(dot(this));
+        public readonly double length => (double)Math.Sqrt(dot(this));
         /// <summary>
         /// The squared magnitude of the vector. sqlength is faster than length since a square-root operation is not needed.
         /// </summary>
-        public double sqlength => dot(this);
+        public readonly double sqlength => dot(this);
         /// <summary>
         /// The normalized version of this vector.
         /// </summary>
-        public dvec3 normalized() => this / length;
+        public readonly dvec3 normalized() => this / length;
         /// <summary>
         /// Normalizes this vector.
         /// </summary>
         public void normalize() => this /= length;
 
         public double this[int i] {
-            get => i switch {
+            readonly get => i switch {
                 0 => x,
                 1 => y,
                 2 => z,
@@ -90,12 +90,12 @@ namespace Nums {
         /// <summary>
         /// A dvec2 containing the xx components of this vector
         /// </summary>
-        public dvec2 xx => new dvec2(x, x);
+        public readonly dvec2 xx => new dvec2(x, x);
         /// <summary>
         /// A dvec2 containing the yx components of this vector
         /// </summary>
         public dvec2 yx {
-            get => new dvec2(y, x);
+            readonly get => new dvec2(y, x);
             set {
                 y = value.x;
                 x = value.y;
@@ -105,7 +105,7 @@ namespace Nums {
         /// A dvec2 containing the zx components of this vector
         /// </summary>
         public dvec2 zx {
-            get => new dvec2(z, x);
+            readonly get => new dvec2(z, x);
             set {
                 z = value.x;
                 x = value.y;
@@ -115,7 +115,7 @@ namespace Nums {
         /// A dvec2 containing the xy components of this vector
         /// </summary>
         public dvec2 xy {
-            get => new dvec2(x, y);
+            readonly get => new dvec2(x, y);
             set {
                 x = value.x;
                 y = value.y;
@@ -124,12 +124,12 @@ namespace Nums {
         /// <summary>
         /// A dvec2 containing the yy components of this vector
         /// </summary>
-        public dvec2 yy => new dvec2(y, y);
+        public readonly dvec2 yy => new dvec2(y, y);
         /// <summary>
         /// A dvec2 containing the zy components of this vector
         /// </summary>
         public dvec2 zy {
-            get => new dvec2(z, y);
+            readonly get => new dvec2(z, y);
             set {
                 z = value.x;
                 y = value.y;
@@ -139,7 +139,7 @@ namespace Nums {
         /// A dvec2 containing the xz components of this vector
         /// </summary>
         public dvec2 xz {
-            get => new dvec2(x, z);
+            readonly get => new dvec2(x, z);
             set {
                 x = value.x;
                 z = value.y;
@@ -149,7 +149,7 @@ namespace Nums {
         /// A dvec2 containing the yz components of this vector
         /// </summary>
         public dvec2 yz {
-            get => new dvec2(y, z);
+            readonly get => new dvec2(y, z);
             set {
                 y = value.x;
                 z = value.y;
@@ -158,32 +158,32 @@ namespace Nums {
         /// <summary>
         /// A dvec2 containing the zz components of this vector
         /// </summary>
-        public dvec2 zz => new dvec2(z, z);
+        public readonly dvec2 zz => new dvec2(z, z);
         /// <summary>
         /// A dvec3 containing the xxx components of this vector
         /// </summary>
-        public dvec3 xxx => new dvec3(x, x, x);
+        public readonly dvec3 xxx => new dvec3(x, x, x);
         /// <summary>
         /// A dvec3 containing the yxx components of this vector
         /// </summary>
-        public dvec3 yxx => new dvec3(y, x, x);
+        public readonly dvec3 yxx => new dvec3(y, x, x);
         /// <summary>
         /// A dvec3 containing the zxx components of this vector
         /// </summary>
-        public dvec3 zxx => new dvec3(z, x, x);
+        public readonly dvec3 zxx => new dvec3(z, x, x);
         /// <summary>
         /// A dvec3 containing the xyx components of this vector
         /// </summary>
-        public dvec3 xyx => new dvec3(x, y, x);
+        public readonly dvec3 xyx => new dvec3(x, y, x);
         /// <summary>
         /// A dvec3 containing the yyx components of this vector
         /// </summary>
-        public dvec3 yyx => new dvec3(y, y, x);
+        public readonly dvec3 yyx => new dvec3(y, y, x);
         /// <summary>
         /// A dvec3 containing the zyx components of this vector
         /// </summary>
         public dvec3 zyx {
-            get => new dvec3(z, y, x);
+            readonly get => new dvec3(z, y, x);
             set {
                 z = value.x;
                 y = value.y;
@@ -193,12 +193,12 @@ namespace Nums {
         /// <summary>
         /// A dvec3 containing the xzx components of this vector
         /// </summary>
-        public dvec3 xzx => new dvec3(x, z, x);
+        public readonly dvec3 xzx => new dvec3(x, z, x);
         /// <summary>
         /// A dvec3 containing the yzx components of this vector
         /// </summary>
         public dvec3 yzx {
-            get => new dvec3(y, z, x);
+            readonly get => new dvec3(y, z, x);
             set {
                 y = value.x;
                 z = value.y;
@@ -208,20 +208,20 @@ namespace Nums {
         /// <summary>
         /// A dvec3 containing the zzx components of this vector
         /// </summary>
-        public dvec3 zzx => new dvec3(z, z, x);
+        public readonly dvec3 zzx => new dvec3(z, z, x);
         /// <summary>
         /// A dvec3 containing the xxy components of this vector
         /// </summary>
-        public dvec3 xxy => new dvec3(x, x, y);
+        public readonly dvec3 xxy => new dvec3(x, x, y);
         /// <summary>
         /// A dvec3 containing the yxy components of this vector
         /// </summary>
-        public dvec3 yxy => new dvec3(y, x, y);
+        public readonly dvec3 yxy => new dvec3(y, x, y);
         /// <summary>
         /// A dvec3 containing the zxy components of this vector
         /// </summary>
         public dvec3 zxy {
-            get => new dvec3(z, x, y);
+            readonly get => new dvec3(z, x, y);
             set {
                 z = value.x;
                 x = value.y;
@@ -231,20 +231,20 @@ namespace Nums {
         /// <summary>
         /// A dvec3 containing the xyy components of this vector
         /// </summary>
-        public dvec3 xyy => new dvec3(x, y, y);
+        public readonly dvec3 xyy => new dvec3(x, y, y);
         /// <summary>
         /// A dvec3 containing the yyy components of this vector
         /// </summary>
-        public dvec3 yyy => new dvec3(y, y, y);
+        public readonly dvec3 yyy => new dvec3(y, y, y);
         /// <summary>
         /// A dvec3 containing the zyy components of this vector
         /// </summary>
-        public dvec3 zyy => new dvec3(z, y, y);
+        public readonly dvec3 zyy => new dvec3(z, y, y);
         /// <summary>
         /// A dvec3 containing the xzy components of this vector
         /// </summary>
         public dvec3 xzy {
-            get => new dvec3(x, z, y);
+            readonly get => new dvec3(x, z, y);
             set {
                 x = value.x;
                 z = value.y;
@@ -254,20 +254,20 @@ namespace Nums {
         /// <summary>
         /// A dvec3 containing the yzy components of this vector
         /// </summary>
-        public dvec3 yzy => new dvec3(y, z, y);
+        public readonly dvec3 yzy => new dvec3(y, z, y);
         /// <summary>
         /// A dvec3 containing the zzy components of this vector
         /// </summary>
-        public dvec3 zzy => new dvec3(z, z, y);
+        public readonly dvec3 zzy => new dvec3(z, z, y);
         /// <summary>
         /// A dvec3 containing the xxz components of this vector
         /// </summary>
-        public dvec3 xxz => new dvec3(x, x, z);
+        public readonly dvec3 xxz => new dvec3(x, x, z);
         /// <summary>
         /// A dvec3 containing the yxz components of this vector
         /// </summary>
         public dvec3 yxz {
-            get => new dvec3(y, x, z);
+            readonly get => new dvec3(y, x, z);
             set {
                 y = value.x;
                 x = value.y;
@@ -277,12 +277,12 @@ namespace Nums {
         /// <summary>
         /// A dvec3 containing the zxz components of this vector
         /// </summary>
-        public dvec3 zxz => new dvec3(z, x, z);
+        public readonly dvec3 zxz => new dvec3(z, x, z);
         /// <summary>
         /// A dvec3 containing the xyz components of this vector
         /// </summary>
         public dvec3 xyz {
-            get => new dvec3(x, y, z);
+            readonly get => new dvec3(x, y, z);
             set {
                 x = value.x;
                 y = value.y;
@@ -292,23 +292,23 @@ namespace Nums {
         /// <summary>
         /// A dvec3 containing the yyz components of this vector
         /// </summary>
-        public dvec3 yyz => new dvec3(y, y, z);
+        public readonly dvec3 yyz => new dvec3(y, y, z);
         /// <summary>
         /// A dvec3 containing the zyz components of this vector
         /// </summary>
-        public dvec3 zyz => new dvec3(z, y, z);
+        public readonly dvec3 zyz => new dvec3(z, y, z);
         /// <summary>
         /// A dvec3 containing the xzz components of this vector
         /// </summary>
-        public dvec3 xzz => new dvec3(x, z, z);
+        public readonly dvec3 xzz => new dvec3(x, z, z);
         /// <summary>
         /// A dvec3 containing the yzz components of this vector
         /// </summary>
-        public dvec3 yzz => new dvec3(y, z, z);
+        public readonly dvec3 yzz => new dvec3(y, z, z);
         /// <summary>
         /// A dvec3 containing the zzz components of this vector
         /// </summary>
-        public dvec3 zzz => new dvec3(z, z, z);
+        public readonly dvec3 zzz => new dvec3(z, z, z);
         #endregion
 
         #region constructors
@@ -320,7 +320,7 @@ namespace Nums {
         #endregion
 
         #region arithmetic
-        public double dot(dvec3 v) => (this * v).sum;
+        public readonly double dot(dvec3 v) => (this * v).sum;
 
         public static dvec3 operator *(dvec3 a, dvec3 b) => new dvec3(a.x * b.x, a.y * b.y, a.z * b.z);
         public static dvec3 operator /(dvec3 a, dvec3 b) => new dvec3(a.x / b.x, a.y / b.y, a.z / b.z);
@@ -334,10 +334,10 @@ namespace Nums {
         #endregion
 
         #region math
-        public double distTo(dvec3 o) => (o - this).length;
-        public double angleTo(dvec3 o) => (double)Math.Acos(this.dot(o) / (this.length * o.length));
-        public dvec3 lerp(dvec3 o, double t) => this + ((o - this) * t);
-        public dvec3 reflect(dvec3 normal) => this - (normal * 2 * (this.dot(normal) / normal.dot(normal)));
+        public readonly double distTo(dvec3 o) => (o - this).length;
+        public readonly double angleTo(dvec3 o) => (double)Math.Acos(this.dot(o) / (this.length * o.length));
+        public readonly dvec3 lerp(dvec3 o, double t) => this + ((o - this) * t);
+        public readonly dvec3 reflect(dvec3 normal) => this - (normal * 2 * (this.dot(normal) / normal.dot(normal)));
         public dvec3 cross(dvec3 o) => new dvec3(y * o.z - z * o.y, z * o.x - x * o.z, x * o.y - y * o.x);
         #endregion
 

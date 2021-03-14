@@ -73,18 +73,18 @@ namespace NumsCodeGenerator {
 
             var sum = compsNames.Aggregate((x, y) => x + " + " + y);
             summary("The sum of the vectors components. " + sum);
-            writeline($"public {type} sum => {sum};");
+            writeline($"public readonly {type} sum => {sum};");
 
             summary("The number of bytes the vector type uses.");
             writeline($"public const int bytesize = sizeof({type}) * {compsNames.Length};");
 
             summary("The magnitude of the vector");
-            writeline($"public {type} length => ({type})Math.Sqrt(dot(this));");
+            writeline($"public readonly {type} length => ({type})Math.Sqrt(dot(this));");
             summary("The squared magnitude of the vector. sqlength is faster than length since a square-root operation is not needed.");
-            writeline($"public {type} sqlength => dot(this);");
+            writeline($"public readonly {type} sqlength => dot(this);");
 
             summary("The normalized version of this vector.");
-            writeline($"public {vecName} normalized() => this / length;");
+            writeline($"public readonly {vecName} normalized() => this / length;");
             summary("Normalizes this vector.");
             writeline("public void normalize() => this /= length;");
 
@@ -141,7 +141,7 @@ namespace NumsCodeGenerator {
             startBlock($"public {type} this[int i]");
             var indexerror = $"throw new IndexOutOfRangeException(\"{vecName}[\" + i + \"] is not a valid index\")";
             //get:
-            startBlock("get => i switch");
+            startBlock("readonly get => i switch");
             for (int i = 0; i < compsNames.Length; i++) {
                 writeline($"{i} => {compsNames[i]},");
             }
@@ -168,12 +168,15 @@ namespace NumsCodeGenerator {
                 for (int si = 0; si < Math.Pow(compsNames.Length, size); si++) {
 
                     var propName = swizzleindexes.Select(x => compsNames[x]).Aggregate((x, y) => x + y);
-                    string decl = $"public {swizzlevecname} {propName}",
+                    var getterandsetter = swizzleindexes.Distinct().Count() == swizzleindexes.Length;
+
+                    var r = getterandsetter ? "" : "readonly ";
+                    string decl = $"public {r}{swizzlevecname} {propName}",
                            get = $"=> new {swizzlevecname}({swizzleindexes.Select(x => compsNames[x]).Aggregate((x, y) => x + ", " + y)});";
                     summary($"A {swizzlevecname} containing the {propName} components of this vector");
-                    if (swizzleindexes.Distinct().Count() == swizzleindexes.Length) {
+                    if (getterandsetter) {
                         startBlock(decl);
-                        writeline($"get {get}");
+                        writeline($"readonly get {get}");
                         startBlock("set");
                         for (int j = 0; j < swizzleindexes.Length; j++) {
                             writeline(compsNames[swizzleindexes[j]] + " = value." + compsNames[j] + ";");
@@ -246,7 +249,7 @@ namespace NumsCodeGenerator {
 
         private void genArithmeticOperators() {
             region("arithmetic");
-            writeline($"public {type} dot({vecName} v) => (this * v).sum;");
+            writeline($"public readonly {type} dot({vecName} v) => (this * v).sum;");
             linebreak();
 
             void _vecoperator(string opr) {
@@ -282,10 +285,10 @@ namespace NumsCodeGenerator {
 
         private void genMath() {
             region("math");
-            writeline($"public {type} distTo({vecName} o) => (o - this).length;");
-            writeline($"public {type} angleTo({vecName} o) => ({type})Math.Acos(this.dot(o) / (this.length * o.length));");
-            writeline($"public {vecName} lerp({vecName} o, {type} t) => this + ((o - this) * t);");
-            writeline($"public {vecName} reflect({vecName} normal) => this - (normal * 2 * (this.dot(normal) / normal.dot(normal)));");
+            writeline($"public readonly {type} distTo({vecName} o) => (o - this).length;");
+            writeline($"public readonly {type} angleTo({vecName} o) => ({type})Math.Acos(this.dot(o) / (this.length * o.length));");
+            writeline($"public readonly {vecName} lerp({vecName} o, {type} t) => this + ((o - this) * t);");
+            writeline($"public readonly {vecName} reflect({vecName} normal) => this - (normal * 2 * (this.dot(normal) / normal.dot(normal)));");
 
 
             if (compsNames.Length == 3) {

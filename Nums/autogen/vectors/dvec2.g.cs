@@ -39,7 +39,7 @@ namespace Nums {
         /// <summary>
         /// The sum of the vectors components. x + y
         /// </summary>
-        public double sum => x + y;
+        public readonly double sum => x + y;
         /// <summary>
         /// The number of bytes the vector type uses.
         /// </summary>
@@ -47,22 +47,22 @@ namespace Nums {
         /// <summary>
         /// The magnitude of the vector
         /// </summary>
-        public double length => (double)Math.Sqrt(dot(this));
+        public readonly double length => (double)Math.Sqrt(dot(this));
         /// <summary>
         /// The squared magnitude of the vector. sqlength is faster than length since a square-root operation is not needed.
         /// </summary>
-        public double sqlength => dot(this);
+        public readonly double sqlength => dot(this);
         /// <summary>
         /// The normalized version of this vector.
         /// </summary>
-        public dvec2 normalized() => this / length;
+        public readonly dvec2 normalized() => this / length;
         /// <summary>
         /// Normalizes this vector.
         /// </summary>
         public void normalize() => this /= length;
 
         public double this[int i] {
-            get => i switch {
+            readonly get => i switch {
                 0 => x,
                 1 => y,
                 _ => throw new IndexOutOfRangeException("dvec2[" + i + "] is not a valid index")
@@ -80,12 +80,12 @@ namespace Nums {
         /// <summary>
         /// A dvec2 containing the xx components of this vector
         /// </summary>
-        public dvec2 xx => new dvec2(x, x);
+        public readonly dvec2 xx => new dvec2(x, x);
         /// <summary>
         /// A dvec2 containing the yx components of this vector
         /// </summary>
         public dvec2 yx {
-            get => new dvec2(y, x);
+            readonly get => new dvec2(y, x);
             set {
                 y = value.x;
                 x = value.y;
@@ -95,7 +95,7 @@ namespace Nums {
         /// A dvec2 containing the xy components of this vector
         /// </summary>
         public dvec2 xy {
-            get => new dvec2(x, y);
+            readonly get => new dvec2(x, y);
             set {
                 x = value.x;
                 y = value.y;
@@ -104,7 +104,7 @@ namespace Nums {
         /// <summary>
         /// A dvec2 containing the yy components of this vector
         /// </summary>
-        public dvec2 yy => new dvec2(y, y);
+        public readonly dvec2 yy => new dvec2(y, y);
         #endregion
 
         #region constructors
@@ -115,7 +115,7 @@ namespace Nums {
         #endregion
 
         #region arithmetic
-        public double dot(dvec2 v) => (this * v).sum;
+        public readonly double dot(dvec2 v) => (this * v).sum;
 
         public static dvec2 operator *(dvec2 a, dvec2 b) => new dvec2(a.x * b.x, a.y * b.y);
         public static dvec2 operator /(dvec2 a, dvec2 b) => new dvec2(a.x / b.x, a.y / b.y);
@@ -129,10 +129,10 @@ namespace Nums {
         #endregion
 
         #region math
-        public double distTo(dvec2 o) => (o - this).length;
-        public double angleTo(dvec2 o) => (double)Math.Acos(this.dot(o) / (this.length * o.length));
-        public dvec2 lerp(dvec2 o, double t) => this + ((o - this) * t);
-        public dvec2 reflect(dvec2 normal) => this - (normal * 2 * (this.dot(normal) / normal.dot(normal)));
+        public readonly double distTo(dvec2 o) => (o - this).length;
+        public readonly double angleTo(dvec2 o) => (double)Math.Acos(this.dot(o) / (this.length * o.length));
+        public readonly dvec2 lerp(dvec2 o, double t) => this + ((o - this) * t);
+        public readonly dvec2 reflect(dvec2 normal) => this - (normal * 2 * (this.dot(normal) / normal.dot(normal)));
         #endregion
 
         #region conversion

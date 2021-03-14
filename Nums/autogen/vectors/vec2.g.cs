@@ -39,7 +39,7 @@ namespace Nums {
         /// <summary>
         /// The sum of the vectors components. x + y
         /// </summary>
-        public float sum => x + y;
+        public readonly float sum => x + y;
         /// <summary>
         /// The number of bytes the vector type uses.
         /// </summary>
@@ -47,22 +47,22 @@ namespace Nums {
         /// <summary>
         /// The magnitude of the vector
         /// </summary>
-        public float length => (float)Math.Sqrt(dot(this));
+        public readonly float length => (float)Math.Sqrt(dot(this));
         /// <summary>
         /// The squared magnitude of the vector. sqlength is faster than length since a square-root operation is not needed.
         /// </summary>
-        public float sqlength => dot(this);
+        public readonly float sqlength => dot(this);
         /// <summary>
         /// The normalized version of this vector.
         /// </summary>
-        public vec2 normalized() => this / length;
+        public readonly vec2 normalized() => this / length;
         /// <summary>
         /// Normalizes this vector.
         /// </summary>
         public void normalize() => this /= length;
 
         public float this[int i] {
-            get => i switch {
+            readonly get => i switch {
                 0 => x,
                 1 => y,
                 _ => throw new IndexOutOfRangeException("vec2[" + i + "] is not a valid index")
@@ -80,12 +80,12 @@ namespace Nums {
         /// <summary>
         /// A vec2 containing the xx components of this vector
         /// </summary>
-        public vec2 xx => new vec2(x, x);
+        public readonly vec2 xx => new vec2(x, x);
         /// <summary>
         /// A vec2 containing the yx components of this vector
         /// </summary>
         public vec2 yx {
-            get => new vec2(y, x);
+            readonly get => new vec2(y, x);
             set {
                 y = value.x;
                 x = value.y;
@@ -95,7 +95,7 @@ namespace Nums {
         /// A vec2 containing the xy components of this vector
         /// </summary>
         public vec2 xy {
-            get => new vec2(x, y);
+            readonly get => new vec2(x, y);
             set {
                 x = value.x;
                 y = value.y;
@@ -104,7 +104,7 @@ namespace Nums {
         /// <summary>
         /// A vec2 containing the yy components of this vector
         /// </summary>
-        public vec2 yy => new vec2(y, y);
+        public readonly vec2 yy => new vec2(y, y);
         #endregion
 
         #region constructors
@@ -115,7 +115,7 @@ namespace Nums {
         #endregion
 
         #region arithmetic
-        public float dot(vec2 v) => (this * v).sum;
+        public readonly float dot(vec2 v) => (this * v).sum;
 
         public static vec2 operator *(vec2 a, vec2 b) => new vec2(a.x * b.x, a.y * b.y);
         public static vec2 operator /(vec2 a, vec2 b) => new vec2(a.x / b.x, a.y / b.y);
@@ -129,10 +129,10 @@ namespace Nums {
         #endregion
 
         #region math
-        public float distTo(vec2 o) => (o - this).length;
-        public float angleTo(vec2 o) => (float)Math.Acos(this.dot(o) / (this.length * o.length));
-        public vec2 lerp(vec2 o, float t) => this + ((o - this) * t);
-        public vec2 reflect(vec2 normal) => this - (normal * 2 * (this.dot(normal) / normal.dot(normal)));
+        public readonly float distTo(vec2 o) => (o - this).length;
+        public readonly float angleTo(vec2 o) => (float)Math.Acos(this.dot(o) / (this.length * o.length));
+        public readonly vec2 lerp(vec2 o, float t) => this + ((o - this) * t);
+        public readonly vec2 reflect(vec2 normal) => this - (normal * 2 * (this.dot(normal) / normal.dot(normal)));
         #endregion
 
         #region conversion

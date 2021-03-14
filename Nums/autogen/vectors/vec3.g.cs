@@ -47,7 +47,7 @@ namespace Nums {
         /// <summary>
         /// The sum of the vectors components. x + y + z
         /// </summary>
-        public float sum => x + y + z;
+        public readonly float sum => x + y + z;
         /// <summary>
         /// The number of bytes the vector type uses.
         /// </summary>
@@ -55,22 +55,22 @@ namespace Nums {
         /// <summary>
         /// The magnitude of the vector
         /// </summary>
-        public float length => (float)Math.Sqrt(dot(this));
+        public readonly float length => (float)Math.Sqrt(dot(this));
         /// <summary>
         /// The squared magnitude of the vector. sqlength is faster than length since a square-root operation is not needed.
         /// </summary>
-        public float sqlength => dot(this);
+        public readonly float sqlength => dot(this);
         /// <summary>
         /// The normalized version of this vector.
         /// </summary>
-        public vec3 normalized() => this / length;
+        public readonly vec3 normalized() => this / length;
         /// <summary>
         /// Normalizes this vector.
         /// </summary>
         public void normalize() => this /= length;
 
         public float this[int i] {
-            get => i switch {
+            readonly get => i switch {
                 0 => x,
                 1 => y,
                 2 => z,
@@ -90,12 +90,12 @@ namespace Nums {
         /// <summary>
         /// A vec2 containing the xx components of this vector
         /// </summary>
-        public vec2 xx => new vec2(x, x);
+        public readonly vec2 xx => new vec2(x, x);
         /// <summary>
         /// A vec2 containing the yx components of this vector
         /// </summary>
         public vec2 yx {
-            get => new vec2(y, x);
+            readonly get => new vec2(y, x);
             set {
                 y = value.x;
                 x = value.y;
@@ -105,7 +105,7 @@ namespace Nums {
         /// A vec2 containing the zx components of this vector
         /// </summary>
         public vec2 zx {
-            get => new vec2(z, x);
+            readonly get => new vec2(z, x);
             set {
                 z = value.x;
                 x = value.y;
@@ -115,7 +115,7 @@ namespace Nums {
         /// A vec2 containing the xy components of this vector
         /// </summary>
         public vec2 xy {
-            get => new vec2(x, y);
+            readonly get => new vec2(x, y);
             set {
                 x = value.x;
                 y = value.y;
@@ -124,12 +124,12 @@ namespace Nums {
         /// <summary>
         /// A vec2 containing the yy components of this vector
         /// </summary>
-        public vec2 yy => new vec2(y, y);
+        public readonly vec2 yy => new vec2(y, y);
         /// <summary>
         /// A vec2 containing the zy components of this vector
         /// </summary>
         public vec2 zy {
-            get => new vec2(z, y);
+            readonly get => new vec2(z, y);
             set {
                 z = value.x;
                 y = value.y;
@@ -139,7 +139,7 @@ namespace Nums {
         /// A vec2 containing the xz components of this vector
         /// </summary>
         public vec2 xz {
-            get => new vec2(x, z);
+            readonly get => new vec2(x, z);
             set {
                 x = value.x;
                 z = value.y;
@@ -149,7 +149,7 @@ namespace Nums {
         /// A vec2 containing the yz components of this vector
         /// </summary>
         public vec2 yz {
-            get => new vec2(y, z);
+            readonly get => new vec2(y, z);
             set {
                 y = value.x;
                 z = value.y;
@@ -158,32 +158,32 @@ namespace Nums {
         /// <summary>
         /// A vec2 containing the zz components of this vector
         /// </summary>
-        public vec2 zz => new vec2(z, z);
+        public readonly vec2 zz => new vec2(z, z);
         /// <summary>
         /// A vec3 containing the xxx components of this vector
         /// </summary>
-        public vec3 xxx => new vec3(x, x, x);
+        public readonly vec3 xxx => new vec3(x, x, x);
         /// <summary>
         /// A vec3 containing the yxx components of this vector
         /// </summary>
-        public vec3 yxx => new vec3(y, x, x);
+        public readonly vec3 yxx => new vec3(y, x, x);
         /// <summary>
         /// A vec3 containing the zxx components of this vector
         /// </summary>
-        public vec3 zxx => new vec3(z, x, x);
+        public readonly vec3 zxx => new vec3(z, x, x);
         /// <summary>
         /// A vec3 containing the xyx components of this vector
         /// </summary>
-        public vec3 xyx => new vec3(x, y, x);
+        public readonly vec3 xyx => new vec3(x, y, x);
         /// <summary>
         /// A vec3 containing the yyx components of this vector
         /// </summary>
-        public vec3 yyx => new vec3(y, y, x);
+        public readonly vec3 yyx => new vec3(y, y, x);
         /// <summary>
         /// A vec3 containing the zyx components of this vector
         /// </summary>
         public vec3 zyx {
-            get => new vec3(z, y, x);
+            readonly get => new vec3(z, y, x);
             set {
                 z = value.x;
                 y = value.y;
@@ -193,12 +193,12 @@ namespace Nums {
         /// <summary>
         /// A vec3 containing the xzx components of this vector
         /// </summary>
-        public vec3 xzx => new vec3(x, z, x);
+        public readonly vec3 xzx => new vec3(x, z, x);
         /// <summary>
         /// A vec3 containing the yzx components of this vector
         /// </summary>
         public vec3 yzx {
-            get => new vec3(y, z, x);
+            readonly get => new vec3(y, z, x);
             set {
                 y = value.x;
                 z = value.y;
@@ -208,20 +208,20 @@ namespace Nums {
         /// <summary>
         /// A vec3 containing the zzx components of this vector
         /// </summary>
-        public vec3 zzx => new vec3(z, z, x);
+        public readonly vec3 zzx => new vec3(z, z, x);
         /// <summary>
         /// A vec3 containing the xxy components of this vector
         /// </summary>
-        public vec3 xxy => new vec3(x, x, y);
+        public readonly vec3 xxy => new vec3(x, x, y);
         /// <summary>
         /// A vec3 containing the yxy components of this vector
         /// </summary>
-        public vec3 yxy => new vec3(y, x, y);
+        public readonly vec3 yxy => new vec3(y, x, y);
         /// <summary>
         /// A vec3 containing the zxy components of this vector
         /// </summary>
         public vec3 zxy {
-            get => new vec3(z, x, y);
+            readonly get => new vec3(z, x, y);
             set {
                 z = value.x;
                 x = value.y;
@@ -231,20 +231,20 @@ namespace Nums {
         /// <summary>
         /// A vec3 containing the xyy components of this vector
         /// </summary>
-        public vec3 xyy => new vec3(x, y, y);
+        public readonly vec3 xyy => new vec3(x, y, y);
         /// <summary>
         /// A vec3 containing the yyy components of this vector
         /// </summary>
-        public vec3 yyy => new vec3(y, y, y);
+        public readonly vec3 yyy => new vec3(y, y, y);
         /// <summary>
         /// A vec3 containing the zyy components of this vector
         /// </summary>
-        public vec3 zyy => new vec3(z, y, y);
+        public readonly vec3 zyy => new vec3(z, y, y);
         /// <summary>
         /// A vec3 containing the xzy components of this vector
         /// </summary>
         public vec3 xzy {
-            get => new vec3(x, z, y);
+            readonly get => new vec3(x, z, y);
             set {
                 x = value.x;
                 z = value.y;
@@ -254,20 +254,20 @@ namespace Nums {
         /// <summary>
         /// A vec3 containing the yzy components of this vector
         /// </summary>
-        public vec3 yzy => new vec3(y, z, y);
+        public readonly vec3 yzy => new vec3(y, z, y);
         /// <summary>
         /// A vec3 containing the zzy components of this vector
         /// </summary>
-        public vec3 zzy => new vec3(z, z, y);
+        public readonly vec3 zzy => new vec3(z, z, y);
         /// <summary>
         /// A vec3 containing the xxz components of this vector
         /// </summary>
-        public vec3 xxz => new vec3(x, x, z);
+        public readonly vec3 xxz => new vec3(x, x, z);
         /// <summary>
         /// A vec3 containing the yxz components of this vector
         /// </summary>
         public vec3 yxz {
-            get => new vec3(y, x, z);
+            readonly get => new vec3(y, x, z);
             set {
                 y = value.x;
                 x = value.y;
@@ -277,12 +277,12 @@ namespace Nums {
         /// <summary>
         /// A vec3 containing the zxz components of this vector
         /// </summary>
-        public vec3 zxz => new vec3(z, x, z);
+        public readonly vec3 zxz => new vec3(z, x, z);
         /// <summary>
         /// A vec3 containing the xyz components of this vector
         /// </summary>
         public vec3 xyz {
-            get => new vec3(x, y, z);
+            readonly get => new vec3(x, y, z);
             set {
                 x = value.x;
                 y = value.y;
@@ -292,23 +292,23 @@ namespace Nums {
         /// <summary>
         /// A vec3 containing the yyz components of this vector
         /// </summary>
-        public vec3 yyz => new vec3(y, y, z);
+        public readonly vec3 yyz => new vec3(y, y, z);
         /// <summary>
         /// A vec3 containing the zyz components of this vector
         /// </summary>
-        public vec3 zyz => new vec3(z, y, z);
+        public readonly vec3 zyz => new vec3(z, y, z);
         /// <summary>
         /// A vec3 containing the xzz components of this vector
         /// </summary>
-        public vec3 xzz => new vec3(x, z, z);
+        public readonly vec3 xzz => new vec3(x, z, z);
         /// <summary>
         /// A vec3 containing the yzz components of this vector
         /// </summary>
-        public vec3 yzz => new vec3(y, z, z);
+        public readonly vec3 yzz => new vec3(y, z, z);
         /// <summary>
         /// A vec3 containing the zzz components of this vector
         /// </summary>
-        public vec3 zzz => new vec3(z, z, z);
+        public readonly vec3 zzz => new vec3(z, z, z);
         #endregion
 
         #region constructors
@@ -320,7 +320,7 @@ namespace Nums {
         #endregion
 
         #region arithmetic
-        public float dot(vec3 v) => (this * v).sum;
+        public readonly float dot(vec3 v) => (this * v).sum;
 
         public static vec3 operator *(vec3 a, vec3 b) => new vec3(a.x * b.x, a.y * b.y, a.z * b.z);
         public static vec3 operator /(vec3 a, vec3 b) => new vec3(a.x / b.x, a.y / b.y, a.z / b.z);
@@ -334,10 +334,10 @@ namespace Nums {
         #endregion
 
         #region math
-        public float distTo(vec3 o) => (o - this).length;
-        public float angleTo(vec3 o) => (float)Math.Acos(this.dot(o) / (this.length * o.length));
-        public vec3 lerp(vec3 o, float t) => this + ((o - this) * t);
-        public vec3 reflect(vec3 normal) => this - (normal * 2 * (this.dot(normal) / normal.dot(normal)));
+        public readonly float distTo(vec3 o) => (o - this).length;
+        public readonly float angleTo(vec3 o) => (float)Math.Acos(this.dot(o) / (this.length * o.length));
+        public readonly vec3 lerp(vec3 o, float t) => this + ((o - this) * t);
+        public readonly vec3 reflect(vec3 normal) => this - (normal * 2 * (this.dot(normal) / normal.dot(normal)));
         public vec3 cross(vec3 o) => new vec3(y * o.z - z * o.y, z * o.x - x * o.z, x * o.y - y * o.x);
         #endregion
 

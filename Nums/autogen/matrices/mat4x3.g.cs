@@ -31,7 +31,7 @@ namespace Nums {
         /// The first column in the matrix.
         /// </summary>
         public vec4 col1 {
-            get => new vec4(row1.x, row2.x, row3.x, row4.x);
+            readonly get => new vec4(row1.x, row2.x, row3.x, row4.x);
             set {
                 row1.x = value.x;
                 row2.x = value.y;
@@ -43,7 +43,7 @@ namespace Nums {
         /// The second column in the matrix.
         /// </summary>
         public vec4 col2 {
-            get => new vec4(row1.y, row2.y, row3.y, row4.y);
+            readonly get => new vec4(row1.y, row2.y, row3.y, row4.y);
             set {
                 row1.y = value.x;
                 row2.y = value.y;
@@ -55,7 +55,7 @@ namespace Nums {
         /// The third column in the matrix.
         /// </summary>
         public vec4 col3 {
-            get => new vec4(row1.z, row2.z, row3.z, row4.z);
+            readonly get => new vec4(row1.z, row2.z, row3.z, row4.z);
             set {
                 row1.z = value.x;
                 row2.z = value.y;
@@ -71,84 +71,84 @@ namespace Nums {
         /// Gets the value at the first row in the first column
         /// </summary>
         public float m11 {
-            get => row1.x;
+            readonly get => row1.x;
             set => row1.x = value;
         }
         /// <summary>
         /// Gets the value at the first row in the second column
         /// </summary>
         public float m12 {
-            get => row1.y;
+            readonly get => row1.y;
             set => row1.y = value;
         }
         /// <summary>
         /// Gets the value at the first row in the third column
         /// </summary>
         public float m13 {
-            get => row1.z;
+            readonly get => row1.z;
             set => row1.z = value;
         }
         /// <summary>
         /// Gets the value at the second row in the first column
         /// </summary>
         public float m21 {
-            get => row2.x;
+            readonly get => row2.x;
             set => row2.x = value;
         }
         /// <summary>
         /// Gets the value at the second row in the second column
         /// </summary>
         public float m22 {
-            get => row2.y;
+            readonly get => row2.y;
             set => row2.y = value;
         }
         /// <summary>
         /// Gets the value at the second row in the third column
         /// </summary>
         public float m23 {
-            get => row2.z;
+            readonly get => row2.z;
             set => row2.z = value;
         }
         /// <summary>
         /// Gets the value at the third row in the first column
         /// </summary>
         public float m31 {
-            get => row3.x;
+            readonly get => row3.x;
             set => row3.x = value;
         }
         /// <summary>
         /// Gets the value at the third row in the second column
         /// </summary>
         public float m32 {
-            get => row3.y;
+            readonly get => row3.y;
             set => row3.y = value;
         }
         /// <summary>
         /// Gets the value at the third row in the third column
         /// </summary>
         public float m33 {
-            get => row3.z;
+            readonly get => row3.z;
             set => row3.z = value;
         }
         /// <summary>
         /// Gets the value at the fourth row in the first column
         /// </summary>
         public float m41 {
-            get => row4.x;
+            readonly get => row4.x;
             set => row4.x = value;
         }
         /// <summary>
         /// Gets the value at the fourth row in the second column
         /// </summary>
         public float m42 {
-            get => row4.y;
+            readonly get => row4.y;
             set => row4.y = value;
         }
         /// <summary>
         /// Gets the value at the fourth row in the third column
         /// </summary>
         public float m43 {
-            get => row4.z;
+            readonly get => row4.z;
             set => row4.z = value;
         }
         #endregion
@@ -156,7 +156,7 @@ namespace Nums {
         /// <summary>
         /// Gets the transpose of this matrix
         /// </summary>
-        public mat3x4 transpose => new mat3x4(col1, col2, col3);
+        public readonly mat3x4 transpose => new mat3x4(col1, col2, col3);
         /// <summary>
         /// The number of bytes the matrix type uses.
         /// </summary>
@@ -165,7 +165,7 @@ namespace Nums {
         /// Gets or sets the element at row r and column c.
         /// </summary>
         public float this[int r, int c] {
-            get => r switch {
+            readonly get => r switch {
                 0 => row1[c],
                 1 => row2[c],
                 2 => row3[c],
