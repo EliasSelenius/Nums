@@ -145,23 +145,27 @@ namespace Nums {
 
         #region operators
         /// <summary>
-        /// multiplies a dmat2 with a dvec2
+        /// Multiplies a dmat2 with a dvec2.
         /// </summary>
         public static dvec2 operator *(dmat2 m, dvec2 v) => new dvec2(m.row1.dot(v), m.row2.dot(v));
         /// <summary>
-        /// multiplies a dmat2 with a dmat2
+        /// Multiplies a dvec2 with a dmat2.
+        /// </summary>
+        public static dvec2 operator *(dvec2 v, dmat2 m ) => new dvec2(m.col1.dot(v), m.col2.dot(v));
+        /// <summary>
+        /// Multiplies a dmat2 with a dmat2.
         /// </summary>
         public static dmat2 operator *(dmat2 m1, dmat2 m2) => new dmat2(m1.row1.dot(m2.col1), m1.row1.dot(m2.col2), m1.row2.dot(m2.col1), m1.row2.dot(m2.col2));
         /// <summary>
-        /// multiplies a dmat2 with a dmat2x3
+        /// Multiplies a dmat2 with a dmat2x3.
         /// </summary>
         public static dmat2x3 operator *(dmat2 m1, dmat2x3 m2) => new dmat2x3(m1.row1.dot(m2.col1), m1.row1.dot(m2.col2), m1.row1.dot(m2.col3), m1.row2.dot(m2.col1), m1.row2.dot(m2.col2), m1.row2.dot(m2.col3));
         /// <summary>
-        /// multiplies a dmat2 with a dmat2x4
+        /// Multiplies a dmat2 with a dmat2x4.
         /// </summary>
         public static dmat2x4 operator *(dmat2 m1, dmat2x4 m2) => new dmat2x4(m1.row1.dot(m2.col1), m1.row1.dot(m2.col2), m1.row1.dot(m2.col3), m1.row1.dot(m2.col4), m1.row2.dot(m2.col1), m1.row2.dot(m2.col2), m1.row2.dot(m2.col3), m1.row2.dot(m2.col4));
         /// <summary>
-        /// multiplies all elements of a matrix with a scalar
+        /// Multiplies all elements of a matrix with a scalar.
         /// </summary>
         public static dmat2 operator *(dmat2 m, double s) => new dmat2(m.row1 * s, m.row2 * s);
         #endregion

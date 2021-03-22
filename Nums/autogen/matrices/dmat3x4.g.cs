@@ -207,23 +207,27 @@ namespace Nums {
 
         #region operators
         /// <summary>
-        /// multiplies a dmat3x4 with a dvec4
+        /// Multiplies a dmat3x4 with a dvec4.
         /// </summary>
         public static dvec3 operator *(dmat3x4 m, dvec4 v) => new dvec3(m.row1.dot(v), m.row2.dot(v), m.row3.dot(v));
         /// <summary>
-        /// multiplies a dmat3x4 with a dmat4x2
+        /// Multiplies a dvec3 with a dmat3x4.
+        /// </summary>
+        public static dvec4 operator *(dvec3 v, dmat3x4 m ) => new dvec4(m.col1.dot(v), m.col2.dot(v), m.col3.dot(v), m.col4.dot(v));
+        /// <summary>
+        /// Multiplies a dmat3x4 with a dmat4x2.
         /// </summary>
         public static dmat3x2 operator *(dmat3x4 m1, dmat4x2 m2) => new dmat3x2(m1.row1.dot(m2.col1), m1.row1.dot(m2.col2), m1.row2.dot(m2.col1), m1.row2.dot(m2.col2), m1.row3.dot(m2.col1), m1.row3.dot(m2.col2));
         /// <summary>
-        /// multiplies a dmat3x4 with a dmat4x3
+        /// Multiplies a dmat3x4 with a dmat4x3.
         /// </summary>
         public static dmat3 operator *(dmat3x4 m1, dmat4x3 m2) => new dmat3(m1.row1.dot(m2.col1), m1.row1.dot(m2.col2), m1.row1.dot(m2.col3), m1.row2.dot(m2.col1), m1.row2.dot(m2.col2), m1.row2.dot(m2.col3), m1.row3.dot(m2.col1), m1.row3.dot(m2.col2), m1.row3.dot(m2.col3));
         /// <summary>
-        /// multiplies a dmat3x4 with a dmat4
+        /// Multiplies a dmat3x4 with a dmat4.
         /// </summary>
         public static dmat3x4 operator *(dmat3x4 m1, dmat4 m2) => new dmat3x4(m1.row1.dot(m2.col1), m1.row1.dot(m2.col2), m1.row1.dot(m2.col3), m1.row1.dot(m2.col4), m1.row2.dot(m2.col1), m1.row2.dot(m2.col2), m1.row2.dot(m2.col3), m1.row2.dot(m2.col4), m1.row3.dot(m2.col1), m1.row3.dot(m2.col2), m1.row3.dot(m2.col3), m1.row3.dot(m2.col4));
         /// <summary>
-        /// multiplies all elements of a matrix with a scalar
+        /// Multiplies all elements of a matrix with a scalar.
         /// </summary>
         public static dmat3x4 operator *(dmat3x4 m, double s) => new dmat3x4(m.row1 * s, m.row2 * s, m.row3 * s);
         #endregion

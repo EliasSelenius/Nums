@@ -137,23 +137,27 @@ namespace Nums {
 
         #region operators
         /// <summary>
-        /// multiplies a mat3x2 with a vec2
+        /// Multiplies a mat3x2 with a vec2.
         /// </summary>
         public static vec3 operator *(mat3x2 m, vec2 v) => new vec3(m.row1.dot(v), m.row2.dot(v), m.row3.dot(v));
         /// <summary>
-        /// multiplies a mat3x2 with a mat2
+        /// Multiplies a vec3 with a mat3x2.
+        /// </summary>
+        public static vec2 operator *(vec3 v, mat3x2 m ) => new vec2(m.col1.dot(v), m.col2.dot(v));
+        /// <summary>
+        /// Multiplies a mat3x2 with a mat2.
         /// </summary>
         public static mat3x2 operator *(mat3x2 m1, mat2 m2) => new mat3x2(m1.row1.dot(m2.col1), m1.row1.dot(m2.col2), m1.row2.dot(m2.col1), m1.row2.dot(m2.col2), m1.row3.dot(m2.col1), m1.row3.dot(m2.col2));
         /// <summary>
-        /// multiplies a mat3x2 with a mat2x3
+        /// Multiplies a mat3x2 with a mat2x3.
         /// </summary>
         public static mat3 operator *(mat3x2 m1, mat2x3 m2) => new mat3(m1.row1.dot(m2.col1), m1.row1.dot(m2.col2), m1.row1.dot(m2.col3), m1.row2.dot(m2.col1), m1.row2.dot(m2.col2), m1.row2.dot(m2.col3), m1.row3.dot(m2.col1), m1.row3.dot(m2.col2), m1.row3.dot(m2.col3));
         /// <summary>
-        /// multiplies a mat3x2 with a mat2x4
+        /// Multiplies a mat3x2 with a mat2x4.
         /// </summary>
         public static mat3x4 operator *(mat3x2 m1, mat2x4 m2) => new mat3x4(m1.row1.dot(m2.col1), m1.row1.dot(m2.col2), m1.row1.dot(m2.col3), m1.row1.dot(m2.col4), m1.row2.dot(m2.col1), m1.row2.dot(m2.col2), m1.row2.dot(m2.col3), m1.row2.dot(m2.col4), m1.row3.dot(m2.col1), m1.row3.dot(m2.col2), m1.row3.dot(m2.col3), m1.row3.dot(m2.col4));
         /// <summary>
-        /// multiplies all elements of a matrix with a scalar
+        /// Multiplies all elements of a matrix with a scalar.
         /// </summary>
         public static mat3x2 operator *(mat3x2 m, float s) => new mat3x2(m.row1 * s, m.row2 * s, m.row3 * s);
         #endregion

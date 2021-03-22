@@ -261,8 +261,12 @@ namespace NumsCodeGenerator {
             // matrix vector multiplication
             {
                 var args = rowNames.Select(x => "m." + x + ".dot(v)").Aggregate((x, y) => x + ", " + y);
-                summary($"multiplies a {structname} with a {vectorRow}");
+                summary($"Multiplies a {structname} with a {vectorRow}.");
                 writeline("public static " + vectorCol + " operator *(" + structname + " m, " + vectorRow + " v) => new " + vectorCol + "(" + args + ");");
+
+                args = colNames.Select(x => "m." + x + ".dot(v)").Aggregate((x, y) => x + ", " + y);
+                summary($"Multiplies a {vectorCol} with a {structname}.");
+                writeline($"public static {vectorRow} operator *({vectorCol} v, {structname} m ) => new {vectorRow}({args});");
             }
 
 
@@ -278,12 +282,12 @@ namespace NumsCodeGenerator {
                 for (int r = 1; r <= rows; r++)
                     for (int c = 1; c <= i; c++) 
                         args[(r - 1) * i + c -1] = "m1.row" + r + ".dot(m2.col" + c + ")";
-                summary($"multiplies a {structname} with a {otherstruct}");
+                summary($"Multiplies a {structname} with a {otherstruct}.");
                 writeline("public static " + resultstruct + " operator *(" + structname + " m1, " + otherstruct + " m2) => new " + resultstruct + "(" + args.Aggregate((x, y) => x + ", " + y)+");");
             }
 
             // matrix scalar multiplication
-            summary("multiplies all elements of a matrix with a scalar");
+            summary("Multiplies all elements of a matrix with a scalar.");
             writeline($"public static {structname} operator *({structname} m, {type} s) => new {structname}({rowNames.Select(x => "m." + x + " * s").Aggregate((x, y) => x + ", " + y)});");
 
 
