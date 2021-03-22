@@ -16,7 +16,7 @@ namespace NumsCodeGenerator {
         string[] rowNames;
         string[] colNames;
         bool isSquare => rows == cols;
-
+        bool is4x4 => isSquare && rows == 4;
 
         public MatrixStruct(string name, string type, int rows, int cols) : base("matrices/") {
             this.rows = rows; this.cols = cols;
@@ -149,6 +149,38 @@ namespace NumsCodeGenerator {
                 summary("Gets the sum of the diagonal.");
                 writeline($"public readonly {type} trace => {diagonalRows.Aggregate((x, y) => x + " + " + y)};");
             }
+
+            // transform matrix
+            if (is4x4) {
+                var v3 = Program.getVectorType(type) + "3";
+
+                summary("Gets the scale of this transformation matrix.");
+                writeline($"public {v3} getScale() => new {v3}(row1.xyz.length, row2.xyz.length, row3.xyz.length);");
+
+                summary("Gets the translation of this transformation matrix.");
+                writeline($"public {v3} getTranslation() => row4.xyz;");
+
+                summary("Gets the rotation of this transformation matrix.");
+                writeline("// TODO: implement.");
+
+
+                summary("Clears the scale of this transformation matrix.");
+                startBlock("public void clearScale()");
+                for (int i = 1; i <= 3; i++) writeline($"row{i}.xyz /= row{i}.xyz.length;");
+                endBlock();
+
+                summary("Clears the translation of this transformation matrix.");
+                writeline($"public void clearTranslation() => row4.xyz = {v3}.zero;");
+
+                summary("Clears the rotation of this transformation matrix.");
+                startBlock("public void clearRotation()");
+                writeline($"row1.xyz = new {v3}(row1.xyz.length, 0, 0);");
+                writeline($"row2.xyz = new {v3}(0, row1.xyz.length, 0);");
+                writeline($"row3.xyz = new {v3}(0, 0, row1.xyz.length);");
+                endBlock();
+
+            }
+
 
             // indexing 
             summary("Gets or sets the element at row r and column c.");

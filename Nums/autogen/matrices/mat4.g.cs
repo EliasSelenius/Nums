@@ -217,6 +217,38 @@ namespace Nums {
         /// </summary>
         public readonly float trace => row1.x + row2.y + row3.z + row4.w;
         /// <summary>
+        /// Gets the scale of this transformation matrix.
+        /// </summary>
+        public vec3 getScale() => new vec3(row1.xyz.length, row2.xyz.length, row3.xyz.length);
+        /// <summary>
+        /// Gets the translation of this transformation matrix.
+        /// </summary>
+        public vec3 getTranslation() => row4.xyz;
+        /// <summary>
+        /// Gets the rotation of this transformation matrix.
+        /// </summary>
+        // TODO: implement.
+        /// <summary>
+        /// Clears the scale of this transformation matrix.
+        /// </summary>
+        public void clearScale() {
+            row1.xyz /= row1.xyz.length;
+            row2.xyz /= row2.xyz.length;
+            row3.xyz /= row3.xyz.length;
+        }
+        /// <summary>
+        /// Clears the translation of this transformation matrix.
+        /// </summary>
+        public void clearTranslation() => row4.xyz = vec3.zero;
+        /// <summary>
+        /// Clears the rotation of this transformation matrix.
+        /// </summary>
+        public void clearRotation() {
+            row1.xyz = new vec3(row1.xyz.length, 0, 0);
+            row2.xyz = new vec3(0, row1.xyz.length, 0);
+            row3.xyz = new vec3(0, 0, row1.xyz.length);
+        }
+        /// <summary>
         /// Gets or sets the element at row r and column c.
         /// </summary>
         public float this[int r, int c] {
