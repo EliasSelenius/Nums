@@ -317,6 +317,16 @@ namespace Nums {
             this.y = y;
             this.z = z;
         }
+        public ivec3(ivec2 xy, int z) {
+            this.x = xy.x;
+            this.y = xy.y;
+            this.z = z;
+        }
+        public ivec3(int x, ivec2 yz) {
+            this.x = x;
+            this.y = yz.x;
+            this.z = yz.y;
+        }
         #endregion
 
         #region arithmetic

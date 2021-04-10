@@ -1882,6 +1882,42 @@ namespace Nums {
             this.z = z;
             this.w = w;
         }
+        public dvec4(dvec2 xy, dvec2 zw) {
+            this.x = xy.x;
+            this.y = xy.y;
+            this.z = zw.x;
+            this.w = zw.y;
+        }
+        public dvec4(dvec2 xy, double z, double w) {
+            this.x = xy.x;
+            this.y = xy.y;
+            this.z = z;
+            this.w = w;
+        }
+        public dvec4(double x, dvec2 yz, double w) {
+            this.x = x;
+            this.y = yz.x;
+            this.z = yz.y;
+            this.w = w;
+        }
+        public dvec4(double x, double y, dvec2 zw) {
+            this.x = x;
+            this.y = y;
+            this.z = zw.x;
+            this.w = zw.y;
+        }
+        public dvec4(dvec3 xyz, double w) {
+            this.x = xyz.x;
+            this.y = xyz.y;
+            this.z = xyz.z;
+            this.w = w;
+        }
+        public dvec4(double x, dvec3 yzw) {
+            this.x = x;
+            this.y = yzw.x;
+            this.z = yzw.y;
+            this.w = yzw.z;
+        }
         #endregion
 
         #region arithmetic

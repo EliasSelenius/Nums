@@ -6,24 +6,28 @@ namespace Nums {
 
         ax + ayi + bix - by
 
+        (a + bi) / (x + yi)
+
+        a/x + a/yi + bi/x + bi/yi
 
     */
 
-
+    /// <summary>A complex number with a real part and an imaginary part, a + bi</summary>
     public struct complex {
 
-        public static readonly complex identity = 1.0f;
-        public static readonly complex i = new complex(0, 1.0f);
+        /// <summary>The imaginary unit i.</summary>
+        public static readonly complex imaginaryUnit = new complex(0, 1.0f);
 
+        /// <summary>The real component of this complex number.</summary>
+        public float r;
+        /// <summary>The imaginary component of this complex number.</summary>
+        public float i;
 
-        public float real;
-        public float imaginary;
+        public complex(float real, float imaginary) => (this.r, this.i) = (real, imaginary);
 
-        public complex(float real, float imaginary) => (this.real, this.imaginary) = (real, imaginary);
-
-        public static complex operator +(complex a, complex b) => new complex(a.real + b.real, a.imaginary + b.imaginary);
-        public static complex operator -(complex a, complex b) => new complex(a.real - b.real, a.imaginary - b.imaginary);
-        public static complex operator *(complex a, complex b) => new complex(a.real * b.real - a.imaginary * b.imaginary, a.real * b.imaginary + a.imaginary * b.real);
+        public static complex operator +(complex a, complex b) => new complex(a.r + b.r, a.i + b.i);
+        public static complex operator -(complex a, complex b) => new complex(a.r - b.r, a.i - b.i);
+        public static complex operator *(complex a, complex b) => new complex(a.r * b.r - a.i * b.i, a.r * b.i + a.i * b.r);
 
         public static implicit operator complex(float f) => new complex(f, 0f);
     }

@@ -317,6 +317,16 @@ namespace Nums {
             this.y = y;
             this.z = z;
         }
+        public vec3(vec2 xy, float z) {
+            this.x = xy.x;
+            this.y = xy.y;
+            this.z = z;
+        }
+        public vec3(float x, vec2 yz) {
+            this.x = x;
+            this.y = yz.x;
+            this.z = yz.y;
+        }
         #endregion
 
         #region arithmetic

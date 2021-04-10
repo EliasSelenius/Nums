@@ -236,12 +236,46 @@ namespace NumsCodeGenerator {
 
                 vec3(vec2, float)
                 vec3(float, vec2)
-             */
+            */
+            if (compCount == 4) {
+                _genConstructor(2, 2);
+                _genConstructor(2, 1, 1);
+                _genConstructor(1, 2, 1);
+                _genConstructor(1, 1, 2);
+                
+                _genConstructor(3, 1);
+                _genConstructor(1, 3);
+            } else if (compCount == 3) {
+                _genConstructor(2, 1);
+                _genConstructor(1, 2);
 
-            for (int i = 2; i < compCount - 1; i++) {
-                var othervec = name + i;
-                //compCount / i;
             }
+            
+            
+            
+
+            void _genConstructor(params int[] args) {
+
+                var argList = new string[args.Length];
+                var argNames = new string[args.Length];
+
+                int c = 0;
+                for (int i = 0; i < args.Length; i++) {
+                    argList[i] = (args[i] == 1 ? type : name + args[i]); 
+                    argNames[i] = compsNames[c..(c += args[i])].Aggregate((x, y) => x + y);
+                }
+
+                startBlock($"public {vecName}({argList.Select((x, i) => x + " " + argNames[i]).Aggregate((x, y) => x + ", " + y)})");
+                c = 0;
+                for (int i = 0; i < args.Length; i++) {    
+                    for (int j = 0; j < args[i]; j++) {
+                        writeline("this." + compsNames[c] + " = " + argNames[i] + ((args[i] == 1) ? "" : "." + compsNames[j]) + ";");
+                        c++;
+                    }
+                }
+                endBlock();
+            }
+
 
 
             endregion();

@@ -1882,6 +1882,42 @@ namespace Nums {
             this.z = z;
             this.w = w;
         }
+        public ivec4(ivec2 xy, ivec2 zw) {
+            this.x = xy.x;
+            this.y = xy.y;
+            this.z = zw.x;
+            this.w = zw.y;
+        }
+        public ivec4(ivec2 xy, int z, int w) {
+            this.x = xy.x;
+            this.y = xy.y;
+            this.z = z;
+            this.w = w;
+        }
+        public ivec4(int x, ivec2 yz, int w) {
+            this.x = x;
+            this.y = yz.x;
+            this.z = yz.y;
+            this.w = w;
+        }
+        public ivec4(int x, int y, ivec2 zw) {
+            this.x = x;
+            this.y = y;
+            this.z = zw.x;
+            this.w = zw.y;
+        }
+        public ivec4(ivec3 xyz, int w) {
+            this.x = xyz.x;
+            this.y = xyz.y;
+            this.z = xyz.z;
+            this.w = w;
+        }
+        public ivec4(int x, ivec3 yzw) {
+            this.x = x;
+            this.y = yzw.x;
+            this.z = yzw.y;
+            this.w = yzw.z;
+        }
         #endregion
 
         #region arithmetic
