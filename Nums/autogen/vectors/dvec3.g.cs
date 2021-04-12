@@ -346,7 +346,6 @@ namespace Nums {
         #region math
         public readonly double distTo(dvec3 o) => (o - this).length;
         public readonly double angleTo(dvec3 o) => (double)Math.Acos(this.dot(o) / (this.length * o.length));
-        public readonly dvec3 lerp(dvec3 o, double t) => this + ((o - this) * t);
         public readonly dvec3 reflect(dvec3 normal) => this - (normal * 2 * (this.dot(normal) / normal.dot(normal)));
         public dvec3 cross(dvec3 o) => new dvec3(y * o.z - z * o.y, z * o.x - x * o.z, x * o.y - y * o.x);
         #endregion
@@ -363,12 +362,41 @@ namespace Nums {
         #endregion
     }
     public static partial class math {
-        public static dvec3 floor(dvec3 o) => new dvec3(floor(o.x), floor(o.y), floor(o.z));
-        public static dvec3 fract(dvec3 o) => new dvec3(fract(o.x), fract(o.y), fract(o.z));
-        public static dvec3 abs(dvec3 o) => new dvec3(abs(o.x), abs(o.y), abs(o.z));
-        public static dvec3 sqrt(dvec3 o) => new dvec3(sqrt(o.x), sqrt(o.y), sqrt(o.z));
-        public static dvec3 sin(dvec3 o) => new dvec3(sin(o.x), sin(o.y), sin(o.z));
-        public static dvec3 cos(dvec3 o) => new dvec3(cos(o.x), cos(o.y), cos(o.z));
-        public static dvec3 tan(dvec3 o) => new dvec3(tan(o.x), tan(o.y), tan(o.z));
+        /// <summary>
+        /// Takes the floor of each component in the given dvec3.
+        /// </summary>
+        public static dvec3 floor(in dvec3 o) => new dvec3(floor(o.x), floor(o.y), floor(o.z));
+        /// <summary>
+        /// Takes the fract of each component in the given dvec3.
+        /// </summary>
+        public static dvec3 fract(in dvec3 o) => new dvec3(fract(o.x), fract(o.y), fract(o.z));
+        /// <summary>
+        /// Takes the sqrt of each component in the given dvec3.
+        /// </summary>
+        public static dvec3 sqrt(in dvec3 o) => new dvec3(sqrt(o.x), sqrt(o.y), sqrt(o.z));
+        /// <summary>
+        /// Takes the sin of each component in the given dvec3.
+        /// </summary>
+        public static dvec3 sin(in dvec3 o) => new dvec3(sin(o.x), sin(o.y), sin(o.z));
+        /// <summary>
+        /// Takes the cos of each component in the given dvec3.
+        /// </summary>
+        public static dvec3 cos(in dvec3 o) => new dvec3(cos(o.x), cos(o.y), cos(o.z));
+        /// <summary>
+        /// Takes the tan of each component in the given dvec3.
+        /// </summary>
+        public static dvec3 tan(in dvec3 o) => new dvec3(tan(o.x), tan(o.y), tan(o.z));
+        /// <summary>
+        /// Takes the abs of each component in the given dvec3.
+        /// </summary>
+        public static dvec3 abs(in dvec3 o) => new dvec3(abs(o.x), abs(o.y), abs(o.z));
+        /// <summary>
+        /// Linear interpolation of two dvec3 by t.
+        /// </summary>
+        public static dvec3 lerp(in dvec3 x, in dvec3 y, double t) => x + (y - x) * t;
+        /// <summary>
+        /// Gets the dvec3 at location t along a curve.
+        /// </summary>
+        public static dvec3 bezier(in dvec3 a, in dvec3 b, in dvec3 c, double t) => a + ((b - a)*2 + (c - a)*t)*t;
     }
 }

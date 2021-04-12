@@ -227,7 +227,7 @@ namespace Nums {
         /// <summary>
         /// Gets the rotation of this transformation matrix.
         /// </summary>
-        // TODO: implement.
+        // TODO: implement... 
         /// <summary>
         /// Clears the scale of this transformation matrix.
         /// </summary>

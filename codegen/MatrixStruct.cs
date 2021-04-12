@@ -161,7 +161,7 @@ namespace NumsCodeGenerator {
                 writeline($"public {v3} getTranslation() => row4.xyz;");
 
                 summary("Gets the rotation of this transformation matrix.");
-                writeline("// TODO: implement.");
+                writeline($"// TODO: implement... ");
 
 
                 summary("Clears the scale of this transformation matrix.");

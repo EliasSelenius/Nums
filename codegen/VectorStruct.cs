@@ -321,7 +321,7 @@ namespace NumsCodeGenerator {
             region("math");
             writeline($"public readonly {type} distTo({vecName} o) => (o - this).length;");
             writeline($"public readonly {type} angleTo({vecName} o) => ({type})Math.Acos(this.dot(o) / (this.length * o.length));");
-            writeline($"public readonly {vecName} lerp({vecName} o, {type} t) => this + ((o - this) * t);");
+            //writeline($"public readonly {vecName} lerp({vecName} o, {type} t) => this + ((o - this) * t);"); i removed this to encurage use of the static version since it is cleaner
             writeline($"public readonly {vecName} reflect({vecName} normal) => this - (normal * 2 * (this.dot(normal) / normal.dot(normal)));");
 
 
@@ -332,20 +332,46 @@ namespace NumsCodeGenerator {
 
             var a = compsNames.Select(x => $"_R_(o.{x})").Aggregate((x, y) => x + ", " + y);
             void mathFunc(string name) {
-                mathClass.writeline($"public static {vecName} {name}({vecName} o) => new {vecName}({a.Replace("_R_", name)});");
+                mathClass.summary($"Takes the {name} of each component in the given {vecName}.");
+                mathClass.writeline($"public static {vecName} {name}(in {vecName} o) => new {vecName}({a.Replace("_R_", name)});");
             }
 
             if (!type.Equals("int")) {
                 mathFunc("floor");
                 mathFunc("fract");
-                mathFunc("abs");
                 mathFunc("sqrt");
                 //mathFunc("pow");
                 mathFunc("sin");
                 mathFunc("cos");
                 mathFunc("tan");
-
             }
+
+            mathFunc("abs");
+
+
+            // lerp
+            mathClass.summary($"Linear interpolation of two {vecName} by t.");
+            mathClass.writeline($"public static {vecName} lerp(in {vecName} x, in {vecName} y, {type} t) => x + (y - x) * t;");
+
+            // bezier
+            // lerp(lerp(p0, p1, t), lerp(p1, p2, t), t)
+            // p0 + (p1 - p0) * t   ....   p1 + (p2 - p1) * t
+
+            // p0 + p1t - p0t + p1t + p2t^2 - p1t^2 - p0t + p1t^2 - p0t^2
+            // p0 + 2p1t - 2p0t + p2t^2 - p0t^2
+            // bezier(a, b, c, t) = a + 2bt - 2at + ct^2 - at^2
+            // bezier(a, b, c, t) = a + (2(b - a) + t(c - a))t
+            // a + (2*(b - a) + t*(c - a))*t
+
+            // lerp(a, b, t) = (1 - t)a + tb
+            // lerp(lerp(a, b, t), lerp(b, c, t), t)
+            // (1 - t)a + tb  ....  (1 - t)b + tc
+            // a - at + bt - at - at^2 + bt^2 + bt - bt^2 + ct^2
+            // a - (2(a + b) - t(a + c))t // derived from lerp func (1 - t)a + tb 
+            // a + (2(b - a) + t(c - a))t // derived from lerp func a + (b - a) * t
+
+            mathClass.summary($"Gets the {vecName} at location t along a curve.");
+            mathClass.writeline($"public static {vecName} bezier(in {vecName} a, in {vecName} b, in {vecName} c, {type} t) => a + ((b - a)*2 + (c - a)*t)*t;");
 
             endregion();
         }

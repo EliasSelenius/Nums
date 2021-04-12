@@ -346,7 +346,6 @@ namespace Nums {
         #region math
         public readonly float distTo(vec3 o) => (o - this).length;
         public readonly float angleTo(vec3 o) => (float)Math.Acos(this.dot(o) / (this.length * o.length));
-        public readonly vec3 lerp(vec3 o, float t) => this + ((o - this) * t);
         public readonly vec3 reflect(vec3 normal) => this - (normal * 2 * (this.dot(normal) / normal.dot(normal)));
         public vec3 cross(vec3 o) => new vec3(y * o.z - z * o.y, z * o.x - x * o.z, x * o.y - y * o.x);
         #endregion
@@ -363,12 +362,41 @@ namespace Nums {
         #endregion
     }
     public static partial class math {
-        public static vec3 floor(vec3 o) => new vec3(floor(o.x), floor(o.y), floor(o.z));
-        public static vec3 fract(vec3 o) => new vec3(fract(o.x), fract(o.y), fract(o.z));
-        public static vec3 abs(vec3 o) => new vec3(abs(o.x), abs(o.y), abs(o.z));
-        public static vec3 sqrt(vec3 o) => new vec3(sqrt(o.x), sqrt(o.y), sqrt(o.z));
-        public static vec3 sin(vec3 o) => new vec3(sin(o.x), sin(o.y), sin(o.z));
-        public static vec3 cos(vec3 o) => new vec3(cos(o.x), cos(o.y), cos(o.z));
-        public static vec3 tan(vec3 o) => new vec3(tan(o.x), tan(o.y), tan(o.z));
+        /// <summary>
+        /// Takes the floor of each component in the given vec3.
+        /// </summary>
+        public static vec3 floor(in vec3 o) => new vec3(floor(o.x), floor(o.y), floor(o.z));
+        /// <summary>
+        /// Takes the fract of each component in the given vec3.
+        /// </summary>
+        public static vec3 fract(in vec3 o) => new vec3(fract(o.x), fract(o.y), fract(o.z));
+        /// <summary>
+        /// Takes the sqrt of each component in the given vec3.
+        /// </summary>
+        public static vec3 sqrt(in vec3 o) => new vec3(sqrt(o.x), sqrt(o.y), sqrt(o.z));
+        /// <summary>
+        /// Takes the sin of each component in the given vec3.
+        /// </summary>
+        public static vec3 sin(in vec3 o) => new vec3(sin(o.x), sin(o.y), sin(o.z));
+        /// <summary>
+        /// Takes the cos of each component in the given vec3.
+        /// </summary>
+        public static vec3 cos(in vec3 o) => new vec3(cos(o.x), cos(o.y), cos(o.z));
+        /// <summary>
+        /// Takes the tan of each component in the given vec3.
+        /// </summary>
+        public static vec3 tan(in vec3 o) => new vec3(tan(o.x), tan(o.y), tan(o.z));
+        /// <summary>
+        /// Takes the abs of each component in the given vec3.
+        /// </summary>
+        public static vec3 abs(in vec3 o) => new vec3(abs(o.x), abs(o.y), abs(o.z));
+        /// <summary>
+        /// Linear interpolation of two vec3 by t.
+        /// </summary>
+        public static vec3 lerp(in vec3 x, in vec3 y, float t) => x + (y - x) * t;
+        /// <summary>
+        /// Gets the vec3 at location t along a curve.
+        /// </summary>
+        public static vec3 bezier(in vec3 a, in vec3 b, in vec3 c, float t) => a + ((b - a)*2 + (c - a)*t)*t;
     }
 }

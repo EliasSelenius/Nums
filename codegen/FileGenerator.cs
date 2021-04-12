@@ -28,15 +28,6 @@ namespace NumsCodeGenerator {
             writeline("#endregion");
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        public void summary(string text) {
-            writeline("/// <summary>");
-            writeline("/// " + text);
-            writeline("/// </summary>");
-        }
-
         private void _gen() {
 
             Console.WriteLine($"generating: {fileName}.g.cs");

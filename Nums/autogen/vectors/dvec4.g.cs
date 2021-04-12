@@ -1937,7 +1937,6 @@ namespace Nums {
         #region math
         public readonly double distTo(dvec4 o) => (o - this).length;
         public readonly double angleTo(dvec4 o) => (double)Math.Acos(this.dot(o) / (this.length * o.length));
-        public readonly dvec4 lerp(dvec4 o, double t) => this + ((o - this) * t);
         public readonly dvec4 reflect(dvec4 normal) => this - (normal * 2 * (this.dot(normal) / normal.dot(normal)));
         #endregion
 
@@ -1953,12 +1952,41 @@ namespace Nums {
         #endregion
     }
     public static partial class math {
-        public static dvec4 floor(dvec4 o) => new dvec4(floor(o.x), floor(o.y), floor(o.z), floor(o.w));
-        public static dvec4 fract(dvec4 o) => new dvec4(fract(o.x), fract(o.y), fract(o.z), fract(o.w));
-        public static dvec4 abs(dvec4 o) => new dvec4(abs(o.x), abs(o.y), abs(o.z), abs(o.w));
-        public static dvec4 sqrt(dvec4 o) => new dvec4(sqrt(o.x), sqrt(o.y), sqrt(o.z), sqrt(o.w));
-        public static dvec4 sin(dvec4 o) => new dvec4(sin(o.x), sin(o.y), sin(o.z), sin(o.w));
-        public static dvec4 cos(dvec4 o) => new dvec4(cos(o.x), cos(o.y), cos(o.z), cos(o.w));
-        public static dvec4 tan(dvec4 o) => new dvec4(tan(o.x), tan(o.y), tan(o.z), tan(o.w));
+        /// <summary>
+        /// Takes the floor of each component in the given dvec4.
+        /// </summary>
+        public static dvec4 floor(in dvec4 o) => new dvec4(floor(o.x), floor(o.y), floor(o.z), floor(o.w));
+        /// <summary>
+        /// Takes the fract of each component in the given dvec4.
+        /// </summary>
+        public static dvec4 fract(in dvec4 o) => new dvec4(fract(o.x), fract(o.y), fract(o.z), fract(o.w));
+        /// <summary>
+        /// Takes the sqrt of each component in the given dvec4.
+        /// </summary>
+        public static dvec4 sqrt(in dvec4 o) => new dvec4(sqrt(o.x), sqrt(o.y), sqrt(o.z), sqrt(o.w));
+        /// <summary>
+        /// Takes the sin of each component in the given dvec4.
+        /// </summary>
+        public static dvec4 sin(in dvec4 o) => new dvec4(sin(o.x), sin(o.y), sin(o.z), sin(o.w));
+        /// <summary>
+        /// Takes the cos of each component in the given dvec4.
+        /// </summary>
+        public static dvec4 cos(in dvec4 o) => new dvec4(cos(o.x), cos(o.y), cos(o.z), cos(o.w));
+        /// <summary>
+        /// Takes the tan of each component in the given dvec4.
+        /// </summary>
+        public static dvec4 tan(in dvec4 o) => new dvec4(tan(o.x), tan(o.y), tan(o.z), tan(o.w));
+        /// <summary>
+        /// Takes the abs of each component in the given dvec4.
+        /// </summary>
+        public static dvec4 abs(in dvec4 o) => new dvec4(abs(o.x), abs(o.y), abs(o.z), abs(o.w));
+        /// <summary>
+        /// Linear interpolation of two dvec4 by t.
+        /// </summary>
+        public static dvec4 lerp(in dvec4 x, in dvec4 y, double t) => x + (y - x) * t;
+        /// <summary>
+        /// Gets the dvec4 at location t along a curve.
+        /// </summary>
+        public static dvec4 bezier(in dvec4 a, in dvec4 b, in dvec4 c, double t) => a + ((b - a)*2 + (c - a)*t)*t;
     }
 }

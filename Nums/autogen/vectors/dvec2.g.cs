@@ -131,7 +131,6 @@ namespace Nums {
         #region math
         public readonly double distTo(dvec2 o) => (o - this).length;
         public readonly double angleTo(dvec2 o) => (double)Math.Acos(this.dot(o) / (this.length * o.length));
-        public readonly dvec2 lerp(dvec2 o, double t) => this + ((o - this) * t);
         public readonly dvec2 reflect(dvec2 normal) => this - (normal * 2 * (this.dot(normal) / normal.dot(normal)));
         #endregion
 
@@ -147,12 +146,41 @@ namespace Nums {
         #endregion
     }
     public static partial class math {
-        public static dvec2 floor(dvec2 o) => new dvec2(floor(o.x), floor(o.y));
-        public static dvec2 fract(dvec2 o) => new dvec2(fract(o.x), fract(o.y));
-        public static dvec2 abs(dvec2 o) => new dvec2(abs(o.x), abs(o.y));
-        public static dvec2 sqrt(dvec2 o) => new dvec2(sqrt(o.x), sqrt(o.y));
-        public static dvec2 sin(dvec2 o) => new dvec2(sin(o.x), sin(o.y));
-        public static dvec2 cos(dvec2 o) => new dvec2(cos(o.x), cos(o.y));
-        public static dvec2 tan(dvec2 o) => new dvec2(tan(o.x), tan(o.y));
+        /// <summary>
+        /// Takes the floor of each component in the given dvec2.
+        /// </summary>
+        public static dvec2 floor(in dvec2 o) => new dvec2(floor(o.x), floor(o.y));
+        /// <summary>
+        /// Takes the fract of each component in the given dvec2.
+        /// </summary>
+        public static dvec2 fract(in dvec2 o) => new dvec2(fract(o.x), fract(o.y));
+        /// <summary>
+        /// Takes the sqrt of each component in the given dvec2.
+        /// </summary>
+        public static dvec2 sqrt(in dvec2 o) => new dvec2(sqrt(o.x), sqrt(o.y));
+        /// <summary>
+        /// Takes the sin of each component in the given dvec2.
+        /// </summary>
+        public static dvec2 sin(in dvec2 o) => new dvec2(sin(o.x), sin(o.y));
+        /// <summary>
+        /// Takes the cos of each component in the given dvec2.
+        /// </summary>
+        public static dvec2 cos(in dvec2 o) => new dvec2(cos(o.x), cos(o.y));
+        /// <summary>
+        /// Takes the tan of each component in the given dvec2.
+        /// </summary>
+        public static dvec2 tan(in dvec2 o) => new dvec2(tan(o.x), tan(o.y));
+        /// <summary>
+        /// Takes the abs of each component in the given dvec2.
+        /// </summary>
+        public static dvec2 abs(in dvec2 o) => new dvec2(abs(o.x), abs(o.y));
+        /// <summary>
+        /// Linear interpolation of two dvec2 by t.
+        /// </summary>
+        public static dvec2 lerp(in dvec2 x, in dvec2 y, double t) => x + (y - x) * t;
+        /// <summary>
+        /// Gets the dvec2 at location t along a curve.
+        /// </summary>
+        public static dvec2 bezier(in dvec2 a, in dvec2 b, in dvec2 c, double t) => a + ((b - a)*2 + (c - a)*t)*t;
     }
 }

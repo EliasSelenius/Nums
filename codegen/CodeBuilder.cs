@@ -27,6 +27,15 @@ namespace NumsCodeGenerator {
         public void write(string str) => content.Push(str);
         public void writeline(string line) => write(tabs + line + "\n");
 
+        /// <summary>
+        /// 
+        /// </summary>
+        public void summary(string text) {
+            writeline("/// <summary>");
+            writeline("/// " + text);
+            writeline("/// </summary>");
+        }
+
         public void writesection(CodeBuilder codeBuilder) {
             write(codeBuilder.result());
         }

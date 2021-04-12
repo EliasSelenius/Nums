@@ -1937,7 +1937,6 @@ namespace Nums {
         #region math
         public readonly int distTo(ivec4 o) => (o - this).length;
         public readonly int angleTo(ivec4 o) => (int)Math.Acos(this.dot(o) / (this.length * o.length));
-        public readonly ivec4 lerp(ivec4 o, int t) => this + ((o - this) * t);
         public readonly ivec4 reflect(ivec4 normal) => this - (normal * 2 * (this.dot(normal) / normal.dot(normal)));
         #endregion
 
@@ -1953,5 +1952,17 @@ namespace Nums {
         #endregion
     }
     public static partial class math {
+        /// <summary>
+        /// Takes the abs of each component in the given ivec4.
+        /// </summary>
+        public static ivec4 abs(in ivec4 o) => new ivec4(abs(o.x), abs(o.y), abs(o.z), abs(o.w));
+        /// <summary>
+        /// Linear interpolation of two ivec4 by t.
+        /// </summary>
+        public static ivec4 lerp(in ivec4 x, in ivec4 y, int t) => x + (y - x) * t;
+        /// <summary>
+        /// Gets the ivec4 at location t along a curve.
+        /// </summary>
+        public static ivec4 bezier(in ivec4 a, in ivec4 b, in ivec4 c, int t) => a + ((b - a)*2 + (c - a)*t)*t;
     }
 }

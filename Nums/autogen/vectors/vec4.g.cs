@@ -1937,7 +1937,6 @@ namespace Nums {
         #region math
         public readonly float distTo(vec4 o) => (o - this).length;
         public readonly float angleTo(vec4 o) => (float)Math.Acos(this.dot(o) / (this.length * o.length));
-        public readonly vec4 lerp(vec4 o, float t) => this + ((o - this) * t);
         public readonly vec4 reflect(vec4 normal) => this - (normal * 2 * (this.dot(normal) / normal.dot(normal)));
         #endregion
 
@@ -1953,12 +1952,41 @@ namespace Nums {
         #endregion
     }
     public static partial class math {
-        public static vec4 floor(vec4 o) => new vec4(floor(o.x), floor(o.y), floor(o.z), floor(o.w));
-        public static vec4 fract(vec4 o) => new vec4(fract(o.x), fract(o.y), fract(o.z), fract(o.w));
-        public static vec4 abs(vec4 o) => new vec4(abs(o.x), abs(o.y), abs(o.z), abs(o.w));
-        public static vec4 sqrt(vec4 o) => new vec4(sqrt(o.x), sqrt(o.y), sqrt(o.z), sqrt(o.w));
-        public static vec4 sin(vec4 o) => new vec4(sin(o.x), sin(o.y), sin(o.z), sin(o.w));
-        public static vec4 cos(vec4 o) => new vec4(cos(o.x), cos(o.y), cos(o.z), cos(o.w));
-        public static vec4 tan(vec4 o) => new vec4(tan(o.x), tan(o.y), tan(o.z), tan(o.w));
+        /// <summary>
+        /// Takes the floor of each component in the given vec4.
+        /// </summary>
+        public static vec4 floor(in vec4 o) => new vec4(floor(o.x), floor(o.y), floor(o.z), floor(o.w));
+        /// <summary>
+        /// Takes the fract of each component in the given vec4.
+        /// </summary>
+        public static vec4 fract(in vec4 o) => new vec4(fract(o.x), fract(o.y), fract(o.z), fract(o.w));
+        /// <summary>
+        /// Takes the sqrt of each component in the given vec4.
+        /// </summary>
+        public static vec4 sqrt(in vec4 o) => new vec4(sqrt(o.x), sqrt(o.y), sqrt(o.z), sqrt(o.w));
+        /// <summary>
+        /// Takes the sin of each component in the given vec4.
+        /// </summary>
+        public static vec4 sin(in vec4 o) => new vec4(sin(o.x), sin(o.y), sin(o.z), sin(o.w));
+        /// <summary>
+        /// Takes the cos of each component in the given vec4.
+        /// </summary>
+        public static vec4 cos(in vec4 o) => new vec4(cos(o.x), cos(o.y), cos(o.z), cos(o.w));
+        /// <summary>
+        /// Takes the tan of each component in the given vec4.
+        /// </summary>
+        public static vec4 tan(in vec4 o) => new vec4(tan(o.x), tan(o.y), tan(o.z), tan(o.w));
+        /// <summary>
+        /// Takes the abs of each component in the given vec4.
+        /// </summary>
+        public static vec4 abs(in vec4 o) => new vec4(abs(o.x), abs(o.y), abs(o.z), abs(o.w));
+        /// <summary>
+        /// Linear interpolation of two vec4 by t.
+        /// </summary>
+        public static vec4 lerp(in vec4 x, in vec4 y, float t) => x + (y - x) * t;
+        /// <summary>
+        /// Gets the vec4 at location t along a curve.
+        /// </summary>
+        public static vec4 bezier(in vec4 a, in vec4 b, in vec4 c, float t) => a + ((b - a)*2 + (c - a)*t)*t;
     }
 }

@@ -131,7 +131,6 @@ namespace Nums {
         #region math
         public readonly float distTo(vec2 o) => (o - this).length;
         public readonly float angleTo(vec2 o) => (float)Math.Acos(this.dot(o) / (this.length * o.length));
-        public readonly vec2 lerp(vec2 o, float t) => this + ((o - this) * t);
         public readonly vec2 reflect(vec2 normal) => this - (normal * 2 * (this.dot(normal) / normal.dot(normal)));
         #endregion
 
@@ -147,12 +146,41 @@ namespace Nums {
         #endregion
     }
     public static partial class math {
-        public static vec2 floor(vec2 o) => new vec2(floor(o.x), floor(o.y));
-        public static vec2 fract(vec2 o) => new vec2(fract(o.x), fract(o.y));
-        public static vec2 abs(vec2 o) => new vec2(abs(o.x), abs(o.y));
-        public static vec2 sqrt(vec2 o) => new vec2(sqrt(o.x), sqrt(o.y));
-        public static vec2 sin(vec2 o) => new vec2(sin(o.x), sin(o.y));
-        public static vec2 cos(vec2 o) => new vec2(cos(o.x), cos(o.y));
-        public static vec2 tan(vec2 o) => new vec2(tan(o.x), tan(o.y));
+        /// <summary>
+        /// Takes the floor of each component in the given vec2.
+        /// </summary>
+        public static vec2 floor(in vec2 o) => new vec2(floor(o.x), floor(o.y));
+        /// <summary>
+        /// Takes the fract of each component in the given vec2.
+        /// </summary>
+        public static vec2 fract(in vec2 o) => new vec2(fract(o.x), fract(o.y));
+        /// <summary>
+        /// Takes the sqrt of each component in the given vec2.
+        /// </summary>
+        public static vec2 sqrt(in vec2 o) => new vec2(sqrt(o.x), sqrt(o.y));
+        /// <summary>
+        /// Takes the sin of each component in the given vec2.
+        /// </summary>
+        public static vec2 sin(in vec2 o) => new vec2(sin(o.x), sin(o.y));
+        /// <summary>
+        /// Takes the cos of each component in the given vec2.
+        /// </summary>
+        public static vec2 cos(in vec2 o) => new vec2(cos(o.x), cos(o.y));
+        /// <summary>
+        /// Takes the tan of each component in the given vec2.
+        /// </summary>
+        public static vec2 tan(in vec2 o) => new vec2(tan(o.x), tan(o.y));
+        /// <summary>
+        /// Takes the abs of each component in the given vec2.
+        /// </summary>
+        public static vec2 abs(in vec2 o) => new vec2(abs(o.x), abs(o.y));
+        /// <summary>
+        /// Linear interpolation of two vec2 by t.
+        /// </summary>
+        public static vec2 lerp(in vec2 x, in vec2 y, float t) => x + (y - x) * t;
+        /// <summary>
+        /// Gets the vec2 at location t along a curve.
+        /// </summary>
+        public static vec2 bezier(in vec2 a, in vec2 b, in vec2 c, float t) => a + ((b - a)*2 + (c - a)*t)*t;
     }
 }

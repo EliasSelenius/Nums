@@ -131,7 +131,6 @@ namespace Nums {
         #region math
         public readonly int distTo(ivec2 o) => (o - this).length;
         public readonly int angleTo(ivec2 o) => (int)Math.Acos(this.dot(o) / (this.length * o.length));
-        public readonly ivec2 lerp(ivec2 o, int t) => this + ((o - this) * t);
         public readonly ivec2 reflect(ivec2 normal) => this - (normal * 2 * (this.dot(normal) / normal.dot(normal)));
         #endregion
 
@@ -147,5 +146,17 @@ namespace Nums {
         #endregion
     }
     public static partial class math {
+        /// <summary>
+        /// Takes the abs of each component in the given ivec2.
+        /// </summary>
+        public static ivec2 abs(in ivec2 o) => new ivec2(abs(o.x), abs(o.y));
+        /// <summary>
+        /// Linear interpolation of two ivec2 by t.
+        /// </summary>
+        public static ivec2 lerp(in ivec2 x, in ivec2 y, int t) => x + (y - x) * t;
+        /// <summary>
+        /// Gets the ivec2 at location t along a curve.
+        /// </summary>
+        public static ivec2 bezier(in ivec2 a, in ivec2 b, in ivec2 c, int t) => a + ((b - a)*2 + (c - a)*t)*t;
     }
 }
