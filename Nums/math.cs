@@ -45,6 +45,8 @@ namespace Nums {
 
         #region basic funcs
 
+        
+
         public static double map(double value, double min, double max, double target_min, double target_max) => lerp(target_min, target_max, (value - min) / (max - min));
         public static float map(float value, float min, float max, float target_min, float target_max) => lerp(target_min, target_max, (value - min) / (max - min));
 
@@ -54,15 +56,15 @@ namespace Nums {
 
 
         public static double pow(double x, double y) => Math.Pow(x, y);
-        public static float pow(float x, float y) => (float)Math.Pow(x, y);
+        public static float pow(float x, float y) => MathF.Pow(x, y);
 
 
         public static double sqrt(double x) => Math.Sqrt(x);
-        public static float sqrt(float x) => (float)Math.Sqrt(x);
+        public static float sqrt(float x) => MathF.Sqrt(x);
 
 
         public static double floor(double x) => Math.Floor(x);
-        public static float floor(float x) => (float)Math.Floor(x);
+        public static float floor(float x) => MathF.Floor(x);
         
         
         public static double fract(double x) => x - floor(x);
@@ -70,19 +72,20 @@ namespace Nums {
 
 
         public static double abs(double x) => Math.Abs(x);
-        public static float abs(float x) => Math.Abs(x);
+        public static float abs(float x) => MathF.Abs(x);
+        public static int abs(int x) => Math.Abs(x);
 
 
         public static double sin(double x) => Math.Sin(x);
-        public static float sin(float x) => (float)Math.Sin(x);
+        public static float sin(float x) => MathF.Sin(x);
 
 
         public static double cos(double x) => Math.Cos(x);
-        public static float cos(float x) => (float)Math.Cos(x);
+        public static float cos(float x) => MathF.Cos(x);
 
 
         public static double tan(double x) => Math.Tan(x);
-        public static float tan(float x) => (float)Math.Tan(x);
+        public static float tan(float x) => MathF.Tan(x);
 
 
         public static double min(double a, double b) => a < b ? a : b;
