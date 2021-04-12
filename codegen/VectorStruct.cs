@@ -370,8 +370,36 @@ namespace NumsCodeGenerator {
             // a - (2(a + b) - t(a + c))t // derived from lerp func (1 - t)a + tb 
             // a + (2(b - a) + t(c - a))t // derived from lerp func a + (b - a) * t
 
+
+            /* second atempt
+
+                lerp(a, b, t) = a + (b - a) * t
+
+                bezier(a, b, c, t) = lerp(lerp(a, b, t), lerp(b, c, t), t)
+
+                a + (b - a) * t      b + (c - b) * t
+
+                a + bt - at + bt + ct^2 - bt^2 - at + bt^2 - at^2
+                
+                a + ((b - a)2 + (c - a)t)t
+
+
+
+                lerp(lerp(a, b, t), lerp(b, c, t), t) 
+                lerp(a + (b - a) * t, b + (c - b) * t, t)
+
+
+                a + bt - at + bt + ct^2 - bt^2 - at - bt^2 + at^2
+                a + 2bt - 2at + ct^2 - 2bt^2 + at^2
+                a + ((b - a)2 + (c - 2b + a)t)t
+                a + ((b - a)*2 + (c - 2*b + a)*t)*t
+
+            */
+
+
+
             mathClass.summary($"Gets the {vecName} at location t along a curve.");
-            mathClass.writeline($"public static {vecName} bezier(in {vecName} a, in {vecName} b, in {vecName} c, {type} t) => a + ((b - a)*2 + (c - a)*t)*t;");
+            mathClass.writeline($"public static {vecName} bezier(in {vecName} a, in {vecName} b, in {vecName} c, {type} t) => a + ((b - a)*2 + (c - 2*b + a)*t)*t;");
 
             endregion();
         }

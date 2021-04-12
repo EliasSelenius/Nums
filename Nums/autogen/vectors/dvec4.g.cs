@@ -1987,6 +1987,6 @@ namespace Nums {
         /// <summary>
         /// Gets the dvec4 at location t along a curve.
         /// </summary>
-        public static dvec4 bezier(in dvec4 a, in dvec4 b, in dvec4 c, double t) => a + ((b - a)*2 + (c - a)*t)*t;
+        public static dvec4 bezier(in dvec4 a, in dvec4 b, in dvec4 c, double t) => a + ((b - a)*2 + (c - 2*b + a)*t)*t;
     }
 }

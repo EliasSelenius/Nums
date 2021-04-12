@@ -397,6 +397,6 @@ namespace Nums {
         /// <summary>
         /// Gets the dvec3 at location t along a curve.
         /// </summary>
-        public static dvec3 bezier(in dvec3 a, in dvec3 b, in dvec3 c, double t) => a + ((b - a)*2 + (c - a)*t)*t;
+        public static dvec3 bezier(in dvec3 a, in dvec3 b, in dvec3 c, double t) => a + ((b - a)*2 + (c - 2*b + a)*t)*t;
     }
 }

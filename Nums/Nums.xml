@@ -2544,229 +2544,319 @@
             collection of commonly used constants and functions
             </summary>
         </member>
-        <member name="M:Nums.math.floor(Nums.dvec2)">
+        <member name="M:Nums.math.floor(Nums.dvec2@)">
             <summary>
-            Takes the floor of each component in the given vector.
+            Takes the floor of each component in the given dvec2.
             </summary>
         </member>
-        <member name="M:Nums.math.fract(Nums.dvec2)">
+        <member name="M:Nums.math.fract(Nums.dvec2@)">
             <summary>
-            Takes the fract of each component in the given vector.
+            Takes the fract of each component in the given dvec2.
             </summary>
         </member>
-        <member name="M:Nums.math.sqrt(Nums.dvec2)">
+        <member name="M:Nums.math.sqrt(Nums.dvec2@)">
             <summary>
-            Takes the sqrt of each component in the given vector.
+            Takes the sqrt of each component in the given dvec2.
             </summary>
         </member>
-        <member name="M:Nums.math.sin(Nums.dvec2)">
+        <member name="M:Nums.math.sin(Nums.dvec2@)">
             <summary>
-            Takes the sin of each component in the given vector.
+            Takes the sin of each component in the given dvec2.
             </summary>
         </member>
-        <member name="M:Nums.math.cos(Nums.dvec2)">
+        <member name="M:Nums.math.cos(Nums.dvec2@)">
             <summary>
-            Takes the cos of each component in the given vector.
+            Takes the cos of each component in the given dvec2.
             </summary>
         </member>
-        <member name="M:Nums.math.tan(Nums.dvec2)">
+        <member name="M:Nums.math.tan(Nums.dvec2@)">
             <summary>
-            Takes the tan of each component in the given vector.
+            Takes the tan of each component in the given dvec2.
             </summary>
         </member>
-        <member name="M:Nums.math.abs(Nums.dvec2)">
+        <member name="M:Nums.math.abs(Nums.dvec2@)">
             <summary>
-            Takes the abs of each component in the given vector.
+            Takes the abs of each component in the given dvec2.
             </summary>
         </member>
-        <member name="M:Nums.math.floor(Nums.dvec3)">
+        <member name="M:Nums.math.lerp(Nums.dvec2@,Nums.dvec2@,System.Double)">
             <summary>
-            Takes the floor of each component in the given vector.
+            Linear interpolation of two dvec2 by t.
             </summary>
         </member>
-        <member name="M:Nums.math.fract(Nums.dvec3)">
+        <member name="M:Nums.math.bezier(Nums.dvec2@,Nums.dvec2@,Nums.dvec2@,System.Double)">
             <summary>
-            Takes the fract of each component in the given vector.
+            Gets the dvec2 at location t along a curve.
             </summary>
         </member>
-        <member name="M:Nums.math.sqrt(Nums.dvec3)">
+        <member name="M:Nums.math.floor(Nums.dvec3@)">
             <summary>
-            Takes the sqrt of each component in the given vector.
+            Takes the floor of each component in the given dvec3.
             </summary>
         </member>
-        <member name="M:Nums.math.sin(Nums.dvec3)">
+        <member name="M:Nums.math.fract(Nums.dvec3@)">
             <summary>
-            Takes the sin of each component in the given vector.
+            Takes the fract of each component in the given dvec3.
             </summary>
         </member>
-        <member name="M:Nums.math.cos(Nums.dvec3)">
+        <member name="M:Nums.math.sqrt(Nums.dvec3@)">
             <summary>
-            Takes the cos of each component in the given vector.
+            Takes the sqrt of each component in the given dvec3.
             </summary>
         </member>
-        <member name="M:Nums.math.tan(Nums.dvec3)">
+        <member name="M:Nums.math.sin(Nums.dvec3@)">
             <summary>
-            Takes the tan of each component in the given vector.
+            Takes the sin of each component in the given dvec3.
             </summary>
         </member>
-        <member name="M:Nums.math.abs(Nums.dvec3)">
+        <member name="M:Nums.math.cos(Nums.dvec3@)">
             <summary>
-            Takes the abs of each component in the given vector.
+            Takes the cos of each component in the given dvec3.
             </summary>
         </member>
-        <member name="M:Nums.math.floor(Nums.dvec4)">
+        <member name="M:Nums.math.tan(Nums.dvec3@)">
             <summary>
-            Takes the floor of each component in the given vector.
+            Takes the tan of each component in the given dvec3.
             </summary>
         </member>
-        <member name="M:Nums.math.fract(Nums.dvec4)">
+        <member name="M:Nums.math.abs(Nums.dvec3@)">
             <summary>
-            Takes the fract of each component in the given vector.
+            Takes the abs of each component in the given dvec3.
             </summary>
         </member>
-        <member name="M:Nums.math.sqrt(Nums.dvec4)">
+        <member name="M:Nums.math.lerp(Nums.dvec3@,Nums.dvec3@,System.Double)">
             <summary>
-            Takes the sqrt of each component in the given vector.
+            Linear interpolation of two dvec3 by t.
             </summary>
         </member>
-        <member name="M:Nums.math.sin(Nums.dvec4)">
+        <member name="M:Nums.math.bezier(Nums.dvec3@,Nums.dvec3@,Nums.dvec3@,System.Double)">
             <summary>
-            Takes the sin of each component in the given vector.
+            Gets the dvec3 at location t along a curve.
             </summary>
         </member>
-        <member name="M:Nums.math.cos(Nums.dvec4)">
+        <member name="M:Nums.math.floor(Nums.dvec4@)">
             <summary>
-            Takes the cos of each component in the given vector.
+            Takes the floor of each component in the given dvec4.
             </summary>
         </member>
-        <member name="M:Nums.math.tan(Nums.dvec4)">
+        <member name="M:Nums.math.fract(Nums.dvec4@)">
             <summary>
-            Takes the tan of each component in the given vector.
+            Takes the fract of each component in the given dvec4.
             </summary>
         </member>
-        <member name="M:Nums.math.abs(Nums.dvec4)">
+        <member name="M:Nums.math.sqrt(Nums.dvec4@)">
             <summary>
-            Takes the abs of each component in the given vector.
+            Takes the sqrt of each component in the given dvec4.
             </summary>
         </member>
-        <member name="M:Nums.math.abs(Nums.ivec2)">
+        <member name="M:Nums.math.sin(Nums.dvec4@)">
             <summary>
-            Takes the abs of each component in the given vector.
+            Takes the sin of each component in the given dvec4.
             </summary>
         </member>
-        <member name="M:Nums.math.abs(Nums.ivec3)">
+        <member name="M:Nums.math.cos(Nums.dvec4@)">
             <summary>
-            Takes the abs of each component in the given vector.
+            Takes the cos of each component in the given dvec4.
             </summary>
         </member>
-        <member name="M:Nums.math.abs(Nums.ivec4)">
+        <member name="M:Nums.math.tan(Nums.dvec4@)">
             <summary>
-            Takes the abs of each component in the given vector.
+            Takes the tan of each component in the given dvec4.
             </summary>
         </member>
-        <member name="M:Nums.math.floor(Nums.vec2)">
+        <member name="M:Nums.math.abs(Nums.dvec4@)">
             <summary>
-            Takes the floor of each component in the given vector.
+            Takes the abs of each component in the given dvec4.
             </summary>
         </member>
-        <member name="M:Nums.math.fract(Nums.vec2)">
+        <member name="M:Nums.math.lerp(Nums.dvec4@,Nums.dvec4@,System.Double)">
             <summary>
-            Takes the fract of each component in the given vector.
+            Linear interpolation of two dvec4 by t.
             </summary>
         </member>
-        <member name="M:Nums.math.sqrt(Nums.vec2)">
+        <member name="M:Nums.math.bezier(Nums.dvec4@,Nums.dvec4@,Nums.dvec4@,System.Double)">
             <summary>
-            Takes the sqrt of each component in the given vector.
+            Gets the dvec4 at location t along a curve.
             </summary>
         </member>
-        <member name="M:Nums.math.sin(Nums.vec2)">
+        <member name="M:Nums.math.abs(Nums.ivec2@)">
             <summary>
-            Takes the sin of each component in the given vector.
+            Takes the abs of each component in the given ivec2.
             </summary>
         </member>
-        <member name="M:Nums.math.cos(Nums.vec2)">
+        <member name="M:Nums.math.lerp(Nums.ivec2@,Nums.ivec2@,System.Int32)">
             <summary>
-            Takes the cos of each component in the given vector.
+            Linear interpolation of two ivec2 by t.
             </summary>
         </member>
-        <member name="M:Nums.math.tan(Nums.vec2)">
+        <member name="M:Nums.math.bezier(Nums.ivec2@,Nums.ivec2@,Nums.ivec2@,System.Int32)">
             <summary>
-            Takes the tan of each component in the given vector.
+            Gets the ivec2 at location t along a curve.
             </summary>
         </member>
-        <member name="M:Nums.math.abs(Nums.vec2)">
+        <member name="M:Nums.math.abs(Nums.ivec3@)">
             <summary>
-            Takes the abs of each component in the given vector.
+            Takes the abs of each component in the given ivec3.
             </summary>
         </member>
-        <member name="M:Nums.math.floor(Nums.vec3)">
+        <member name="M:Nums.math.lerp(Nums.ivec3@,Nums.ivec3@,System.Int32)">
             <summary>
-            Takes the floor of each component in the given vector.
+            Linear interpolation of two ivec3 by t.
             </summary>
         </member>
-        <member name="M:Nums.math.fract(Nums.vec3)">
+        <member name="M:Nums.math.bezier(Nums.ivec3@,Nums.ivec3@,Nums.ivec3@,System.Int32)">
             <summary>
-            Takes the fract of each component in the given vector.
+            Gets the ivec3 at location t along a curve.
             </summary>
         </member>
-        <member name="M:Nums.math.sqrt(Nums.vec3)">
+        <member name="M:Nums.math.abs(Nums.ivec4@)">
             <summary>
-            Takes the sqrt of each component in the given vector.
+            Takes the abs of each component in the given ivec4.
             </summary>
         </member>
-        <member name="M:Nums.math.sin(Nums.vec3)">
+        <member name="M:Nums.math.lerp(Nums.ivec4@,Nums.ivec4@,System.Int32)">
             <summary>
-            Takes the sin of each component in the given vector.
+            Linear interpolation of two ivec4 by t.
             </summary>
         </member>
-        <member name="M:Nums.math.cos(Nums.vec3)">
+        <member name="M:Nums.math.bezier(Nums.ivec4@,Nums.ivec4@,Nums.ivec4@,System.Int32)">
             <summary>
-            Takes the cos of each component in the given vector.
+            Gets the ivec4 at location t along a curve.
             </summary>
         </member>
-        <member name="M:Nums.math.tan(Nums.vec3)">
+        <member name="M:Nums.math.floor(Nums.vec2@)">
             <summary>
-            Takes the tan of each component in the given vector.
+            Takes the floor of each component in the given vec2.
             </summary>
         </member>
-        <member name="M:Nums.math.abs(Nums.vec3)">
+        <member name="M:Nums.math.fract(Nums.vec2@)">
             <summary>
-            Takes the abs of each component in the given vector.
+            Takes the fract of each component in the given vec2.
             </summary>
         </member>
-        <member name="M:Nums.math.floor(Nums.vec4)">
+        <member name="M:Nums.math.sqrt(Nums.vec2@)">
             <summary>
-            Takes the floor of each component in the given vector.
+            Takes the sqrt of each component in the given vec2.
             </summary>
         </member>
-        <member name="M:Nums.math.fract(Nums.vec4)">
+        <member name="M:Nums.math.sin(Nums.vec2@)">
             <summary>
-            Takes the fract of each component in the given vector.
+            Takes the sin of each component in the given vec2.
             </summary>
         </member>
-        <member name="M:Nums.math.sqrt(Nums.vec4)">
+        <member name="M:Nums.math.cos(Nums.vec2@)">
             <summary>
-            Takes the sqrt of each component in the given vector.
+            Takes the cos of each component in the given vec2.
             </summary>
         </member>
-        <member name="M:Nums.math.sin(Nums.vec4)">
+        <member name="M:Nums.math.tan(Nums.vec2@)">
             <summary>
-            Takes the sin of each component in the given vector.
+            Takes the tan of each component in the given vec2.
             </summary>
         </member>
-        <member name="M:Nums.math.cos(Nums.vec4)">
+        <member name="M:Nums.math.abs(Nums.vec2@)">
             <summary>
-            Takes the cos of each component in the given vector.
+            Takes the abs of each component in the given vec2.
             </summary>
         </member>
-        <member name="M:Nums.math.tan(Nums.vec4)">
+        <member name="M:Nums.math.lerp(Nums.vec2@,Nums.vec2@,System.Single)">
             <summary>
-            Takes the tan of each component in the given vector.
+            Linear interpolation of two vec2 by t.
             </summary>
         </member>
-        <member name="M:Nums.math.abs(Nums.vec4)">
+        <member name="M:Nums.math.bezier(Nums.vec2@,Nums.vec2@,Nums.vec2@,System.Single)">
             <summary>
-            Takes the abs of each component in the given vector.
+            Gets the vec2 at location t along a curve.
+            </summary>
+        </member>
+        <member name="M:Nums.math.floor(Nums.vec3@)">
+            <summary>
+            Takes the floor of each component in the given vec3.
+            </summary>
+        </member>
+        <member name="M:Nums.math.fract(Nums.vec3@)">
+            <summary>
+            Takes the fract of each component in the given vec3.
+            </summary>
+        </member>
+        <member name="M:Nums.math.sqrt(Nums.vec3@)">
+            <summary>
+            Takes the sqrt of each component in the given vec3.
+            </summary>
+        </member>
+        <member name="M:Nums.math.sin(Nums.vec3@)">
+            <summary>
+            Takes the sin of each component in the given vec3.
+            </summary>
+        </member>
+        <member name="M:Nums.math.cos(Nums.vec3@)">
+            <summary>
+            Takes the cos of each component in the given vec3.
+            </summary>
+        </member>
+        <member name="M:Nums.math.tan(Nums.vec3@)">
+            <summary>
+            Takes the tan of each component in the given vec3.
+            </summary>
+        </member>
+        <member name="M:Nums.math.abs(Nums.vec3@)">
+            <summary>
+            Takes the abs of each component in the given vec3.
+            </summary>
+        </member>
+        <member name="M:Nums.math.lerp(Nums.vec3@,Nums.vec3@,System.Single)">
+            <summary>
+            Linear interpolation of two vec3 by t.
+            </summary>
+        </member>
+        <member name="M:Nums.math.bezier(Nums.vec3@,Nums.vec3@,Nums.vec3@,System.Single)">
+            <summary>
+            Gets the vec3 at location t along a curve.
+            </summary>
+        </member>
+        <member name="M:Nums.math.floor(Nums.vec4@)">
+            <summary>
+            Takes the floor of each component in the given vec4.
+            </summary>
+        </member>
+        <member name="M:Nums.math.fract(Nums.vec4@)">
+            <summary>
+            Takes the fract of each component in the given vec4.
+            </summary>
+        </member>
+        <member name="M:Nums.math.sqrt(Nums.vec4@)">
+            <summary>
+            Takes the sqrt of each component in the given vec4.
+            </summary>
+        </member>
+        <member name="M:Nums.math.sin(Nums.vec4@)">
+            <summary>
+            Takes the sin of each component in the given vec4.
+            </summary>
+        </member>
+        <member name="M:Nums.math.cos(Nums.vec4@)">
+            <summary>
+            Takes the cos of each component in the given vec4.
+            </summary>
+        </member>
+        <member name="M:Nums.math.tan(Nums.vec4@)">
+            <summary>
+            Takes the tan of each component in the given vec4.
+            </summary>
+        </member>
+        <member name="M:Nums.math.abs(Nums.vec4@)">
+            <summary>
+            Takes the abs of each component in the given vec4.
+            </summary>
+        </member>
+        <member name="M:Nums.math.lerp(Nums.vec4@,Nums.vec4@,System.Single)">
+            <summary>
+            Linear interpolation of two vec4 by t.
+            </summary>
+        </member>
+        <member name="M:Nums.math.bezier(Nums.vec4@,Nums.vec4@,Nums.vec4@,System.Single)">
+            <summary>
+            Gets the vec4 at location t along a curve.
             </summary>
         </member>
         <member name="F:Nums.math.pi">

@@ -157,6 +157,6 @@ namespace Nums {
         /// <summary>
         /// Gets the ivec2 at location t along a curve.
         /// </summary>
-        public static ivec2 bezier(in ivec2 a, in ivec2 b, in ivec2 c, int t) => a + ((b - a)*2 + (c - a)*t)*t;
+        public static ivec2 bezier(in ivec2 a, in ivec2 b, in ivec2 c, int t) => a + ((b - a)*2 + (c - 2*b + a)*t)*t;
     }
 }

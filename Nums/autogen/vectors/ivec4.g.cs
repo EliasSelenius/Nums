@@ -1963,6 +1963,6 @@ namespace Nums {
         /// <summary>
         /// Gets the ivec4 at location t along a curve.
         /// </summary>
-        public static ivec4 bezier(in ivec4 a, in ivec4 b, in ivec4 c, int t) => a + ((b - a)*2 + (c - a)*t)*t;
+        public static ivec4 bezier(in ivec4 a, in ivec4 b, in ivec4 c, int t) => a + ((b - a)*2 + (c - 2*b + a)*t)*t;
     }
 }

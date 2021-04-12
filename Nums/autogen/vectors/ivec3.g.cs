@@ -373,6 +373,6 @@ namespace Nums {
         /// <summary>
         /// Gets the ivec3 at location t along a curve.
         /// </summary>
-        public static ivec3 bezier(in ivec3 a, in ivec3 b, in ivec3 c, int t) => a + ((b - a)*2 + (c - a)*t)*t;
+        public static ivec3 bezier(in ivec3 a, in ivec3 b, in ivec3 c, int t) => a + ((b - a)*2 + (c - 2*b + a)*t)*t;
     }
 }

@@ -1987,6 +1987,6 @@ namespace Nums {
         /// <summary>
         /// Gets the vec4 at location t along a curve.
         /// </summary>
-        public static vec4 bezier(in vec4 a, in vec4 b, in vec4 c, float t) => a + ((b - a)*2 + (c - a)*t)*t;
+        public static vec4 bezier(in vec4 a, in vec4 b, in vec4 c, float t) => a + ((b - a)*2 + (c - 2*b + a)*t)*t;
     }
 }

@@ -181,6 +181,6 @@ namespace Nums {
         /// <summary>
         /// Gets the vec2 at location t along a curve.
         /// </summary>
-        public static vec2 bezier(in vec2 a, in vec2 b, in vec2 c, float t) => a + ((b - a)*2 + (c - a)*t)*t;
+        public static vec2 bezier(in vec2 a, in vec2 b, in vec2 c, float t) => a + ((b - a)*2 + (c - 2*b + a)*t)*t;
     }
 }

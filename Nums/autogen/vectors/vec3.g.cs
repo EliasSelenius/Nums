@@ -397,6 +397,6 @@ namespace Nums {
         /// <summary>
         /// Gets the vec3 at location t along a curve.
         /// </summary>
-        public static vec3 bezier(in vec3 a, in vec3 b, in vec3 c, float t) => a + ((b - a)*2 + (c - a)*t)*t;
+        public static vec3 bezier(in vec3 a, in vec3 b, in vec3 c, float t) => a + ((b - a)*2 + (c - 2*b + a)*t)*t;
     }
 }
