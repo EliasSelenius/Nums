@@ -375,6 +375,10 @@ namespace Nums {
         /// </summary>
         public static dvec3 sqrt(in dvec3 o) => new dvec3(sqrt(o.x), sqrt(o.y), sqrt(o.z));
         /// <summary>
+        /// Takes the pow of each component in the given dvec3.
+        /// </summary>
+        public static dvec3 pow(in dvec3 a, double b) => new dvec3(pow(a.x, b), pow(a.y, b), pow(a.z, b));
+        /// <summary>
         /// Takes the sin of each component in the given dvec3.
         /// </summary>
         public static dvec3 sin(in dvec3 o) => new dvec3(sin(o.x), sin(o.y), sin(o.z));
@@ -390,6 +394,14 @@ namespace Nums {
         /// Takes the abs of each component in the given dvec3.
         /// </summary>
         public static dvec3 abs(in dvec3 o) => new dvec3(abs(o.x), abs(o.y), abs(o.z));
+        /// <summary>
+        /// Takes the min of each component in the given dvec3.
+        /// </summary>
+        public static dvec3 min(in dvec3 a, in dvec3 b) => new dvec3(min(a.x, b.x), min(a.y, b.y), min(a.z, b.z));
+        /// <summary>
+        /// Takes the max of each component in the given dvec3.
+        /// </summary>
+        public static dvec3 max(in dvec3 a, in dvec3 b) => new dvec3(max(a.x, b.x), max(a.y, b.y), max(a.z, b.z));
         /// <summary>
         /// Linear interpolation of two dvec3 by t.
         /// </summary>

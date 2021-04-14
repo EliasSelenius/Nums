@@ -90,10 +90,11 @@ namespace Nums {
 
         public static double min(double a, double b) => a < b ? a : b;
         public static float min(float a, float b) => a < b ? a : b;
-
+        public static int min(int a, int b) => a < b ? a : b;
 
         public static double max(double a, double b) => a < b ? b : a;
         public static float max(float a, float b) => a < b ? b : a;
+        public static int max(int a, int b) => a < b ? b : a;
 
 
         public static double clamp(double x, double min, double max) => x < min ? min : x > max ? max : x;

@@ -1957,6 +1957,14 @@ namespace Nums {
         /// </summary>
         public static ivec4 abs(in ivec4 o) => new ivec4(abs(o.x), abs(o.y), abs(o.z), abs(o.w));
         /// <summary>
+        /// Takes the min of each component in the given ivec4.
+        /// </summary>
+        public static ivec4 min(in ivec4 a, in ivec4 b) => new ivec4(min(a.x, b.x), min(a.y, b.y), min(a.z, b.z), min(a.w, b.w));
+        /// <summary>
+        /// Takes the max of each component in the given ivec4.
+        /// </summary>
+        public static ivec4 max(in ivec4 a, in ivec4 b) => new ivec4(max(a.x, b.x), max(a.y, b.y), max(a.z, b.z), max(a.w, b.w));
+        /// <summary>
         /// Linear interpolation of two ivec4 by t.
         /// </summary>
         public static ivec4 lerp(in ivec4 x, in ivec4 y, int t) => x + (y - x) * t;

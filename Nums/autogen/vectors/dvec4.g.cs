@@ -1965,6 +1965,10 @@ namespace Nums {
         /// </summary>
         public static dvec4 sqrt(in dvec4 o) => new dvec4(sqrt(o.x), sqrt(o.y), sqrt(o.z), sqrt(o.w));
         /// <summary>
+        /// Takes the pow of each component in the given dvec4.
+        /// </summary>
+        public static dvec4 pow(in dvec4 a, double b) => new dvec4(pow(a.x, b), pow(a.y, b), pow(a.z, b), pow(a.w, b));
+        /// <summary>
         /// Takes the sin of each component in the given dvec4.
         /// </summary>
         public static dvec4 sin(in dvec4 o) => new dvec4(sin(o.x), sin(o.y), sin(o.z), sin(o.w));
@@ -1980,6 +1984,14 @@ namespace Nums {
         /// Takes the abs of each component in the given dvec4.
         /// </summary>
         public static dvec4 abs(in dvec4 o) => new dvec4(abs(o.x), abs(o.y), abs(o.z), abs(o.w));
+        /// <summary>
+        /// Takes the min of each component in the given dvec4.
+        /// </summary>
+        public static dvec4 min(in dvec4 a, in dvec4 b) => new dvec4(min(a.x, b.x), min(a.y, b.y), min(a.z, b.z), min(a.w, b.w));
+        /// <summary>
+        /// Takes the max of each component in the given dvec4.
+        /// </summary>
+        public static dvec4 max(in dvec4 a, in dvec4 b) => new dvec4(max(a.x, b.x), max(a.y, b.y), max(a.z, b.z), max(a.w, b.w));
         /// <summary>
         /// Linear interpolation of two dvec4 by t.
         /// </summary>

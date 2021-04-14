@@ -367,6 +367,14 @@ namespace Nums {
         /// </summary>
         public static ivec3 abs(in ivec3 o) => new ivec3(abs(o.x), abs(o.y), abs(o.z));
         /// <summary>
+        /// Takes the min of each component in the given ivec3.
+        /// </summary>
+        public static ivec3 min(in ivec3 a, in ivec3 b) => new ivec3(min(a.x, b.x), min(a.y, b.y), min(a.z, b.z));
+        /// <summary>
+        /// Takes the max of each component in the given ivec3.
+        /// </summary>
+        public static ivec3 max(in ivec3 a, in ivec3 b) => new ivec3(max(a.x, b.x), max(a.y, b.y), max(a.z, b.z));
+        /// <summary>
         /// Linear interpolation of two ivec3 by t.
         /// </summary>
         public static ivec3 lerp(in ivec3 x, in ivec3 y, int t) => x + (y - x) * t;

@@ -159,6 +159,10 @@ namespace Nums {
         /// </summary>
         public static dvec2 sqrt(in dvec2 o) => new dvec2(sqrt(o.x), sqrt(o.y));
         /// <summary>
+        /// Takes the pow of each component in the given dvec2.
+        /// </summary>
+        public static dvec2 pow(in dvec2 a, double b) => new dvec2(pow(a.x, b), pow(a.y, b));
+        /// <summary>
         /// Takes the sin of each component in the given dvec2.
         /// </summary>
         public static dvec2 sin(in dvec2 o) => new dvec2(sin(o.x), sin(o.y));
@@ -174,6 +178,14 @@ namespace Nums {
         /// Takes the abs of each component in the given dvec2.
         /// </summary>
         public static dvec2 abs(in dvec2 o) => new dvec2(abs(o.x), abs(o.y));
+        /// <summary>
+        /// Takes the min of each component in the given dvec2.
+        /// </summary>
+        public static dvec2 min(in dvec2 a, in dvec2 b) => new dvec2(min(a.x, b.x), min(a.y, b.y));
+        /// <summary>
+        /// Takes the max of each component in the given dvec2.
+        /// </summary>
+        public static dvec2 max(in dvec2 a, in dvec2 b) => new dvec2(max(a.x, b.x), max(a.y, b.y));
         /// <summary>
         /// Linear interpolation of two dvec2 by t.
         /// </summary>

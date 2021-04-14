@@ -375,6 +375,10 @@ namespace Nums {
         /// </summary>
         public static vec3 sqrt(in vec3 o) => new vec3(sqrt(o.x), sqrt(o.y), sqrt(o.z));
         /// <summary>
+        /// Takes the pow of each component in the given vec3.
+        /// </summary>
+        public static vec3 pow(in vec3 a, float b) => new vec3(pow(a.x, b), pow(a.y, b), pow(a.z, b));
+        /// <summary>
         /// Takes the sin of each component in the given vec3.
         /// </summary>
         public static vec3 sin(in vec3 o) => new vec3(sin(o.x), sin(o.y), sin(o.z));
@@ -390,6 +394,14 @@ namespace Nums {
         /// Takes the abs of each component in the given vec3.
         /// </summary>
         public static vec3 abs(in vec3 o) => new vec3(abs(o.x), abs(o.y), abs(o.z));
+        /// <summary>
+        /// Takes the min of each component in the given vec3.
+        /// </summary>
+        public static vec3 min(in vec3 a, in vec3 b) => new vec3(min(a.x, b.x), min(a.y, b.y), min(a.z, b.z));
+        /// <summary>
+        /// Takes the max of each component in the given vec3.
+        /// </summary>
+        public static vec3 max(in vec3 a, in vec3 b) => new vec3(max(a.x, b.x), max(a.y, b.y), max(a.z, b.z));
         /// <summary>
         /// Linear interpolation of two vec3 by t.
         /// </summary>

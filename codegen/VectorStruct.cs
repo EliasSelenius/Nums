@@ -330,24 +330,42 @@ namespace NumsCodeGenerator {
                 writeline($"public {vecName} cross({vecName} o) => new {vecName}(y * o.z - z * o.y, z * o.x - x * o.z, x * o.y - y * o.x);");
             }
 
-            var a = compsNames.Select(x => $"_R_(o.{x})").Aggregate((x, y) => x + ", " + y);
-            void mathFunc(string name) {
+            var mathFunc_vec_args = compsNames.Select(x => $"_R_(o.{x})").Aggregate((x, y) => x + ", " + y);
+            void mathFunc_vec(string name) {
                 mathClass.summary($"Takes the {name} of each component in the given {vecName}.");
-                mathClass.writeline($"public static {vecName} {name}(in {vecName} o) => new {vecName}({a.Replace("_R_", name)});");
+                mathClass.writeline($"public static {vecName} {name}(in {vecName} o) => new {vecName}({mathFunc_vec_args.Replace("_R_", name)});");
             }
+            var mathFunc_vec_vec_args = compsNames.Select(x => $"_R_(a.{x}, b.{x})").Aggregate((x, y) => x + ", " + y);
+            void mathFunc_vec_vec(string name) {
+                mathClass.summary($"Takes the {name} of each component in the given {vecName}.");
+                mathClass.writeline($"public static {vecName} {name}(in {vecName} a, in {vecName} b) => new {vecName}({mathFunc_vec_vec_args.Replace("_R_", name)});");
+            }
+            var mathFunc_vec_scalar_args = compsNames.Select(x => $"_R_(a.{x}, b)").Aggregate((x, y) => x + ", " + y);
+            void mathFunc_vec_scalar(string name) {
+                mathClass.summary($"Takes the {name} of each component in the given {vecName}.");
+                mathClass.writeline($"public static {vecName} {name}(in {vecName} a, {type} b) => new {vecName}({mathFunc_vec_scalar_args.Replace("_R_", name)});");
+            }
+
+
+
+
+
+
 
             if (!type.Equals("int")) {
-                mathFunc("floor");
-                mathFunc("fract");
-                mathFunc("sqrt");
-                //mathFunc("pow");
-                mathFunc("sin");
-                mathFunc("cos");
-                mathFunc("tan");
+                mathFunc_vec("floor");
+                mathFunc_vec("fract");
+                mathFunc_vec("sqrt");
+                mathFunc_vec_scalar("pow");
+                mathFunc_vec("sin");
+                mathFunc_vec("cos");
+                mathFunc_vec("tan");
             }
 
-            mathFunc("abs");
+            mathFunc_vec("abs");
 
+            mathFunc_vec_vec("min");
+            mathFunc_vec_vec("max");
 
             // lerp
             mathClass.summary($"Linear interpolation of two {vecName} by t.");
@@ -395,9 +413,6 @@ namespace NumsCodeGenerator {
                 a + ((b - a)*2 + (c - 2*b + a)*t)*t
 
             */
-
-
-
             mathClass.summary($"Gets the {vecName} at location t along a curve.");
             mathClass.writeline($"public static {vecName} bezier(in {vecName} a, in {vecName} b, in {vecName} c, {type} t) => a + ((b - a)*2 + (c - 2*b + a)*t)*t;");
 

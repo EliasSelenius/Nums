@@ -2559,6 +2559,11 @@
             Takes the sqrt of each component in the given dvec2.
             </summary>
         </member>
+        <member name="M:Nums.math.pow(Nums.dvec2@,System.Double)">
+            <summary>
+            Takes the pow of each component in the given dvec2.
+            </summary>
+        </member>
         <member name="M:Nums.math.sin(Nums.dvec2@)">
             <summary>
             Takes the sin of each component in the given dvec2.
@@ -2577,6 +2582,16 @@
         <member name="M:Nums.math.abs(Nums.dvec2@)">
             <summary>
             Takes the abs of each component in the given dvec2.
+            </summary>
+        </member>
+        <member name="M:Nums.math.min(Nums.dvec2@,Nums.dvec2@)">
+            <summary>
+            Takes the min of each component in the given dvec2.
+            </summary>
+        </member>
+        <member name="M:Nums.math.max(Nums.dvec2@,Nums.dvec2@)">
+            <summary>
+            Takes the max of each component in the given dvec2.
             </summary>
         </member>
         <member name="M:Nums.math.lerp(Nums.dvec2@,Nums.dvec2@,System.Double)">
@@ -2604,6 +2619,11 @@
             Takes the sqrt of each component in the given dvec3.
             </summary>
         </member>
+        <member name="M:Nums.math.pow(Nums.dvec3@,System.Double)">
+            <summary>
+            Takes the pow of each component in the given dvec3.
+            </summary>
+        </member>
         <member name="M:Nums.math.sin(Nums.dvec3@)">
             <summary>
             Takes the sin of each component in the given dvec3.
@@ -2622,6 +2642,16 @@
         <member name="M:Nums.math.abs(Nums.dvec3@)">
             <summary>
             Takes the abs of each component in the given dvec3.
+            </summary>
+        </member>
+        <member name="M:Nums.math.min(Nums.dvec3@,Nums.dvec3@)">
+            <summary>
+            Takes the min of each component in the given dvec3.
+            </summary>
+        </member>
+        <member name="M:Nums.math.max(Nums.dvec3@,Nums.dvec3@)">
+            <summary>
+            Takes the max of each component in the given dvec3.
             </summary>
         </member>
         <member name="M:Nums.math.lerp(Nums.dvec3@,Nums.dvec3@,System.Double)">
@@ -2649,6 +2679,11 @@
             Takes the sqrt of each component in the given dvec4.
             </summary>
         </member>
+        <member name="M:Nums.math.pow(Nums.dvec4@,System.Double)">
+            <summary>
+            Takes the pow of each component in the given dvec4.
+            </summary>
+        </member>
         <member name="M:Nums.math.sin(Nums.dvec4@)">
             <summary>
             Takes the sin of each component in the given dvec4.
@@ -2669,6 +2704,16 @@
             Takes the abs of each component in the given dvec4.
             </summary>
         </member>
+        <member name="M:Nums.math.min(Nums.dvec4@,Nums.dvec4@)">
+            <summary>
+            Takes the min of each component in the given dvec4.
+            </summary>
+        </member>
+        <member name="M:Nums.math.max(Nums.dvec4@,Nums.dvec4@)">
+            <summary>
+            Takes the max of each component in the given dvec4.
+            </summary>
+        </member>
         <member name="M:Nums.math.lerp(Nums.dvec4@,Nums.dvec4@,System.Double)">
             <summary>
             Linear interpolation of two dvec4 by t.
@@ -2682,6 +2727,16 @@
         <member name="M:Nums.math.abs(Nums.ivec2@)">
             <summary>
             Takes the abs of each component in the given ivec2.
+            </summary>
+        </member>
+        <member name="M:Nums.math.min(Nums.ivec2@,Nums.ivec2@)">
+            <summary>
+            Takes the min of each component in the given ivec2.
+            </summary>
+        </member>
+        <member name="M:Nums.math.max(Nums.ivec2@,Nums.ivec2@)">
+            <summary>
+            Takes the max of each component in the given ivec2.
             </summary>
         </member>
         <member name="M:Nums.math.lerp(Nums.ivec2@,Nums.ivec2@,System.Int32)">
@@ -2699,6 +2754,16 @@
             Takes the abs of each component in the given ivec3.
             </summary>
         </member>
+        <member name="M:Nums.math.min(Nums.ivec3@,Nums.ivec3@)">
+            <summary>
+            Takes the min of each component in the given ivec3.
+            </summary>
+        </member>
+        <member name="M:Nums.math.max(Nums.ivec3@,Nums.ivec3@)">
+            <summary>
+            Takes the max of each component in the given ivec3.
+            </summary>
+        </member>
         <member name="M:Nums.math.lerp(Nums.ivec3@,Nums.ivec3@,System.Int32)">
             <summary>
             Linear interpolation of two ivec3 by t.
@@ -2712,6 +2777,16 @@
         <member name="M:Nums.math.abs(Nums.ivec4@)">
             <summary>
             Takes the abs of each component in the given ivec4.
+            </summary>
+        </member>
+        <member name="M:Nums.math.min(Nums.ivec4@,Nums.ivec4@)">
+            <summary>
+            Takes the min of each component in the given ivec4.
+            </summary>
+        </member>
+        <member name="M:Nums.math.max(Nums.ivec4@,Nums.ivec4@)">
+            <summary>
+            Takes the max of each component in the given ivec4.
             </summary>
         </member>
         <member name="M:Nums.math.lerp(Nums.ivec4@,Nums.ivec4@,System.Int32)">
@@ -2739,6 +2814,11 @@
             Takes the sqrt of each component in the given vec2.
             </summary>
         </member>
+        <member name="M:Nums.math.pow(Nums.vec2@,System.Single)">
+            <summary>
+            Takes the pow of each component in the given vec2.
+            </summary>
+        </member>
         <member name="M:Nums.math.sin(Nums.vec2@)">
             <summary>
             Takes the sin of each component in the given vec2.
@@ -2757,6 +2837,16 @@
         <member name="M:Nums.math.abs(Nums.vec2@)">
             <summary>
             Takes the abs of each component in the given vec2.
+            </summary>
+        </member>
+        <member name="M:Nums.math.min(Nums.vec2@,Nums.vec2@)">
+            <summary>
+            Takes the min of each component in the given vec2.
+            </summary>
+        </member>
+        <member name="M:Nums.math.max(Nums.vec2@,Nums.vec2@)">
+            <summary>
+            Takes the max of each component in the given vec2.
             </summary>
         </member>
         <member name="M:Nums.math.lerp(Nums.vec2@,Nums.vec2@,System.Single)">
@@ -2784,6 +2874,11 @@
             Takes the sqrt of each component in the given vec3.
             </summary>
         </member>
+        <member name="M:Nums.math.pow(Nums.vec3@,System.Single)">
+            <summary>
+            Takes the pow of each component in the given vec3.
+            </summary>
+        </member>
         <member name="M:Nums.math.sin(Nums.vec3@)">
             <summary>
             Takes the sin of each component in the given vec3.
@@ -2802,6 +2897,16 @@
         <member name="M:Nums.math.abs(Nums.vec3@)">
             <summary>
             Takes the abs of each component in the given vec3.
+            </summary>
+        </member>
+        <member name="M:Nums.math.min(Nums.vec3@,Nums.vec3@)">
+            <summary>
+            Takes the min of each component in the given vec3.
+            </summary>
+        </member>
+        <member name="M:Nums.math.max(Nums.vec3@,Nums.vec3@)">
+            <summary>
+            Takes the max of each component in the given vec3.
             </summary>
         </member>
         <member name="M:Nums.math.lerp(Nums.vec3@,Nums.vec3@,System.Single)">
@@ -2829,6 +2934,11 @@
             Takes the sqrt of each component in the given vec4.
             </summary>
         </member>
+        <member name="M:Nums.math.pow(Nums.vec4@,System.Single)">
+            <summary>
+            Takes the pow of each component in the given vec4.
+            </summary>
+        </member>
         <member name="M:Nums.math.sin(Nums.vec4@)">
             <summary>
             Takes the sin of each component in the given vec4.
@@ -2847,6 +2957,16 @@
         <member name="M:Nums.math.abs(Nums.vec4@)">
             <summary>
             Takes the abs of each component in the given vec4.
+            </summary>
+        </member>
+        <member name="M:Nums.math.min(Nums.vec4@,Nums.vec4@)">
+            <summary>
+            Takes the min of each component in the given vec4.
+            </summary>
+        </member>
+        <member name="M:Nums.math.max(Nums.vec4@,Nums.vec4@)">
+            <summary>
+            Takes the max of each component in the given vec4.
             </summary>
         </member>
         <member name="M:Nums.math.lerp(Nums.vec4@,Nums.vec4@,System.Single)">

@@ -159,6 +159,10 @@ namespace Nums {
         /// </summary>
         public static vec2 sqrt(in vec2 o) => new vec2(sqrt(o.x), sqrt(o.y));
         /// <summary>
+        /// Takes the pow of each component in the given vec2.
+        /// </summary>
+        public static vec2 pow(in vec2 a, float b) => new vec2(pow(a.x, b), pow(a.y, b));
+        /// <summary>
         /// Takes the sin of each component in the given vec2.
         /// </summary>
         public static vec2 sin(in vec2 o) => new vec2(sin(o.x), sin(o.y));
@@ -174,6 +178,14 @@ namespace Nums {
         /// Takes the abs of each component in the given vec2.
         /// </summary>
         public static vec2 abs(in vec2 o) => new vec2(abs(o.x), abs(o.y));
+        /// <summary>
+        /// Takes the min of each component in the given vec2.
+        /// </summary>
+        public static vec2 min(in vec2 a, in vec2 b) => new vec2(min(a.x, b.x), min(a.y, b.y));
+        /// <summary>
+        /// Takes the max of each component in the given vec2.
+        /// </summary>
+        public static vec2 max(in vec2 a, in vec2 b) => new vec2(max(a.x, b.x), max(a.y, b.y));
         /// <summary>
         /// Linear interpolation of two vec2 by t.
         /// </summary>

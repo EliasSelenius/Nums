@@ -1965,6 +1965,10 @@ namespace Nums {
         /// </summary>
         public static vec4 sqrt(in vec4 o) => new vec4(sqrt(o.x), sqrt(o.y), sqrt(o.z), sqrt(o.w));
         /// <summary>
+        /// Takes the pow of each component in the given vec4.
+        /// </summary>
+        public static vec4 pow(in vec4 a, float b) => new vec4(pow(a.x, b), pow(a.y, b), pow(a.z, b), pow(a.w, b));
+        /// <summary>
         /// Takes the sin of each component in the given vec4.
         /// </summary>
         public static vec4 sin(in vec4 o) => new vec4(sin(o.x), sin(o.y), sin(o.z), sin(o.w));
@@ -1980,6 +1984,14 @@ namespace Nums {
         /// Takes the abs of each component in the given vec4.
         /// </summary>
         public static vec4 abs(in vec4 o) => new vec4(abs(o.x), abs(o.y), abs(o.z), abs(o.w));
+        /// <summary>
+        /// Takes the min of each component in the given vec4.
+        /// </summary>
+        public static vec4 min(in vec4 a, in vec4 b) => new vec4(min(a.x, b.x), min(a.y, b.y), min(a.z, b.z), min(a.w, b.w));
+        /// <summary>
+        /// Takes the max of each component in the given vec4.
+        /// </summary>
+        public static vec4 max(in vec4 a, in vec4 b) => new vec4(max(a.x, b.x), max(a.y, b.y), max(a.z, b.z), max(a.w, b.w));
         /// <summary>
         /// Linear interpolation of two vec4 by t.
         /// </summary>

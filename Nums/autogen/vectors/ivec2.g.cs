@@ -151,6 +151,14 @@ namespace Nums {
         /// </summary>
         public static ivec2 abs(in ivec2 o) => new ivec2(abs(o.x), abs(o.y));
         /// <summary>
+        /// Takes the min of each component in the given ivec2.
+        /// </summary>
+        public static ivec2 min(in ivec2 a, in ivec2 b) => new ivec2(min(a.x, b.x), min(a.y, b.y));
+        /// <summary>
+        /// Takes the max of each component in the given ivec2.
+        /// </summary>
+        public static ivec2 max(in ivec2 a, in ivec2 b) => new ivec2(max(a.x, b.x), max(a.y, b.y));
+        /// <summary>
         /// Linear interpolation of two ivec2 by t.
         /// </summary>
         public static ivec2 lerp(in ivec2 x, in ivec2 y, int t) => x + (y - x) * t;
