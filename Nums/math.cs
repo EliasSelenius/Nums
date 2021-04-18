@@ -99,6 +99,7 @@ namespace Nums {
 
         public static double clamp(double x, double min, double max) => x < min ? min : x > max ? max : x;
         public static float clamp(float x, float min, float max) => x < min ? min : x > max ? max : x;
+        public static int clamp(int x, int min, int max) => x < min ? min : x > max ? max : x;
 
         #endregion
 
