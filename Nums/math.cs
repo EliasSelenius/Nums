@@ -243,31 +243,22 @@ namespace Nums {
         }
 
         public static mat4 lookAt(vec3 eye, vec3 target, vec3 up) {
-            var z = (eye - target).normalized();
-            var x = up.cross(z).normalized();
-            var y = z.cross(x).normalized();
+            var zaxis = (eye - target).normalized();
+            var xaxis = up.cross(zaxis).normalized();
+            var yaxis = zaxis.cross(xaxis).normalized();
 
-            mat4 res;
+            // NOTE: the view matrix is the inverse of the cameras model matrix
 
-            res.row1.x = x.x;
-            res.row1.y = y.x;
-            res.row1.z = z.x;
-            res.row1.w = 0;
-
-            res.row2.x = x.y;
-            res.row2.y = y.y;
-            res.row2.z = z.y;
-            res.row2.w = 0;
-
-            res.row3.x = x.z;
-            res.row3.y = y.z;
-            res.row3.z = z.z;
-            res.row3.w = 0;
-
-            res.row4.x = -x.dot(eye);
-            res.row4.y = -y.dot(eye);
-            res.row4.z = -z.dot(eye);
-            res.row4.w = 1;
+            mat4 res = new mat4(
+                // the axises here are on the columns (insted of rows) because the transpose of an orthonormalized matrix is the same as its inverse   
+                xaxis.x, yaxis.x, zaxis.x, 0,
+                xaxis.y, yaxis.y, zaxis.y, 0,
+                xaxis.z, yaxis.z, zaxis.z, 0,
+                
+                -xaxis.dot(eye), 
+                -yaxis.dot(eye), 
+                -zaxis.dot(eye), 1
+            );
 
             return res;
         }
