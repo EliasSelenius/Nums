@@ -242,7 +242,7 @@ namespace Nums {
 
         }
 
-        public static mat4 lookAt(vec3 eye, vec3 target, vec3 up) {
+        public static mat4 lookat(vec3 eye, vec3 target, vec3 up) {
             var zaxis = (eye - target).normalized();
             var xaxis = up.cross(zaxis).normalized();
             var yaxis = zaxis.cross(xaxis).normalized();
