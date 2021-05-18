@@ -134,11 +134,12 @@ namespace Nums {
         public readonly vec2 reflect(vec2 normal) => this - (normal * 2 * (this.dot(normal) / normal.dot(normal)));
         #endregion
 
-        #region conversion
+        #region conversion/deconstructors
         public static implicit operator vec2((float, float) tuple) => new vec2(tuple.Item1, tuple.Item2);
         public static explicit operator ivec2(vec2 v) => new ivec2((int)v.x, (int)v.y);
         public static implicit operator dvec2(vec2 v) => new dvec2(v.x, v.y);
         public static implicit operator vec2(float n) => new vec2(n, n);
+        public void Deconstruct(out float x, out float y) => (x, y) = (this.x, this.y);
         #endregion
 
         #region other

@@ -420,7 +420,7 @@ namespace NumsCodeGenerator {
         }
 
         private void genCastOperands() {
-            region("conversion");
+            region("conversion/deconstructors");
 
             // tuple cast
             var tupletype = compsNames.Select(x => type).Aggregate((x, c) => x + ", " + c);
@@ -444,6 +444,16 @@ namespace NumsCodeGenerator {
             // from single number to vector
             writeline($"public static implicit operator {vecName}({type} n) => new {vecName}({compsNames.Select(x => "n").Aggregate((x, y) => x + ", " + y)});");
             
+
+            // deconstruct to tuple
+            {
+                var pa = compsNames.Select(x => "out " + type + " " + x).Aggregate((x, y) => x + ", " + y);
+                var c = compsNames.Aggregate((x, y) => x + ", " + y);
+                var tc = compsNames.Select(x => "this." + x).Aggregate((x, y) => x + ", " + y);
+                writeline($"public void Deconstruct({pa}) => ({c}) = ({tc});");
+            }
+
+
             endregion();
         }
 

@@ -1940,11 +1940,12 @@ namespace Nums {
         public readonly vec4 reflect(vec4 normal) => this - (normal * 2 * (this.dot(normal) / normal.dot(normal)));
         #endregion
 
-        #region conversion
+        #region conversion/deconstructors
         public static implicit operator vec4((float, float, float, float) tuple) => new vec4(tuple.Item1, tuple.Item2, tuple.Item3, tuple.Item4);
         public static explicit operator ivec4(vec4 v) => new ivec4((int)v.x, (int)v.y, (int)v.z, (int)v.w);
         public static implicit operator dvec4(vec4 v) => new dvec4(v.x, v.y, v.z, v.w);
         public static implicit operator vec4(float n) => new vec4(n, n, n, n);
+        public void Deconstruct(out float x, out float y, out float z, out float w) => (x, y, z, w) = (this.x, this.y, this.z, this.w);
         #endregion
 
         #region other

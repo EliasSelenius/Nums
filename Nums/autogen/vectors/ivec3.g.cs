@@ -350,11 +350,12 @@ namespace Nums {
         public ivec3 cross(ivec3 o) => new ivec3(y * o.z - z * o.y, z * o.x - x * o.z, x * o.y - y * o.x);
         #endregion
 
-        #region conversion
+        #region conversion/deconstructors
         public static implicit operator ivec3((int, int, int) tuple) => new ivec3(tuple.Item1, tuple.Item2, tuple.Item3);
         public static implicit operator vec3(ivec3 v) => new vec3(v.x, v.y, v.z);
         public static implicit operator dvec3(ivec3 v) => new dvec3(v.x, v.y, v.z);
         public static implicit operator ivec3(int n) => new ivec3(n, n, n);
+        public void Deconstruct(out int x, out int y, out int z) => (x, y, z) = (this.x, this.y, this.z);
         #endregion
 
         #region other
