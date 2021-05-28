@@ -1,8 +1,9 @@
 ﻿using System;
-using BenchmarkDotNet;
+using BenchmarkDotNet.Running;
 
 class Program {
     static void Main(string[] args) {
-        BenchmarkDotNet.Running.BenchmarkRunner.Run<NoiseBenchmarks>();
+        //BenchmarkRunner.Run<NoiseBenchmarks>();
+        BenchmarkRunner.Run<LerpBenchmarks>();
     }
 }

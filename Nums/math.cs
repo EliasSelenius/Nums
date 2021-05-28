@@ -6,6 +6,8 @@ using System.Dynamic;
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Runtime.CompilerServices;
+
 
 namespace Nums {
 
@@ -51,8 +53,8 @@ namespace Nums {
         public static float map(float value, float min, float max, float target_min, float target_max) => lerp(target_min, target_max, (value - min) / (max - min));
 
 
-        public static double lerp(double x, double y, double t) => x + (y - x) * t;
-        public static float lerp(float x, float y, float t) => x + (y - x) * t;
+        [MethodImpl(MethodImplOptions.AggressiveInlining)] public static double lerp(double x, double y, double t) => x + (y - x) * t;
+        [MethodImpl(MethodImplOptions.AggressiveInlining)] public static float lerp(float x, float y, float t) => x + (y - x) * t;
 
 
         public static double pow(double x, double y) => Math.Pow(x, y);

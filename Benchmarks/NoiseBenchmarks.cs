@@ -16,4 +16,7 @@ public class NoiseBenchmarks {
     public vec3 gradientNoise3D() {
         return math.gradnoise(vec3.one);
     }
+
+
+    
 }
