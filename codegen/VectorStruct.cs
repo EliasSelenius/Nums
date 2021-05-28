@@ -462,7 +462,8 @@ namespace NumsCodeGenerator {
             {
                 "vec" => "float",
                 "ivec" => "int",
-                "dvec" => "double"
+                "dvec" => "double",
+                _ => throw new Exception()
             };
 
         private static readonly Dictionary<string, Dictionary<string, string>> typeCastMap = new Dictionary<string, Dictionary<string, string>>() {
