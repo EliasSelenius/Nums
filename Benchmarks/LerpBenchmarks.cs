@@ -41,3 +41,33 @@ public class LerpBenchmarks {
         return sum;
     }
 }
+
+
+
+public class FractBenchmarks {
+
+    float x = 12.12357f;
+
+    [Benchmark]
+    public float systemFract() {
+        float sum = 0;
+        for (int i = 0; i < 100; i++) {
+            sum += x - System.MathF.Floor(x); 
+        }
+        return sum;
+    }
+
+    [Benchmark]
+    public float numsFract() {
+        float sum = 0;
+        for (int i = 0; i < 100; i++) {
+            sum += math.fract(x); 
+        }
+        return sum;
+    }
+
+    //[Benchmark]
+    public float modFract() {
+        return x % 1.0f;
+    }
+}

@@ -65,12 +65,12 @@ namespace Nums {
         public static float sqrt(float x) => MathF.Sqrt(x);
 
 
-        public static double floor(double x) => Math.Floor(x);
-        public static float floor(float x) => MathF.Floor(x);
+        [MethodImpl(MethodImplOptions.AggressiveInlining)] public static double floor(double x) => Math.Floor(x);
+        [MethodImpl(MethodImplOptions.AggressiveInlining)] public static float floor(float x) => MathF.Floor(x);
         
         
-        public static double fract(double x) => x - floor(x);
-        public static float fract(float x) => x - floor(x);
+        [MethodImpl(MethodImplOptions.AggressiveInlining)] public static double fract(double x) => x - floor(x);
+        [MethodImpl(MethodImplOptions.AggressiveInlining)] public static float fract(float x) => x - MathF.Floor(x);//floor(x);
 
 
         public static double abs(double x) => Math.Abs(x);
