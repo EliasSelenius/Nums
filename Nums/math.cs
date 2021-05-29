@@ -70,7 +70,7 @@ namespace Nums {
         
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)] public static double fract(double x) => x - floor(x);
-        [MethodImpl(MethodImplOptions.AggressiveInlining)] public static float fract(float x) => x - MathF.Floor(x);//floor(x);
+        [MethodImpl(MethodImplOptions.AggressiveInlining)] public static float fract(float x) => x - floor(x);
 
 
         public static double abs(double x) => Math.Abs(x);

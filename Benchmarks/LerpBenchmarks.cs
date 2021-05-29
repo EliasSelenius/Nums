@@ -1,5 +1,6 @@
 using Nums;
 using BenchmarkDotNet.Attributes;
+using System.Runtime.CompilerServices;
 
 public class LerpBenchmarks {
     float x, y;
@@ -48,11 +49,13 @@ public class FractBenchmarks {
 
     float x = 12.12357f;
 
+    [MethodImpl(MethodImplOptions.AggressiveInlining)] static float fract(float x) => x - System.MathF.Floor(x);
+
     [Benchmark]
     public float systemFract() {
         float sum = 0;
-        for (int i = 0; i < 100; i++) {
-            sum += x - System.MathF.Floor(x); 
+        for (int i = 0; i < 1000; i++) {
+            sum += fract(x);
         }
         return sum;
     }
@@ -60,7 +63,7 @@ public class FractBenchmarks {
     [Benchmark]
     public float numsFract() {
         float sum = 0;
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 1000; i++) {
             sum += math.fract(x); 
         }
         return sum;
